@@ -1,10 +1,20 @@
 const products = [
   {
     id: 1,
+    name: 'IELTS Course',
+    href: '#',
+    imageSrc:
+      'https://thumbs.dreamstime.com/z/ielts-words-wooden-blocks-letters-education-courses-tests-english-as-foreign-language-concept-d-illustration-249592301.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '230.000 UZS',
+    color: 'Black',
+  },
+  {
+    id: 1,
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      'https://satcenter.s3.amazonaws.com/courses/uploads/2021/08/29085731/sat2.png',
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -14,7 +24,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      'https://images.ctfassets.net/szez98lehkfm/28882FqjsThXzB6jTlSldB/5e9b326cbeff65e5d0bb6e60040ebfad/MyIC_Article_89035?fm=webp',
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -24,7 +34,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      'https://satcenter.s3.amazonaws.com/courses/uploads/2021/08/29085731/sat2.png',
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -34,7 +44,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      'https://satcenter.s3.amazonaws.com/courses/uploads/2021/08/29085731/sat2.png',
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -44,7 +54,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      'https://thumbs.dreamstime.com/z/ielts-words-wooden-blocks-letters-education-courses-tests-english-as-foreign-language-concept-d-illustration-249592301.jpg',
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -54,17 +64,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-    id: 1,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      'https://thumbs.dreamstime.com/z/ielts-words-wooden-blocks-letters-education-courses-tests-english-as-foreign-language-concept-d-illustration-249592301.jpg',
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
