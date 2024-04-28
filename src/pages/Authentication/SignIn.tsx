@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
 
+import { NavLink } from 'react-router-dom';
+
 const SignIn: React.FC = () => {
   return (
     <div>
@@ -217,11 +219,18 @@ const SignIn: React.FC = () => {
                 </div>
 
                 <div className="mb-5">
-                  <input
+                  {/* <input
                     type="submit"
                     value="Sign In"
                     className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                  />
+                  /> */}
+
+                  <NavLink
+                    to="/dashboard/admin"
+                    className="text-center font-bold block w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                  >
+                    Sign in
+                  </NavLink>
                 </div>
 
                 <div className="mt-6 text-center">
