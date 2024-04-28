@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogoDark from '../../images/logo/logo-dark.svg';
-import Logo from '../../images/logo/logo.svg';
+import LogoDark from '../../images/logo/logo-1.svg';
+import Logo from '../../images/logo/logo-light-1.svg';
 
 import { NavLink } from 'react-router-dom';
 
