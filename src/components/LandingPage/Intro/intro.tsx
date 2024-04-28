@@ -6,7 +6,7 @@ const IntroSection = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-gray-200">
       <div className="relative isolate px-6 pt-0 lg:px-8">
         <div
-          className="absolute inset-x-0 -top-10 -z-50 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="absolute inset-x-0 -top-10 -z-50 transform-gpu overflow-hidden blur-3xl sm:-top-0"
           aria-hidden="true"
         >
           <div

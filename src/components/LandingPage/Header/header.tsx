@@ -4,6 +4,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 import Logo from '../../../images/logo/logo no back.svg';
 
+import { NavLink } from 'react-router-dom';
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -70,15 +72,18 @@ export default function Header() {
             <option value="Spanish">Uzbek</option>
             <option value="French">Russian</option>
           </select>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <NavLink
+            to="/auth/signin"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
             Sign in
-          </a>
-          <a
-            href="#"
+          </NavLink>
+          <NavLink
+            to="/auth/signup"
             className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-primary text-white px-5 py-2 rounded-full hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
           >
             Register now
-          </a>
+          </NavLink>
         </div>
       </nav>
       <Dialog
@@ -112,19 +117,19 @@ export default function Header() {
               <div className="space-y-2 py-6">
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-black"
                 >
-                  Features
+                  About Us
                 </a>
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-black"
                 >
-                  Marketplace
+                  Courses
                 </a>
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-black"
                 >
                   Company
                 </a>
@@ -139,18 +144,20 @@ export default function Header() {
                   <option value="Spanish">Uzbek</option>
                   <option value="French">Russian</option>
                 </select>
-                <a
-                  href="#"
-                  className="my-4 underline -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
-                <a
-                  href="#"
-                  className="text-sm font-semibold leading-6 text-gray-900 primary bg-primary text-white px-5 py-2 rounded-full hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
-                >
-                  Register now
-                </a>
+                <div className="mt-10">
+                  <NavLink
+                    to="/auth/signin"
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Sign in
+                  </NavLink>
+                  <NavLink
+                    to="/auth/signup"
+                    className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-primary text-white px-5 py-2 rounded-full hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
+                  >
+                    Register now
+                  </NavLink>
+                </div>
               </div>
             </div>
           </div>
