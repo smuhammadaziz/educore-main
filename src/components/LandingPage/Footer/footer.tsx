@@ -1,54 +1,96 @@
-import React from 'react';
+import {
+  AtSignIcon,
+  EarthIcon,
+  FacebookIcon,
+  HeadsetIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from 'lucide-react';
+
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    link: '/',
+    icon: <LinkedinIcon />,
+  },
+  {
+    name: 'X',
+    link: '/',
+    icon: <TwitterIcon />,
+  },
+  {
+    name: 'Facebook',
+    link: '/',
+    icon: <FacebookIcon />,
+  },
+  {
+    name: 'Website',
+    link: '/',
+    icon: <EarthIcon />,
+  },
+];
+
+const description = '';
 
 const Footer = () => {
   return (
-    <footer className="bg-white rounded-lg shadow m-4">
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-        <div className="flex items-center justify-between">
+    <footer className="relative bg-[#191F33] z-50">
+      <div className="px-4 py-12 flex flex-col items-center">
+        {/* app logo */}
+        <div>
           <a
-            href="https://flowbite.com/"
-            className="flex items-center mb-4 space-x-3"
+            href="/"
+            className="flex justify-center items-center gap-5 mb-8 text-white"
           >
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="https://res.cloudinary.com/dyvkdwzcj/image/upload/v1709055594/logo-1_vo1dni.png"
               className="h-8"
-              alt="Flowbite Logo"
+              alt="Logo"
             />
-            <span className="text-2xl font-semibold whitespace-nowrap">
-              Flowbite
+            <span className="font-semibold text-3xl tracking-wider">
+              SkillSpot
             </span>
           </a>
-          <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500">
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Licensing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Contact
-              </a>
-            </li>
+          <p className="text-white max-w-xl text-center font-medium text-lg">
+            {description}
+          </p>
+        </div>
+
+        {/* social links */}
+        <div className="mt-8">
+          <span className="text-[#767E94] block text-center mb-6 font-medium text-lg">
+            Follow Us
+          </span>
+          <ul className="flex gap-6 items-center">
+            {socialLinks.map(({ name, icon, link }) => (
+              <li key={name}>
+                <a
+                  href={link}
+                  title={name}
+                  className="text-white hover:text-[#767e94]"
+                  target="_blank"
+                >
+                  {icon}
+                </a>
+                <span className="sr-only">{name} account</span>
+              </li>
+            ))}
           </ul>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto" />
-        <span className="block text-sm text-gray-500 sm:text-center">
-          © 2024{' '}
-          <a href="https://flowbite.com/" className="hover:underline">
-            Educore™
-          </a>
-          . All Rights Reserved.
-        </span>
+
+        {/* email */}
+        <div className="text-white mt-6 mb-2 flex gap-2 items-center">
+          <span className="text-lg font-medium">contact@educore.com</span>
+        </div>
+      </div>
+
+      {/* about author or app/copyrights */}
+      <div className="bg-[#2E3447]">
+        <div className="text-center px-3 py-3">
+          <span className="text-[#767E94]">
+            © 2024 Educore™️. All rights reserved
+          </span>
+        </div>
       </div>
     </footer>
   );
