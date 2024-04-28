@@ -32,6 +32,8 @@ const socialLinks = [
 
 const description = '';
 
+import Logo from '../../../images/logo/logo-light-1.svg';
+
 const Footer = () => {
   return (
     <footer className="relative bg-[#191F33] z-50">
@@ -42,14 +44,7 @@ const Footer = () => {
             href="/"
             className="flex justify-center items-center gap-5 mb-8 text-white"
           >
-            <img
-              src="https://res.cloudinary.com/dyvkdwzcj/image/upload/v1709055594/logo-1_vo1dni.png"
-              className="h-8"
-              alt="Logo"
-            />
-            <span className="font-semibold text-3xl tracking-wider">
-              SkillSpot
-            </span>
+            <img src={Logo} className="w-50" alt="Logo" />
           </a>
           <p className="text-white max-w-xl text-center font-medium text-lg">
             {description}
