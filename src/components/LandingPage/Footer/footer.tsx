@@ -79,8 +79,9 @@ const Footer = () => {
         </div>
 
         {/* email */}
-        <div className="text-white mt-6 mb-2 flex gap-2 items-center">
+        <div className="text-white mt-6 mb-2 flex gap-2 items-center flex-col">
           <span className="text-lg font-medium">contact@educore.com</span>
+          <span className="text-lg font-medium">+998 (99) 000-00-00</span>
         </div>
       </div>
 
