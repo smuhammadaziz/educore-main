@@ -1,8 +1,10 @@
 import React, { useState, ReactNode } from 'react';
 import Header from '../components/Header/index';
-import Sidebar from '../components/Sidebar/index';
+import Sidebar from '../components/Sidebar/sideforteachers';
 
-const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
+const DefaultLayoutTeacher: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -32,4 +34,4 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-export default DefaultLayout;
+export default DefaultLayoutTeacher;

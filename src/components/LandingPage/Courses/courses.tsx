@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 const products = [
   {
     id: 1,
@@ -77,7 +79,7 @@ export default function Courses() {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          Our Courses
+          Popular Courses
         </h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -99,6 +101,10 @@ export default function Courses() {
                     </a>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+
+                  <button className="mt-6 bg-white primary text-black button rounded">
+                    more →
+                  </button>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
                   {product.price}
@@ -107,6 +113,12 @@ export default function Courses() {
             </div>
           ))}
         </div>
+        <NavLink
+          to="/all/courses"
+          className="bg-primary mt-10 inline-block text-white px-10 py-3 rounded-full hover:bg-sky-700 tex-center"
+        >
+          Explore more courses →
+        </NavLink>
       </div>
     </div>
   );

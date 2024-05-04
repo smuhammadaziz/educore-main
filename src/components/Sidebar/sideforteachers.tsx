@@ -105,7 +105,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           {/* <!-- Menu Group --> */}
           <div>
             <h1 className="mb-4 ml-4 text-md font-semibold text-bodydark2">
-              ADMIN
+              TEACHER
             </h1>
 
             <ul className="mb-6 flex flex-col gap-1.5">
@@ -147,48 +147,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/users"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/users') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i116} alt="home icon" width="20" height="20" />
-                  Users
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
                   to="/profile"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i111} alt="home icon" width="20" height="20" />
-                  Teachers
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/tables"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('tables') && 'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i114} alt="home icon" width="20" height="20" />
-                  Students
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/courses"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('courses') && 'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i115} alt="home icon" width="20" height="20" />
-                  Courses
+                  My Courses
                 </NavLink>
               </li>
               <li>
@@ -199,7 +164,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <img src={i115} alt="home icon" width="20" height="20" />
-                  Groups
+                  My Groups
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/tables"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('tables') && 'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <img src={i114} alt="home icon" width="20" height="20" />
+                  My Students
                 </NavLink>
               </li>
               <li>

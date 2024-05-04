@@ -19,6 +19,11 @@ import Buttons from './pages/UiElements/Buttons';
 // landing page
 
 import Home from './pages/LandingPage/Home/home';
+import Admin from './pages/Role/Admin/admin';
+import Teacher from './pages/Role/Teacher/teacher';
+import Student from './pages/Role/Student/student';
+import AllCoursesPage from './pages/LandingPage/AllCourses/all';
+import OneCoursePage from './pages/LandingPage/OneCourse/one';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -47,11 +52,49 @@ function App() {
           }
         />
         <Route
+          path="/all/courses"
+          element={
+            <>
+              <PageTitle title="Educore | All Courses" />
+              <AllCoursesPage />
+            </>
+          }
+        />
+        <Route
+          path="/all/courses/1"
+          element={
+            <>
+              <PageTitle title="Educore | IELTS Course" />
+              <OneCoursePage />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
           path="/dashboard/admin"
           element={
             <>
               <PageTitle title="Educore Dashboard | Main page" />
-              <ECommerce />
+              <Admin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher"
+          element={
+            <>
+              <PageTitle title="Educore Dashboard | Main page" />
+              <Teacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student"
+          element={
+            <>
+              <PageTitle title="Educore Dashboard | Main page" />
+              <Student />
             </>
           }
         />
