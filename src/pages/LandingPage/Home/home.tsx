@@ -5,6 +5,7 @@ import IntroSection from '../../../components/LandingPage/Intro/intro';
 import Courses from '../../../components/LandingPage/Courses/courses';
 import ContactForm from '../../../components/LandingPage/Contact/contact';
 import Footer from '../../../components/LandingPage/Footer/footer';
+import Testimonials from '../../../components/LandingPage/testimonials/testi';
 
 function Home() {
   return (
@@ -19,6 +20,7 @@ function Home() {
       </main>
 
       <section>
+        <Testimonials />
         <ContactForm />
       </section>
 
