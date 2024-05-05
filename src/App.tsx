@@ -24,6 +24,7 @@ import Teacher from './pages/Role/Teacher/teacher';
 import Student from './pages/Role/Student/student';
 import AllCoursesPage from './pages/LandingPage/AllCourses/all';
 import OneCoursePage from './pages/LandingPage/OneCourse/one';
+import AboutUsPage from './pages/LandingPage/AboutUs/about';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -48,6 +49,15 @@ function App() {
             <>
               <PageTitle title="Educore Online Learning Platform" />
               <Home />
+            </>
+          }
+        />
+        <Route
+          path="/about/us"
+          element={
+            <>
+              <PageTitle title="Educore | About Us" />
+              <AboutUsPage />
             </>
           }
         />

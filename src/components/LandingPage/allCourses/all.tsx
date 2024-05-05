@@ -1,20 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
 const products = [
   {
     id: 1,
@@ -57,7 +43,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -67,7 +53,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 6,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -77,7 +63,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 7,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -87,7 +73,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 8,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -97,7 +83,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 9,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -107,7 +93,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 10,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -117,7 +103,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 11,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -127,7 +113,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 12,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -137,7 +123,7 @@ const products = [
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
-    id: 4,
+    id: 13,
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
@@ -146,22 +132,27 @@ const products = [
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
-  {
-    id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    price: '$35',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt:
-      'Hand holding black machined steel mechanical pencil with brass tip and top.',
-  },
-  // More products...
 ];
 
 export default function AllCourses() {
   const [selectedOption, setSelectedOption] = useState('');
   const [isOptionSelected, setIsOptionSelected] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 10;
+
+  // Logic to calculate indexes of products for current page
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
+
+  // Logic to change page
+  const paginate = (pageNumber: any) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const changeTextColor = () => {
     setIsOptionSelected(true);
@@ -181,7 +172,7 @@ export default function AllCourses() {
               setSelectedOption(e.target.value);
               changeTextColor();
             }}
-            className={`w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
+            className={`w-full rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
               isOptionSelected ? 'text-black dark:text-white' : ''
             }`}
           >
@@ -205,27 +196,27 @@ export default function AllCourses() {
               setSelectedOption(e.target.value);
               changeTextColor();
             }}
-            className={`w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
+            className={`w-full rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
               isOptionSelected ? 'text-black dark:text-white' : ''
             }`}
           >
             <option value="" disabled className="text-body dark:text-bodydark">
-              Select Teacher
+              Select Rating
             </option>
             <option value="USA" className="text-body dark:text-bodydark">
-              Jhon Jhonson
+              ⭐⭐⭐⭐⭐
             </option>
             <option value="UK" className="text-body dark:text-bodydark">
-              Macmillan
+              ⭐⭐⭐⭐
             </option>
             <option value="Canada" className="text-body dark:text-bodydark">
-              Sardor
+              ⭐⭐⭐
             </option>
             <option value="Canada" className="text-body dark:text-bodydark">
-              Karim
+              ⭐⭐
             </option>
             <option value="Canada" className="text-body dark:text-bodydark">
-              Abdulaziz
+              ⭐
             </option>
           </select>
 
@@ -235,7 +226,7 @@ export default function AllCourses() {
               setSelectedOption(e.target.value);
               changeTextColor();
             }}
-            className={`w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
+            className={`w-full rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
               isOptionSelected ? 'text-black dark:text-white' : ''
             }`}
           >
@@ -255,8 +246,12 @@ export default function AllCourses() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10">
-          {products.map((product) => (
-            <NavLink to="/all/courses/1" key={product.id} className="group">
+          {currentProducts.map((product) => (
+            <NavLink
+              to={`/all/courses/${product.id}`}
+              key={product.id}
+              className="group"
+            >
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                 <img
                   src={product.imageSrc}
@@ -270,6 +265,57 @@ export default function AllCourses() {
               </p>
             </NavLink>
           ))}
+        </div>
+
+        {/* Pagination buttons */}
+        <div className="mt-8">
+          <nav className=" px-4 flex items-center justify-between sm:px-0">
+            <div className="-mt-px w-0 flex-1 flex ">
+              <button
+                onClick={() => {
+                  paginate(currentPage - 1);
+                  window.scrollTo({ top: 0 });
+                }}
+                disabled={currentPage === 1}
+                className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
+              >
+                Previous
+              </button>
+            </div>
+            <div className="hidden md:-mt-px md:flex">
+              {/* Display pagination numbers */}
+              {Array.from(
+                { length: Math.ceil(products.length / productsPerPage) },
+                (_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => paginate(i + 1)}
+                    className={`cursor-pointer relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium ${
+                      currentPage === i + 1
+                        ? 'text-white border-cyan-700 bg-cyan-700 '
+                        : 'text-gray-500 hover:text-gray-400'
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                ),
+              )}
+            </div>
+            <div className="-mt-px w-0 flex-1 flex justify-end">
+              <button
+                onClick={() => {
+                  paginate(currentPage + 1);
+                  window.scrollTo({ top: 0 });
+                }}
+                disabled={
+                  currentPage === Math.ceil(products.length / productsPerPage)
+                }
+                className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
+              >
+                Next
+              </button>
+            </div>
+          </nav>
         </div>
       </div>
     </div>

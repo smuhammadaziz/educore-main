@@ -1,6 +1,6 @@
-import Brand from '../../../images/brand/brand.svg';
+import Brand from '../../../images/brand/brand2.svg';
 
-export default function Testimonials() {
+export default function AboutMore() {
   return (
     <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
@@ -13,20 +13,13 @@ export default function Testimonials() {
           width="300"
         />
         <figure className="mt-10">
-          <h3 className="text-center text-5xl font-extrabold mb-5">
-            Learn effortlessly!
-          </h3>
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
             <p>
-              Access premium study materials from Educore. Elevate your learning
-              experience with our comprehensive course selection.
+              “Educore – will be connecting tutors from around the globe and
+              developing innovative teaching environment, we are willing to
+              create a platform which will let people study from their home.”
             </p>
           </blockquote>
-          <figcaption className="mt-10">
-            <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-              <div className="font-semibold text-gray-900">EDUCORE™️</div>
-            </div>
-          </figcaption>
         </figure>
       </div>
     </section>
