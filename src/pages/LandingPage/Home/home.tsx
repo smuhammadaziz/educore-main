@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Header from '../../../components/LandingPage/Header/header';
 import IntroSection from '../../../components/LandingPage/Intro/intro';
 import Courses from '../../../components/LandingPage/Courses/courses';

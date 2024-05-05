@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
@@ -36,6 +36,16 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
+  }, []);
+
+  const navigateTo = useNavigate();
+  useEffect(() => {
+    // Check if token exists in local storage
+    const token = localStorage.getItem('TOKEN');
+    if (!token) {
+      // Redirect to login page if token doesn't exist
+      navigateTo('/');
+    }
   }, []);
 
   return loading ? (
