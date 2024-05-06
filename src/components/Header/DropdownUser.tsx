@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, json, useAsyncError } from 'react-router-dom';
+import { Link, json, useAsyncError, useNavigate } from 'react-router-dom';
 
 import UserOne from '../../images/user/user-01.png';
 
@@ -9,6 +9,8 @@ const DropdownUser = () => {
   const [datas, setData] = useState(null);
 
   const token = localStorage.getItem('TOKEN');
+
+  const navigate = useNavigate();
 
   // console.log(token);
 
@@ -70,6 +72,12 @@ const DropdownUser = () => {
     return () => document.removeEventListener('keydown', keyHandler);
   });
 
+  const handleLogout = () => {
+    localStorage.removeItem('TOKEN');
+
+    navigate('/');
+  };
+
   return (
     <div className="relative">
       <Link
@@ -82,7 +90,7 @@ const DropdownUser = () => {
           <span className="block text-sm font-medium text-black dark:text-white">
             {datas?.Profil?.name} {datas?.Profil?.l_name}
           </span>
-          <span className="block text-xs">{datas?.Profil.role}</span>
+          <span className="block text-xs">{datas?.Profil.email}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
@@ -167,7 +175,10 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+        >
           <svg
             className="fill-current"
             width="22"
