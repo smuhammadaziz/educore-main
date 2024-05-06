@@ -1,15 +1,50 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, json, useAsyncError } from 'react-router-dom';
 
 import UserOne from '../../images/user/user-01.png';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const [datas, setData] = useState(null);
+
+  const token = localStorage.getItem('TOKEN');
+
+  // console.log(token);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          'https://f091-185-230-206-33.ngrok-free.app/api/profile',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'ngrok-skip-browser-warning': '69420',
+            },
+          },
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        setData(data);
+
+        console.log(response);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
   // close on click outside
+
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return;
@@ -35,6 +70,8 @@ const DropdownUser = () => {
     return () => document.removeEventListener('keydown', keyHandler);
   });
 
+  // console.log(datas);
+
   return (
     <div className="relative">
       <Link
@@ -45,9 +82,9 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {datas.Profil['name']} {datas.Profil['l_name']}
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs">{datas.Profil['role']}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">

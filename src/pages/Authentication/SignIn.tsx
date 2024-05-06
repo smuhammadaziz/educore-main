@@ -12,6 +12,8 @@ import icon2 from '../../images/brand/icon2.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { jwtDecode } from 'jwt-decode';
+
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -47,12 +49,19 @@ const SignIn: React.FC = () => {
       // Assuming the API returns a token upon successful login
       const data = await response.json();
       const token = data.token;
+      const decoded: any = jwtDecode(token);
 
-      // Save token to local storage only if login is successful
       localStorage.setItem('TOKEN', token);
-      // Handle successful login (e.g., store token in local storage and redirect)
-      console.log('Login successful, token:', token);
-      navigateTo('/dashboard/admin'); // Redirect to admin dashboard
+
+      // console.log('Login successful, token:', token);
+
+      if (decoded['role'] == 'admin') {
+        navigateTo('/dashboard/admin');
+      } else if (decoded['role'] == 'teacher') {
+        navigateTo('/dashboard/teacher');
+      } else if (decoded['role'] == 'student') {
+        navigateTo('/dashboard/student');
+      }
     } catch (error: any) {
       console.error('Error:', error.message);
       setError(error.message);
