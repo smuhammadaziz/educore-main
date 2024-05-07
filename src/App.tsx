@@ -25,6 +25,8 @@ import AllCoursesPage from './pages/LandingPage/AllCourses/all';
 import OneCoursePage from './pages/LandingPage/OneCourse/one';
 import AboutUsPage from './pages/LandingPage/AboutUs/about';
 
+import { jwtDecode } from 'jwt-decode';
+
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const { pathname } = useLocation();
@@ -40,9 +42,9 @@ function App() {
   const navigateTo = useNavigate();
   useEffect(() => {
     // Check if token exists in local storage
-    const token = localStorage.getItem('TOKEN');
+    const token: any = localStorage.getItem('TOKEN');
+
     if (!token) {
-      // Redirect to login page if token doesn't exist
       navigateTo('/');
     }
   }, []);
