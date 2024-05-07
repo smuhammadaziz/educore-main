@@ -5,6 +5,7 @@ import {
   HeadsetIcon,
   LinkedinIcon,
   TwitterIcon,
+  InstagramIcon,
 } from 'lucide-react';
 
 const socialLinks = [
@@ -14,9 +15,9 @@ const socialLinks = [
     icon: <LinkedinIcon />,
   },
   {
-    name: 'X',
+    name: 'Instagram',
     link: '/',
-    icon: <TwitterIcon />,
+    icon: <InstagramIcon />,
   },
   {
     name: 'Facebook',

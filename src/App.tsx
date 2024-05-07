@@ -26,6 +26,10 @@ import OneCoursePage from './pages/LandingPage/OneCourse/one';
 import AboutUsPage from './pages/LandingPage/AboutUs/about';
 
 import { jwtDecode } from 'jwt-decode';
+import AllUsers from './pages/Dashboard/Admin/Users/users';
+import AllTeachersPage from './pages/Dashboard/Admin/Teachers/teachers';
+import AllStudentPage from './pages/Dashboard/Admin/Students/student';
+import AllCoursesPageAdmin from './pages/Dashboard/Admin/Courses/courses';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -119,12 +123,41 @@ function App() {
             </>
           }
         />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
         <Route
-          path="/calendar"
+          path="/dashboard/users"
           element={
             <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Calendar />
+              <PageTitle title="Educore Dashboard | Users" />
+              <AllUsers />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teachers"
+          element={
+            <>
+              <PageTitle title="Educore Dashboard | Teachers" />
+              <AllTeachersPage />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/students"
+          element={
+            <>
+              <PageTitle title="Educore Dashboard | Students" />
+              <AllStudentPage />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/courses"
+          element={
+            <>
+              <PageTitle title="Educore Dashboard | Courses" />
+              <AllCoursesPageAdmin />
             </>
           }
         />

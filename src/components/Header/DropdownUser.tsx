@@ -7,12 +7,11 @@ const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [datas, setData] = useState(null);
+  const [image, setImage] = useState(null);
 
   const token = localStorage.getItem('TOKEN');
 
   const navigate = useNavigate();
-
-  // console.log(token);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,13 +26,14 @@ const DropdownUser = () => {
           },
         );
         if (!response.ok) {
+          localStorage.removeItem('TOKEN');
+
+          navigate('/');
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
 
         setData(data);
-
-        // console.log(response);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -77,6 +77,42 @@ const DropdownUser = () => {
 
     navigate('/');
   };
+
+  // const imgss = datas.Profil.image;
+
+  // console.log(imgss);
+
+  // const imgUrl = `https://f091-185-230-206-33.ngrok-free.app/image/${imgss}`;
+
+  // useEffect(() => {
+  //   const fetchImage = async () => {
+  //     try {
+  //       const response = await fetch(imgUrl, {
+  //         headers: {
+  //           contentType: 'application/json',
+  //           'ngrok-skip-browser-warning': '69420',
+  //         },
+  //         method: 'get',
+  //       });
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       // const data = await response.json();
+
+  //       const imgLink = await response.url;
+
+  //       console.log(imgLink);
+
+  //       // setImage(imgLink);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchImage();
+  // }, []);
+
+  // console.log(image);
 
   return (
     <div className="relative">
