@@ -1,4 +1,4 @@
-import { AllUsersTable } from '../../../../components/Dashboard/Admin/AllUsers/users';
+import AllUsersTable from '../../../../components/Dashboard/Admin/AllUsers/users';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 
 import React from 'react';
