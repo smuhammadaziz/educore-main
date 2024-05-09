@@ -82,54 +82,18 @@ const AllUsersTable = () => {
     },
   ];
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => setOpen(!open);
-
   return (
     <>
-      <div className="right-0 top-0 mb-10 inline-block justify-end">
-        <h2 className="text-2xl mb-5">All Users List</h2>
-        <button
-          onClick={() => handleOpen()}
+      <div className="right-0 top-0 mb-10 mx-auto">
+        <h2 className="text-2xl mb-5">
+          All <span className="underline">Users</span> List
+        </h2>
+        <a
+          href="/dashboard/admin/add/new/user"
           className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
         >
           Add new User
-        </button>
-        <Dialog
-          open={open}
-          handler={handleOpen}
-          animate={{
-            mount: { scale: 1, y: 0 },
-            unmount: { scale: 0.9, y: -100 },
-          }}
-          size={'md'}
-        >
-          <DialogHeader>Add new User</DialogHeader>
-          <DialogBody className="flex flex-col inline-block">
-            <input type="text" className="border-2" />
-            <input type="text" className="border-2" />
-            <input type="text" className="border-2" />
-            <input type="text" className="border-2" />
-            <input type="text" className="border-2" />
-            <input type="text" className="border-2" />
-            <input type="text" className="border-2" />
-            <input type="text" className="border-2" />
-          </DialogBody>
-          <DialogFooter>
-            <Button
-              variant="text"
-              color="red"
-              onClick={handleOpen}
-              className="mr-1"
-            >
-              <span>Cancel</span>
-            </Button>
-            <Button variant="gradient" color="green" onClick={handleOpen}>
-              <span>Confirm</span>
-            </Button>
-          </DialogFooter>
-        </Dialog>
+        </a>
       </div>
       <div className="relative overflow-x-auto shadow-xl sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

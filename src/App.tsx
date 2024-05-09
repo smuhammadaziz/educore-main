@@ -30,6 +30,10 @@ import AllUsers from './pages/Dashboard/Admin/Users/users';
 import AllTeachersPage from './pages/Dashboard/Admin/Teachers/teachers';
 import AllStudentPage from './pages/Dashboard/Admin/Students/student';
 import AllCoursesPageAdmin from './pages/Dashboard/Admin/Courses/courses';
+import AddNewUserAdmin from './components/Dashboard/Admin/AllUsers/adduser';
+import AddNewCourseAdmin from './components/Dashboard/Admin/courses/addcourse';
+import AddnewstudentAdmin from './components/Dashboard/Admin/student/addstudent';
+import AddnewteacherAdmin from './components/Dashboard/Admin/Teachers/addteacher';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -125,6 +129,7 @@ function App() {
         />
         {/* =============================================================== */}
         {/* =============================================================== */}
+        {/* ===================ADMIN============================= */}
         <Route
           path="/dashboard/users"
           element={
@@ -147,7 +152,7 @@ function App() {
           path="/dashboard/students"
           element={
             <>
-              <PageTitle title="Educore Dashboard | Students" />
+              <PageTitle title="Students | Educore Dashboard" />
               <AllStudentPage />
             </>
           }
@@ -156,7 +161,7 @@ function App() {
           path="/dashboard/courses"
           element={
             <>
-              <PageTitle title="Educore Dashboard | Courses" />
+              <PageTitle title="Courses | Educore Dashboard" />
               <AllCoursesPageAdmin />
             </>
           }
@@ -165,74 +170,64 @@ function App() {
           path="/profile"
           element={
             <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Profile | Educore" />
               <Profile />
             </>
           }
         />
-        <Route
-          path="/forms/form-elements"
-          element={
-            <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormElements />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-layout"
-          element={
-            <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormLayout />
-            </>
-          }
-        />
-        <Route
-          path="/tables"
-          element={
-            <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Tables />
-            </>
-          }
-        />
+
         <Route
           path="/settings"
           element={
             <>
-              <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Settings | Educore" />
               <Settings />
             </>
           }
         />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+
         <Route
-          path="/chart"
+          path="/dashboard/admin/add/new/user"
           element={
             <>
-              <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Chart />
+              <PageTitle title="Educore | Add new user" />
+              <AddNewUserAdmin />
             </>
           }
         />
         <Route
-          path="/ui/alerts"
+          path="/dashboard/admin/add/new/course"
           element={
             <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Alerts />
+              <PageTitle title="Educore | Add new course" />
+              <AddNewCourseAdmin />
             </>
           }
         />
         <Route
-          path="/ui/buttons"
+          path="/dashboard/admin/add/new/student"
           element={
             <>
-              <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Buttons />
+              <PageTitle title="Educore | Add new student" />
+              <AddnewstudentAdmin />
             </>
           }
         />
+        <Route
+          path="/dashboard/admin/add/new/teacher"
+          element={
+            <>
+              <PageTitle title="Educore | Add new teacher" />
+              <AddnewteacherAdmin />
+            </>
+          }
+        />
+
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+
         <Route
           path="/auth/signin"
           element={

@@ -1,4 +1,4 @@
-import { AllStudentsList } from '../../../../components/Dashboard/Admin/student/student';
+import AllStudentsList from '../../../../components/Dashboard/Admin/student/student';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 
 import React from 'react';
