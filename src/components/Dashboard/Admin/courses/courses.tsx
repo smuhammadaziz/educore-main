@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 const callouts = [
   {
     name: 'Desk and Office',
@@ -34,12 +36,12 @@ export default function AllCoursesList() {
         <h2 className="text-2xl mb-5">
           All <span className="underline">Courses</span> List
         </h2>
-        <a
-          href="/dashboard/admin/add/new/course"
+        <NavLink
+          to="/dashboard/admin/add/new/course"
           className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
         >
           Add new Course
-        </a>
+        </NavLink>
       </div>
       <div className="bg-gray-100 ">
         <div className="mx-auto max-w-7xl">
