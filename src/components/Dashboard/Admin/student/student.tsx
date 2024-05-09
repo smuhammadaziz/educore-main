@@ -128,14 +128,14 @@ const AllStudentsList = () => {
               >
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
                 >
                   {item.productName}
                 </th>
-                <td className="px-6 py-4">{item.color}</td>
-                <td className="px-6 py-4">{item.category}</td>
-                <td className="px-6 py-4">{item.price}</td>
-                <td className="ps-2 pe-0 py-4 font-bold text-center">
+                <td className="px-6 py-4 text-black">{item.color}</td>
+                <td className="px-6 py-4 text-black">{item.category}</td>
+                <td className="px-6 py-4 text-black">{item.price}</td>
+                <td className="ps-2 pe-0 text-black py-4 font-bold text-center">
                   <p
                     className={`px-1 pe-1 py-2 rounded-full text-center ${
                       item.status === 'PAID'

@@ -162,7 +162,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <NavLink
                   to="/dashboard/teachers"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('/dashboard/teachers') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i111} alt="home icon" width="20" height="20" />
@@ -173,7 +174,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <NavLink
                   to="/dashboard/students"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('tables') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('/dashboard/students') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i114} alt="home icon" width="20" height="20" />
@@ -184,7 +186,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <NavLink
                   to="/dashboard/courses"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('courses') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('/dashboard/courses') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i115} alt="home icon" width="20" height="20" />
@@ -195,7 +198,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <NavLink
                   to="/dashboard/groups"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('groups') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('/dashboard/groups') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i115} alt="home icon" width="20" height="20" />

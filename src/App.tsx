@@ -34,6 +34,9 @@ import AddNewUserAdmin from './components/Dashboard/Admin/AllUsers/adduser';
 import AddNewCourseAdmin from './components/Dashboard/Admin/courses/addcourse';
 import AddnewstudentAdmin from './components/Dashboard/Admin/student/addstudent';
 import AddnewteacherAdmin from './components/Dashboard/Admin/Teachers/addteacher';
+import AllGroupsListAdmin from './components/Dashboard/Admin/Groups/groups';
+import AllGroupsPageAdmin from './pages/Dashboard/Admin/Groups/groups';
+import AddNewGroupAdmin from './components/Dashboard/Admin/Groups/addgroup';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -167,6 +170,15 @@ function App() {
           }
         />
         <Route
+          path="/dashboard/groups"
+          element={
+            <>
+              <PageTitle title="Courses | Educore Dashboard" />
+              <AllGroupsPageAdmin />
+            </>
+          }
+        />
+        <Route
           path="/profile"
           element={
             <>
@@ -221,6 +233,15 @@ function App() {
             <>
               <PageTitle title="Educore | Add new teacher" />
               <AddnewteacherAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/add/new/group"
+          element={
+            <>
+              <PageTitle title="Educore | Add new group" />
+              <AddNewGroupAdmin />
             </>
           }
         />

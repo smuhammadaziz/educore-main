@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 const callouts = [
   {
-    name: 'Desk and Office',
-    description: 'Work from home accessories',
+    name: 'IELTS',
+    description: 'Learn ielts',
     imageSrc:
       'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
     imageAlt:
@@ -11,8 +11,8 @@ const callouts = [
     href: '#',
   },
   {
-    name: 'Self-Improvement',
-    description: 'Journals and note-taking',
+    name: 'SAT',
+    description: 'Learn ielts',
     imageSrc:
       'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
     imageAlt:
@@ -20,7 +20,15 @@ const callouts = [
     href: '#',
   },
   {
-    name: 'Travel',
+    name: 'AS/A-LEVEL',
+    description: 'Daily commute essentials',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+    href: '#',
+  },
+  {
+    name: 'GSCE',
     description: 'Daily commute essentials',
     imageSrc:
       'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
@@ -45,9 +53,7 @@ export default function AllCoursesList() {
       </div>
       <div className="bg-gray-100 ">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-            <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
-
+          <div className="mx-auto max-w-2xl py-8 sm:py-24 lg:max-w-none lg:py-32">
             <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
               {callouts.map((callout) => (
                 <div key={callout.name} className="group relative">
@@ -58,7 +64,7 @@ export default function AllCoursesList() {
                       className="h-full w-full object-cover object-center"
                     />
                   </div>
-                  <h3 className="mt-6 text-sm text-gray-500">
+                  <h3 className="mt-6 text-xl text-gray-800">
                     <a href={callout.href}>
                       <span className="absolute inset-0" />
                       {callout.name}
@@ -67,6 +73,9 @@ export default function AllCoursesList() {
                   <p className="text-base font-semibold text-gray-900">
                     {callout.description}
                   </p>
+                  <button className="bg-primary px-8 py-1 text-white rounded mt-5 mb-5">
+                    Edit
+                  </button>
                 </div>
               ))}
             </div>
