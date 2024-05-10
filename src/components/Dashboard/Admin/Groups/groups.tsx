@@ -62,17 +62,6 @@ export default function AllGroupsListAdmin() {
   };
   return (
     <>
-      <div className="right-0 top-0 mx-auto">
-        <h2 className="text-2xl mb-5">
-          All <span className="underline">Groups</span> List
-        </h2>
-        <NavLink
-          to="/dashboard/admin/add/new/group"
-          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
-        >
-          Add new Group
-        </NavLink>
-      </div>
       <h2 className="mt-10">Choose Course</h2>
       <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-3">
         <select
@@ -157,17 +146,21 @@ export default function AllGroupsListAdmin() {
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href="#" className="group bg-white p-5">
-                <h3 className="mt-4 text-xl text-gray-700 dark:text-black">
+              <a
+                key={product.id}
+                href="#"
+                className="group bg-white p-5 dark:bg-slate-700 dark:text-white"
+              >
+                <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
                   {product.name}
                 </h3>
-                <p className="mt-1 text-md font-medium text-gray-900 dark:text-black">
+                <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                   {product.price}
                 </p>
-                <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-black">
+                <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
                   {product.course}
                 </p>
-                <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-black">
+                <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
                   {product.rating}
                 </p>
               </a>

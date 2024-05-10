@@ -208,6 +208,30 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
+                  to="/dashboard/contact"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/contact') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <img src={i115} alt="home icon" width="20" height="20" />
+                  Contacts
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/payments"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/payments') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <img src={i115} alt="home icon" width="20" height="20" />
+                  Payments
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/settings"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('settings') &&
