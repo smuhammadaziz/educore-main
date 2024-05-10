@@ -202,7 +202,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     'bg-graydark dark:bg-meta-4'
                   }`}
                 >
-                  <img src={i115} alt="home icon" width="20" height="20" />
+                  <img src={i113} alt="home icon" width="20" height="20" />
                   Groups
                 </NavLink>
               </li>
@@ -226,8 +226,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     'bg-graydark dark:bg-meta-4'
                   }`}
                 >
-                  <img src={i115} alt="home icon" width="20" height="20" />
+                  <img src={i116} alt="home icon" width="20" height="20" />
                   Payments
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/blogs"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/blogs') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <img src={i111} alt="home icon" width="20" height="20" />
+                  Blogs
                 </NavLink>
               </li>
               <li>

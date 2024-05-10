@@ -39,6 +39,7 @@ import AllGroupsPageAdmin from './pages/Dashboard/Admin/Groups/groups';
 import AddNewGroupAdmin from './components/Dashboard/Admin/Groups/addgroup';
 import AllContactPageAdmin from './pages/Dashboard/Admin/Contact/contact';
 import AllPaymentPageAdmin from './pages/Dashboard/Admin/Payments/payment';
+import AllBlogsPAgeAdmin from './pages/Dashboard/Admin/Blogs/blogs';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -195,6 +196,15 @@ function App() {
             <>
               <PageTitle title="Payments | Educore Dashboard" />
               <AllPaymentPageAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/blogs"
+          element={
+            <>
+              <PageTitle title="Blogs | Educore Dashboard" />
+              <AllBlogsPAgeAdmin />
             </>
           }
         />

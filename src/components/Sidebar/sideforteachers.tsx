@@ -147,9 +147,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
-                  to="/profile"
+                  to="/dashboard/teacher/my/courses"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('/dashboard/teacher/my/courses') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i111} alt="home icon" width="20" height="20" />
@@ -158,24 +159,39 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
-                  to="/groups"
+                  to="/dashboard/teacher/my/groups"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('groups') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('/dashboard/teacher/my/groups') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i115} alt="home icon" width="20" height="20" />
                   My Groups
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
-                  to="/tables"
+                  to="/dashboard/teacher/my/students"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('tables') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('/dashboard/teacher/my/students') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <img src={i114} alt="home icon" width="20" height="20" />
                   My Students
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/teacher/my/students"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/teacher/my/students') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <img src={i115} alt="home icon" width="20" height="20" />
+                  Payments
                 </NavLink>
               </li>
               <li>
