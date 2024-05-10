@@ -43,6 +43,10 @@ import AllBlogsPAgeAdmin from './pages/Dashboard/Admin/Blogs/blogs';
 import AllCoursesListTeacher from './components/Dashboard/Teacher/Courses/courses';
 import AllCoursePageTeacher from './pages/Dashboard/Teacher/Courses/courses';
 import AddnewCourseTeacher from './components/Dashboard/Teacher/Courses/addCourse';
+import AllGroupsPageTeacher from './pages/Dashboard/Teacher/Groups/groups';
+import AddNewGroupTeacher from './components/Dashboard/Teacher/Groups/addGroup';
+import AllPaymentPageTeacher from './pages/Dashboard/Teacher/Payment/payment';
+import AllStudentPageTeacher from './pages/Dashboard/Teacher/Students/students';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -290,6 +294,33 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/dashboard/teacher/my/groups"
+          element={
+            <>
+              <PageTitle title="My groups | Teacher Dashboard" />
+              <AllGroupsPageTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/payments"
+          element={
+            <>
+              <PageTitle title="Payments | Teacher Dashboard" />
+              <AllPaymentPageTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/students"
+          element={
+            <>
+              <PageTitle title="My Students | Teacher Dashboard" />
+              <AllStudentPageTeacher />
+            </>
+          }
+        />
         {/* =============================================================== */}
         {/* =============================================================== */}
         <Route
@@ -298,6 +329,15 @@ function App() {
             <>
               <PageTitle title="Educore | Add new course" />
               <AddnewCourseTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/add/new/groups"
+          element={
+            <>
+              <PageTitle title="Educore | Add new groups" />
+              <AddNewGroupTeacher />
             </>
           }
         />
