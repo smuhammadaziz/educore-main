@@ -40,6 +40,9 @@ import AddNewGroupAdmin from './components/Dashboard/Admin/Groups/addgroup';
 import AllContactPageAdmin from './pages/Dashboard/Admin/Contact/contact';
 import AllPaymentPageAdmin from './pages/Dashboard/Admin/Payments/payment';
 import AllBlogsPAgeAdmin from './pages/Dashboard/Admin/Blogs/blogs';
+import AllCoursesListTeacher from './components/Dashboard/Teacher/Courses/courses';
+import AllCoursePageTeacher from './pages/Dashboard/Teacher/Courses/courses';
+import AddnewCourseTeacher from './components/Dashboard/Teacher/Courses/addCourse';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -276,6 +279,28 @@ function App() {
           }
         />
 
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/teacher/my/courses"
+          element={
+            <>
+              <PageTitle title="My courses | Teacher Dashboard" />
+              <AllCoursePageTeacher />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/teacher/add/new/course"
+          element={
+            <>
+              <PageTitle title="Educore | Add new course" />
+              <AddnewCourseTeacher />
+            </>
+          }
+        />
         {/* =============================================================== */}
         {/* =============================================================== */}
 
