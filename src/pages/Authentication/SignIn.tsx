@@ -63,7 +63,6 @@ const SignIn: React.FC = () => {
         navigateTo('/dashboard/student');
       }
     } catch (error: any) {
-      console.error('Error:', error.message);
       setError(error.message);
 
       toast.error(error.message, {
@@ -71,15 +70,6 @@ const SignIn: React.FC = () => {
       });
     }
   };
-
-  // useEffect(() => {
-  //   // Check if token exists in local storage
-  //   const token = localStorage.getItem('TOKEN');
-  //   if (!token) {
-  //     // Redirect to login page if token doesn't exist
-  //     navigateTo('/auth/signin');
-  //   }
-  // }, []);
 
   return (
     <>

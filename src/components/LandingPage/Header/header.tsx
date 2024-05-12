@@ -7,15 +7,12 @@ import LogoIcon from '../../../images/logo/logo-icon-1.svg';
 
 import { NavLink } from 'react-router-dom';
 
+import useLang from '../../../hooks/useLang';
+import content from '../../../localization/content';
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const [selectedLanguage, setSelectedLanguage] = useState('English');
-
-  //   const handleLanguageChange = (language) => {
-  //     setSelectedLanguage(language);
-  //     // Here you can implement logic to change the language in your application
-  //   };
+  const [selectedLanguage, setSelectedLanguage] = useLang('en');
 
   return (
     <header className="bg-white">
@@ -25,8 +22,7 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <NavLink to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Educore</span>
-            <img className="h-15 w-auto" src={Logo} alt="" />
+            <img className="h-15 w-auto" src={Logo} alt="site logo" />
           </NavLink>
         </div>
         <div className="flex lg:hidden">
@@ -44,36 +40,43 @@ export default function Header() {
             to="/about/us"
             className="text-sm font-semibold leading-6 text-gray-900 hover:text-black"
           >
-            About Us
+            {content[selectedLanguage].header.about}
           </NavLink>
           <NavLink
             to="/all/courses"
             className="text-sm font-semibold leading-6 text-gray-900 hover:text-black"
           >
-            Courses
+            {content[selectedLanguage].header.courses}
           </NavLink>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
           <select
             className="border rounded px-2 py-1 outline-none border-none me-6"
             value={selectedLanguage}
-            //   onChange={(e) => handleLanguageChange(e.target.value)}
+            onChange={(e) => {
+              setSelectedLanguage(e.target.value);
+              console.log(selectedLanguage);
+            }}
           >
-            <option value="English">English</option>
-            <option value="Spanish">Uzbek</option>
-            <option value="French">Russian</option>
+            <option value="en">
+              {content[selectedLanguage].header.english}
+            </option>
+            <option value="uz">{content[selectedLanguage].header.uzbek}</option>
+            <option value="ru">
+              {content[selectedLanguage].header.russian}
+            </option>
           </select>
           <NavLink
             to="/auth/signin"
             className="text-sm font-semibold leading-6 text-gray-900"
           >
-            Sign in
+            {content[selectedLanguage].header.login}
           </NavLink>
           <NavLink
             to="/auth/signup"
             className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-primary text-white px-5 py-2 rounded-full hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
           >
-            Register now
+            {content[selectedLanguage].header.register}
           </NavLink>
         </div>
       </nav>
@@ -110,37 +113,43 @@ export default function Header() {
                   to="/about/us"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-black"
                 >
-                  About Us
+                  {content[selectedLanguage].header.about}
                 </NavLink>
                 <NavLink
                   to="/all/courses"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-black"
                 >
-                  Courses
+                  {content[selectedLanguage].header.courses}
                 </NavLink>
               </div>
               <div className="py-6">
                 <select
                   className="border rounded px-2 py-1 outline-none border-none"
                   value={selectedLanguage}
-                  //   onChange={(e) => handleLanguageChange(e.target.value)}
+                  onChange={(e) => setSelectedLanguage(e.target.value)}
                 >
-                  <option value="English">English</option>
-                  <option value="Spanish">Uzbek</option>
-                  <option value="French">Russian</option>
+                  <option value="en">
+                    {content[selectedLanguage].header.english}
+                  </option>
+                  <option value="uz">
+                    {content[selectedLanguage].header.uzbek}
+                  </option>
+                  <option value="ru">
+                    {content[selectedLanguage].header.russian}
+                  </option>
                 </select>
                 <div className="mt-10">
                   <NavLink
                     to="/auth/signin"
                     className="text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Sign in
+                    {content[selectedLanguage].header.login}
                   </NavLink>
                   <NavLink
                     to="/auth/signup"
                     className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-primary text-white px-5 py-2 rounded-full hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
                   >
-                    Register now
+                    {content[selectedLanguage].header.register}
                   </NavLink>
                 </div>
               </div>

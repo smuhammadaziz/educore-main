@@ -138,7 +138,7 @@ export default function AllCourses() {
   const [selectedOption, setSelectedOption] = useState('');
   const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 10;
+  const productsPerPage = 15;
 
   // Logic to calculate indexes of products for current page
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -292,7 +292,7 @@ export default function AllCourses() {
                     onClick={() => paginate(i + 1)}
                     className={`cursor-pointer relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium ${
                       currentPage === i + 1
-                        ? 'text-white border-fuchsia-900 border-1 bg-fuchsia-900'
+                        ? 'text-black border-black-900 border-2'
                         : 'text-gray-500 hover:text-gray-400'
                     }`}
                   >
