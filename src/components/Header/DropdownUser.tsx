@@ -7,7 +7,7 @@ const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [datas, setData] = useState(null);
-  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState<string>('');
 
   const token = localStorage.getItem('TOKEN');
 
@@ -78,41 +78,24 @@ const DropdownUser = () => {
     navigate('/');
   };
 
-  // const imgss = datas.Profil.image;
-
-  // console.log(imgss);
-
-  // const imgUrl = `https://f091-185-230-206-33.ngrok-free.app/image/${imgss}`;
-
   // useEffect(() => {
-  //   const fetchImage = async () => {
+  //   const fetchData = async () => {
   //     try {
-  //       const response = await fetch(imgUrl, {
-  //         headers: {
-  //           contentType: 'application/json',
-  //           'ngrok-skip-browser-warning': '69420',
-  //         },
-  //         method: 'get',
-  //       });
+  //       const response = await fetch(
+  //         `https://f091-185-230-206-33.ngrok-free.app/image/${datas.Profil.image}`,
+  //       );
   //       if (!response.ok) {
   //         throw new Error('Network response was not ok');
   //       }
-  //       // const data = await response.json();
 
-  //       const imgLink = await response.url;
-
-  //       console.log(imgLink);
-
-  //       // setImage(imgLink);
+  //       setImageUrl(await response.url);
   //     } catch (error) {
-  //       console.error('Error fetching data:', error);
+  //       console.error('Error fetching image:', error);
   //     }
   //   };
 
-  //   fetchImage();
+  //   fetchData();
   // }, []);
-
-  // console.log(image);
 
   return (
     <div className="relative">
@@ -124,13 +107,13 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {datas?.Profil?.name} {datas?.Profil?.l_name}
+            {datas?.Profil.name} {datas?.Profil.l_name}
           </span>
           <span className="block text-xs">{datas?.Profil.email}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="User" />
+          <img src={UserOne} alt="user img" />
         </span>
 
         <svg

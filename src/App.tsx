@@ -47,6 +47,8 @@ import AllGroupsPageTeacher from './pages/Dashboard/Teacher/Groups/groups';
 import AddNewGroupTeacher from './components/Dashboard/Teacher/Groups/addGroup';
 import AllPaymentPageTeacher from './pages/Dashboard/Teacher/Payment/payment';
 import AllStudentPageTeacher from './pages/Dashboard/Teacher/Students/students';
+import AllBlogsLanding from './pages/LandingPage/AllBlogs/allBlogs';
+import OneBlogPage from './pages/LandingPage/OneBlog/oneblog';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -66,6 +68,21 @@ function App() {
     const token: any = localStorage.getItem('TOKEN');
 
     if (!token) {
+      navigateTo('/');
+    }
+  }, []);
+
+  const restrictedRoutes = [
+    '/dashboard/admin',
+    '/dashboard/student',
+    '/dashboard/teacher',
+  ];
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    const token: any = localStorage.getItem('TOKEN');
+
+    if (!token && restrictedRoutes.includes(currentPath)) {
       navigateTo('/');
     }
   }, []);
@@ -108,6 +125,24 @@ function App() {
             <>
               <PageTitle title="Educore | IELTS Course" />
               <OneCoursePage />
+            </>
+          }
+        />
+        <Route
+          path="/all/blogs"
+          element={
+            <>
+              <PageTitle title="Educore | Blogs" />
+              <AllBlogsLanding />
+            </>
+          }
+        />
+        <Route
+          path="/all/blogs/1"
+          element={
+            <>
+              <PageTitle title="Educore | Blogs " />
+              <OneBlogPage />
             </>
           }
         />

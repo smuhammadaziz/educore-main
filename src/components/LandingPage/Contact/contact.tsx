@@ -1,21 +1,17 @@
-import { useState } from 'react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { Switch } from '@headlessui/react';
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
 
 export default function ContactForm() {
-  const [agreed, setAgreed] = useState(false);
-  const [selectledLang] = useLang('en');
+  const [selectledLang] = useLang();
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 mt-20">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          {content[selectledLang].contact.heading}
+          {content[selectledLang as string].contact.heading}
         </h2>
         <p className="mt-2 text-lg leading-8 text-gray-600">
-          {content[selectledLang].contact.text}
+          {content[selectledLang as string].contact.text}
         </p>
       </div>
       <form
@@ -29,7 +25,7 @@ export default function ContactForm() {
               htmlFor="first-name"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
-              {content[selectledLang].contact.fname}
+              {content[selectledLang as string].contact.fname}
             </label>
             <div className="mt-2.5">
               <input
@@ -46,7 +42,7 @@ export default function ContactForm() {
               htmlFor="last-name"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
-              {content[selectledLang].contact.lname}
+              {content[selectledLang as string].contact.lname}
             </label>
             <div className="mt-2.5">
               <input
@@ -80,7 +76,7 @@ export default function ContactForm() {
               htmlFor="email"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
-              {content[selectledLang].contact.phone}
+              {content[selectledLang as string].contact.phone}
             </label>
             <div className="mt-2.5">
               <input
@@ -98,7 +94,7 @@ export default function ContactForm() {
               htmlFor="message"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
-              {content[selectledLang].contact.message}
+              {content[selectledLang as string].contact.message}
             </label>
             <div className="mt-2.5">
               <textarea
@@ -114,9 +110,9 @@ export default function ContactForm() {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="block w-full rounded-md bg-fuchsia-700 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-fuchsia-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            {content[selectledLang].contact.send}
+            {content[selectledLang as string].contact.send}
           </button>
         </div>
       </form>

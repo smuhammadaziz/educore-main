@@ -102,12 +102,12 @@ const SignIn: React.FC = () => {
                 <form onSubmit={handleSignIn}>
                   <div className="mb-4">
                     <label className="mb-2.5 block font-medium text-black dark:text-white">
-                      Username
+                      Email
                     </label>
                     <div className="relative">
                       <input
                         type="email"
-                        placeholder="Enter your username"
+                        placeholder="Enter your email"
                         className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -133,7 +133,7 @@ const SignIn: React.FC = () => {
                       />
 
                       <span className="absolute right-4 top-4">
-                        <img src={icon2} alt="" />
+                        <img src={icon2} alt="icon2" />
                       </span>
                     </div>
                   </div>

@@ -78,12 +78,12 @@ import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
 
 export default function Courses() {
-  const [selectledLang] = useLang('en');
+  const [selectledLang] = useLang();
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          {content[selectledLang].popularCourse.popularcourses}
+          {content[selectledLang as string].popularCourse.popularcourses}
         </h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -106,8 +106,8 @@ export default function Courses() {
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.color}</p>
 
-                  <button className="mt-6 bg-blue-600 primary text-white px-5 py-1 button rounded">
-                    {content[selectledLang].popularCourse.more} →
+                  <button className="mt-6 bg-fuchsia-300 primary text-black px-5 py-1 button rounded">
+                    {content[selectledLang as string].popularCourse.more} →
                   </button>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
@@ -119,9 +119,9 @@ export default function Courses() {
         </div>
         <NavLink
           to="/all/courses"
-          className="bg-primary mt-10 inline-block text-white px-10 py-3 rounded-full hover:bg-sky-700 tex-center"
+          className="bg-fuchsia-900 mt-10 inline-block text-white px-10 py-3 rounded-full hover:bg-fuchsia-700 text-center"
         >
-          {content[selectledLang].popularCourse.explore} →
+          {content[selectledLang as string].popularCourse.explore} →
         </NavLink>
       </div>
     </div>

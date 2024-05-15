@@ -3,7 +3,7 @@ import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
 
 export default function Testimonials() {
-  const [selectledLang] = useLang('en');
+  const [selectledLang] = useLang();
 
   return (
     <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8 mt-20">
@@ -18,10 +18,10 @@ export default function Testimonials() {
         />
         <figure className="mt-10">
           <h3 className="text-center text-5xl font-extrabold mb-5">
-            {content[selectledLang].testi.heading}
+            {content[selectledLang as string].testi.heading}
           </h3>
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-            <p>{content[selectledLang].testi.text}</p>
+            <p>{content[selectledLang as string].testi.text}</p>
           </blockquote>
           <figcaption className="mt-10">
             <div className="mt-4 flex items-center justify-center space-x-3 text-base">

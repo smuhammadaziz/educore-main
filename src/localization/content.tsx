@@ -3,6 +3,7 @@ type Content = {
     header: {
       about: string;
       courses: string;
+      blogs: string;
       english: string;
       uzbek: string;
       russian: string;
@@ -10,8 +11,8 @@ type Content = {
       register: string;
     };
     intro: {
-      heading: string;
-      p: string;
+      heading: JSX.Element;
+      p: JSX.Element;
       get: string;
       about: string;
     };
@@ -37,6 +38,11 @@ type Content = {
       follow: string;
       rights: string;
     };
+    blogs: {
+      blogs: string;
+      btn: string;
+      more: string;
+    };
   };
 };
 
@@ -45,6 +51,7 @@ const content: Content = {
     header: {
       about: 'About Us',
       courses: 'Courses',
+      blogs: 'Blogs',
       english: 'English',
       uzbek: 'Uzbek',
       russian: 'Russian',
@@ -52,8 +59,19 @@ const content: Content = {
       register: 'Register Now',
     },
     intro: {
-      heading: 'Learn anything easy and remote at Educore',
-      p: 'Connect with Qualified Tutors from around the world and book your First Free Trial session.',
+      heading: (
+        <span>
+          Learn anything <span className="underline">easy</span> and{' '}
+          <span className="underline">remote</span> at Educore
+        </span>
+      ),
+      p: (
+        <span>
+          Connect with Qualified Tutors from around the world and book your
+          First {''}
+          <span className="font-bold underline"> Free Trial</span> session.
+        </span>
+      ),
       get: 'Get started',
       about: 'About Us',
     },
@@ -79,11 +97,17 @@ const content: Content = {
       follow: 'Follow Us',
       rights: 'All rights reserved',
     },
+    blogs: {
+      blogs: 'Blogs',
+      btn: 'See all blogs',
+      more: 'Read more',
+    },
   },
   uz: {
     header: {
       about: 'Biz haqimizda',
       courses: 'Kurslar',
+      blogs: 'Bloglar',
       english: 'Ingliz',
       uzbek: 'O`zbek',
       russian: 'Rus',
@@ -91,14 +115,25 @@ const content: Content = {
       register: 'Ro`yhatdan o`tish',
     },
     intro: {
-      heading: 'Educoreda barcha kurslarni oson va masofadan o`rganing',
-      p: `Dunyo bo'ylab malakali o'qituvchilar bilan bog'laning va birinchi bepul sinov darsingizni bron qiling.`,
+      heading: (
+        <span>
+          Educoreda barcha kurslarni <span className="underline">oson</span> va{' '}
+          <span className="underline">masofadan</span> o`rganing
+        </span>
+      ),
+      p: (
+        <span>
+          Dunyo bo'ylab malakali o'qituvchilar bilan bog'laning va birinchi
+          <span className="font-bold underline"> bepul sinov</span> darsingizni
+          bron qiling.
+        </span>
+      ),
       get: 'Boshlash',
       about: 'Biz haqimizda',
     },
     popularCourse: {
       popularcourses: 'Mashhur kurslar',
-      more: 'ko`proq',
+      more: 'batafsil',
       explore: 'Ko`proq kurslarni o`rganing',
     },
     testi: {
@@ -118,11 +153,17 @@ const content: Content = {
       follow: 'Bizni kuzatib boring',
       rights: 'Barcha huquqlar himoyalangan',
     },
+    blogs: {
+      blogs: 'Bloglar',
+      btn: 'Barcha bloglarni ko`rish',
+      more: 'Batafsil o`qish',
+    },
   },
   ru: {
     header: {
       about: 'О нас',
       courses: 'Курсы',
+      blogs: 'Блоги',
       english: 'Английский',
       uzbek: 'Узбекский',
       russian: 'Русский',
@@ -130,8 +171,20 @@ const content: Content = {
       register: 'Зарегистрироваться',
     },
     intro: {
-      heading: 'Научитесь всему легко и удаленно в Educore',
-      p: 'Получите доступ к Квалифицированным Преподавателям со всего мира и запланируйте свое первое Бесплатное пробное занятие.',
+      heading: (
+        <span>
+          Научитесь всему <span className="underline">легко</span> и{' '}
+          <span className="underline">удаленно</span> в Educore
+        </span>
+      ),
+      p: (
+        <span>
+          Получите доступ к Квалифицированным Преподавателям со всего мира и
+          запланируйте свое первое
+          <span className="font-bold underline"> Бесплатное пробное</span>{' '}
+          занятие
+        </span>
+      ),
       get: 'Начать',
       about: 'О нас',
     },
@@ -156,6 +209,11 @@ const content: Content = {
     footer: {
       follow: 'Подписывайтесь на нас',
       rights: 'Все права защищены',
+    },
+    blogs: {
+      blogs: 'Блоги',
+      btn: 'Посмотреть все блоги',
+      more: 'Читать больше',
     },
   },
 };
