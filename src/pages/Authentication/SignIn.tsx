@@ -7,7 +7,7 @@ import Brand3 from '../../images/brand/brand3.svg';
 import icon1 from '../../images/brand/icon1.svg';
 import icon2 from '../../images/brand/icon2.svg';
 
-// import { Route, Redirect } from 'react-router-dom';
+import backurl from '../../links';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,13 +27,10 @@ const SignIn: React.FC = () => {
       formData.append('email', email);
       formData.append('password', password);
 
-      const response = await fetch(
-        'https://f091-185-230-206-33.ngrok-free.app/api/login',
-        {
-          method: 'POST',
-          body: formData,
-        },
-      );
+      const response = await fetch(`${backurl}/api/login`, {
+        method: 'POST',
+        body: formData,
+      });
 
       if (response.ok) {
         toast.success('Login successful!', {

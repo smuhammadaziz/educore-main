@@ -44,11 +44,9 @@ const SignUp: React.FC = () => {
       );
 
       if (response.ok) {
-        // toast.success('Login successful!', {
-        //   position: 'top-right',
-        // });
-
-        console.log('ok');
+        toast.success('Login successful!', {
+          position: 'top-right',
+        });
       }
 
       if (!response.ok) {
@@ -58,12 +56,11 @@ const SignUp: React.FC = () => {
 
       const data = await response.json();
 
-      console.log(data);
+      const token = data.token;
 
-      // const token = data.token;
-      // const decoded: any = jwtDecode(token);
+      localStorage.setItem('TOKEN', token);
 
-      // localStorage.setItem('TOKEN', token);
+      navigateTo('/dashboard/student');
     } catch (error: any) {
       setError(error.message);
 
