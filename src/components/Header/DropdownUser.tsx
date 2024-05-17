@@ -3,6 +3,8 @@ import { Link, json, useAsyncError, useNavigate } from 'react-router-dom';
 
 import UserOne from '../../images/user/user-01.png';
 
+import backurl from '../../links';
+
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -16,15 +18,11 @@ const DropdownUser = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          'https://f091-185-230-206-33.ngrok-free.app/api/profile',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              'ngrok-skip-browser-warning': '69420',
-            },
+        const response = await fetch(`${backurl}/api/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        });
         if (!response.ok) {
           localStorage.removeItem('TOKEN');
 
@@ -78,25 +76,6 @@ const DropdownUser = () => {
     navigate('/');
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `https://f091-185-230-206-33.ngrok-free.app/image/${datas.Profil.image}`,
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-
-  //       setImageUrl(await response.url);
-  //     } catch (error) {
-  //       console.error('Error fetching image:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   return (
     <div className="relative">
       <Link
@@ -107,13 +86,23 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {datas?.Profil.name} {datas?.Profil.l_name}
+            {datas ? datas?.Profil.name : 'admin'}{' '}
+            {datas ? datas?.Profil.l_name : 'admin'}
           </span>
-          <span className="block text-xs">{datas?.Profil.email}</span>
+          <span className="block text-xs">
+            {datas ? datas?.Profil.email : 'example@gmail.com'}
+          </span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="user img" />
+          <img
+            src={`${backurl}upload/${
+              datas
+                ? datas.Profil.image
+                : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
+            }`}
+            alt="user img"
+          />
         </span>
 
         <svg

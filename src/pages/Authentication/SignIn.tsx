@@ -43,21 +43,25 @@ const SignIn: React.FC = () => {
         throw new Error(responseData.message);
       }
 
-      // Assuming the API returns a token upon successful login
       const data = await response.json();
       const token = data.token;
       const decoded: any = jwtDecode(token);
 
       localStorage.setItem('TOKEN', token);
 
-      // console.log('Login successful, token:', token);
-
       if (decoded['role'] == 'admin') {
-        navigateTo('/dashboard/admin');
+        // navigateTo('/dashboard/admin');
+        setTimeout(() => {
+          window.location.href = '/dashboard/admin';
+        }, 100);
       } else if (decoded['role'] == 'teacher') {
-        navigateTo('/dashboard/teacher');
+        setTimeout(() => {
+          window.location.href = '/dashboard/teacher';
+        }, 100);
       } else if (decoded['role'] == 'student') {
-        navigateTo('/dashboard/student');
+        setTimeout(() => {
+          window.location.href = '/dashboard/student';
+        }, 100);
       }
     } catch (error: any) {
       setError(error.message);
