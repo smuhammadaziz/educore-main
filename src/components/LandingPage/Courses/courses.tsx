@@ -11,74 +11,33 @@ const products = [
     price: '230.000 UZS',
     color: 'Black',
   },
-  {
-    id: 2,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc:
-      'https://satcenter.s3.amazonaws.com/courses/uploads/2021/08/29085731/sat2.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-    id: 3,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc:
-      'https://images.ctfassets.net/szez98lehkfm/28882FqjsThXzB6jTlSldB/5e9b326cbeff65e5d0bb6e60040ebfad/MyIC_Article_89035?fm=webp',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-    id: 4,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc:
-      'https://satcenter.s3.amazonaws.com/courses/uploads/2021/08/29085731/sat2.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-    id: 5,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc:
-      'https://satcenter.s3.amazonaws.com/courses/uploads/2021/08/29085731/sat2.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-    id: 6,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc:
-      'https://thumbs.dreamstime.com/z/ielts-words-wooden-blocks-letters-education-courses-tests-english-as-foreign-language-concept-d-illustration-249592301.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-    id: 7,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc:
-      'https://thumbs.dreamstime.com/z/ielts-words-wooden-blocks-letters-education-courses-tests-english-as-foreign-language-concept-d-illustration-249592301.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  // More products...
 ];
 
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
+import { useEffect, useState } from 'react';
+import backurl from '../../../links';
 
 export default function Courses() {
   const [selectledLang] = useLang();
+  const [course, setCourses] = useState();
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}/api/get/best/courses`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -88,8 +47,8 @@ export default function Courses() {
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <div key={product.id} className="group relative">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+            <div key={product.id} className=" relative">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
                 <img
                   src={product.imageSrc}
                   alt={product.imageAlt}

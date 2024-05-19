@@ -49,6 +49,7 @@ import AllPaymentPageTeacher from './pages/Dashboard/Teacher/Payment/payment';
 import AllStudentPageTeacher from './pages/Dashboard/Teacher/Students/students';
 import AllBlogsLanding from './pages/LandingPage/AllBlogs/allBlogs';
 import OneBlogPage from './pages/LandingPage/OneBlog/oneblog';
+import AddNewBlogAdmin from './components/Dashboard/Admin/Blogs/addBlogs';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -314,6 +315,15 @@ function App() {
             <>
               <PageTitle title="Educore | Add new group" />
               <AddNewGroupAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/add/new/blog"
+          element={
+            <>
+              <PageTitle title="Educore | Add new blog" />
+              <AddNewBlogAdmin />
             </>
           }
         />

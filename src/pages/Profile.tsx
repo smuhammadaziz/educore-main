@@ -45,8 +45,6 @@ const Profile = () => {
 
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Profile" />
-
       <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="relative z-20 h-35 md:h-65">
           <img
@@ -102,25 +100,33 @@ const Profile = () => {
             </div>
           </div>
           <div className="mt-4">
-            <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
+            <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white text-black">
               {profileData ? profileData.Profil.name : 'Jhon'}{' '}
               {profileData ? profileData.Profil.l_name : 'Doe'}
             </h3>
-            <p className="font-medium  ">
+            <p className="font-medium">
               {profileData ? profileData.Profil.role : 'Jhon'}
             </p>
-            <p className="font-medium mt-5 ">
+            <p className="font-medium mt-5 text-black">
               Phone Number: {profileData ? profileData.Profil.phone : 'Jhon'}
             </p>
-            <p className="font-medium  ">
-              Telegram username: @
-              {profileData ? profileData.Profil.username_tg : '@Jhon'}
+            <p className="font-medium  text-black">
+              Telegram username:{' '}
+              <a
+                href={`https://t.me/${
+                  profileData ? profileData.Profil.username_tg : '@Jhon'
+                }`}
+                target="_blank"
+                className="text-black hover:underline"
+              >
+                {profileData ? profileData.Profil.username_tg : '@Jhon'}
+              </a>
             </p>
-            <p className="font-medium  mb-10">
+            <p className="font-medium  mb-10 text-black">
               Email: {profileData ? profileData.Profil.email : 'Jhon'}
             </p>
 
-            <div className="mx-auto max-w-180">
+            <div className="mx-auto max-w-180 mb-10">
               <h4 className="font-semibold text-black dark:text-white">
                 About Me
               </h4>
@@ -128,38 +134,40 @@ const Profile = () => {
                 {profileData ? profileData.Profil.about_me : 'Jhon'}
               </p>
             </div>
-            <div className="mx-auto max-w-180 mt-10">
-              <h4 className="font-semibold text-black dark:text-white">
-                Address
-              </h4>
-              <p>{profileData ? profileData.Profil.adress : 'Jhon'}</p>
-            </div>
-            <div className="mx-auto max-w-180 mt-10">
-              <h4 className="font-semibold text-black dark:text-white">
-                Birthday
-              </h4>
-              <p>
-                {profileData ? profileData.Profil.birth_date : '12.05.2004'} /{' '}
-                {profileData ? profileData.Profil.age : '15'} years old
-              </p>
-            </div>
-            <div className="mx-auto max-w-180 mt-10">
-              <h4 className="font-semibold text-black dark:text-white">
-                Education
-              </h4>
-              <p>{profileData ? profileData.Profil.education : 'Jhon'}</p>
-            </div>
-            <div className="mx-auto max-w-180 mt-10">
-              <h4 className="font-semibold text-black dark:text-white">
-                Languages
-              </h4>
-              <p>{profileData ? profileData.Profil.languages : 'Jhon'}</p>
-            </div>
-            <div className="mx-auto max-w-180 mt-10">
-              <h4 className="font-semibold text-black dark:text-white">
-                Skills
-              </h4>
-              <p>{profileData ? profileData.Profil.skills : 'Jhon'}</p>
+            <div className="space-y-12 lg:grid-cols-5 lg:gap-x-6 lg:space-y-0 lg:grid ">
+              <div className="mx-auto max-w-180">
+                <h4 className="font-semibold text-black dark:text-white">
+                  Address
+                </h4>
+                <p>{profileData ? profileData.Profil.adress : 'Jhon'}</p>
+              </div>
+              <div className="mx-auto max-w-180">
+                <h4 className="font-semibold text-black dark:text-white">
+                  Birthday
+                </h4>
+                <p>
+                  {profileData ? profileData.Profil.birth_date : '12.05.2004'} /{' '}
+                  {profileData ? profileData.Profil.age : '15'} years old
+                </p>
+              </div>
+              <div className="mx-auto max-w-180">
+                <h4 className="font-semibold text-black dark:text-white">
+                  Education
+                </h4>
+                <p>{profileData ? profileData.Profil.education : 'Jhon'}</p>
+              </div>
+              <div className="mx-auto max-w-180">
+                <h4 className="font-semibold text-black dark:text-white">
+                  Languages
+                </h4>
+                <p>{profileData ? profileData.Profil.languages : 'Jhon'}</p>
+              </div>
+              <div className="mx-auto max-w-180">
+                <h4 className="font-semibold text-black dark:text-white">
+                  Skills
+                </h4>
+                <p>{profileData ? profileData.Profil.skills : 'Jhon'}</p>
+              </div>
             </div>
           </div>
         </div>
