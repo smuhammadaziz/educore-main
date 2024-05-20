@@ -58,7 +58,7 @@ const CoffeeComponent = () => {
                 data && data['image'] ? data['image'] : 'SAT | IELTS'
               }`}
               alt="Product"
-              className="w-8/12 rounded object-cover mx-auto"
+              className="w-150 rounded object-cover mx-auto sm:w-200 md:w-250"
             />
 
             <hr className="border-white border-2 my-6" />

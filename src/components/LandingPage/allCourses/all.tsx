@@ -148,7 +148,7 @@ export default function AllCourses() {
           </select>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 mx-auto">
           {data.map((product) => (
             <NavLink
               to={`/all/courses/${product.course_id}`}
@@ -159,7 +159,7 @@ export default function AllCourses() {
                 <img
                   src={`${backurl}upload/${product.image}`}
                   alt="course image"
-                  className="w-64 h-64 object-cover"
+                  className="w-100 h-64 object-cover"
                 />
               </div>
               <h3 className="mt-4 text-lg font-bold text-gray-700">

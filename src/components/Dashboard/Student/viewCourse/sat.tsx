@@ -41,7 +41,7 @@ function ViewAllCourseSATStudent() {
 
         setData(allCourse);
 
-        //    console.log(allCourse);
+        console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
