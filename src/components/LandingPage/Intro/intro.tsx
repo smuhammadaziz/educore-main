@@ -13,18 +13,16 @@ const IntroSection = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-200 relative">
-      {/* First SVG */}
-      <img
+      {/* <img
         src={Brand}
         alt="Brand"
         className="absolute left-25 top-10 z-50 w-70 h-80 hidden sm:block"
       />
-      {/* Second SVG */}
       <img
         src={Brand2}
         alt="Brand2"
         className="absolute right-40 bottom-30 z-50 w-70 h-80 hidden sm:block"
-      />
+      /> */}
       <div className="relative isolate px-6 pt-0 lg:px-8">
         <div
           className="absolute inset-x-0 -top-10 -z-50 transform-gpu overflow-hidden blur-3xl sm:-top-0"

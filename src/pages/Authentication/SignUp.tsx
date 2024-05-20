@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { jwtDecode } from 'jwt-decode';
 
+import backurl from '../../links';
+
 const SignUp: React.FC = () => {
   const [name, setName] = useState('');
   const [l_name, setl_name] = useState('');
@@ -35,13 +37,10 @@ const SignUp: React.FC = () => {
       formData.append('tgusername', tgusername);
       formData.append('adress', adress);
 
-      const response = await fetch(
-        'https://f091-185-230-206-33.ngrok-free.app/api/register',
-        {
-          method: 'POST',
-          body: formData,
-        },
-      );
+      const response = await fetch(`${backurl}/api/register`, {
+        method: 'POST',
+        body: formData,
+      });
 
       if (response.ok) {
         toast.success('Login successful!', {
@@ -60,7 +59,9 @@ const SignUp: React.FC = () => {
 
       localStorage.setItem('TOKEN', token);
 
-      navigateTo('/dashboard/student');
+      setTimeout(() => {
+        window.location.href = '/dashboard/student';
+      }, 100);
     } catch (error: any) {
       setError(error.message);
 

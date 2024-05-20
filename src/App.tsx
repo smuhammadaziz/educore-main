@@ -121,7 +121,7 @@ function App() {
           }
         />
         <Route
-          path="/all/courses/1"
+          path="/all/courses/:course_id"
           element={
             <>
               <PageTitle title="Educore | IELTS Course" />

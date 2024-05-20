@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Rating } from '@material-tailwind/react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+
+import backurl from '../../../links';
 
 const CoffeeComponent = () => {
+  const { course_id } = useParams();
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}/api/get/landing/all/courses`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const allCourse = data.Courses;
+
+        setData(allCourse);
+
+        console.log(allCourse);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
+
   return (
-    <div className="font-sans bg-white pb-20">
+    <div className="font-sans bg-white pb-20" key={course_id}>
       <div className="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
         <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
           <div className="lg:col-span-3 bg-gray-100 rounded-sm w-full lg:sticky top-0 text-center p-8">
