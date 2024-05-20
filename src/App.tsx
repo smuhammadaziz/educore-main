@@ -50,6 +50,8 @@ import AllStudentPageTeacher from './pages/Dashboard/Teacher/Students/students';
 import AllBlogsLanding from './pages/LandingPage/AllBlogs/allBlogs';
 import OneBlogPage from './pages/LandingPage/OneBlog/oneblog';
 import AddNewBlogAdmin from './components/Dashboard/Admin/Blogs/addBlogs';
+import ViewAllCourseStudent from './pages/Dashboard/Student/viewCourses/view';
+import ViewAllCoursesListSatStudent from './pages/Dashboard/Student/viewCourses/sat';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -386,6 +388,47 @@ function App() {
             </>
           }
         />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/student/courses"
+          element={
+            <>
+              <PageTitle title="Educore | All Courses list" />
+              <ViewAllCourseStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/view/SAT"
+          element={
+            <>
+              <PageTitle title="Educore | All Courses list" />
+              <ViewAllCoursesListSatStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/view/IELTS"
+          element={
+            <>
+              <PageTitle title="Educore | All Courses list" />
+              <ViewAllCourseStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/view/CAMBRIDGE"
+          element={
+            <>
+              <PageTitle title="Educore | All Courses list" />
+              <ViewAllCourseStudent />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+
         {/* =============================================================== */}
         {/* =============================================================== */}
 
