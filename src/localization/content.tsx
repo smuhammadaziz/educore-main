@@ -9,6 +9,7 @@ type Content = {
       russian: string;
       login: string;
       register: string;
+      gotodashboard: string;
     };
     intro: {
       heading: JSX.Element;
@@ -57,6 +58,7 @@ const content: Content = {
       russian: 'Russian',
       login: 'Sign in',
       register: 'Register Now',
+      gotodashboard: 'Go to dashboard',
     },
     intro: {
       heading: (
