@@ -99,7 +99,7 @@ const DropdownUser = () => {
         <span className="h-12 w-12 rounded-full">
           <img
             src={`${backurl}upload/${
-              datas
+              datas == null
                 ? datas.Profil.image
                 : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
             }`}

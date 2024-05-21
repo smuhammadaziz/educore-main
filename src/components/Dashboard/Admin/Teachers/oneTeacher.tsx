@@ -1,27 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 import backurl from '../../../../links';
+import { useParams } from 'react-router-dom';
 
 function OneTeacherGetAdmin() {
   const [teachers, setTeachers] = useState([]);
+
+  const { user_id } = useParams();
 
   const token = localStorage.getItem('TOKEN');
   useEffect(() => {
     async function fetchCourses() {
       try {
-        const response = await fetch(`${backurl}/api/admin/get/teachers`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        const response = await fetch(
+          `${backurl}/api/admin/get/teacher/${user_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
 
-        const reversedData = data.message.reverse();
+        const reversedData = data.Teacher;
 
-        // console.log(reversedData);
+        console.log(reversedData);
 
         setTeachers(reversedData);
       } catch (error) {
@@ -36,91 +42,93 @@ function OneTeacherGetAdmin() {
         {' '}
         <span className="underline">Teacher info</span>
       </div>
-      <form action="#" className="dark:text-white">
-        <div className="p-6.5">
-          <div className="flex flex-col md:flex-row md:justify-between">
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-              />
-            </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Last Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-between">
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-              />
-            </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Last Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-between">
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-              />
-            </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Last Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-row justify-end mt-20">
-            <a
-              href="/dashboard/teachers"
-              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
-            >
-              Cancel
-            </a>
-            <a
-              href="/dashboard/teachers"
-              className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
-            >
-              Add
-            </a>
-          </div>
+      <div className="bg-white shadow-md rounded-lg p-6">
+        <img
+          src={`${backurl}upload/${
+            teachers == null
+              ? teachers['image']
+              : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
+          }`}
+          alt="image"
+          width="200"
+          className="mx-auto block my-10"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <h2 className="text-xl font-bold">
+            Full Name: {teachers && teachers['name']}{' '}
+            {teachers && teachers['l_name']}
+          </h2>
+          <h2 className="text-xl font-bold">
+            About teacher:{' '}
+            {teachers['about_me'] ? teachers['about_me'] : "Don't have any bio"}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Address: {teachers['adress'] ? teachers['adress'] : 'Toshkent'}
+          </h2>
         </div>
-      </form>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <h2 className="text-xl font-bold">
+            Birth day:{' '}
+            {teachers['birth_date'] ? teachers['birth_date'] : '19.05.2006'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Created time:{' '}
+            {teachers['created_at'] ? teachers['created_at'] : '19/04/2024'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Education:{' '}
+            {teachers['education']
+              ? teachers['education']
+              : 'Yangi Ozbekiston 2-kurs'}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <h2 className="text-xl font-bold">
+            Email: {teachers['email'] ? teachers['email'] : 'example@gmail.com'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Languages:{' '}
+            {teachers['languages'] ? teachers['languages'] : 'English, Russian'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Location: {teachers['location'] ? teachers['location'] : 'Toshkent'}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <h2 className="text-xl font-bold">
+            Main_subject:{' '}
+            {teachers['main_subject'] ? teachers['main_subject'] : 'SAT'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Phone Number:{' '}
+            {teachers['phone'] ? teachers['phone'] : '+998700141010'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Rating: {teachers['rating'] ? teachers['rating'] : 'good'}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <h2 className="text-xl font-bold">
+            Role: {teachers['role'] ? teachers['role'] : 'teacher'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Skills:{' '}
+            {teachers['skills'] ? teachers['skills'] : 'Creative, Intelligent'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Username Tg:{' '}
+            {teachers['username_tg'] ? teachers['username_tg'] : '@username'}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <h2 className="text-xl font-bold">
+            user_id: {teachers['user_id'] ? teachers['user_id'] : '123'}
+          </h2>
+          <h2 className="text-xl font-bold">
+            Vpn: {teachers['vpn'] ? teachers['vpn'] : 'false'}
+          </h2>
+        </div>
+      </div>
     </DefaultLayoutAdmin>
   );
 }
