@@ -58,7 +58,7 @@ const content: Content = {
       russian: 'Russian',
       login: 'Sign in',
       register: 'Register Now',
-      gotodashboard: 'Go to dashboard',
+      gotodashboard: 'Go to dashboard →',
     },
     intro: {
       heading: (
@@ -115,6 +115,7 @@ const content: Content = {
       russian: 'Rus',
       login: 'Tizimga kirish',
       register: 'Ro`yhatdan o`tish',
+      gotodashboard: 'Dashboardga o`tish →',
     },
     intro: {
       heading: (
@@ -171,6 +172,7 @@ const content: Content = {
       russian: 'Русский',
       login: 'Войти',
       register: 'Зарегистрироваться',
+      gotodashboard: 'Перейти к dashboard →',
     },
     intro: {
       heading: (

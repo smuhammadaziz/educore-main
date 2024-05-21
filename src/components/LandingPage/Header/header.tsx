@@ -86,12 +86,12 @@ export default function Header() {
           >
             {content[selectedLanguage as string].header.register}
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/auth/signup"
             className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-fuchsia-800 text-white px-5 py-2 rounded-full hover:bg-fuchsia-600 active:bg-fuchsia-500 focus:outline-none focus:ring focus:ring-violet-300"
           >
             {content[selectedLanguage as string].header.gotodashboard}
-          </NavLink>
+          </NavLink> */}
         </div>
       </nav>
       <Dialog
@@ -173,6 +173,12 @@ export default function Header() {
                   >
                     {content[selectedLanguage as string].header.register}
                   </NavLink>
+                  {/* <NavLink
+                    to="/auth/signup"
+                    className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-fuchsia-800 text-white px-5 py-2 rounded-full hover:bg-fuchsia-600 active:bg-fuchsia-500 focus:outline-none focus:ring focus:ring-violet-300"
+                  >
+                    {content[selectedLanguage as string].header.gotodashboard}
+                  </NavLink> */}
                 </div>
               </div>
             </div>
