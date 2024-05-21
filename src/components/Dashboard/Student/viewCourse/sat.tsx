@@ -41,7 +41,7 @@ function ViewAllCourseSATStudent() {
 
         setData(allCourse);
 
-        console.log(allCourse);
+        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -69,7 +69,7 @@ function ViewAllCourseSATStudent() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mt-10">
         {data.map((product) => (
           <NavLink
-            to={`/dashboard/courses/${product.course_id}`}
+            to={`/dashboard/student/courses/${product.course_id}`}
             key={product.course_id}
             className="group"
           >
@@ -77,7 +77,7 @@ function ViewAllCourseSATStudent() {
               <img
                 src={`${backurl}upload/${product.image}`}
                 alt="course image"
-                className="w-64 h-64 object-cover"
+                className="w-100 h-64 object-cover"
               />
             </div>
             <h3 className="mt-4 text-lg font-bold text-gray-700">

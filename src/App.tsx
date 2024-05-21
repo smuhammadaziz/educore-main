@@ -52,6 +52,9 @@ import OneBlogPage from './pages/LandingPage/OneBlog/oneblog';
 import AddNewBlogAdmin from './components/Dashboard/Admin/Blogs/addBlogs';
 import ViewAllCourseStudent from './pages/Dashboard/Student/viewCourses/view';
 import ViewAllCoursesListSatStudent from './pages/Dashboard/Student/viewCourses/sat';
+import ViewAllCoursesListCambStudent from './pages/Dashboard/Student/viewCourses/camb';
+import ViewAllCoursesListieltspageStudent from './pages/Dashboard/Student/viewCourses/ielts';
+import ONeContactInfoPageAdmin from './pages/Dashboard/Admin/Contact/oneContact';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -181,7 +184,7 @@ function App() {
         {/* =============================================================== */}
         {/* =============================================================== */}
         {/* ===================ADMIN============================= */}
-        <Route
+        {/* <Route
           path="/dashboard/users"
           element={
             <>
@@ -189,7 +192,7 @@ function App() {
               <AllUsers />
             </>
           }
-        />
+        /> */}
         <Route
           path="/dashboard/teachers"
           element={
@@ -232,6 +235,15 @@ function App() {
             <>
               <PageTitle title="Contact | Educore Dashboard" />
               <AllContactPageAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/contact/:contact_id"
+          element={
+            <>
+              <PageTitle title="Contact | Educore Dashboard" />
+              <ONeContactInfoPageAdmin />
             </>
           }
         />
@@ -413,7 +425,7 @@ function App() {
           element={
             <>
               <PageTitle title="Educore | All Courses list" />
-              <ViewAllCourseStudent />
+              <ViewAllCoursesListieltspageStudent />
             </>
           }
         />
@@ -422,7 +434,7 @@ function App() {
           element={
             <>
               <PageTitle title="Educore | All Courses list" />
-              <ViewAllCourseStudent />
+              <ViewAllCoursesListCambStudent />
             </>
           }
         />

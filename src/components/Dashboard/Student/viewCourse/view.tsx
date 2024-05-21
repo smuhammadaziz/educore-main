@@ -27,7 +27,7 @@ function ViewAllTypesCouseStudent() {
           <NavLink
             to={`/dashboard/student/view/${e.name}`}
             key={e.id}
-            className="px-25 py-10 bg-white dark:bg-gray-800 dark:text-white text-black hover:shadow-2xl cursor-pointer"
+            className="shadow-lg px-25 py-10 bg-white dark:bg-gray-800 dark:text-white text-black hover:shadow-2xl cursor-pointer"
           >
             <img
               src={e.img}

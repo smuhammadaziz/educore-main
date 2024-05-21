@@ -1,15 +1,16 @@
 import React from 'react';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
-import ViewAllTypesCouseStudent from '../../../../components/Dashboard/Student/viewCourse/view';
 
-function ViewAllCourseStudent() {
+import ViewAllCourseCambStudent from '../../../../components/Dashboard/Student/viewCourse/camb';
+
+function ViewAllCoursesListCambStudent() {
   return (
     <DefaultLayoutStudent>
       <div>
-        <ViewAllTypesCouseStudent />
+        <ViewAllCourseCambStudent />
       </div>
     </DefaultLayoutStudent>
   );
 }
 
-export default ViewAllCourseStudent;
+export default ViewAllCoursesListCambStudent;
