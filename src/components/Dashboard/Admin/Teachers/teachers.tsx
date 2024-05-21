@@ -1,87 +1,47 @@
-import React from 'react';
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from '@material-tailwind/react';
+import React, { useEffect, useState } from 'react';
+
 import { NavLink } from 'react-router-dom';
+import backurl from '../../../../links';
 
 const AddTeachersList = () => {
-  // Define an array of objects containing the data for each row
   const tableData = [
     {
       productName: 'Apple MacBook Pro 17"',
       color: 'Silver',
       category: 'Laptop',
       price: '$2999',
-      status: 'PAID',
-    },
-    {
-      productName: 'Microsoft Surface Pro',
-      color: 'White',
-      category: 'Laptop PC',
-      price: '$1999',
-      status: 'UNPAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'UNPAID',
+      status: 'teacher',
     },
   ];
+
+  const [teachers, setTeachers] = useState([]);
+
+  const token = localStorage.getItem('TOKEN');
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}/api/admin/get/teachers`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const reversedData = data.message.reverse();
+
+        // console.log(reversedData);
+
+        setTeachers(reversedData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
 
   return (
     <>
@@ -101,19 +61,19 @@ const AddTeachersList = () => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Product name
+                Full Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Color
+                Main Subject
               </th>
               <th scope="col" className="px-6 py-3">
-                Category
+                Email
               </th>
               <th scope="col" className="px-6 py-3">
-                Price
+                Phone Number
               </th>
               <th scope="col" className="px-6 py-3">
-                Status
+                Role
               </th>
               <th scope="col" className="px-6 py-3">
                 <span className="sr-only">Edit</span>
@@ -121,38 +81,38 @@ const AddTeachersList = () => {
             </tr>
           </thead>
           <tbody>
-            {tableData.map((item, index) => (
+            {teachers.map((item, index) => (
               <tr
-                key={index}
+                key={item.user_id}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
               >
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
                 >
-                  {item.productName}
+                  {item.name} {item.l_name}
                 </th>
-                <td className="px-6 py-4 text-black">{item.color}</td>
-                <td className="px-6 py-4 text-black">{item.category}</td>
-                <td className="px-6 py-4 text-black">{item.price}</td>
+                <td className="px-6 py-4 text-black">{item.main_subject}</td>
+                <td className="px-6 py-4 text-black">{item.email}</td>
+                <td className="px-6 py-4 text-black">{item.phone}</td>
                 <td className="ps-2 pe-0 text-black py-4 font-bold text-center">
                   <p
                     className={`px-1 pe-1 py-2 rounded-full text-center ${
-                      item.status === 'PAID'
+                      item.role === 'teacher'
                         ? 'bg-green-600 text-white'
                         : 'bg-red-600 text-white'
                     }`}
                   >
-                    {item.status}
+                    {item.role}
                   </p>
                 </td>
                 <td className="px-6 py-4 text-right">
-                  <a
-                    href="#"
+                  <NavLink
+                    to={`/dashboard/admin/teacher/${item.user_id}`}
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
-                    Edit
-                  </a>
+                    more
+                  </NavLink>
                 </td>
               </tr>
             ))}

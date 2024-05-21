@@ -55,6 +55,7 @@ import ViewAllCoursesListSatStudent from './pages/Dashboard/Student/viewCourses/
 import ViewAllCoursesListCambStudent from './pages/Dashboard/Student/viewCourses/camb';
 import ViewAllCoursesListieltspageStudent from './pages/Dashboard/Student/viewCourses/ielts';
 import ONeContactInfoPageAdmin from './pages/Dashboard/Admin/Contact/oneContact';
+import OneTeacherGetAdmin from './components/Dashboard/Admin/Teachers/oneTeacher';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -338,6 +339,15 @@ function App() {
             <>
               <PageTitle title="Educore | Add new blog" />
               <AddNewBlogAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/teacher/:user_id"
+          element={
+            <>
+              <PageTitle title="Educore | Add new blog" />
+              <OneTeacherGetAdmin />
             </>
           }
         />
