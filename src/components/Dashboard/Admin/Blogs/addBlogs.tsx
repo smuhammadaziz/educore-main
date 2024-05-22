@@ -30,6 +30,8 @@ function AddNewBlogAdmin() {
       formData.append('image', photo);
     }
 
+    console.log(formData);
+
     try {
       const response = await fetch(`${backurl}api/admin/add/blog`, {
         method: 'POST',
@@ -44,7 +46,6 @@ function AddNewBlogAdmin() {
           position: 'top-right',
         });
       }
-      // console.log(response);
     } catch (error: any) {
       console.error('Error submitting the form', error);
       toast.warning(error.message, {

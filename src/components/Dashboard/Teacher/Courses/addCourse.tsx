@@ -1,244 +1,169 @@
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
+
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
+import backurl from '../../../../links';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { FileInputButton, FileCard, ExtFile } from '@files-ui/react';
-
 function AddnewCourseTeacher() {
-  const [selectedOption, setSelectedOption] = useState<string>('');
-  const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
-
-  const [title, setTitle] = useState('');
-  const [descr, setDescr] = useState('');
-  const [subject, setSubject] = useState('');
-  const [price, setPrice] = useState('');
-  const [period, setPeriod] = useState('');
-  const [image, setImage] = useState('');
-  const [error, setError] = useState('');
-
-  const [files, setFiles] = React.useState<ExtFile[]>([]);
-  const updateFiles = (incommingFiles: ExtFile[]) => {
-    //do something with the files
-    setFiles(incommingFiles);
-    //even your own upload implementation
-  };
-  const removeFile = (id: number | string | undefined) => {
-    setFiles(files.filter((x) => x.id !== id));
-  };
-
-  // const imgUrlSend = files[0]['name'];
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [main, setMain] = useState('');
+  const [cost, setCost] = useState('');
+  const [time, setTime] = useState('');
+  const [photo, setPhoto] = useState(null);
 
   const token = localStorage.getItem('TOKEN');
 
-  // const handleFileChange = (e: any) => {
-  //   const file = e.target.files[0];
-  //   setImage(file);
-  // };
+  const handleCancel = () => {
+    setName('');
+    setDescription('');
+    setMain('');
+    setCost('');
+    setTime('');
+    setPhoto(null);
+  };
 
-  const handleAddCourse = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    // Create a form data object
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('descr', descr);
-    formData.append('subject', subject);
-    formData.append('price', price);
-    formData.append('period', period);
-    formData.append('image', image);
+    formData.append('title', name);
+    formData.append('descr', description);
+    formData.append('subject', main);
+    formData.append('price', cost);
+    formData.append('period', time);
+    if (photo) {
+      formData.append('image', photo);
+    }
 
-    const formDataJson = JSON.stringify(formData);
+    console.log(formData);
+
     try {
-      const response = await fetch(
-        'https://f091-185-230-206-33.ngrok-free.app/api/add/course',
-        {
-          method: 'POST',
-          body: formDataJson,
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${token}`,
-            'ngrok-skip-browser-warning': '69420',
-          },
+      const response = await fetch(`${backurl}api/add/course`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
-
-      if (response.ok) {
-        console.log('successfully');
-      }
-
-      if (!response.ok) {
-        const responseData = await response.json();
-        throw new Error(responseData.message);
-      }
-
-      const data = await response.json();
-
-      toast.success(data, {
-        position: 'top-right',
+        body: formData,
       });
 
-      console.log(response);
+      // const result = await response.json();
+      // console.log('Response:', result);
 
-      // const token = data.token;
-      // const decoded: any = jwtDecode(token);
-
-      // localStorage.setItem('TOKEN', token);
-      console.log(response);
+      if (response.ok) {
+        toast.success('Course successfully added', {
+          position: 'top-right',
+        });
+      }
+      // console.log(response);
     } catch (error: any) {
-      setError(error.message);
-
-      toast.error(error.message, {
+      console.error('Error submitting the form', error);
+      toast.warning(error.message, {
         position: 'top-right',
       });
     }
   };
 
-  const changeTextColor = () => {
-    setIsOptionSelected(true);
-  };
-
   return (
     <DefaultLayoutTeacher>
       <ToastContainer></ToastContainer>
-      <div className="mb-5 text-center mx-auto text-2xl">
+      <div className="mb-5 text-left mx-auto text-2xl">
         {' '}
-        Adding new <span className="underline">course</span>
+        Adding new <span className="underline">Course</span>
       </div>
-      <form action="#" className="dark:text-white" onSubmit={handleAddCourse}>
+      <form onSubmit={handleSubmit} className="dark:text-white">
         <div className="p-6.5">
-          <div className="flex flex-col md:flex-row md:justify-between">
+          <div className="">
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
                 Title
               </label>
               <input
                 type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Enter course title"
+                placeholder="Enter your title"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                More info
+                Descr
               </label>
               <input
                 type="text"
-                value={descr}
-                onChange={(e) => setDescr(e.target.value)}
-                placeholder="Enter course more info"
+                placeholder="Enter your desc"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
               />
             </div>
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-between">
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Subject
-              </label>
-              <select
-                value={selectedOption || subject}
-                onChange={(e) => {
-                  setSelectedOption(e.target.value);
-                  changeTextColor();
-                  setSubject(e.target.value);
-                }}
-                className={`relative z-20 w-full bg-white rounded border border-stroke bg-transparent py-3 px-12 ps-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
-                  isOptionSelected ? 'text-black dark:text-white' : ''
-                }`}
-              >
-                <option
-                  value=""
-                  disabled
-                  className="text-body dark:text-bodydark"
-                >
-                  Select Country
-                </option>
-                <option value="ielts" className="text-body dark:text-bodydark">
-                  IELTS
-                </option>
-                <option value="sat" className="text-body dark:text-bodydark">
-                  SAT
-                </option>
-                <option
-                  value="cambridge"
-                  className="text-body dark:text-bodydark"
-                >
-                  CAMBRIDGE
-                </option>
-              </select>
-            </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Price (only number)
+                Main Subject
               </label>
               <input
                 type="text"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                placeholder="Enter course price"
+                placeholder="Enter your main subject"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={main}
+                onChange={(e) => setMain(e.target.value)}
+                required
               />
             </div>
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-between">
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Period (only number)
+                Price
               </label>
               <input
                 type="text"
-                value={period}
-                onChange={(e) => setPeriod(e.target.value)}
-                placeholder="Enter course period"
+                placeholder="Enter your price"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={cost}
+                onChange={(e) => setCost(e.target.value)}
+                required
               />
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-3  block text-black dark:text-white">
-                Image
+              <label className="mb-2.5 block text-black dark:text-white">
+                Period
               </label>
               <input
-                type="input"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                className="w-full bg-white cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter file:py-3 file:px-5 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-form-strokedark dark:file:bg-white/30 dark:file:text-white dark:focus:border-primary"
+                type="text"
+                placeholder="Enter your period"
+                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+                required
               />
-              <FileInputButton onChange={updateFiles} value={files} />
-              {files.length > 0 && (
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexWrap: 'wrap',
-                    gap: '5px',
-                    minWidth: '50%',
-                  }}
-                >
-                  {files.map((file: ExtFile) => (
-                    <FileCard
-                      key={file.id}
-                      {...file}
-                      onDelete={removeFile}
-                      info
-                    />
-                  ))}
-                </div>
-              )}
+            </div>
+            <div className="mb-4.5 md:w-1/2 px-2">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Photo (only one image)
+              </label>
+              <input
+                type="file"
+                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                onChange={(e) => setPhoto(e.target.files[0])}
+              />
             </div>
           </div>
-          {error && <div className="text-red-500 mb-4">{error}</div>}
 
           <div className="flex flex-row justify-end mt-20">
             <a
               href="/dashboard/teacher/my/courses"
               className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
+              onClick={handleCancel}
             >
               Cancel
             </a>
             <button
-              // href="/dashboard/teacher/my/courses"
+              type="submit"
               className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
             >
               Add

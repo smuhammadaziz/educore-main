@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function OneBlogGetAdmin() {
   const [teachers, setTeachers] = useState([]);
   const [blog, setBlog] = useState([]);
+
+  const navigate = useNavigate();
 
   const { blog_id } = useParams();
 
@@ -50,11 +52,14 @@ function OneBlogGetAdmin() {
       }
       const data = await response.json();
 
-      //  const reversedData = data.Data;
+      if (response.ok) {
+        // window.location.href = '/dashboard/blogs';
+        navigate('/dashboard/blogs');
+      }
 
-      console.log(data);
-
-      //  setTeachers(reversedData);
+      toast.success('Successfully deleted 1 item', {
+        position: 'top-right',
+      });
     } catch (error) {
       console.log(error);
     }

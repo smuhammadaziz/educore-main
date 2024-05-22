@@ -130,7 +130,7 @@ export default function AllPaymentsViewStudent() {
           to="/dashboard/student/add/new/payment"
           className="text-sm  py-3 px-12 bg-blue-700 text-white rounded hover:bg-blue-500 active:bg-blue-400"
         >
-          Send new payment chequeee
+          Send new payment cheque
         </NavLink>
       </div>
       <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-3">

@@ -58,9 +58,9 @@ export default function AllBlogsList() {
                     <h3 className="mt-6 text-xl text-gray-800">{blog.title}</h3>
                     <NavLink
                       to={`/dashboard/admin/edit/blog/${blog.blog_id}`}
-                      className="bg-primary px-8 py-1 text-white rounded mt-5 inline-block mb-5"
+                      className="bg-blue-600 px-8 py-1 text-white rounded mt-5 inline-block mb-5 hover:bg-blue-400"
                     >
-                      Edit
+                      More info
                     </NavLink>
                   </div>
                 ))}

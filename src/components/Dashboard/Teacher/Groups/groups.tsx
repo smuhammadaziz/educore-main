@@ -9,48 +9,6 @@ const products = [
     course: 'SAT course',
     rating: '⭐⭐⭐⭐⭐',
   },
-  {
-    id: 1,
-    name: 'SAT with Sardor',
-    price: '320.000 UZS',
-    course: 'SAT course',
-    rating: '⭐⭐⭐⭐',
-  },
-  {
-    id: 1,
-    name: 'SAT with Sardor',
-    price: '320.000 UZS',
-    course: 'SAT course',
-    rating: '⭐⭐⭐',
-  },
-  {
-    id: 1,
-    name: 'SAT with Sardor',
-    price: '320.000 UZS',
-    course: 'SAT course',
-    rating: '⭐⭐⭐⭐⭐',
-  },
-  {
-    id: 1,
-    name: 'SAT with Sardor',
-    price: '320.000 UZS',
-    course: 'SAT course',
-    rating: '⭐⭐⭐⭐',
-  },
-  {
-    id: 1,
-    name: 'SAT with Sardor',
-    price: '320.000 UZS',
-    course: 'SAT course',
-    rating: '⭐⭐',
-  },
-  {
-    id: 1,
-    name: 'SAT with Sardor',
-    price: '320.000 UZS',
-    course: 'SAT course',
-    rating: '⭐⭐⭐⭐⭐',
-  },
 ];
 
 export default function AllGroupsListTeacher() {
@@ -74,7 +32,7 @@ export default function AllGroupsListTeacher() {
         </NavLink>
       </div>
       <h2 className="mt-10">Choose Course</h2>
-      <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-3">
+      {/* <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-3">
         <select
           value={selectedOption}
           onChange={(e) => {
@@ -152,7 +110,7 @@ export default function AllGroupsListTeacher() {
             More than 500.000 UZS
           </option>
         </select>
-      </div>
+      </div> */}
       <div className="">
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">

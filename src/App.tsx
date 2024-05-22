@@ -61,6 +61,7 @@ import OneBlogGetAdmin from './components/Dashboard/Admin/Blogs/oneBlog';
 import BuyOneCourseNowStudent from './components/Dashboard/Student/viewCourse/buyone';
 import ViewAllPaymentsStudent from './pages/Dashboard/Student/payments/payments';
 import AddnewpaymentStudent from './components/Dashboard/Student/payments/addpay';
+import OneCourseGetTeacher from './components/Dashboard/Teacher/Courses/oneCourse';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -430,6 +431,15 @@ function App() {
             <>
               <PageTitle title="Educore | Add new groups" />
               <AddNewGroupTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/course/:course_id"
+          element={
+            <>
+              <PageTitle title="Educore | course" />
+              <OneCourseGetTeacher />
             </>
           }
         />
