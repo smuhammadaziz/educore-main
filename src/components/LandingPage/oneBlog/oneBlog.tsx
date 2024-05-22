@@ -1,29 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import imageImg from '../../../images/cards/cards-04.png';
+import backurl from '../../../links';
+import { useParams } from 'react-router-dom';
+
+import moment from 'moment';
 
 function OneBlogLanding() {
+  const [course, setCourses] = useState();
+
+  const { blog_id } = useParams();
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}api/get/blog/${blog_id}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setCourses(data);
+
+        // console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
   return (
     <div className="mx-auto container px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 py-10 sm:py-16 lg:py-20 text-center">
       <img
-        src={imageImg}
-        alt="blogs image"
+        src={`${backurl}upload/${
+          course
+            ? course.Data.img
+            : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
+        }`}
+        alt="image"
         className="mx-auto rounded-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
       />
       <h2 className="text-3xl sm:text-4xl lg:text-5xl text-black mt-8 sm:mt-10">
-        Last visits in US
+        {course && course ? course.Data.title : 'Hello world'}
       </h2>
       <p className="text- sm:text-lg sm:w-150 sm:leading-6 lg:text-xl text-black text-center mx-auto mt-6 sm:mt-8 lg:mt-10 leading-6">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis tenetur
-        cupiditate molestias quibusdam iure beatae perferendis consectetur
-        placeat corporis. Illo ea illum culpa perspiciatis nemo beatae mollitia,
-        dolore suscipit enim quod veritatis a debitis ipsa quae eligendi sed
-        libero neque iste doloremque! Aliquam odio est rerum. Dolor et nemo
-        cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-        tenetur cupiditate molestias quibusdam iure beatae perferendis
-        consectetur placeat corporis. Illo ea illum culpa perspiciatis nemo
-        beatae mollitia, dolore suscipit enim quod veritatis a debitis ipsa quae
-        eligendi sed libero neque iste doloremque! Aliquam odio est rerum. Dolor
-        et nemo cumque.
+        {course && course ? course.Data.descr : 'Lorem ipsum'}
       </p>
       <div className="flex flex-col items-center sm:flex-col justify-center mt-8 sm:mt-12 lg:mt-16">
         <div className="flex items-center justify-center">
@@ -47,10 +65,14 @@ function OneBlogLanding() {
               d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
             />
           </svg>
-          <p className="font-bold ml-2">102</p>
+          <p className="font-bold ml-2">
+            {course && course ? course.blogcount.count : '123'}
+          </p>
         </div>
         <p className="mt-4 sm:mt-0 sm:ml-4 font-bold text-base lg:text-lg">
-          12.05.2024
+          {moment(course && course ? course.Data.created_at : '01/01/2024')
+            .subtract(10, 'days')
+            .calendar()}
         </p>
       </div>
     </div>

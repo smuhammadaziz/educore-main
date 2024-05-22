@@ -147,7 +147,7 @@ function App() {
           }
         />
         <Route
-          path="/all/blogs/1"
+          path="/all/blogs/:blog_id"
           element={
             <>
               <PageTitle title="Educore | Blogs " />
