@@ -4,16 +4,6 @@ import { NavLink } from 'react-router-dom';
 import backurl from '../../../../links';
 
 const AddTeachersList = () => {
-  const tableData = [
-    {
-      productName: 'Apple MacBook Pro 17"',
-      color: 'Silver',
-      category: 'Laptop',
-      price: '$2999',
-      status: 'teacher',
-    },
-  ];
-
   const [teachers, setTeachers] = useState([]);
 
   const token = localStorage.getItem('TOKEN');

@@ -1,5 +1,9 @@
 import React, { FormEvent, useState } from 'react';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
+import backurl from '../../../../links';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddNewBlogAdmin() {
   const [name, setName] = useState('');
@@ -23,36 +27,35 @@ function AddNewBlogAdmin() {
     formData.append('title', name);
     formData.append('descr', description);
     if (photo) {
-      formData.append('img', photo);
+      formData.append('image', photo);
     }
 
     try {
-      const response = await fetch(
-        'http://5.182.26.16/plesk-site-preview/backend-api.educore-org.uz/https/5.182.26.16/api/admin/add/blog',
-        {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${token}`, // replace with actual token
-          },
-          body: formData,
+      const response = await fetch(`${backurl}api/admin/add/blog`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+        body: formData,
+      });
 
-      //  if (response.ok) {
-      //    window.location.href = '/dashboard/blogs';
-      //  } else {
-      //    // Handle errors
-      //    console.error('Error submitting the form', response.statusText);
-      //  }
-
-      console.log(response);
-    } catch (error) {
+      if (response.ok) {
+        toast.success('Blog successfully added', {
+          position: 'top-right',
+        });
+      }
+      // console.log(response);
+    } catch (error: any) {
       console.error('Error submitting the form', error);
+      toast.warning(error.message, {
+        position: 'top-right',
+      });
     }
   };
 
   return (
     <DefaultLayoutAdmin>
+      <ToastContainer></ToastContainer>
       <div className="mb-5 text-left mx-auto text-2xl">
         {' '}
         Adding new <span className="underline">blog</span>

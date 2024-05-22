@@ -56,6 +56,8 @@ import ViewAllCoursesListCambStudent from './pages/Dashboard/Student/viewCourses
 import ViewAllCoursesListieltspageStudent from './pages/Dashboard/Student/viewCourses/ielts';
 import ONeContactInfoPageAdmin from './pages/Dashboard/Admin/Contact/oneContact';
 import OneTeacherGetAdmin from './components/Dashboard/Admin/Teachers/oneTeacher';
+import OneStudentGetAdmin from './components/Dashboard/Admin/student/onestudent';
+import OneBlogGetAdmin from './components/Dashboard/Admin/Blogs/oneBlog';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -346,8 +348,26 @@ function App() {
           path="/dashboard/admin/teacher/:user_id"
           element={
             <>
-              <PageTitle title="Educore | Add new blog" />
+              <PageTitle title="Educore | One Teacher" />
               <OneTeacherGetAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/student/:user_id"
+          element={
+            <>
+              <PageTitle title="Educore | One Student" />
+              <OneStudentGetAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/edit/blog/:blog_id"
+          element={
+            <>
+              <PageTitle title="Educore | One Blog" />
+              <OneBlogGetAdmin />
             </>
           }
         />
