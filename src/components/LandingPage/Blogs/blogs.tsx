@@ -57,7 +57,7 @@ export function Blog() {
     fetchCourses();
   }, []);
 
-  console.log(course);
+  // console.log(course);
 
   function ContentCard({
     blog_id,
@@ -74,6 +74,7 @@ export function Blog() {
                                         transition duration-1000 
                                         hover:scale-110"
         color="transparent"
+        key={blog_id}
       >
         <img
           src={`${backurl}upload/${
@@ -130,6 +131,7 @@ export function Blog() {
         <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-3">
           {course.map(({ blog_id, img, title, descr, created_at }) => (
             <ContentCard
+              key={blog_id}
               blog_id={blog_id}
               img={img}
               title={title}

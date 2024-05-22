@@ -58,6 +58,9 @@ import ONeContactInfoPageAdmin from './pages/Dashboard/Admin/Contact/oneContact'
 import OneTeacherGetAdmin from './components/Dashboard/Admin/Teachers/oneTeacher';
 import OneStudentGetAdmin from './components/Dashboard/Admin/student/onestudent';
 import OneBlogGetAdmin from './components/Dashboard/Admin/Blogs/oneBlog';
+import BuyOneCourseNowStudent from './components/Dashboard/Student/viewCourse/buyone';
+import ViewAllPaymentsStudent from './pages/Dashboard/Student/payments/payments';
+import AddnewpaymentStudent from './components/Dashboard/Student/payments/addpay';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -468,9 +471,35 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/dashboard/student/courses/:course_id"
+          element={
+            <>
+              <PageTitle title="Educore | OneCourse" />
+              <BuyOneCourseNowStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/payments/"
+          element={
+            <>
+              <PageTitle title="Educore | payments" />
+              <ViewAllPaymentsStudent />
+            </>
+          }
+        />
         {/* =============================================================== */}
         {/* =============================================================== */}
-
+        <Route
+          path="/dashboard/student/add/new/payment"
+          element={
+            <>
+              <PageTitle title="Educore | payment" />
+              <AddnewpaymentStudent />
+            </>
+          }
+        />
         {/* =============================================================== */}
         {/* =============================================================== */}
 
