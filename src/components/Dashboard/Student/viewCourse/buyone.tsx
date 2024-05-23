@@ -121,13 +121,13 @@ const BuyOneCourseNowStudent = () => {
               </div>
               <div className="mt-8">
                 <NavLink
-                  to="/auth/signup"
+                  to={`/dashboard/student/courses/buy/${course_id}`}
                   className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                 >
                   Buy now
                 </NavLink>
                 <NavLink
-                  to="/auth/signup"
+                  to={`/dashboard/student/courses/use/free/${course_id}`}
                   className="ms-2 inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                 >
                   Use Free Trial

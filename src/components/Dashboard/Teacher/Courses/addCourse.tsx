@@ -39,7 +39,7 @@ function AddnewCourseTeacher() {
       formData.append('image', photo);
     }
 
-    console.log(formData);
+    // console.log(formData);
 
     try {
       const response = await fetch(`${backurl}api/add/course`, {

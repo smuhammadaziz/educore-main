@@ -81,7 +81,6 @@ function OneCourseGetTeacher() {
           className="mx-auto sm:w-100"
         />
         <h2 className="text-4xl text-black text-center">{teachers['title']}</h2>
-
         <p className="text-lg font-bold text-center mt-5">
           About the course: {teachers['descr']}
         </p>
@@ -95,10 +94,9 @@ function OneCourseGetTeacher() {
           Main Subject: {teachers['subject']}
         </p>
         <p className="text-lg font-bold text-center mt-5 font-bold">
-          Created time:{' '}
-          {moment(teachers['created_at']).subtract(10, 'days').calendar()}
+          Created time: {moment(teachers['created_at']).format('l')}
         </p>
-
+        x
         {/* <div>
           <button
             onClick={deleleItem}

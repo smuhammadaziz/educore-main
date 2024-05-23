@@ -62,6 +62,8 @@ import BuyOneCourseNowStudent from './components/Dashboard/Student/viewCourse/bu
 import ViewAllPaymentsStudent from './pages/Dashboard/Student/payments/payments';
 import AddnewpaymentStudent from './components/Dashboard/Student/payments/addpay';
 import OneCourseGetTeacher from './components/Dashboard/Teacher/Courses/oneCourse';
+import UseFreeTrialPageStudent from './components/Dashboard/Student/freeTrial/free';
+import UseBuyCOurseStudent from './components/Dashboard/Student/freeTrial/buycourse';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -496,6 +498,24 @@ function App() {
             <>
               <PageTitle title="Educore | payments" />
               <ViewAllPaymentsStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/courses/buy/:course_id"
+          element={
+            <>
+              <PageTitle title="Educore | Buy Now" />
+              <UseBuyCOurseStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/courses/use/free/:course_id"
+          element={
+            <>
+              <PageTitle title="Educore | Use Free Trial" />
+              <UseFreeTrialPageStudent />
             </>
           }
         />
