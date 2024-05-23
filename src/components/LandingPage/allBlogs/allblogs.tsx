@@ -98,7 +98,7 @@ export function Blog() {
               color="white"
               className="my-2 font-normal text-right"
             >
-              {moment(created_at).subtract(10, 'days').calendar()}
+              {moment(created_at).format('l')}
             </Typography>
           </div>
         </CardBody>

@@ -45,6 +45,7 @@ function AddNewBlogAdmin() {
         toast.success('Blog successfully added', {
           position: 'top-right',
         });
+        handleCancel();
       }
     } catch (error: any) {
       console.error('Error submitting the form', error);

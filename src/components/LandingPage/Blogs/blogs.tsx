@@ -46,7 +46,7 @@ export function Blog() {
         }
         const data = await response.json();
 
-        const reversed = data.slice(1).slice(-3);
+        const reversed = data.reverse().slice(0, 3);
         // console.log(reversed);
 
         setCourses(reversed);
@@ -109,7 +109,7 @@ export function Blog() {
               color="white"
               className="my-2 font-normal text-right"
             >
-              {moment(created_at).subtract(10, 'days').calendar()}
+              {moment(created_at).format('l')}
             </Typography>
           </div>
         </CardBody>

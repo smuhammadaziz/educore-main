@@ -45,25 +45,31 @@ export default function AllBlogsList() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl py-8 sm:py-24 lg:max-w-none lg:py-32">
             <div className="mt-10  lg:grid lg:grid-cols-3 lg:gap-x-6  ">
-              {blogs &&
-                blogs.map((blog) => (
-                  <div key={blog.blog_id} className="bg-white p-3 my-5 rounded">
-                    <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                      <img
-                        src={`${backurl}upload/${blog.img}`}
-                        alt={blog.title}
-                        className="h-full w-full object-cover object-center"
-                      />
-                    </div>
-                    <h3 className="mt-6 text-xl text-gray-800">{blog.title}</h3>
-                    <NavLink
-                      to={`/dashboard/admin/edit/blog/${blog.blog_id}`}
-                      className="bg-blue-600 px-8 py-1 text-white rounded mt-5 inline-block mb-5 hover:bg-blue-400"
+              {blogs && blogs
+                ? blogs.map((blog) => (
+                    <div
+                      key={blog.blog_id}
+                      className="bg-white p-3 my-5 rounded dark:bg-black"
                     >
-                      More info
-                    </NavLink>
-                  </div>
-                ))}
+                      <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+                        <img
+                          src={`${backurl}upload/${blog.img}`}
+                          alt={blog.title}
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <h3 className="mt-6 text-xl text-gray-800">
+                        {blog.title}
+                      </h3>
+                      <NavLink
+                        to={`/dashboard/admin/edit/blog/${blog.blog_id}`}
+                        className="bg-blue-600 px-8 py-1 text-white rounded mt-5 inline-block mb-5 hover:bg-blue-400"
+                      >
+                        More info
+                      </NavLink>
+                    </div>
+                  ))
+                : 'you don`t have any blogs'}
             </div>
           </div>
         </div>

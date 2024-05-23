@@ -5,6 +5,8 @@ import backurl from '../../../../links';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import moment from 'moment';
+
 function OneBlogGetAdmin() {
   const [teachers, setTeachers] = useState([]);
   const [blog, setBlog] = useState([]);
@@ -64,10 +66,11 @@ function OneBlogGetAdmin() {
       console.log(error);
     }
   }
+
   return (
     <DefaultLayoutAdmin>
-      <ToastContainer></ToastContainer>
-      <div className="bg-white w-150 p-2 py-5">
+      <ToastContainer />
+      <div className="bg-white dark:bg-black p-4 py-5 w-full max-w-4xl mx-auto">
         <img
           src={`${backurl}upload/${
             teachers
@@ -75,18 +78,22 @@ function OneBlogGetAdmin() {
               : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
           }`}
           alt="image"
-          width="400"
-          className="mx-auto sm:w-100"
+          className="w-full h-auto max-w-lg mx-auto"
         />
-        <h2 className="text-4xl text-black text-center">{teachers['title']}</h2>
+        <h2 className="text-2xl sm:text-4xl mt-5 text-black text-center">
+          {teachers['title']}
+        </h2>
         <p className="text-center mt-5">{teachers['descr']}</p>
+        <p className="text-center mt-5">
+          {moment(teachers['created_at']).format('l')}
+        </p>
 
-        <div>
+        <div className="mt-5 text-center">
           <button
             onClick={deleleItem}
-            className="mt-5 bg-red-600 text-white px-4 py-2 rounded mx-auto block"
+            className="bg-red-600 text-white px-4 py-2 rounded"
           >
-            delete blog
+            Delete Blog
           </button>
         </div>
       </div>
