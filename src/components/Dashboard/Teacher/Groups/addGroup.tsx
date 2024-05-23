@@ -13,13 +13,8 @@ function AddNewGroupTeacher() {
   const [main, setMain] = useState('');
   const [cost, setCost] = useState('');
   const [time, setTime] = useState('');
-  const [params, setParamas] = useState('');
 
-  const handleChange = (e: any) => {
-    setParamas(e.target.value);
-  };
-
-  // const { course_id } = useParams();
+  const { course_id } = useParams();
 
   const [courses, setCourses] = useState([]);
 
@@ -43,12 +38,14 @@ function AddNewGroupTeacher() {
     formData.append('u_count', main);
     formData.append('subj_start', cost);
     formData.append('subj_end', time);
-    formData.append('id', params);
+    // formData.append('id', params);
 
-    console.log(formData);
+    // console.log(formData);
+
+    // console.log(course_id);
 
     try {
-      const response = await fetch(`${backurl}api/add/group/${params}`, {
+      const response = await fetch(`${backurl}api/add/group/${course_id}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -59,12 +56,11 @@ function AddNewGroupTeacher() {
       // const result = await response.json();
       // console.log('Response:', result);
 
-      // if (response.ok) {
-      //   toast.success('Course successfully added', {
-      //     position: 'top-right',
-      //   });
-      // }
-      console.log(response);
+      if (response.ok) {
+        toast.success('Course successfully added', {
+          position: 'top-right',
+        });
+      }
     } catch (error: any) {
       console.error('Error submitting the form', error);
       toast.warning(error.message, {
@@ -72,34 +68,6 @@ function AddNewGroupTeacher() {
       });
     }
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${backurl}/api/get/courses`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-
-        const reversed = data.Data.reverse();
-
-        // console.log(reversed);
-
-        setCourses(reversed);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(params);
 
   return (
     <DefaultLayoutTeacher>
@@ -126,20 +94,25 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                l days
+                Which days
               </label>
-              <input
-                type="text"
-                placeholder="Enter your desc"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              <select
+                name="courses"
+                id="cpurses"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                required
-              />
+                className="w-full py-3 bg-white dark:bg-black ps-5"
+              >
+                <option value="couple">couple</option>
+                <option value="odd">odd</option>
+                <option value="everyday">everyday</option>
+                <option value="weekands">weekands</option>
+                <option value="work_days">work_days</option>
+              </select>
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                u_count
+                Maximum student limit
               </label>
               <input
                 type="text"
@@ -152,7 +125,7 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                subj_start
+                Lesson Start Time
               </label>
               <input
                 type="text"
@@ -165,7 +138,7 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                subj_end
+                Lesson Start End
               </label>
               <input
                 type="text"
@@ -176,7 +149,7 @@ function AddNewGroupTeacher() {
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            {/* <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
                 which course
               </label>
@@ -195,7 +168,7 @@ function AddNewGroupTeacher() {
                     ))
                   : 'you don`t have any courses'}
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex flex-row justify-end mt-20">

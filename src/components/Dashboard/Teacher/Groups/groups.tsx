@@ -81,11 +81,14 @@ export default function AllGroupsListTeacher() {
         </NavLink> */}
       </div>
       <div className="bg-gray-100 my-20">
-        <div className="mt-10 grid lg:grid-cols-3">
+        <h2 className="text-left font-bold text-xl">
+          Select the Course you want to add a Group
+        </h2>
+        <div className="mt-2 grid lg:grid-cols-3">
           {courses && courses
             ? courses.map((e) => (
                 <div
-                  className="my-20 mx-4  block p-3 bg-white"
+                  className="my-10 mx-4  block p-4 bg-white"
                   key={e.course_id}
                 >
                   {/* <img
@@ -98,7 +101,7 @@ export default function AllGroupsListTeacher() {
                     to={`/dashboard/teacher/group/${e.course_id}`}
                     className="bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
                   >
-                    More
+                    Add to this course
                   </NavLink>
                 </div>
               ))
@@ -185,7 +188,7 @@ export default function AllGroupsListTeacher() {
           </option>
         </select>
       </div> */}
-      <div className="">
+      {/* <div className="">
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
             {products.map((product) => (
@@ -210,7 +213,7 @@ export default function AllGroupsListTeacher() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

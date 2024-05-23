@@ -64,6 +64,7 @@ import AddnewpaymentStudent from './components/Dashboard/Student/payments/addpay
 import OneCourseGetTeacher from './components/Dashboard/Teacher/Courses/oneCourse';
 import UseFreeTrialPageStudent from './components/Dashboard/Student/freeTrial/free';
 import UseBuyCOurseStudent from './components/Dashboard/Student/freeTrial/buycourse';
+import AllGroupViewCourseStudent from './components/Dashboard/Teacher/Groups/allgroups';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -428,7 +429,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/teacher/add/new/groups"
+          path="/dashboard/teacher/add/new/groups/:course_id"
           element={
             <>
               <PageTitle title="Educore | Add new groups" />
@@ -442,6 +443,15 @@ function App() {
             <>
               <PageTitle title="Educore | course" />
               <OneCourseGetTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/group/:course_id"
+          element={
+            <>
+              <PageTitle title="Educore | course" />
+              <AllGroupViewCourseStudent />
             </>
           }
         />
