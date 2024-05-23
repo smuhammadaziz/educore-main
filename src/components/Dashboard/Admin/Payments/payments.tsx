@@ -103,11 +103,11 @@ export default function AllPaymentsListAdmin() {
                     Status:
                     <span
                       className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
-                        product.pay_status === 'paid'
+                        product.pay_status === 'succesfully'
                           ? 'bg-green-500'
                           : product.pay_status === 'pending'
                           ? 'bg-yellow-500'
-                          : product.pay_status === 'unpaid'
+                          : product.pay_status === 'reject'
                           ? 'bg-red-500'
                           : ''
                       }`}
