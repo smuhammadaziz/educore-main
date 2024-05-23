@@ -157,7 +157,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   View All Courses
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/dashboard/student/my/courses"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
@@ -168,7 +168,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   <img src={i115} alt="home icon" width="20" height="20" />
                   My Courses
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="/dashboard/student/groups"
@@ -178,7 +178,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <img src={i115} alt="home icon" width="20" height="20" />
-                  My Groups
+                  My Group
                 </NavLink>
               </li>
 

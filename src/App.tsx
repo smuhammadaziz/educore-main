@@ -76,6 +76,9 @@ import GEtAllLessonsTeacher from './components/Dashboard/Teacher/Lessons/lessons
 import GetAllGroupsFromCourseStudent from './components/Dashboard/Student/freeTrial/gettingAllGroup';
 import BuyOneCourseGroupStudent from './components/Dashboard/Student/freeTrial/buycourse';
 import GetOnePaymentAdmin from './components/Dashboard/Admin/Payments/onePayment';
+import GetMyGroupStudent from './pages/Dashboard/Student/group/mygroup';
+import GetMyAllHomeworksStudent from './pages/Dashboard/Student/homework/hw';
+import GetAllLessonsStudent from './pages/Dashboard/Student/lesson/lesson';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -627,6 +630,33 @@ function App() {
             <>
               <PageTitle title="Educore | Use Free Trial" />
               <UseFreeTrialPageStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/groups"
+          element={
+            <>
+              <PageTitle title="Educore | All groups list" />
+              <GetMyGroupStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/homeworks"
+          element={
+            <>
+              <PageTitle title="Educore | All homeworks list" />
+              <GetMyAllHomeworksStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/lessons"
+          element={
+            <>
+              <PageTitle title="Educore | All lessons list" />
+              <GetAllLessonsStudent />
             </>
           }
         />
