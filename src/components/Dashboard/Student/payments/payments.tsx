@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import backurl from '../../../../links';
 
@@ -26,12 +26,9 @@ export default function AllPaymentsViewStudent() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        //    const allCourse = data.SATCourses;
         console.log(data);
 
         setData(data);
-
-        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -39,19 +36,14 @@ export default function AllPaymentsViewStudent() {
     fetchCourses();
   }, []);
 
+  const filteredData = selectedOption
+    ? data.filter((item) =>
+        selectedOption === 'all' ? true : item.pay_status === selectedOption,
+      )
+    : data;
+
   return (
     <>
-      <div className="right-0 top-0 mb-10 mx-auto">
-        <h2 className="text-2xl mb-5">
-          All <span className="underline">Payments</span> List
-        </h2>
-        <NavLink
-          to="/dashboard/student/add/new/payment"
-          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded hover:bg-blue-500 active:bg-blue-400"
-        >
-          Send new payment cheque
-        </NavLink>
-      </div>
       <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-3">
         <select
           value={selectedOption}
@@ -83,7 +75,7 @@ export default function AllPaymentsViewStudent() {
       <div className="">
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-            {data.map((product: any) => (
+            {filteredData.map((product: any) => (
               <div
                 key={product.payment_id}
                 className="group bg-white p-5 dark:bg-slate-700 dark:text-white "
