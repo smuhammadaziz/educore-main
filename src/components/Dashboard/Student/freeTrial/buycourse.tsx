@@ -1,82 +1,142 @@
-import React from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
+
+import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
+import backurl from '../../../../links';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
 
-import Img from '../../../../images/brand/qrcode.png';
+function BuyOneCourseGroupStudent() {
+  const [name, setName] = useState('');
+  const [main, setMain] = useState('');
+  const [cost, setCost] = useState(null);
 
-function UseBuyCOurseStudent() {
-  const { course_id } = useParams();
+  const { group_id } = useParams();
+
+  const [courses, setCourses] = useState([]);
+
+  const token = localStorage.getItem('TOKEN');
+
+  const handleCancel = () => {
+    setName('');
+    setMain('');
+    setCost(null);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    // Create a form data object
+    const formData = new FormData();
+    formData.append('card_t', name);
+    formData.append('pay_desc', main);
+    if (cost) {
+      formData.append('image', cost);
+    }
+
+    // console.log(formData);
+
+    try {
+      const response = await fetch(
+        `${backurl}api/payment/student/${group_id}`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        },
+      );
+
+      // const result = await response.json();
+      // // console.log(result);
+
+      if (response.ok) {
+        toast.success('Payment successfully sent', {
+          position: 'top-right',
+        });
+        handleCancel();
+      }
+    } catch (error: any) {
+      console.error('Error submitting the payment', error);
+      toast.warning(error.message, {
+        position: 'top-right',
+      });
+    }
+  };
+
   return (
     <DefaultLayoutStudent>
-      <div className="flex justify-between">
-        <form action="">
-          <div className="flex flex-col">
-            <label htmlFor="" className="mb-5 text-xl font-bold">
-              Attach your check
-            </label>
-            <input
-              type="file"
-              placeholder="enter your check"
-              className="w-100 bg-white p-3 dark:bg-black"
-            />
-          </div>
-          <div className="flex flex-col mt-5 mb-5">
-            <label htmlFor="" className="mb-5 text-xl font-bold">
-              Enter Your Card Type
-            </label>
-            <select name="" id="" className="p-3 outline-none dark:bg-black">
-              <option value="Humo" className="p-3">
-                Humo
-              </option>
-              <option value="Uzcard" className="p-3">
-                UzCard
-              </option>
-              <option value="Visa" className="p-3">
-                Visa
-              </option>
-              <option value="Mastercard" className="p-3">
-                MasterCard
-              </option>
-            </select>
-          </div>
-          <div className="flex flex-col mt-5">
-            <label htmlFor="" className="mb-5 text-xl font-bold">
-              Enter some description
-            </label>
-            <textarea
-              cols="0"
-              rows="4"
-              className="w-100 p-2 outline-none dark:bg-black"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="bg-blue-600 py-3 px-10 text-white rounded mt-10"
-          >
-            Submit
-          </button>
-        </form>
-        <div className="mx-auto text-center">
-          <h2 className="text-xl mb-5">
-            Pay here and send check from this form
-          </h2>
-          <img
-            src={Img}
-            alt="QR code for payment"
-            width="300"
-            className="mx-auto"
-          />
-          <p className="font-bold mt-5">
-            8600 0000 1111 2222{' '}
-            <span className="ms-6 font-bold text-lg">Humo Card</span>
-          </p>
-
-          <p className="font-bold text-lg">Jhon Doe</p>
-        </div>
+      <ToastContainer></ToastContainer>
+      <div className="mb-5 text-left mx-auto text-2xl">
+        {' '}
+        Sending new <span className="underline">Payment</span>
       </div>
+      <form onSubmit={handleSubmit} className="dark:text-white">
+        <div className="p-6.5">
+          <div className="">
+            <div className="mb-4.5 md:w-1/2 px-2">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Card type
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your title"
+                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-4.5 md:w-1/2 px-2">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Description
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your desctiption"
+                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={main}
+                onChange={(e) => setMain(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-4.5 md:w-1/2 px-2">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Cheque image
+              </label>
+              <input
+                type="file"
+                placeholder="Enter your file"
+                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                // value={cost}
+                onChange={(e) => setCost(e.target.files[0])}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-row justify-end mt-20">
+            <a
+              href="/dashboard/teacher/my/all/groups"
+              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
+              onClick={handleCancel}
+            >
+              Cancel
+            </a>
+            <button
+              type="submit"
+              className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </form>
     </DefaultLayoutStudent>
   );
 }
 
-export default UseBuyCOurseStudent;
+export default BuyOneCourseGroupStudent;

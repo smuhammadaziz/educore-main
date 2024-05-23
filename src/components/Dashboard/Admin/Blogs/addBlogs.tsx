@@ -30,7 +30,7 @@ function AddNewBlogAdmin() {
       formData.append('image', photo);
     }
 
-    console.log(formData);
+    // console.log(formData);
 
     try {
       const response = await fetch(`${backurl}api/admin/add/blog`, {

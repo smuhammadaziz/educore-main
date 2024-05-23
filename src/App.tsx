@@ -73,6 +73,9 @@ import ShowAllHomeworksTeacher from './components/Dashboard/Teacher/Groups/showh
 import AddNewHomeworkTeacher from './components/Dashboard/Teacher/Groups/addHomework';
 import GetAllHomeworksTeacher from './components/Dashboard/Teacher/Homeworks/homework';
 import GEtAllLessonsTeacher from './components/Dashboard/Teacher/Lessons/lessons';
+import GetAllGroupsFromCourseStudent from './components/Dashboard/Student/freeTrial/gettingAllGroup';
+import BuyOneCourseGroupStudent from './components/Dashboard/Student/freeTrial/buycourse';
+import GetOnePaymentAdmin from './components/Dashboard/Admin/Payments/onePayment';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -271,6 +274,15 @@ function App() {
             <>
               <PageTitle title="Payments | Educore Dashboard" />
               <AllPaymentPageAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/payments/:payment_id"
+          element={
+            <>
+              <PageTitle title="Payments | Educore Dashboard" />
+              <GetOnePaymentAdmin />
             </>
           }
         />
@@ -596,7 +608,16 @@ function App() {
           element={
             <>
               <PageTitle title="Educore | Buy Now" />
-              <UseBuyCOurseStudent />
+              <GetAllGroupsFromCourseStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/courses/buy/:course_id/:group_id"
+          element={
+            <>
+              <PageTitle title="Educore | Buy Now" />
+              <BuyOneCourseGroupStudent />
             </>
           }
         />
