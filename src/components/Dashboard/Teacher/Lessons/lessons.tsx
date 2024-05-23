@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
-import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
-
 import moment from 'moment';
 
-function ShowAllLessonsTeacher() {
-  const { group_id } = useParams();
+function GEtAllLessonsTeacher() {
   const [courses, setCourses] = useState([]);
 
   const token = localStorage.getItem('TOKEN');
@@ -14,24 +11,21 @@ function ShowAllLessonsTeacher() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `${backurl}/api/get/teacher/group/lessons/${group_id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+        const response = await fetch(`${backurl}/api/get/lessons`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
 
-        const reversed = data.Data.reverse();
+        const reversed = data.Data;
 
         //    console.log(reversed);
 
-        setCourses(reversed);
+        setCourses(reversed.reverse());
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -41,16 +35,8 @@ function ShowAllLessonsTeacher() {
   }, []);
   return (
     <DefaultLayoutTeacher>
-      <div className="right-0 top-0 mx-auto mb-10">
-        <h2 className="text-2xl mb-5">
-          My <span className="underline">Lessons</span> List
-        </h2>
-        <NavLink
-          to={`/dashboard/teacher/add/new/lesson/${group_id}`}
-          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
-        >
-          Add new Lesson
-        </NavLink>
+      <div>
+        <h2 className="text-3xl">All Lessons list</h2>
       </div>
       <div className="">
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
@@ -112,4 +98,4 @@ function ShowAllLessonsTeacher() {
   );
 }
 
-export default ShowAllLessonsTeacher;
+export default GEtAllLessonsTeacher;

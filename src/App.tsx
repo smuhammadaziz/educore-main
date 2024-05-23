@@ -71,6 +71,8 @@ import ShowAllLessonsTeacher from './components/Dashboard/Teacher/Groups/showles
 import AddNewLessonForTeacher from './components/Dashboard/Teacher/Groups/addLesson';
 import ShowAllHomeworksTeacher from './components/Dashboard/Teacher/Groups/showhomeworks';
 import AddNewHomeworkTeacher from './components/Dashboard/Teacher/Groups/addHomework';
+import GetAllHomeworksTeacher from './components/Dashboard/Teacher/Homeworks/homework';
+import GEtAllLessonsTeacher from './components/Dashboard/Teacher/Lessons/lessons';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -456,6 +458,24 @@ function App() {
             <>
               <PageTitle title="Add homeworks | Teacher Dashboard" />
               <AddNewHomeworkTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/all/homeworks"
+          element={
+            <>
+              <PageTitle title="All homeworks | Teacher Dashboard" />
+              <GetAllHomeworksTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/all/lessons"
+          element={
+            <>
+              <PageTitle title="All lessons | Teacher Dashboard" />
+              <GEtAllLessonsTeacher />
             </>
           }
         />
