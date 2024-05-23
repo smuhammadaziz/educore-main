@@ -65,6 +65,12 @@ import OneCourseGetTeacher from './components/Dashboard/Teacher/Courses/oneCours
 import UseFreeTrialPageStudent from './components/Dashboard/Student/freeTrial/free';
 import UseBuyCOurseStudent from './components/Dashboard/Student/freeTrial/buycourse';
 import AllGroupViewCourseStudent from './components/Dashboard/Teacher/Groups/allgroups';
+import GetMyAllGroupsTeacher from './components/Dashboard/Teacher/Groups/myallgroups';
+import GetOneMyGroupsTeacher from './components/Dashboard/Teacher/Groups/myonegroup';
+import ShowAllLessonsTeacher from './components/Dashboard/Teacher/Groups/showlessons';
+import AddNewLessonForTeacher from './components/Dashboard/Teacher/Groups/addLesson';
+import ShowAllHomeworksTeacher from './components/Dashboard/Teacher/Groups/showhomeworks';
+import AddNewHomeworkTeacher from './components/Dashboard/Teacher/Groups/addHomework';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -396,6 +402,60 @@ function App() {
             <>
               <PageTitle title="My groups | Teacher Dashboard" />
               <AllGroupsPageTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/all/groups"
+          element={
+            <>
+              <PageTitle title="My all groups | Teacher Dashboard" />
+              <GetMyAllGroupsTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/all/groups/:group_id"
+          element={
+            <>
+              <PageTitle title="Group | Teacher Dashboard" />
+              <GetOneMyGroupsTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/all/groups/show/lessons/:group_id"
+          element={
+            <>
+              <PageTitle title="All lessons | Teacher Dashboard" />
+              <ShowAllLessonsTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/all/groups/show/homeworks/:group_id"
+          element={
+            <>
+              <PageTitle title="All homeworks | Teacher Dashboard" />
+              <ShowAllHomeworksTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/add/new/lesson/:group_id"
+          element={
+            <>
+              <PageTitle title="Add lessons | Teacher Dashboard" />
+              <AddNewLessonForTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/add/new/homework/:group_id"
+          element={
+            <>
+              <PageTitle title="Add homeworks | Teacher Dashboard" />
+              <AddNewHomeworkTeacher />
             </>
           }
         />
