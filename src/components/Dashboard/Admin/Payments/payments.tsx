@@ -65,10 +65,10 @@ export default function AllPaymentsListAdmin() {
           <option value="all" className="text-body dark:text-bodydark">
             All
           </option>
-          <option value="paid" className="text-body dark:text-bodydark">
+          <option value="succesfully" className="text-body dark:text-bodydark">
             Paid
           </option>
-          <option value="unpaid" className="text-body dark:text-bodydark">
+          <option value="reject" className="text-body dark:text-bodydark">
             Rejected
           </option>
           <option value="pending" className="text-body dark:text-bodydark">
