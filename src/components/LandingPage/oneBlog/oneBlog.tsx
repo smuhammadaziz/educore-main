@@ -70,9 +70,9 @@ function OneBlogLanding() {
           </p>
         </div>
         <p className="mt-4 sm:mt-0 sm:ml-4 font-bold text-base lg:text-lg">
-          {moment(course && course ? course.Data.created_at : '01/01/2024')
-            .subtract(10, 'days')
-            .calendar()}
+          {moment(
+            course && course ? course.Data.created_at : '01/01/2024',
+          ).format('l')}
         </p>
       </div>
     </div>

@@ -40,7 +40,7 @@ export function Blog() {
         const reversed = data;
         // console.log(reversed);
 
-        setCourses(reversed);
+        setCourses(reversed.reverse());
       } catch (error) {
         console.log(error);
       }
@@ -130,12 +130,6 @@ export function Blog() {
           ))}
         </div>
       </section>
-      <NavLink
-        to="/all/blogs"
-        className="bg-fuchsia-800 mt-5 text-white py-3 px-10 text-center mx-auto block w-75 mb-20 rounded-ss-2xl rounded-ee-2xl hover:bg-fuchsia-600"
-      >
-        {content[selectedLang as string].blogs.btn}
-      </NavLink>
     </div>
   );
 }

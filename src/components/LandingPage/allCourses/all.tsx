@@ -36,8 +36,6 @@ export default function AllCourses() {
         const allCourse = data.Courses;
 
         setData(allCourse);
-
-        console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -47,10 +45,7 @@ export default function AllCourses() {
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct,
-  );
+  const currentProducts = data.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const paginate = (pageNumber: any) => {
     setCurrentPage(pageNumber);
@@ -149,7 +144,7 @@ export default function AllCourses() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 mx-auto">
-          {data.map((product) => (
+          {currentProducts.map((product: any) => (
             <NavLink
               to={`/all/courses/${product.course_id}`}
               key={product.course_id}
@@ -193,7 +188,7 @@ export default function AllCourses() {
             </div>
             <div className="hidden md:-mt-px md:flex">
               {Array.from(
-                { length: Math.ceil(products.length / productsPerPage) },
+                { length: Math.ceil(data.length / productsPerPage) },
                 (_, i) => (
                   <button
                     key={i}
@@ -216,7 +211,7 @@ export default function AllCourses() {
                   window.scrollTo({ top: 0 });
                 }}
                 disabled={
-                  currentPage === Math.ceil(products.length / productsPerPage)
+                  currentPage === Math.ceil(data.length / productsPerPage)
                 }
                 className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
               >
