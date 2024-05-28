@@ -69,7 +69,7 @@ function AddNewHomeworkTeacher() {
           <div className="">
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Title
+                Homework title
               </label>
               <input
                 type="text"
@@ -82,7 +82,7 @@ function AddNewHomeworkTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Description
+                Homework short description
               </label>
               <input
                 type="text"

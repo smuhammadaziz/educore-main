@@ -43,7 +43,7 @@ function GetAllHomeworksTeacher() {
               courses.map((product) => (
                 <div
                   key={product.homework_id}
-                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white"
+                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl"
                 >
                   <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
                     {product.title}

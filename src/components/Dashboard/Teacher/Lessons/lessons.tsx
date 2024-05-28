@@ -45,16 +45,13 @@ function GEtAllLessonsTeacher() {
               courses.map((product) => (
                 <div
                   key={product.lesson_id}
-                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white"
+                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl"
                 >
                   <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
-                    {product.title}
+                    Lesson name: {product.title}
                   </h3>
                   <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                    {product.l_days}
-                  </p>
-                  <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                    {product.l_desc}
+                    Short info: {product.l_desc}
                   </p>
                   <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
                     <a
@@ -65,7 +62,7 @@ function GEtAllLessonsTeacher() {
                       join the lesson
                     </a>
                   </p>
-                  <p className="mt-2 text-md font-medium text-gray-900 dark:text-white text-right">
+                  <p className="mt-5 text-md font-medium text-gray-900 dark:text-white text-right">
                     Lesson Status:
                     <span
                       className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${

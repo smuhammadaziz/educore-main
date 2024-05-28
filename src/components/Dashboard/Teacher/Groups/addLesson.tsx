@@ -46,7 +46,7 @@ function AddNewLessonForTeacher() {
       // console.log('Response:', result);
 
       if (response.ok) {
-        toast.success('Course successfully added', {
+        toast.success('Lesson successfully added', {
           position: 'top-right',
         });
       }
@@ -70,11 +70,11 @@ function AddNewLessonForTeacher() {
           <div className="">
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Title
+                Lesson Name
               </label>
               <input
                 type="text"
-                placeholder="Enter your title"
+                placeholder="Enter your lesson title"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -83,7 +83,7 @@ function AddNewLessonForTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Description
+                Short information about your lesson
               </label>
               <input
                 type="text"
