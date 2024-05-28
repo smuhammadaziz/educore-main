@@ -48,6 +48,14 @@ type Content = {
       learn: string;
       desc: string;
     };
+    coursesPage: {
+      find: string;
+      course: string;
+      rating: string;
+      price: string;
+      previous: string;
+      next: string;
+    };
   };
 };
 
@@ -112,6 +120,14 @@ const content: Content = {
       learn: 'Learn with us',
       desc: '“Educore – will be connecting tutors from around the globe and developing innovative teaching environment, we are willing to create a platform which will let people study from their home.”',
     },
+    coursesPage: {
+      find: 'Find your first course',
+      course: 'Select Course',
+      rating: 'Select Rating',
+      price: 'Price',
+      previous: 'Previous',
+      next: 'Next',
+    },
   },
   uz: {
     header: {
@@ -172,6 +188,14 @@ const content: Content = {
     aboutIntro: {
       learn: 'Biz bilan o`rganing',
       desc: '"Educore - butun dunyo bo`ylab repetitorlarni bog`laydi va innovatsion o`qitish muhitini rivojlantiradi, biz odamlarga o`z uylaridan turib o`qish imkonini beradigan platforma yaratishga tayyormiz."',
+    },
+    coursesPage: {
+      find: 'Birinchi kursingizni toping',
+      course: 'Kurs turini tanlang',
+      rating: 'Reytingni tanlang',
+      price: 'Narxi',
+      previous: 'Oldingi',
+      next: 'Keyingi',
     },
   },
   ru: {
@@ -234,6 +258,14 @@ const content: Content = {
     aboutIntro: {
       learn: 'Учитесь вместе с нами',
       desc: '«Educore – будет объединять репетиторов со всего мира и развивать инновационную среду обучения. Мы готовы создать платформу, которая позволит людям учиться, не выходя из дома».',
+    },
+    coursesPage: {
+      find: 'Найдите свой первый курс',
+      course: 'Выберите тип курса',
+      rating: 'Выберите рейтинг',
+      price: 'Цена',
+      previous: 'Предыдущий',
+      next: 'Следующий',
     },
   },
 };

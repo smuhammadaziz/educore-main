@@ -15,6 +15,8 @@ const products = [
 ];
 
 import backurl from '../../../links';
+import useLang from '../../../hooks/useLang';
+import content from '../../../localization/content';
 
 export default function AllCourses() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -23,6 +25,8 @@ export default function AllCourses() {
   const [isOptionSelectedd, setIsOptionSelectedd] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 15;
+
+  const [selectedLanguage] = useLang();
 
   const [data, setData] = useState([]);
 
@@ -69,7 +73,7 @@ export default function AllCourses() {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="mt-10 text-2xl mb-10 text-center mx-auto">
-          Find your first course
+          {content[selectedLanguage as string].coursesPage.find}
         </h2>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -84,7 +88,7 @@ export default function AllCourses() {
             }`}
           >
             <option value="" disabled className="text-body dark:text-bodydark">
-              Select Course
+              {content[selectedLanguage as string].coursesPage.course}
             </option>
             <option value="IELTS" className="text-body dark:text-bodydark">
               IELTS
@@ -114,29 +118,20 @@ export default function AllCourses() {
             }`}
           >
             <option value="" disabled className="text-body dark:text-bodydark">
-              Select Rating
+              {content[selectedLanguage as string].coursesPage.rating}
             </option>
             <option value="5" className="text-body dark:text-bodydark">
-              5
+              ⭐⭐⭐⭐⭐
             </option>
             <option value="4.9" className="text-body dark:text-bodydark">
-              4.9
-            </option>
-            <option value="4.8" className="text-body dark:text-bodydark">
-              4.8
-            </option>
-            <option value="4.7" className="text-body dark:text-bodydark">
-              4.7
-            </option>
-            <option value="4.6" className="text-body dark:text-bodydark">
-              4.6
-            </option>
-            <option value="4.5" className="text-body dark:text-bodydark">
-              4.5
+              ⭐⭐⭐⭐
             </option>
           </select>
           <div className="">
-            <h2 className="text-xl font-bold">Price: {price} UZS</h2>
+            <h2 className="text-xl font-bold">
+              {content[selectedLanguage as string].coursesPage.price}: {price}{' '}
+              UZS
+            </h2>
             <input
               type="range"
               min="50000"
@@ -170,7 +165,7 @@ export default function AllCourses() {
               </h3>
 
               <p className="mt-5 text-lg font-medium text-gray-900">
-                {product.price} 000 so'm
+                {product.price}
               </p>
             </NavLink>
           ))}
@@ -188,7 +183,7 @@ export default function AllCourses() {
                 disabled={currentPage === 1}
                 className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
               >
-                Previous
+                {content[selectedLanguage as string].coursesPage.previous}
               </button>
             </div>
             <div className="hidden md:-mt-px md:flex">
@@ -220,7 +215,7 @@ export default function AllCourses() {
                 }
                 className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
               >
-                Next
+                {content[selectedLanguage as string].coursesPage.next}
               </button>
             </div>
           </nav>
