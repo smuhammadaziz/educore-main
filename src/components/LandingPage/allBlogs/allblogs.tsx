@@ -98,6 +98,7 @@ export function Blog() {
               color="white"
               className="my-2 font-normal text-right"
             >
+              {moment(created_at).format('LT')} {''}
               {moment(created_at).format('l')}
             </Typography>
           </div>

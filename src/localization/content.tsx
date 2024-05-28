@@ -56,6 +56,10 @@ type Content = {
       previous: string;
       next: string;
     };
+    blogsPage: {
+      blogs: string;
+      more: string;
+    };
   };
 };
 
@@ -128,6 +132,10 @@ const content: Content = {
       previous: 'Previous',
       next: 'Next',
     },
+    blogsPage: {
+      blogs: 'Blogs',
+      more: 'Read More',
+    },
   },
   uz: {
     header: {
@@ -196,6 +204,10 @@ const content: Content = {
       price: 'Narxi',
       previous: 'Oldingi',
       next: 'Keyingi',
+    },
+    blogsPage: {
+      blogs: 'Bloglar',
+      more: 'Ko`proq o`qish',
     },
   },
   ru: {
@@ -266,6 +278,10 @@ const content: Content = {
       price: 'Цена',
       previous: 'Предыдущий',
       next: 'Следующий',
+    },
+    blogsPage: {
+      blogs: 'Блоги',
+      more: 'Читать далее',
     },
   },
 };
