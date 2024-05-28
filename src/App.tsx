@@ -81,6 +81,7 @@ import GetMyAllHomeworksStudent from './pages/Dashboard/Student/homework/hw';
 import GetAllLessonsStudent from './pages/Dashboard/Student/lesson/lesson';
 import ViewAllCoursesIGCSEStudent from './components/Dashboard/Student/viewCourse/igcse';
 import ViewAllCourseALEVELStudent from './components/Dashboard/Student/viewCourse/alevel';
+import UseFreeTrialSessionForStudent from './components/Dashboard/Student/freeTrial/usefreetrial';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -641,6 +642,15 @@ function App() {
             <>
               <PageTitle title="Educore | Use Free Trial" />
               <UseFreeTrialPageStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/courses/use/free-trial/:course_id/:group_id"
+          element={
+            <>
+              <PageTitle title="Educore | Use Free Trial" />
+              <UseFreeTrialSessionForStudent />
             </>
           }
         />
