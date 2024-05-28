@@ -10,6 +10,7 @@ function AddnewCourseTeacher() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [main, setMain] = useState('');
+  const [sub, setSub] = useState('');
   const [cost, setCost] = useState('');
   const [time, setTime] = useState('');
   const [photo, setPhoto] = useState(null);
@@ -22,24 +23,23 @@ function AddnewCourseTeacher() {
     setMain('');
     setCost('');
     setTime('');
+    setSub('');
     setPhoto(null);
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Create a form data object
     const formData = new FormData();
     formData.append('title', name);
     formData.append('descr', description);
     formData.append('subject', main);
+    formData.append('main_sub', sub || ''); // Add an empty string if sub is null
     formData.append('price', cost);
     formData.append('period', time);
     if (photo) {
       formData.append('image', photo);
     }
-
-    // console.log(formData);
 
     try {
       const response = await fetch(`${backurl}api/add/course`, {
@@ -50,15 +50,11 @@ function AddnewCourseTeacher() {
         body: formData,
       });
 
-      // const result = await response.json();
-      // console.log('Response:', result);
-
       if (response.ok) {
         toast.success('Course successfully added', {
           position: 'top-right',
         });
       }
-      // console.log(response);
     } catch (error: any) {
       console.error('Error submitting the form', error);
       toast.warning(error.message, {
@@ -67,11 +63,20 @@ function AddnewCourseTeacher() {
     }
   };
 
+  const handleMainChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setMain(value);
+    if (value === 'IELTS' || value === 'SAT') {
+      setSub(''); // Set sub to an empty string if main is IELTS or SAT
+    } else {
+      setSub(''); // Reset sub when the main subject changes
+    }
+  };
+
   return (
     <DefaultLayoutTeacher>
-      <ToastContainer></ToastContainer>
+      <ToastContainer />
       <div className="mb-5 text-left mx-auto text-2xl">
-        {' '}
         Adding new <span className="underline">Course</span>
       </div>
       <form onSubmit={handleSubmit} className="dark:text-white">
@@ -79,11 +84,11 @@ function AddnewCourseTeacher() {
           <div className="">
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Title
+                Course name
               </label>
               <input
                 type="text"
-                placeholder="Enter your title"
+                placeholder="Enter your Course title"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -92,11 +97,11 @@ function AddnewCourseTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Descr
+                Short information about your course
               </label>
               <input
                 type="text"
-                placeholder="Enter your desc"
+                placeholder="Enter your short information"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -107,22 +112,101 @@ function AddnewCourseTeacher() {
               <label className="mb-2.5 block text-black dark:text-white">
                 Main Subject
               </label>
-              <input
-                type="text"
-                placeholder="Enter your main subject"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              <select
                 value={main}
-                onChange={(e) => setMain(e.target.value)}
-                required
-              />
+                onChange={handleMainChange}
+                className={`w-full rounded border border-stroke bg-white py-3 px-5 pe-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
+              >
+                <option
+                  value=""
+                  disabled
+                  className="text-body dark:text-bodydark"
+                >
+                  Select Main Course
+                </option>
+                <option value="IELTS" className="text-body dark:text-bodydark">
+                  IELTS
+                </option>
+                <option value="SAT" className="text-body dark:text-bodydark">
+                  SAT
+                </option>
+                <option value="IGCSE" className="text-body dark:text-bodydark">
+                  IGCSE
+                </option>
+                <option
+                  value="AS/A-LEVELS"
+                  className="text-body dark:text-bodydark"
+                >
+                  AS/A-LEVELS
+                </option>
+              </select>
             </div>
+            {(main === 'IGCSE' || main === 'AS/A LEVELS') && (
+              <div className="mb-4.5 md:w-1/2 px-2">
+                <label className="mb-2.5 block text-black dark:text-white">
+                  Subjects
+                </label>
+                <select
+                  value={sub}
+                  onChange={(e) => setSub(e.target.value)}
+                  className={`w-full rounded border border-stroke bg-white py-3 px-5 pe-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
+                >
+                  <option
+                    value=""
+                    disabled
+                    className="text-body dark:text-bodydark"
+                  >
+                    Select Subject
+                  </option>
+                  <option value="Math" className="text-body dark:text-bodydark">
+                    Math
+                  </option>
+                  <option
+                    value="Biology"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Biology
+                  </option>
+                  <option
+                    value="Business"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Business
+                  </option>
+                  <option
+                    value="Physics"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Physics
+                  </option>
+                  <option
+                    value="Chemistry"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Chemistry
+                  </option>
+                  <option
+                    value="Computer-Science"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Computer-Science
+                  </option>
+                  <option
+                    value="Economics"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Economics
+                  </option>
+                </select>
+              </div>
+            )}
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Price
+                Price (example: 300 000 sum)
               </label>
               <input
                 type="text"
-                placeholder="Enter your price"
+                placeholder="Enter your course price. Example: 300 000 sum"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
@@ -131,11 +215,11 @@ function AddnewCourseTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Period
+                Period (example: 4 months)
               </label>
               <input
                 type="text"
-                placeholder="Enter your period"
+                placeholder="Enter your course period. Example: 4 months"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
