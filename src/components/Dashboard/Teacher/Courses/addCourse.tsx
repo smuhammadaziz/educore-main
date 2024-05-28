@@ -69,9 +69,9 @@ function AddnewCourseTeacher() {
     const value = e.target.value;
     setMain(value);
     if (value === 'IELTS' || value === 'SAT') {
-      setSub(''); // Set sub to an empty string if main is IELTS or SAT
+      setSub('null');
     } else {
-      setSub(''); // Reset sub when the main subject changes
+      setSub('');
     }
   };
 

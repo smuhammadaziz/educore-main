@@ -41,7 +41,7 @@ export default function AllCourses() {
 
         const allCourse = data.Courses;
 
-        setData(allCourse);
+        setData(allCourse.reverse());
       } catch (error) {
         console.log(error);
       }
@@ -145,7 +145,7 @@ export default function AllCourses() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 mx-auto">
-          {/* {currentProducts && currentProducts
+          {currentProducts && currentProducts
             ? currentProducts.map((product: any) => (
                 <NavLink
                   to={`/all/courses/${product.course_id}`}
@@ -171,7 +171,7 @@ export default function AllCourses() {
                   </p>
                 </NavLink>
               ))
-            : 'dont have any courses'} */}
+            : 'dont have any courses'}
         </div>
 
         {/* Pagination buttons */}
@@ -190,7 +190,7 @@ export default function AllCourses() {
               </button>
             </div>
             <div className="hidden md:-mt-px md:flex">
-              {/* {Array.from(
+              {Array.from(
                 { length: Math.ceil(data.length / productsPerPage) },
                 (_, i) => (
                   <button
@@ -205,10 +205,10 @@ export default function AllCourses() {
                     {i + 1}
                   </button>
                 ),
-              )} */}
+              )}
             </div>
             <div className="-mt-px w-0 flex-1 flex justify-end">
-              {/* <button
+              <button
                 onClick={() => {
                   paginate(currentPage + 1);
                   window.scrollTo({ top: 0 });
@@ -219,7 +219,7 @@ export default function AllCourses() {
                 className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
               >
                 {content[selectedLanguage as string].coursesPage.next}
-              </button> */}
+              </button>
             </div>
           </nav>
         </div>
