@@ -56,7 +56,7 @@ export default function AllContactFormAdmin() {
                 </p>
                 <p className="mt-1 text-md font-bold text-gray-500 dark:text-white text-right">
                   {}
-                  {moment(item.created_at).subtract(10, 'days').calendar()}
+                  {moment(item.created_at).format('LLL')}
                 </p>
                 <NavLink
                   to={`/dashboard/contact/${item.contact_id}`}

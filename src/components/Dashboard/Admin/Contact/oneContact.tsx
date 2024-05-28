@@ -58,7 +58,7 @@ function OneContactGetAdmin() {
           </p>
 
           <p className="mt-1 text-lg font-medium text-gray-900 dark:text-white">
-            {moment(contacts.created_at).subtract(10, 'days').calendar()}
+            Created time: {moment(contacts.created_at).format('LLL')}
           </p>
           <NavLink
             to={`/dashboard/contact`}
