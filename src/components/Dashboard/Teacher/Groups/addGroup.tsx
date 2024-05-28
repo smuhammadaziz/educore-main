@@ -57,7 +57,7 @@ function AddNewGroupTeacher() {
       // console.log('Response:', result);
 
       if (response.ok) {
-        toast.success('Course successfully added', {
+        toast.success('Group successfully added', {
           position: 'top-right',
         });
       }
@@ -81,7 +81,7 @@ function AddNewGroupTeacher() {
           <div className="">
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Group name
+                Your Group's name
               </label>
               <input
                 type="text"
@@ -94,7 +94,7 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Which days
+                What days does your class take place?
               </label>
               <select
                 name="courses"
@@ -112,7 +112,7 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Maximum student limit
+                Your Group's maximum student limit
               </label>
               <input
                 type="text"
@@ -125,11 +125,11 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Lesson Start Time
+                Lesson Start Time (only numbers) example: 13
               </label>
               <input
                 type="text"
-                placeholder="Enter your price"
+                placeholder="Enter your lesson time (only numbers) example: 13"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
@@ -138,11 +138,11 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Lesson Start End
+                Lesson Start End (only numbers) example: 15
               </label>
               <input
                 type="text"
-                placeholder="Enter your period"
+                placeholder="Enter your lesson (only numbers) example: 15"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}

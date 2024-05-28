@@ -67,7 +67,7 @@ function AllGroupViewCourseStudent() {
                     {product.g_name}
                   </h3>
                   <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                    {product.l_days}
+                    Lesson Days: {product.l_days}
                   </p>
                   <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                     Maximum group size: {product.user_count} students
@@ -77,7 +77,7 @@ function AllGroupViewCourseStudent() {
                   </p>
                   <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
                     {/* {product.created_at} */}
-                    Created time: {moment(product.created_at).format('l')}
+                    Created time: {moment(product.created_at).format('LLL')}
                   </p>
                 </a>
               ))

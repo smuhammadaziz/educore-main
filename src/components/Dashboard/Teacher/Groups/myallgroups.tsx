@@ -45,7 +45,7 @@ function GetMyAllGroupsTeacher() {
                 <NavLink
                   key={product.group_id}
                   to={`/dashboard/teacher/my/all/groups/${product.group_id}`}
-                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white"
+                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl hover:shadow-2xl rounded"
                 >
                   <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
                     {product.g_name}
@@ -55,7 +55,7 @@ function GetMyAllGroupsTeacher() {
                     Lesson time: {product.subj_start}:00 - {product.subj_end}:00
                   </p>
                   <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
-                    Created time: {moment(product.created_at).format('l')}
+                    Created time: {moment(product.created_at).format('LLL')}
                   </p>
                 </NavLink>
               ))

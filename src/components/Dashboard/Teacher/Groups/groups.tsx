@@ -82,13 +82,13 @@ export default function AllGroupsListTeacher() {
       </div>
       <div className="bg-gray-100 my-20">
         <h2 className="text-left font-bold text-xl">
-          Select the Course you want to add a Group
+          Which course do you want to add Group? Select and Add your Groups
         </h2>
         <div className="mt-2 grid lg:grid-cols-3">
           {courses && courses
-            ? courses.map((e) => (
+            ? courses.map((e: any) => (
                 <div
-                  className="my-10 mx-4  block p-4 bg-white"
+                  className="my-10 mx-4  block p-4 bg-white rounded"
                   key={e.course_id}
                 >
                   {/* <img
