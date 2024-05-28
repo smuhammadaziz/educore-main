@@ -1,19 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const products = [
-  {
-    id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt:
-      'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-  },
-];
-
 import backurl from '../../../links';
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
@@ -42,6 +29,8 @@ export default function AllCourses() {
         const allCourse = data.Courses;
 
         setData(allCourse.reverse());
+
+        console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -49,12 +38,42 @@ export default function AllCourses() {
     fetchCourses();
   }, []);
 
+  const [price, setPrice] = useState(1000000);
+
+  const handleSliderChange = (event) => {
+    setPrice(event.target.value);
+  };
+
+  const filterCourses = (courses) => {
+    return courses
+      .filter((course) => {
+        if (selectedOptionn) {
+          return course.subject === selectedOptionn;
+        }
+        return true;
+      })
+      .filter((course) => {
+        if (selectedOption) {
+          const rating = parseFloat(selectedOption);
+          return course.rating >= rating && course.rating < rating + 0.1;
+        }
+        return true;
+      })
+      .filter((course) => {
+        return course.price <= price;
+      });
+  };
+
+  const filteredCourses = filterCourses(data);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts =
-    data && data ? data.slice(indexOfFirstProduct, indexOfLastProduct) : [];
+  const currentProducts = filteredCourses.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
 
-  const paginate = (pageNumber: any) => {
+  const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -62,12 +81,6 @@ export default function AllCourses() {
   const changeTextColor = () => {
     setIsOptionSelected(true);
     setIsOptionSelectedd(true);
-  };
-
-  const [price, setPrice] = useState(50000);
-
-  const handleSliderChange = (event: any) => {
-    setPrice(event.target.value);
   };
 
   return (
@@ -121,10 +134,10 @@ export default function AllCourses() {
             <option value="" disabled className="text-body dark:text-bodydark">
               {content[selectedLanguage as string].coursesPage.rating}
             </option>
-            <option value="5" className="text-body dark:text-bodydark">
+            <option value="5.0" className="text-body dark:text-bodydark">
               ⭐⭐⭐⭐⭐
             </option>
-            <option value="4.9" className="text-body dark:text-bodydark">
+            <option value="4.8" className="text-body dark:text-bodydark">
               ⭐⭐⭐⭐
             </option>
           </select>
@@ -145,8 +158,8 @@ export default function AllCourses() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 mx-auto">
-          {currentProducts && currentProducts
-            ? currentProducts.map((product: any) => (
+          {currentProducts && currentProducts.length > 0
+            ? currentProducts.map((product) => (
                 <NavLink
                   to={`/all/courses/${product.course_id}`}
                   key={product.course_id}
@@ -171,7 +184,7 @@ export default function AllCourses() {
                   </p>
                 </NavLink>
               ))
-            : 'dont have any courses'}
+            : 'No courses available'}
         </div>
 
         {/* Pagination buttons */}
@@ -191,7 +204,7 @@ export default function AllCourses() {
             </div>
             <div className="hidden md:-mt-px md:flex">
               {Array.from(
-                { length: Math.ceil(data.length / productsPerPage) },
+                { length: Math.ceil(filteredCourses.length / productsPerPage) },
                 (_, i) => (
                   <button
                     key={i}
@@ -214,7 +227,8 @@ export default function AllCourses() {
                   window.scrollTo({ top: 0 });
                 }}
                 disabled={
-                  currentPage === Math.ceil(data.length / productsPerPage)
+                  currentPage ===
+                  Math.ceil(filteredCourses.length / productsPerPage)
                 }
                 className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
               >
