@@ -3,27 +3,28 @@ import {
   FacebookIcon,
   LinkedinIcon,
   InstagramIcon,
+  SendIcon,
 } from 'lucide-react';
 
 const socialLinks = [
   {
-    name: 'LinkedIn',
-    link: '/',
-    icon: <LinkedinIcon />,
-  },
-  {
     name: 'Instagram',
-    link: '/',
+    link: 'https://www.instagram.com/educore_org',
     icon: <InstagramIcon />,
   },
   {
-    name: 'Facebook',
-    link: '/',
-    icon: <FacebookIcon />,
+    name: 'Telegram',
+    link: 'https://t.me/educore_org',
+    icon: <SendIcon />,
+  },
+  {
+    name: 'LinkedIn',
+    link: 'https://www.linkedin.com/company/educore-org/',
+    icon: <LinkedinIcon />,
   },
   {
     name: 'Website',
-    link: '/',
+    link: 'https://www.educore-org.uz/',
     icon: <EarthIcon />,
   },
 ];
@@ -77,8 +78,8 @@ const Footer = () => {
 
         {/* email */}
         <div className="text-white mt-6 mb-2 flex gap-2 items-center flex-col">
-          <span className="text-lg font-medium">contact@educore.com</span>
-          <span className="text-lg font-medium">+998 (99) 000-00-00</span>
+          <span className="text-lg font-medium">educoreorg@gmail.com</span>
+          {/* <span className="text-lg font-medium">+998 (99) 000-00-00</span> */}
         </div>
       </div>
 
