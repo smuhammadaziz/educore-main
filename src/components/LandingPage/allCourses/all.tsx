@@ -101,10 +101,10 @@ export default function AllCourses() {
               IGCSE
             </option>
             <option
-              value="AS/A LEVELS"
+              value="AS/A-LEVELS"
               className="text-body dark:text-bodydark"
             >
-              AS/A LEVELS
+              AS/A-LEVELS
             </option>
           </select>
 
