@@ -69,22 +69,19 @@ const BuyOneCourseNowStudent = () => {
 
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-extrabold text-gray-800">
+                Course Name:{' '}
                 {data && data['title'] ? data['title'] : 'SAT | IELTS'}
               </h2>
               <div className="flex flex-wrap gap-4 mt-4">
                 <p className="text-gray-800 text-xl font-extrabold text-5xl ">
-                  {data && data['price'] ? data['price'] : 'SAT | IELTS'} 000
-                  so'm
+                  Price: {data && data['price'] ? data['price'] : 'SAT | IELTS'}{' '}
+                  UZS
                 </p>
               </div>
 
               <div className="flex space-x-2 mt-4">
-                <Rating
-                  value={JSON.stringify(givenRatingIntoCouse())}
-                  readonly
-                />
                 <p className="bg-black px-4 py-2 rounded-full text-white text-xl font-extrabold text-5xl ">
-                  {givenRatingIntoCouse()}
+                  {/* {givenRatingIntoCouse()} */}4.2
                 </p>
               </div>
 
@@ -92,24 +89,22 @@ const BuyOneCourseNowStudent = () => {
                 <h3 className="text-lg font-bold text-gray-800">
                   About the course
                 </h3>
+                <p className="text-md font-bold text-gray-00 mt-3">
+                  {data && data['descr'] ? data['descr'] : 'SAT | IELTS'}
+                </p>
                 <p className="text-sm font-bold text-gray-00 mt-3">
                   Period:{' '}
                   {data && data['period'] ? data['period'] : 'SAT | IELTS'}{' '}
-                  month
-                </p>
-                <p className="text-sm font-bold text-gray-00 mt-3">
-                  {data && data['descr'] ? data['descr'] : 'SAT | IELTS'}
+                  months
                 </p>
               </div>
               <div className="mt-8">
                 <h3 className="text-lg font-bold text-gray-800">
                   About the Course Teacher
                 </h3>
-                <p className="text-sm font-bold text-gray-00 mt-3">
+                <p className="text-md font-bold text-gray-00 mt-3">
                   {data && data['name'] ? data['name'] : 'SAT | IELTS'}{' '}
-                  {data && data['l_name'] ? data['l_name'] : 'SAT | IELTS'}{' '}
-                  {data && data['age'] ? data['age'] : 'SAT | IELTS'} (years
-                  old)
+                  {data && data['l_name'] ? data['l_name'] : 'SAT | IELTS'}
                 </p>
                 <p className="text-sm font-bold text-gray-00 mt-3">
                   Email: {data && data['email'] ? data['email'] : 'SAT | IELTS'}
@@ -119,7 +114,7 @@ const BuyOneCourseNowStudent = () => {
                   {data && data['phone'] ? data['phone'] : 'SAT | IELTS'}
                 </p>
               </div>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                 <NavLink
                   to={`/dashboard/student/courses/buy/${course_id}`}
                   className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
@@ -128,7 +123,7 @@ const BuyOneCourseNowStudent = () => {
                 </NavLink>
                 <NavLink
                   to={`/dashboard/student/courses/use/free/${course_id}`}
-                  className="ms-2 inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                  className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                 >
                   Use Free Trial
                 </NavLink>
