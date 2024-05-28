@@ -22,7 +22,7 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <NavLink to="/" className="-m-1.5 p-1.5">
-            <img className="h-15 w-auto" src={Logo} alt="site logo" />
+            <img className="h-17 w-auto" src={Logo} alt="site logo" />
           </NavLink>
         </div>
         <div className="flex lg:hidden">
@@ -38,19 +38,19 @@ export default function Header() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <NavLink
             to="/about/us"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-black"
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black"
           >
             {content[selectedLanguage as string].header.about}
           </NavLink>
           <NavLink
             to="/all/courses"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-black"
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black"
           >
             {content[selectedLanguage as string].header.courses}
           </NavLink>
           <NavLink
             to="/all/blogs"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-black"
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black"
           >
             {content[selectedLanguage as string].header.blogs}
           </NavLink>
@@ -61,7 +61,6 @@ export default function Header() {
             value={selectedLanguage as string}
             onChange={(e) => {
               setSelectedLanguage(e.target.value);
-              // console.log(selectedLanguage);
             }}
           >
             <option value="en">
@@ -76,7 +75,7 @@ export default function Header() {
           </select>
           <NavLink
             to="/auth/signin"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="text-md font-semibold leading-6 text-gray-900 hover:underline"
           >
             {content[selectedLanguage as string].header.login}
           </NavLink>
@@ -86,12 +85,6 @@ export default function Header() {
           >
             {content[selectedLanguage as string].header.register}
           </NavLink>
-          {/* <NavLink
-            to="/auth/signup"
-            className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-fuchsia-800 text-white px-5 py-2 rounded-full hover:bg-fuchsia-600 active:bg-fuchsia-500 focus:outline-none focus:ring focus:ring-violet-300"
-          >
-            {content[selectedLanguage as string].header.gotodashboard}
-          </NavLink> */}
         </div>
       </nav>
       <Dialog
