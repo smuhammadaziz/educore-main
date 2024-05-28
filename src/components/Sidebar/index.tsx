@@ -242,6 +242,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Blogs
                 </NavLink>
               </li>
+              <hr className="my-5" />
               <li>
                 <NavLink
                   to="/settings"

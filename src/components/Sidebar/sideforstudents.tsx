@@ -218,6 +218,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   My Payments
                 </NavLink>
               </li>
+              <hr className="my-5" />
               <li>
                 <NavLink
                   to="/student/settings"

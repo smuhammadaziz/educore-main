@@ -166,7 +166,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <img src={i115} alt="home icon" width="20" height="20" />
-                  My Groups
+                  Adding new groups
                 </NavLink>
               </li>
               <li>
@@ -218,18 +218,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   My Students
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/dashboard/teacher/my/payments"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/teacher/my/payments') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i115} alt="home icon" width="20" height="20" />
-                  Payments
-                </NavLink>
-              </li>
+
+              <hr className="my-5" />
               <li>
                 <NavLink
                   to="/settings"
