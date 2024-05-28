@@ -4,22 +4,6 @@ import backurl from '../../../../links';
 
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 
-const products = [
-  {
-    id: 1,
-    name: 'Sardor',
-    l_name: 'Sardorov',
-    email: 'email@gmail.com',
-    phone: '+998900222222',
-    status: 'pending',
-    group_name: '112 | IELTS GROUP',
-    subject: 'IELTS',
-    desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing.',
-    date: '25.10.2024',
-    price: '120.000 UZS',
-  },
-];
-
 export default function GetAllGroupsFromCourseStudent() {
   const [selectedOption, setSelectedOption] = useState('');
   const [isOptionSelected, setIsOptionSelected] = useState(false);
@@ -53,7 +37,7 @@ export default function GetAllGroupsFromCourseStudent() {
         const data = await response.json();
         const allCourse = data.getidbycourse;
 
-        //    console.log(allCourse);
+        console.log(allCourse);
 
         setData(allCourse);
       } catch (error) {
@@ -67,7 +51,7 @@ export default function GetAllGroupsFromCourseStudent() {
     <DefaultLayoutStudent>
       <div className="">
         <h2 className="text-2xl text-black font-bold">
-          Choose which group is suitable for and buy it.{' '}
+          Select one group, which you want to buy.
         </h2>
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
@@ -76,7 +60,7 @@ export default function GetAllGroupsFromCourseStudent() {
                   <NavLink
                     key={product.group_id}
                     to={`/dashboard/student/courses/buy/${course_id}/${product.group_id}`}
-                    className="group bg-white p-5 dark:bg-slate-700 dark:text-white "
+                    className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-lg text-black"
                   >
                     <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
                       Group name: {product.g_name}
@@ -85,20 +69,22 @@ export default function GetAllGroupsFromCourseStudent() {
                       which days: {product.l_days}
                     </p>
                     <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                      Teacher:{product.name}
-                      {product.l_name}
+                      Teacher: {product.name} {product.l_name}
                     </p>
                     <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                      Price: {product.price} 000 so'm
+                      Price: {product.price} UZS
                     </p>
                     <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                      Course rating: {product.rating}
+                      Course period: {product.period} months
                     </p>
                     <p className="mt-1 text-md font-bold text-gray-500 dark:text-white text-right">
                       Lesson time: {product.subj_start}:00-{product.subj_end}:00
                     </p>
                     <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                       Main Subject: {product.subject}
+                    </p>
+                    <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
+                      Subject: {product.main_sub}
                     </p>
                     <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                       Maximum Students Limit: {product.user_count}

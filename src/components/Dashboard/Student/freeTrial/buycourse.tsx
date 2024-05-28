@@ -81,14 +81,36 @@ function BuyOneCourseGroupStudent() {
               <label className="mb-2.5 block text-black dark:text-white">
                 Card type
               </label>
-              <input
-                type="text"
-                placeholder="Enter your title"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              <select
                 value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                className={`w-full rounded border border-stroke bg-white py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
+              >
+                <option
+                  value=""
+                  disabled
+                  className="text-body dark:text-bodydark"
+                >
+                  Choose Your Card Type
+                </option>
+                <option value="Humo" className="text-body dark:text-bodydark">
+                  Humo
+                </option>
+                <option value="Uzcard" className="text-body dark:text-bodydark">
+                  Uzcard
+                </option>
+                <option value="Visa" className="text-body dark:text-bodydark">
+                  Visa
+                </option>
+                <option
+                  value="Mastercard"
+                  className="text-body dark:text-bodydark"
+                >
+                  Mastercard
+                </option>
+              </select>
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
