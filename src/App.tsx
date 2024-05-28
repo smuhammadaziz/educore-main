@@ -719,7 +719,7 @@ function App() {
         {/* =============================================================== */}
         {/* =============================================================== */}
         <Route
-          path="/dashboard/admin/settings"
+          path="/dashboard/admin/settings/:profile_id"
           element={
             <>
               <PageTitle title="Settings | Educore" />

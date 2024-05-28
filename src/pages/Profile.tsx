@@ -41,7 +41,7 @@ const Profile = () => {
     fetchData();
   }, []);
 
-  console.log(profileData);
+  // console.log(profileData);
 
   return (
     <DefaultLayout>
