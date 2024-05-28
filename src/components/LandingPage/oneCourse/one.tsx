@@ -70,7 +70,7 @@ const CoffeeComponent = () => {
             </h2>
             <div className="flex flex-wrap gap-4 mt-4">
               <p className="text-gray-800 text-xl font-extrabold text-5xl ">
-                {data && data['price'] ? data['price'] : 'SAT | IELTS'} 000 so'm
+                {data && data['price'] ? data['price'] : 'SAT | IELTS'} UZS
               </p>
             </div>
 
@@ -85,12 +85,12 @@ const CoffeeComponent = () => {
               <h3 className="text-lg font-bold text-gray-800">
                 About the course
               </h3>
-              <p className="text-sm font-bold text-gray-00 mt-3">
-                Period:{' '}
-                {data && data['period'] ? data['period'] : 'SAT | IELTS'} month
+              <p className="text-md font-bold text-gray-00 mt-3">
+                {data && data['descr'] ? data['descr'] : 'SAT | IELTS'}
               </p>
               <p className="text-sm font-bold text-gray-00 mt-3">
-                {data && data['descr'] ? data['descr'] : 'SAT | IELTS'}
+                Period:{' '}
+                {data && data['period'] ? data['period'] : 'SAT | IELTS'} months
               </p>
             </div>
             <div className="mt-8">
@@ -100,14 +100,6 @@ const CoffeeComponent = () => {
               <p className="text-sm font-bold text-gray-00 mt-3">
                 {data && data['name'] ? data['name'] : 'SAT | IELTS'}{' '}
                 {data && data['l_name'] ? data['l_name'] : 'SAT | IELTS'}{' '}
-                {data && data['age'] ? data['age'] : 'SAT | IELTS'} (years old)
-              </p>
-              <p className="text-sm font-bold text-gray-00 mt-3">
-                Email: {data && data['email'] ? data['email'] : 'SAT | IELTS'}
-              </p>
-              <p className="text-sm font-bold text-gray-00 mt-3">
-                Phone number:{' '}
-                {data && data['phone'] ? data['phone'] : 'SAT | IELTS'}
               </p>
             </div>
             <div className="mt-8">
