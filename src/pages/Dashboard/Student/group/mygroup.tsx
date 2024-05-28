@@ -23,7 +23,7 @@ function GetMyGroupStudent() {
 
         const allCourse = data.Getmygroups;
 
-        console.log(allCourse);
+        // console.log(allCourse);
 
         setData(allCourse);
       } catch (error) {

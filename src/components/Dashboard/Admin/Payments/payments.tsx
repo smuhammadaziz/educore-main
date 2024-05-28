@@ -26,6 +26,9 @@ export default function AllPaymentsListAdmin() {
         const data = await response.json();
         const reversedData = data.Allpayments.reverse();
         setBlogs(reversedData);
+
+        // console.log(reversedData);
+
         setFilteredBlogs(reversedData);
       } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -94,7 +97,10 @@ export default function AllPaymentsListAdmin() {
                     {product.subject}
                   </p>
                   <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                    {product.price} 000 so'm
+                    Group Name: {product.g_name}
+                  </p>
+                  <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
+                    {product.price} UZS
                   </p>
                   <p className="mt-1 text-md font-bold text-gray-500 dark:text-white text-right">
                     {product.date}
