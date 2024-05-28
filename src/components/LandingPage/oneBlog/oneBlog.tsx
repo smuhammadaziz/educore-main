@@ -27,7 +27,7 @@ function OneBlogLanding() {
     fetchCourses();
   }, []);
   return (
-    <div className="mx-auto container px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 py-10 sm:py-16 lg:py-20 text-center">
+    <div className="mx-left container px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 py-10 sm:py-16 lg:py-20 text-center">
       <img
         src={`${backurl}upload/${
           course
@@ -35,15 +35,20 @@ function OneBlogLanding() {
             : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
         }`}
         alt="image"
-        className="mx-auto rounded-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
+        className="mx-left rounded-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
       />
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl text-black mt-8 sm:mt-10">
+      <h2 className="text-2xl  sm:text-2xl lg:text-3xl text-black mt-8 sm:mt-10 text-left">
         {course && course ? course.Data.title : 'Hello world'}
       </h2>
-      <p className="text- sm:text-lg sm:w-150 sm:leading-6 lg:text-xl text-black text-center mx-auto mt-6 sm:mt-8 lg:mt-10 leading-6">
+      <p className="text-left sm:text-lg w-full sm:leading-6 lg:text-xl text-black mx-left mt-6 sm:mt-8 lg:mt-10 leading-6">
         {course && course ? course.Data.descr : 'Lorem ipsum'}
       </p>
-      <div className="flex flex-col items-center sm:flex-col justify-center mt-8 sm:mt-12 lg:mt-16">
+      <div className="flex items-center mx-left justify-between w-75 mt-8 sm:mt-12 lg:mt-16">
+        <p className="flex flex-col  font-bold lg:text-lg">
+          {moment(
+            course && course ? course.Data.created_at : '01/01/2024',
+          ).format('LLL')}
+        </p>
         <div className="flex items-center justify-center">
           <svg
             className="w-6 h-6 text-gray-800 dark:text-white"
@@ -69,11 +74,6 @@ function OneBlogLanding() {
             {course && course ? course.blogcount.count : '123'}
           </p>
         </div>
-        <p className="mt-4 sm:mt-0 sm:ml-4 font-bold text-base lg:text-lg">
-          {moment(
-            course && course ? course.Data.created_at : '01/01/2024',
-          ).format('l')}
-        </p>
       </div>
     </div>
   );
