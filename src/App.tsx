@@ -82,6 +82,9 @@ import GetAllLessonsStudent from './pages/Dashboard/Student/lesson/lesson';
 import ViewAllCoursesIGCSEStudent from './components/Dashboard/Student/viewCourse/igcse';
 import ViewAllCourseALEVELStudent from './components/Dashboard/Student/viewCourse/alevel';
 import UseFreeTrialSessionForStudent from './components/Dashboard/Student/freeTrial/usefreetrial';
+import AdminSettings from './pages/Role/Admin/settings';
+import StudentSettings from './pages/Role/Student/settings';
+import TeacherSettings from './pages/Role/Teacher/settings';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -710,6 +713,35 @@ function App() {
             <>
               <PageTitle title="Signup | Educore" />
               <SignUp />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/admin/settings"
+          element={
+            <>
+              <PageTitle title="Settings | Educore" />
+              <AdminSettings />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/settings"
+          element={
+            <>
+              <PageTitle title="Settings | Educore" />
+              <StudentSettings />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/settings"
+          element={
+            <>
+              <PageTitle title="Settings | Educore" />
+              <TeacherSettings />
             </>
           }
         />
