@@ -3,27 +3,13 @@ import backurl from '../../../../links';
 import { NavLink } from 'react-router-dom';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 
-const products = [
-  {
-    id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt:
-      'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-  },
-];
+const productsPerPage = 15;
 
 function ViewAllCoursesIGCSEStudent() {
   const [selectedOption, setSelectedOption] = useState('');
-  const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 15;
-
+  const [sub, setSub] = useState('');
   const [data, setData] = useState([]);
-
   const token = localStorage.getItem('TOKEN');
 
   useEffect(() => {
@@ -42,7 +28,6 @@ function ViewAllCoursesIGCSEStudent() {
         }
         const data = await response.json();
         const allCourse = data.IGSECourses;
-
         setData(allCourse);
       } catch (error) {
         console.log(error);
@@ -53,49 +38,96 @@ function ViewAllCoursesIGCSEStudent() {
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = data.slice(indexOfFirstProduct, indexOfLastProduct);
+  let filteredData = data.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  if (sub !== '' && sub !== 'ALL') {
+    filteredData = data.filter((course) => course.main_sub === sub);
+  }
 
   const paginate = (pageNumber: any) => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const changeTextColor = () => {
-    setIsOptionSelected(true);
+  const handleSelectChange = (e: any) => {
+    setSub(e.target.value);
+    setCurrentPage(1); // Reset pagination when the subject filter changes
   };
+
   return (
     <DefaultLayoutStudent>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mt-10">
-        {data &&
-          data.map((product: any) => (
-            <NavLink
-              to={`/dashboard/student/courses/${product.course_id}`}
-              key={product.course_id}
-              className="group"
-            >
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src={`${backurl}upload/${product.image}`}
-                  alt="course image"
-                  className="w-100 h-64 object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-lg font-bold text-gray-700">
-                {product.title}
-              </h3>
-              <h3 className=" text-lg font-bold text-gray-700">
-                {product.name} {product.l_name}
-              </h3>
-
-              <p className="mt-5 text-lg font-medium text-gray-900">
-                {product.price} 000 so'm
-              </p>
-            </NavLink>
-          ))}
+      <div className="mb-4.5 md:w-1/3 px-2">
+        <label className="mb-2.5 block text-black dark:text-white">
+          Subjects
+        </label>
+        <select
+          value={sub}
+          onChange={handleSelectChange}
+          className={`w-full rounded border border-stroke bg-white py-3 px-5 pe-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
+        >
+          <option value="" disabled className="text-body dark:text-bodydark">
+            Select Subject
+          </option>
+          <option value="ALL" className="text-body dark:text-bodydark">
+            ALL
+          </option>
+          <option value="Math" className="text-body dark:text-bodydark">
+            Math
+          </option>
+          <option value="Biology" className="text-body dark:text-bodydark">
+            Biology
+          </option>
+          <option value="Business" className="text-body dark:text-bodydark">
+            Business
+          </option>
+          <option value="Physics" className="text-body dark:text-bodydark">
+            Physics
+          </option>
+          <option value="Chemistry" className="text-body dark:text-bodydark">
+            Chemistry
+          </option>
+          <option
+            value="Computer-Science"
+            className="text-body dark:text-bodydark"
+          >
+            Computer-Science
+          </option>
+          <option value="Economics" className="text-body dark:text-bodydark">
+            Economics
+          </option>
+        </select>
       </div>
-
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mt-10">
+        {filteredData.map((product: any) => (
+          <NavLink
+            to={`/dashboard/student/courses/${product.course_id}`}
+            key={product.course_id}
+            className="group"
+          >
+            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+              <img
+                src={`${backurl}upload/${product.image}`}
+                alt="course image"
+                className="w-100 h-64 object-cover"
+              />
+            </div>
+            <h3 className="mt-4 text-lg font-bold text-gray-700">
+              {product.title}
+            </h3>
+            <h3 className="text-lg font-bold text-gray-700">
+              {product.name} {product.l_name}
+            </h3>
+            <h3 className="mt-4 text-lg font-bold text-gray-700">
+              Subject: {product.main_sub}
+            </h3>
+            <p className="mt-5 text-lg font-medium text-gray-900">
+              {product.price} UZS
+            </p>
+          </NavLink>
+        ))}
+      </div>
       <div className="mt-8">
-        <nav className=" px-4 flex items-center justify-between sm:px-0">
+        <nav className="px-4 flex items-center justify-between sm:px-0">
           <div className="-mt-px w-0 flex-1 flex ">
             <button
               onClick={() => {
