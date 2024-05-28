@@ -24,7 +24,7 @@ const CoffeeComponent = () => {
 
         setData(allCourse);
 
-        console.log(allCourse);
+        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -75,7 +75,7 @@ const CoffeeComponent = () => {
             </div>
 
             <div className="flex space-x-2 mt-4">
-              <Rating value={JSON.stringify(givenRatingIntoCouse())} readonly />
+              <Rating value={5} readonly />
               <p className="bg-black px-4 py-2 rounded-full text-white text-xl font-extrabold text-5xl ">
                 {givenRatingIntoCouse()}
               </p>
