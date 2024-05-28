@@ -38,19 +38,19 @@ export default function Header() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <NavLink
             to="/about/us"
-            className="text-md font-semibold leading-6 text-gray-900 hover:text-black"
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline "
           >
             {content[selectedLanguage as string].header.about}
           </NavLink>
           <NavLink
             to="/all/courses"
-            className="text-md font-semibold leading-6 text-gray-900 hover:text-black"
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline "
           >
             {content[selectedLanguage as string].header.courses}
           </NavLink>
           <NavLink
             to="/all/blogs"
-            className="text-md font-semibold leading-6 text-gray-900 hover:text-black"
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline "
           >
             {content[selectedLanguage as string].header.blogs}
           </NavLink>
