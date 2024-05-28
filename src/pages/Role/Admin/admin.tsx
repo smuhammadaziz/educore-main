@@ -11,6 +11,38 @@ const Admin: React.FC = () => {
         Welcome to Educore Dashboard for{' '}
         <span className="underline font-bold">Admin</span>
       </h2>
+      <div className="mt-10 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
+        <NavLink
+          to="/dashboard/teachers"
+          className="dark:bg-black bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+        >
+          See all teachers →
+        </NavLink>
+        <NavLink
+          to="/dashboard/students"
+          className="dark:bg-black bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+        >
+          See all students →
+        </NavLink>
+        <NavLink
+          to="/dashboard/contact"
+          className="dark:bg-black bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+        >
+          See all contacts →
+        </NavLink>
+        <NavLink
+          to="/dashboard/payments"
+          className="dark:bg-black bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+        >
+          See all payments →
+        </NavLink>
+        <NavLink
+          to="/dashboard/blogs"
+          className="dark:bg-black bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+        >
+          See all blogs →
+        </NavLink>
+      </div>
     </DefaultLayoutAdmin>
   );
 };
