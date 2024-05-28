@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import backurl from '../../../../links';
+import moment from 'moment';
 
 export default function AllCoursesListTeacher() {
   const [courses, setCourses] = useState([]);
@@ -49,14 +50,20 @@ export default function AllCoursesListTeacher() {
       <div className="bg-gray-100 my-20">
         <div className="mt-10 grid lg:grid-cols-3">
           {courses && courses
-            ? courses.map((e) => (
-                <div className="my-20 mx-4" key={e.course_id}>
+            ? courses.map((e: any) => (
+                <div
+                  className="my-10 mx-4 bg-white py-5 px-3"
+                  key={e.course_id}
+                >
                   <img
                     src={`${backurl}upload/${e.image}`}
                     alt={e.title}
-                    className="h-full w-full object-cover object-center"
+                    className="h-75 w-full object-cover object-center "
                   />
-                  <h2 className="text-2xl mt-5">{e.title}</h2>
+                  <h2 className="text-2xl mt-5 font-bold">{e.title}</h2>
+                  <p className="text-lg  text-left mt-5 ">
+                    {moment(e.created_at).format('LLL')}
+                  </p>
                   <NavLink
                     to={`/dashboard/teacher/course/${e.course_id}`}
                     className="bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"

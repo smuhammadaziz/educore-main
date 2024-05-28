@@ -41,35 +41,10 @@ function OneCourseGetTeacher() {
     fetchCourses();
   }, []);
 
-  //   async function deleleItem() {
-  //     try {
-  //       const response = await fetch(
-  //         `${backurl}api/admin/delete/blog/${course_id}`,
-  //         {
-  //           method: 'DELETE',
-  //           headers: {
-  //             Authorization: `Bearer ${token}`,
-  //           },
-  //         },
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       const data = await response.json();
-
-  //       //  const reversedData = data.Data;
-
-  //       console.log(data);
-
-  //       //  setTeachers(reversedData);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
   return (
     <DefaultLayoutTeacher>
       <ToastContainer></ToastContainer>
-      <div className="bg-white w-150 p-2 py-5">
+      <div className="bg-white w-150 p-2 px-10 py-5">
         <img
           src={`${backurl}upload/${
             teachers
@@ -78,33 +53,29 @@ function OneCourseGetTeacher() {
           }`}
           alt="image"
           width="400"
-          className="mx-auto sm:w-100"
+          className="mx-left sm:w-100 rounded"
         />
-        <h2 className="text-4xl text-black text-center">{teachers['title']}</h2>
-        <p className="text-lg font-bold text-center mt-5">
+        <p className="text-lg font-bold text-left mt-5">
+          Course name: {teachers['title']}
+        </p>
+        <p className="text-lg font-bold text-left mt-5">
           About the course: {teachers['descr']}
         </p>
-        <p className="text-lg font-bold text-center mt-5">
-          Period: {teachers['period']}
+        <p className="text-lg font-bold text-left mt-5">
+          Period: {teachers['period']} months
         </p>
-        <p className="text-lg font-bold text-center mt-5">
-          Price: {teachers['price']}
+        <p className="text-lg font-bold text-left mt-5">
+          Price: {teachers['price']} sum
         </p>
-        <p className="text-lg font-bold text-center mt-5 font-bold">
+        <p className="text-lg font-bold text-left mt-5 font-bold">
           Main Subject: {teachers['subject']}
         </p>
-        <p className="text-lg font-bold text-center mt-5 font-bold">
-          Created time: {moment(teachers['created_at']).format('l')}
+        <p className="text-lg font-bold text-left mt-5 font-bold">
+          Subject: {teachers['main_sub']}
         </p>
-        x
-        {/* <div>
-          <button
-            onClick={deleleItem}
-            className="mt-5 bg-red-600 text-white px-4 py-2 rounded mx-auto block hover:bg-red-500"
-          >
-            delete blog
-          </button>
-        </div> */}
+        <p className="text-lg font-bold text-left mt-5 font-bold">
+          Created time: {moment(teachers['created_at']).format('LLL')}
+        </p>
       </div>
     </DefaultLayoutTeacher>
   );
