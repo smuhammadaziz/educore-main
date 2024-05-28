@@ -18,7 +18,9 @@ import backurl from '../../../links';
 
 export default function AllCourses() {
   const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOptionn, setSelectedOptionn] = useState('');
   const [isOptionSelected, setIsOptionSelected] = useState(false);
+  const [isOptionSelectedd, setIsOptionSelectedd] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 15;
 
@@ -54,6 +56,7 @@ export default function AllCourses() {
 
   const changeTextColor = () => {
     setIsOptionSelected(true);
+    setIsOptionSelectedd(true);
   };
 
   const [price, setPrice] = useState(50000);
@@ -71,13 +74,13 @@ export default function AllCourses() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           <select
-            value={selectedOption}
+            value={selectedOptionn}
             onChange={(e) => {
-              setSelectedOption(e.target.value);
+              setSelectedOptionn(e.target.value);
               changeTextColor();
             }}
             className={`w-full rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
-              isOptionSelected ? 'text-black dark:text-white' : ''
+              isOptionSelectedd ? 'text-black dark:text-white' : ''
             }`}
           >
             <option value="" disabled className="text-body dark:text-bodydark">
@@ -137,10 +140,10 @@ export default function AllCourses() {
             <input
               type="range"
               min="50000"
-              max="2000000"
+              max="1000000"
               value={price}
               onChange={handleSliderChange}
-              className="w-full h-1 bg-fuchsia-800 rounded-lg appearance-none cursor-pointer"
+              className="w-full h-1 bg-fuchsia-900 rounded-lg appearance-none cursor-pointer"
             />
           </div>
         </div>
