@@ -5,6 +5,18 @@ import backurl from '../../../../links';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// import {
+//   EditorContent,
+//   FloatingMenu,
+//   BubbleMenu,
+//   useEditor,
+// } from '@tiptap/react';
+// import StarterKit from '@tiptap/starter-kit';
+
+// const extensions = [StarterKit];
+
+// const content = '<p>Hello World!</p>';
+
 function AddNewBlogAdmin() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -55,12 +67,25 @@ function AddNewBlogAdmin() {
     }
   };
 
+  // const editor = useEditor({
+  //   extensions,
+  //   content,
+  // });
+
   return (
     <DefaultLayoutAdmin>
       <ToastContainer></ToastContainer>
       <div className="mb-5 text-left mx-auto text-2xl">
         {' '}
         Adding new <span className="underline">blog</span>
+      </div>
+
+      <div>
+        {/* <EditorProvider
+          slotBefore={<MenuBar />}
+          extensions={extensions}
+          content={content}
+        ></EditorProvider> */}
       </div>
       <form onSubmit={handleSubmit} className="dark:text-white">
         <div className="p-6.5">
