@@ -56,6 +56,12 @@ export default function AllCourses() {
     setIsOptionSelected(true);
   };
 
+  const [price, setPrice] = useState(50000);
+
+  const handleSliderChange = (event: any) => {
+    setPrice(event.target.value);
+  };
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -77,14 +83,20 @@ export default function AllCourses() {
             <option value="" disabled className="text-body dark:text-bodydark">
               Select Course
             </option>
-            <option value="USA" className="text-body dark:text-bodydark">
+            <option value="IELTS" className="text-body dark:text-bodydark">
               IELTS
             </option>
-            <option value="UK" className="text-body dark:text-bodydark">
+            <option value="SAT" className="text-body dark:text-bodydark">
               SAT
             </option>
-            <option value="Canada" className="text-body dark:text-bodydark">
-              A-LEVEL
+            <option value="IGCSE" className="text-body dark:text-bodydark">
+              IGCSE
+            </option>
+            <option
+              value="AS/A LEVELS"
+              className="text-body dark:text-bodydark"
+            >
+              AS/A LEVELS
             </option>
           </select>
 
@@ -101,46 +113,36 @@ export default function AllCourses() {
             <option value="" disabled className="text-body dark:text-bodydark">
               Select Rating
             </option>
-            <option value="USA" className="text-body dark:text-bodydark">
-              ⭐⭐⭐⭐⭐
+            <option value="5" className="text-body dark:text-bodydark">
+              5
             </option>
-            <option value="UK" className="text-body dark:text-bodydark">
-              ⭐⭐⭐⭐
+            <option value="4.9" className="text-body dark:text-bodydark">
+              4.9
             </option>
-            <option value="Canada" className="text-body dark:text-bodydark">
-              ⭐⭐⭐
+            <option value="4.8" className="text-body dark:text-bodydark">
+              4.8
             </option>
-            <option value="Canada" className="text-body dark:text-bodydark">
-              ⭐⭐
+            <option value="4.7" className="text-body dark:text-bodydark">
+              4.7
             </option>
-            <option value="Canada" className="text-body dark:text-bodydark">
-              ⭐
+            <option value="4.6" className="text-body dark:text-bodydark">
+              4.6
             </option>
-          </select>
-
-          <select
-            value={selectedOption}
-            onChange={(e) => {
-              setSelectedOption(e.target.value);
-              changeTextColor();
-            }}
-            className={`w-full rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
-              isOptionSelected ? 'text-black dark:text-white' : ''
-            }`}
-          >
-            <option value="" disabled className="text-body dark:text-bodydark">
-              Select Price
-            </option>
-            <option value="USA" className="text-body dark:text-bodydark">
-              0 - 200.000 UZS
-            </option>
-            <option value="UK" className="text-body dark:text-bodydark">
-              200 - 500.000 UZS
-            </option>
-            <option value="Canada" className="text-body dark:text-bodydark">
-              More than 500.000 UZS
+            <option value="4.5" className="text-body dark:text-bodydark">
+              4.5
             </option>
           </select>
+          <div className="">
+            <h2 className="text-xl font-bold">Price: {price} UZS</h2>
+            <input
+              type="range"
+              min="50000"
+              max="2000000"
+              value={price}
+              onChange={handleSliderChange}
+              className="w-full h-1 bg-fuchsia-800 rounded-lg appearance-none cursor-pointer"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 mx-auto">
