@@ -41,6 +41,8 @@ function AddnewCourseTeacher() {
       formData.append('image', photo);
     }
 
+    console.log(formData);
+
     try {
       const response = await fetch(`${backurl}api/add/course`, {
         method: 'POST',
@@ -141,7 +143,7 @@ function AddnewCourseTeacher() {
                 </option>
               </select>
             </div>
-            {(main === 'IGCSE' || main === 'AS/A LEVELS') && (
+            {(main === 'IGCSE' || main === 'AS/A-LEVELS') && (
               <div className="mb-4.5 md:w-1/2 px-2">
                 <label className="mb-2.5 block text-black dark:text-white">
                   Subjects
@@ -202,11 +204,11 @@ function AddnewCourseTeacher() {
             )}
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Price (example: 300 000 sum)
+                Price (example: 300000)
               </label>
               <input
                 type="text"
-                placeholder="Enter your course price. Example: 300 000 sum"
+                placeholder="Enter your course price. Example: 300000"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
@@ -215,11 +217,11 @@ function AddnewCourseTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Period (example: 4 months)
+                Period (only numbers) example: 6 months
               </label>
               <input
                 type="text"
-                placeholder="Enter your course period. Example: 4 months"
+                placeholder="Enter your course period. Example: 6 (only numbers)"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
