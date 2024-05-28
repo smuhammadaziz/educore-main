@@ -26,13 +26,13 @@ export default function Courses() {
   useEffect(() => {
     async function fetchCourses() {
       try {
-        const response = await fetch(`${backurl}/api/get/best/courses`);
+        const response = await fetch(`${backurl}api/get/best/courses`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
 
-        const reversed = data.CoursIELTSes.slice(-4);
+        const reversed = data.CoursBests.reverse().slice(-4);
 
         // console.log(reversed);
 
@@ -55,7 +55,7 @@ export default function Courses() {
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {coursess.map((product: any) => (
-            <div key={product.course_id} className=" relative">
+            <div key={product.course_id} className=" ">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
                 <img
                   src={`${backurl}upload/${product.image}`}
@@ -65,22 +65,23 @@ export default function Courses() {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700">
-                    <NavLink to={`/all/courses/${product.course_id}`}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.title}
-                    </NavLink>
+                  <h3 className="text-sm text-gray-700 mb-5">
+                    <span aria-hidden="true" className="inset-0" />
+                    {product.title}
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
-                    <Rating value={5} />
+                    <Rating value={5} readonly />
                   </p>
 
-                  <button className="mt-6 bg-fuchsia-300 primary text-black px-5 py-1 button rounded">
+                  <NavLink
+                    to={`/all/courses/${product.course_id}`}
+                    className="mt-6 bg-fuchsia-300 primary text-black px-5 py-1 button rounded hover:opacity-50 mt-5 inline-block"
+                  >
                     {content[selectledLang as string].popularCourse.more} →
-                  </button>
+                  </NavLink>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
-                  {product.price} 000 so'm
+                  {product.price} UZS
                 </p>
               </div>
             </div>
@@ -88,7 +89,7 @@ export default function Courses() {
         </div>
         <NavLink
           to="/all/courses"
-          className="bg-fuchsia-900 mt-10 inline-block text-white px-10 py-3 rounded-full hover:bg-fuchsia-700 text-center"
+          className="bg-fuchsia-900 mt-20 inline-block text-white px-10 py-3 rounded-full hover:bg-fuchsia-700 text-center"
         >
           {content[selectledLang as string].popularCourse.explore} →
         </NavLink>
