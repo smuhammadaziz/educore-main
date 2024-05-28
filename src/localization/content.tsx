@@ -60,6 +60,24 @@ type Content = {
       blogs: string;
       more: string;
     };
+    log: {
+      start: string;
+      login: string;
+      email: string;
+      pass: string;
+      signin: string;
+      dont: string;
+      signup: string;
+      register: string;
+      fname: string;
+      lname: string;
+      phone: string;
+      age: string;
+      address: string;
+      tg: string;
+      create: string;
+      already: string;
+    };
   };
 };
 
@@ -136,6 +154,24 @@ const content: Content = {
       blogs: 'Blogs',
       more: 'Read More',
     },
+    log: {
+      start: 'Start for free',
+      login: 'Sign In to Educore',
+      email: 'Email',
+      pass: 'Password',
+      signin: 'Sign In',
+      dont: 'Don’t have any account?',
+      signup: 'Sign Up',
+      register: 'Sign Up to Educore',
+      fname: 'First Name',
+      lname: 'Last Name',
+      phone: 'Phone',
+      age: 'Age',
+      address: 'Address',
+      tg: 'Telegram Username (optional)',
+      create: 'Create an account',
+      already: 'Already have an account?',
+    },
   },
   uz: {
     header: {
@@ -208,6 +244,24 @@ const content: Content = {
     blogsPage: {
       blogs: 'Bloglar',
       more: 'Ko`proq o`qish',
+    },
+    log: {
+      start: 'Bepul boshlang',
+      login: 'Educore tizimiga kiring',
+      email: 'Email',
+      pass: 'Parol',
+      signin: 'Tizimga kirish',
+      dont: 'Hisobingiz yo`qmi?',
+      signup: 'Ro`yxatdan o`tish',
+      register: 'Educoredan ro`yxatdan o`ting',
+      fname: 'Ism',
+      lname: 'Familiya',
+      phone: 'Telefon raqam',
+      age: 'Yosh',
+      address: 'Yashash manzil',
+      tg: 'Telegram Username (ixtiyoriy)',
+      create: 'Akkaunt yaratish',
+      already: 'Hisobingiz bormi?',
     },
   },
   ru: {
@@ -282,6 +336,24 @@ const content: Content = {
     blogsPage: {
       blogs: 'Блоги',
       more: 'Читать далее',
+    },
+    log: {
+      start: 'Начните бесплатно',
+      login: 'Войти в Educore',
+      email: 'Электронная почта',
+      pass: 'Пароль',
+      signin: 'Войти',
+      dont: 'У вас нет учетной записи?',
+      signup: 'Зарегистрироваться',
+      register: 'Зарегистрируйтесь в Educore',
+      fname: 'Имя',
+      lname: 'Фамилия',
+      phone: 'Номер телефона',
+      age: 'Yosh',
+      address: 'Адрес',
+      tg: 'Имя пользователя Telegram (необязательно)',
+      create: 'Завести аккаунт',
+      already: 'У тебя есть аккаунт?',
     },
   },
 };

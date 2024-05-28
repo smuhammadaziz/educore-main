@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { jwtDecode } from 'jwt-decode';
 
 import backurl from '../../links';
+import useLang from '../../hooks/useLang';
+import content from '../../localization/content';
 
 const SignUp: React.FC = () => {
   const [name, setName] = useState('');
@@ -71,6 +73,8 @@ const SignUp: React.FC = () => {
     }
   };
 
+  const [selectedLang] = useLang();
+
   return (
     <>
       <ToastContainer></ToastContainer>
@@ -93,37 +97,43 @@ const SignUp: React.FC = () => {
 
             <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
               <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-                <span className="mb-1.5 block font-medium">Start for free</span>
+                <span className="mb-1.5 block font-medium">
+                  {content[selectedLang as string].log.start}
+                </span>
                 <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                  Sign Up to Educore
+                  {content[selectedLang as string].log.register}
                 </h2>
 
                 <form onSubmit={handleRegister}>
                   <div className="flex flex-col md:flex-row">
                     <div className="mb-4 md:mr-4">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
-                        First Name
+                        {content[selectedLang as string].log.fname}
                       </label>
                       <div className="relative">
                         <input
                           type="text"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="Enter your first name"
+                          placeholder={
+                            content[selectedLang as string].log.fname
+                          }
                           className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
-                        Last Name
+                        {content[selectedLang as string].log.lname}
                       </label>
                       <div className="relative">
                         <input
                           type="text"
                           value={l_name}
                           onChange={(e) => setl_name(e.target.value)}
-                          placeholder="Enter your last name"
+                          placeholder={
+                            content[selectedLang as string].log.lname
+                          }
                           className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
@@ -132,14 +142,14 @@ const SignUp: React.FC = () => {
 
                   <div className="mb-4">
                     <label className="mb-2.5 block font-medium text-black dark:text-white">
-                      Email
+                      {content[selectedLang as string].log.email}
                     </label>
                     <div className="relative">
                       <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email"
+                        placeholder={content[selectedLang as string].log.email}
                         className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
@@ -147,28 +157,28 @@ const SignUp: React.FC = () => {
                   <div className="flex flex-col md:flex-row">
                     <div className="mb-4 md:mr-4">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
-                        Phone
+                        {content[selectedLang as string].log.phone}
                       </label>
                       <div className="relative">
                         <input
                           type="telephone"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="Enter your phone number"
+                          placeholder={`+998 (__) ___-__-__`}
                           className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
-                        Age
+                        {content[selectedLang as string].log.age}
                       </label>
                       <div className="relative">
                         <input
                           type="telephone"
                           value={age}
                           onChange={(e) => setAge(e.target.value)}
-                          placeholder="Enter your age"
+                          placeholder={content[selectedLang as string].log.age}
                           className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
@@ -177,28 +187,30 @@ const SignUp: React.FC = () => {
                   <div className="flex flex-col md:flex-row">
                     <div className="mb-4 md:mr-4">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
-                        Address
+                        {content[selectedLang as string].log.address}
                       </label>
                       <div className="relative">
                         <input
                           type="text"
                           value={adress}
                           onChange={(e) => setAdress(e.target.value)}
-                          placeholder="Enter your address"
+                          placeholder={
+                            content[selectedLang as string].log.address
+                          }
                           className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
-                        Telegram username (optional)
+                        {content[selectedLang as string].log.tg}
                       </label>
                       <div className="relative">
                         <input
                           type="text"
                           value={tgusername}
                           onChange={(e) => setTgUsername(e.target.value)}
-                          placeholder="Enter your telegram username (optional)"
+                          placeholder={content[selectedLang as string].log.tg}
                           className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
@@ -207,14 +219,14 @@ const SignUp: React.FC = () => {
 
                   <div className="mb-4">
                     <label className="mb-2.5 block font-medium text-black dark:text-white">
-                      Password
+                      {content[selectedLang as string].log.pass}
                     </label>
                     <div className="relative">
                       <input
                         type="password"
                         value={hashedpass}
                         onChange={(e) => setHashedPass(e.target.value)}
-                        placeholder="Enter your password"
+                        placeholder={content[selectedLang as string].log.pass}
                         className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
@@ -224,16 +236,19 @@ const SignUp: React.FC = () => {
                   <div className="mb-5">
                     <input
                       type="submit"
-                      value="Create account"
+                      value={content[selectedLang as string].log.create}
                       className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
                     />
                   </div>
 
                   <div className="mt-6 text-center">
                     <p>
-                      Already have an account?{' '}
-                      <Link to="/auth/signin" className="text-primary">
-                        Sign in
+                      {content[selectedLang as string].log.already}{' '}
+                      <Link
+                        to="/auth/signin"
+                        className="text-primary hover:underline"
+                      >
+                        {content[selectedLang as string].log.signin}
                       </Link>
                     </p>
                   </div>
