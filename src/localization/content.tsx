@@ -44,6 +44,10 @@ type Content = {
       btn: string;
       more: string;
     };
+    aboutIntro: {
+      learn: string;
+      desc: string;
+    };
   };
 };
 
@@ -104,6 +108,10 @@ const content: Content = {
       btn: 'See all blogs',
       more: 'Read more',
     },
+    aboutIntro: {
+      learn: 'Learn with us',
+      desc: '“Educore – will be connecting tutors from around the globe and developing innovative teaching environment, we are willing to create a platform which will let people study from their home.”',
+    },
   },
   uz: {
     header: {
@@ -160,6 +168,10 @@ const content: Content = {
       blogs: 'Bloglar',
       btn: 'Barcha bloglarni ko`rish',
       more: 'Batafsil o`qish',
+    },
+    aboutIntro: {
+      learn: 'Biz bilan o`rganing',
+      desc: '"Educore - butun dunyo bo`ylab repetitorlarni bog`laydi va innovatsion o`qitish muhitini rivojlantiradi, biz odamlarga o`z uylaridan turib o`qish imkonini beradigan platforma yaratishga tayyormiz."',
     },
   },
   ru: {
@@ -218,6 +230,10 @@ const content: Content = {
       blogs: 'Блоги',
       btn: 'Посмотреть все блоги',
       more: 'Читать больше',
+    },
+    aboutIntro: {
+      learn: 'Учитесь вместе с нами',
+      desc: '«Educore – будет объединять репетиторов со всего мира и развивать инновационную среду обучения. Мы готовы создать платформу, которая позволит людям учиться, не выходя из дома».',
     },
   },
 };

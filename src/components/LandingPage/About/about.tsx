@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import content from '../../../localization/content';
+import useLang from '../../../hooks/useLang';
 
 const links = [
   { name: 'IELTS | GENERAL ENGLISH', href: '/all/courses' },
@@ -8,6 +10,7 @@ const links = [
 ];
 
 export default function AboutUs() {
+  const [selectedLanguage] = useLang();
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
@@ -42,11 +45,10 @@ export default function AboutUs() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Learn with us
+            {content[selectedLanguage as string].aboutIntro.learn}
           </h2>
           <p className="mt-6 text-xl leading-8 text-white">
-            Connect with Qualified Tutors from around the world and book your
-            First Free Trial session.
+            {content[selectedLanguage as string].intro.p}
           </p>
         </div>
         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
