@@ -10,6 +10,7 @@ import backurl from '../../../../links';
 const BuyOneCourseNowStudent = () => {
   const { course_id } = useParams();
   const [data, setData] = useState([]);
+  const [profile, setProfile] = useState([]);
 
   useEffect(() => {
     async function fetchCourses() {
@@ -25,8 +26,6 @@ const BuyOneCourseNowStudent = () => {
         const allCourse = data.getidbycourse;
 
         setData(allCourse);
-
-        //    console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -49,6 +48,33 @@ const BuyOneCourseNowStudent = () => {
       }
     }
   };
+
+  const token = localStorage.getItem('TOKEN');
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}/api/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const allCourse = data.Profil;
+
+        setProfile(allCourse);
+
+        // console.log(allCourse);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
 
   return (
     <DefaultLayoutStudent>
@@ -121,12 +147,14 @@ const BuyOneCourseNowStudent = () => {
                 >
                   Buy now
                 </NavLink>
-                <NavLink
-                  to={`/dashboard/student/courses/use/free/${course_id}`}
-                  className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
-                >
-                  Use Free Trial
-                </NavLink>
+                {profile.free_trial ? (
+                  <NavLink
+                    to={`/dashboard/student/courses/use/free/${course_id}`}
+                    className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                  >
+                    Use Free Trial
+                  </NavLink>
+                ) : null}
               </div>
             </div>
           </div>
