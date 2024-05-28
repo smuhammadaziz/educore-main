@@ -30,7 +30,7 @@ export default function AllCourses() {
 
         setData(allCourse.reverse());
 
-        console.log(allCourse);
+        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }

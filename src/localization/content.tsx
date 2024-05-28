@@ -78,6 +78,14 @@ type Content = {
       create: string;
       already: string;
     };
+    buy: {
+      about: string;
+      period: string;
+      month: string;
+      teacher: string;
+      buy: string;
+      free: string;
+    };
   };
 };
 
@@ -172,6 +180,14 @@ const content: Content = {
       create: 'Create an account',
       already: 'Already have an account?',
     },
+    buy: {
+      about: 'About the course',
+      period: 'Period:',
+      month: 'months',
+      teacher: 'About the Course Teacher',
+      buy: 'Buy now',
+      free: 'Use Free Trial',
+    },
   },
   uz: {
     header: {
@@ -262,6 +278,14 @@ const content: Content = {
       tg: 'Telegram Username (ixtiyoriy)',
       create: 'Akkaunt yaratish',
       already: 'Hisobingiz bormi?',
+    },
+    buy: {
+      about: 'Kurs haqida',
+      period: 'Kurs davomiyligi:',
+      month: 'oy',
+      teacher: 'Ustoz haqida ',
+      buy: 'Hozir sotib olish',
+      free: 'Free Trialdan foydalanish',
     },
   },
   ru: {
@@ -354,6 +378,14 @@ const content: Content = {
       tg: 'Имя пользователя Telegram (необязательно)',
       create: 'Завести аккаунт',
       already: 'У тебя есть аккаунт?',
+    },
+    buy: {
+      about: 'О курсе',
+      period: 'Длительность курса:',
+      month: 'месяцев',
+      teacher: 'Об учителе ',
+      buy: 'Купить сейчас',
+      free: 'Использование Free Trial',
     },
   },
 };

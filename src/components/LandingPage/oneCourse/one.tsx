@@ -4,6 +4,8 @@ import { Rating } from '@material-tailwind/react';
 import { NavLink, useParams } from 'react-router-dom';
 
 import backurl from '../../../links';
+import useLang from '../../../hooks/useLang';
+import content from '../../../localization/content';
 
 const CoffeeComponent = () => {
   const { course_id } = useParams();
@@ -48,8 +50,12 @@ const CoffeeComponent = () => {
     }
   };
 
+  const [selectedLanguage] = useLang();
   return (
-    <div className="font-sans bg-white pb-20" key={course_id}>
+    <div
+      className="font-sans bg-white pb-20 mx-auto justify-center"
+      key={course_id}
+    >
       <div className="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
         <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
           <div className="lg:col-span-3 bg-gray-100 rounded-sm w-full lg:sticky top-0 text-center p-8">
@@ -76,44 +82,45 @@ const CoffeeComponent = () => {
 
             <div className="flex space-x-2 mt-4">
               <Rating value={5} readonly />
-              <p className="bg-black px-4 py-2 rounded-full text-white text-xl font-extrabold text-5xl ">
-                {givenRatingIntoCouse()}
+              <p className="bg-black px-2 py-2 rounded-full text-white text-xl font-extrabold text-5xl ">
+                {data && data['rating'] ? data['rating'] : 'SAT | IELTS'}
               </p>
             </div>
 
             <div className="mt-8">
               <h3 className="text-lg font-bold text-gray-800">
-                About the course
+                {content[selectedLanguage as string].buy.about}
               </h3>
               <p className="text-md font-bold text-gray-00 mt-3">
                 {data && data['descr'] ? data['descr'] : 'SAT | IELTS'}
               </p>
               <p className="text-sm font-bold text-gray-00 mt-3">
-                Period:{' '}
-                {data && data['period'] ? data['period'] : 'SAT | IELTS'} months
+                {content[selectedLanguage as string].buy.period}{' '}
+                {data && data['period'] ? data['period'] : 'SAT | IELTS'}{' '}
+                {content[selectedLanguage as string].buy.month}
               </p>
             </div>
             <div className="mt-8">
               <h3 className="text-lg font-bold text-gray-800">
-                About the Course Teacher
+                {content[selectedLanguage as string].buy.teacher}
               </h3>
               <p className="text-sm font-bold text-gray-00 mt-3">
                 {data && data['name'] ? data['name'] : 'SAT | IELTS'}{' '}
                 {data && data['l_name'] ? data['l_name'] : 'SAT | IELTS'}{' '}
               </p>
             </div>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-2">
               <NavLink
                 to="/auth/signup"
-                className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-6 text-center font-medium text-white hover:bg-opacity-90 sm:px-8 lg:px-10"
               >
-                Buy now
+                {content[selectedLanguage as string].buy.buy}
               </NavLink>
               <NavLink
                 to="/auth/signup"
-                className="ms-2 inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-6 text-center font-medium text-white hover:bg-opacity-90 sm:px-8 lg:px-10"
               >
-                Use Free Trial
+                {content[selectedLanguage as string].buy.free}
               </NavLink>
             </div>
           </div>
