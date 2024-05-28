@@ -10,7 +10,7 @@ const AdminSettings = () => {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke py-4 px-7 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Personal Information
+                  Personal Information of Admin
                 </h3>
               </div>
               <div className="p-7">
