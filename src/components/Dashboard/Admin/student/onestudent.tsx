@@ -38,7 +38,7 @@ function OneStudentGetAdmin() {
     <DefaultLayoutAdmin>
       <div className="mb-5 text-center mx-auto text-2xl">
         {' '}
-        <span className="underline">Teacher info</span>
+        <span className="underline">Student info</span>
       </div>
       <div className="bg-white shadow-md rounded-lg p-6">
         <img

@@ -56,12 +56,6 @@ const AllStudentsList = () => {
         <h2 className="text-2xl mb-5">
           All <span className="underline">Students</span> List
         </h2>
-        <NavLink
-          to="/dashboard/admin/add/new/student"
-          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
-        >
-          Add new Student
-        </NavLink>
       </div>
       <div className="relative overflow-x-auto shadow-xl sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
