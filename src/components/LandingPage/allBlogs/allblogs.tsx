@@ -108,7 +108,7 @@ export function Blog() {
   }
 
   return (
-    <div className="relative isolate overflow-hidden bg-white sm:py-32 lg:px-8 mt-20">
+    <div className="relative isolate overflow-hidden bg-white sm:py-0 lg:px-8 mt-20">
       <section className="container mx-auto px-8 py-10 lg:py-28 ">
         <Typography
           variant="h2"
