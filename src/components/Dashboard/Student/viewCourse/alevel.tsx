@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import backurl from '../../../../links';
 import { NavLink } from 'react-router-dom';
+import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 
 const products = [
   {
@@ -15,7 +16,7 @@ const products = [
   },
 ];
 
-function ViewAllCoursesIeltsStudent() {
+function ViewAllCourseALEVELStudent() {
   const [selectedOption, setSelectedOption] = useState('');
   const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,23 +29,20 @@ function ViewAllCoursesIeltsStudent() {
   useEffect(() => {
     async function fetchCourses() {
       try {
-        const response = await fetch(
-          `${backurl}/api/student/get/course/ielts`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+        const response = await fetch(`${backurl}api/student/get/course/as`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const allCourse = data.IELTSCourses;
+        const allCourse = data.ASCourses;
+
+        //    console.log(allCourse);
 
         setData(allCourse);
-
-        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -65,37 +63,37 @@ function ViewAllCoursesIeltsStudent() {
     setIsOptionSelected(true);
   };
   return (
-    <>
+    <DefaultLayoutStudent>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mt-10">
-        {data &&
-          data.map((product: any) => (
-            <NavLink
-              to={`/dashboard/student/courses/${product.course_id}`}
-              key={product.course_id}
-              className="group"
-            >
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src={`${backurl}upload/${product.image}`}
-                  alt="course image"
-                  className="w-100 h-64 object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-lg font-bold text-gray-700">
-                {product.title}
-              </h3>
-              <h3 className=" text-lg font-bold text-gray-700">
-                {product.name} {product.l_name}
-              </h3>
+        {data && data
+          ? data.map((product: any) => (
+              <NavLink
+                to={`/dashboard/student/courses/${product.course_id}`}
+                key={product.course_id}
+                className="group"
+              >
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                  <img
+                    src={`${backurl}upload/${product.image}`}
+                    alt="course image"
+                    className="w-100 h-64 object-cover"
+                  />
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-gray-700">
+                  {product.title}
+                </h3>
+                <h3 className=" text-lg font-bold text-gray-700">
+                  {product.name} {product.l_name}
+                </h3>
 
-              <p className="mt-5 text-lg font-medium text-gray-900">
-                {product.price} 000 so'm
-              </p>
-            </NavLink>
-          ))}
+                <p className="mt-5 text-lg font-medium text-gray-900">
+                  {product.price} 000 so'm
+                </p>
+              </NavLink>
+            ))
+          : 'dont have any course'}
       </div>
 
-      {/* Pagination buttons */}
       <div className="mt-8">
         <nav className=" px-4 flex items-center justify-between sm:px-0">
           <div className="-mt-px w-0 flex-1 flex ">
@@ -112,7 +110,11 @@ function ViewAllCoursesIeltsStudent() {
           </div>
           <div className="hidden md:-mt-px md:flex">
             {Array.from(
-              { length: Math.ceil(data.length / productsPerPage) },
+              {
+                length: Math.ceil(
+                  data && data ? data.length : 1 / productsPerPage,
+                ),
+              },
               (_, i) => (
                 <button
                   key={i}
@@ -135,7 +137,8 @@ function ViewAllCoursesIeltsStudent() {
                 window.scrollTo({ top: 0 });
               }}
               disabled={
-                currentPage === Math.ceil(data.length / productsPerPage)
+                currentPage ===
+                Math.ceil(data && data ? data.length : 1 / productsPerPage)
               }
               className="cursor-pointer rounded-full hover:bg-fuchsia-900 hover:text-white relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:text-gray-400"
             >
@@ -144,8 +147,8 @@ function ViewAllCoursesIeltsStudent() {
           </div>
         </nav>
       </div>
-    </>
+    </DefaultLayoutStudent>
   );
 }
 
-export default ViewAllCoursesIeltsStudent;
+export default ViewAllCourseALEVELStudent;

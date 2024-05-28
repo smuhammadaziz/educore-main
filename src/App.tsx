@@ -79,6 +79,8 @@ import GetOnePaymentAdmin from './components/Dashboard/Admin/Payments/onePayment
 import GetMyGroupStudent from './pages/Dashboard/Student/group/mygroup';
 import GetMyAllHomeworksStudent from './pages/Dashboard/Student/homework/hw';
 import GetAllLessonsStudent from './pages/Dashboard/Student/lesson/lesson';
+import ViewAllCoursesIGCSEStudent from './components/Dashboard/Student/viewCourse/igcse';
+import ViewAllCourseALEVELStudent from './components/Dashboard/Student/viewCourse/alevel';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -580,11 +582,20 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/student/view/CAMBRIDGE"
+          path="/dashboard/student/view/AS/A-LEVELS"
           element={
             <>
               <PageTitle title="Educore | All Courses list" />
-              <ViewAllCoursesListCambStudent />
+              <ViewAllCourseALEVELStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/view/IGCSE"
+          element={
+            <>
+              <PageTitle title="Educore | All Courses list" />
+              <ViewAllCoursesIGCSEStudent />
             </>
           }
         />

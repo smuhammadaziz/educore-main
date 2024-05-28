@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import backurl from '../../../../links';
 import { NavLink } from 'react-router-dom';
+import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 
 const products = [
   {
@@ -15,7 +16,7 @@ const products = [
   },
 ];
 
-function ViewAllCoursesIeltsStudent() {
+function ViewAllCoursesIGCSEStudent() {
   const [selectedOption, setSelectedOption] = useState('');
   const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,7 +30,7 @@ function ViewAllCoursesIeltsStudent() {
     async function fetchCourses() {
       try {
         const response = await fetch(
-          `${backurl}/api/student/get/course/ielts`,
+          `${backurl}/api/student/get/course/igcse`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -40,11 +41,9 @@ function ViewAllCoursesIeltsStudent() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const allCourse = data.IELTSCourses;
+        const allCourse = data.IGSECourses;
 
         setData(allCourse);
-
-        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -65,7 +64,7 @@ function ViewAllCoursesIeltsStudent() {
     setIsOptionSelected(true);
   };
   return (
-    <>
+    <DefaultLayoutStudent>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mt-10">
         {data &&
           data.map((product: any) => (
@@ -95,7 +94,6 @@ function ViewAllCoursesIeltsStudent() {
           ))}
       </div>
 
-      {/* Pagination buttons */}
       <div className="mt-8">
         <nav className=" px-4 flex items-center justify-between sm:px-0">
           <div className="-mt-px w-0 flex-1 flex ">
@@ -144,8 +142,8 @@ function ViewAllCoursesIeltsStudent() {
           </div>
         </nav>
       </div>
-    </>
+    </DefaultLayoutStudent>
   );
 }
 
-export default ViewAllCoursesIeltsStudent;
+export default ViewAllCoursesIGCSEStudent;

@@ -9,7 +9,7 @@ const courses = [
   },
   {
     id: 2,
-    name: 'IELTS | General English',
+    name: 'IELTS',
     img: 'https://i.ytimg.com/vi/C3XwcFQmQA4/maxresdefault.jpg',
   },
   {
@@ -19,7 +19,7 @@ const courses = [
   },
   {
     id: 4,
-    name: 'AS/A LEVELS',
+    name: 'AS/A-LEVELS',
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy0nTApZ1wq_-2k1fszMGwnyxOCda5Ltw2avzRamJLw&s',
   },
 ];
