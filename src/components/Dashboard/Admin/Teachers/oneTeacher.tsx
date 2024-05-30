@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 import backurl from '../../../../links';
 import { useParams } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
 
 function OneTeacherGetAdmin() {
-  const [teachers, setTeachers] = useState([]);
+  const [teacher, setTeacher] = useState({});
 
   const { user_id } = useParams();
 
   const token = localStorage.getItem('TOKEN');
   useEffect(() => {
-    async function fetchCourses() {
+    async function fetchTeacher() {
       try {
         const response = await fetch(
           `${backurl}/api/admin/get/teacher/${user_id}`,
@@ -24,109 +25,109 @@ function OneTeacherGetAdmin() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
-        const reversedData = data.Teacher;
-
-        console.log(reversedData);
-
-        setTeachers(reversedData);
+        setTeacher(data.Teacher);
       } catch (error) {
         console.log(error);
       }
     }
-    fetchCourses();
-  }, []);
+    fetchTeacher();
+  }, [user_id, token]);
+
+  const getImageSrc = () => {
+    return teacher.img
+      ? `${backurl}upload/${teacher.img}`
+      : 'https://via.placeholder.com/200';
+  };
+
   return (
     <DefaultLayoutAdmin>
-      <div className="mb-5 text-center mx-auto text-2xl">
-        {' '}
-        <span className="underline">Teacher info</span>
+      <div className="mb-5 text-center mx-auto text-3xl font-semibold">
+        <span className="underline">Teacher Info</span>
       </div>
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <img
-          src={`${backurl}upload/${
-            teachers == null
-              ? teachers['image']
-              : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
-          }`}
-          alt="image"
-          width="200"
-          className="mx-auto block my-10"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <h2 className="text-xl font-bold">
-            Full Name: {teachers && teachers['name']}{' '}
-            {teachers && teachers['l_name']}
-          </h2>
-          <h2 className="text-xl font-bold">
-            About teacher:{' '}
-            {teachers['about_me'] ? teachers['about_me'] : "Don't have any bio"}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Address: {teachers['adress'] ? teachers['adress'] : 'Toshkent'}
-          </h2>
+      <div className="bg-white shadow-md rounded-lg p-8">
+        <div className="flex justify-center mb-10">
+          {teacher.img ? (
+            <img
+              src={getImageSrc()}
+              alt="Teacher"
+              width="200"
+              className="rounded-full shadow-lg"
+            />
+          ) : (
+            <FaUserCircle size={200} className="text-gray-400" />
+          )}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <h2 className="text-xl font-bold">
-            Birth day:{' '}
-            {teachers['birth_date'] ? teachers['birth_date'] : '19.05.2006'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Created time:{' '}
-            {teachers['created_at'] ? teachers['created_at'] : '19/04/2024'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Education:{' '}
-            {teachers['education']
-              ? teachers['education']
-              : 'Yangi Ozbekiston 2-kurs'}
-          </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div>
+            <h2 className="text-xl font-bold">Full Name:</h2>
+            <p>
+              {teacher.name} {teacher.l_name}
+            </p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">About Teacher:</h2>
+            <p>{teacher.about_me || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Address:</h2>
+            <p>{teacher.adress || 'No data'}</p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <h2 className="text-xl font-bold">
-            Email: {teachers['email'] ? teachers['email'] : 'example@gmail.com'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Languages:{' '}
-            {teachers['languages'] ? teachers['languages'] : 'English, Russian'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Location: {teachers['location'] ? teachers['location'] : 'Toshkent'}
-          </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div>
+            <h2 className="text-xl font-bold">Birth Day:</h2>
+            <p>{teacher.birth_date || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Created Time:</h2>
+            <p>{teacher.created_at || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Education:</h2>
+            <p>{teacher.education || 'No data'}</p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <h2 className="text-xl font-bold">
-            Main_subject:{' '}
-            {teachers['main_subject'] ? teachers['main_subject'] : 'SAT'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Phone Number:{' '}
-            {teachers['phone'] ? teachers['phone'] : '+998700141010'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Rating: {teachers['rating'] ? teachers['rating'] : 'good'}
-          </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div>
+            <h2 className="text-xl font-bold">Email:</h2>
+            <p>{teacher.email || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Languages:</h2>
+            <p>{teacher.languages || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Location:</h2>
+            <p>{teacher.location || 'No data'}</p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <h2 className="text-xl font-bold">
-            Role: {teachers['role'] ? teachers['role'] : 'teacher'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Skills:{' '}
-            {teachers['skills'] ? teachers['skills'] : 'Creative, Intelligent'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Username Tg:{' '}
-            {teachers['username_tg'] ? teachers['username_tg'] : '@username'}
-          </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div>
+            <h2 className="text-xl font-bold">Main Subject:</h2>
+            <p>{teacher.main_subject || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Phone Number:</h2>
+            <p>{teacher.phone || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Rating:</h2>
+            <p>{teacher.rating || 'No data'}</p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <h2 className="text-xl font-bold">
-            user_id: {teachers['user_id'] ? teachers['user_id'] : '123'}
-          </h2>
-          <h2 className="text-xl font-bold">
-            Vpn: {teachers['vpn'] ? teachers['vpn'] : 'false'}
-          </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div>
+            <h2 className="text-xl font-bold">Role:</h2>
+            <p>{teacher.role || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Skills:</h2>
+            <p>{teacher.skills || 'No data'}</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Username Tg:</h2>
+            <p>{teacher.username_tg || 'No data'}</p>
+          </div>
         </div>
       </div>
     </DefaultLayoutAdmin>

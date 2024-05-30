@@ -93,7 +93,7 @@ const AllStudentsList = () => {
                 >
                   {item.name} {item.l_name}
                 </th>
-                <td className="px-6 py-4 text-black">@{item.username_tg}</td>
+                <td className="px-6 py-4 text-black">{item.username_tg}</td>
                 <td className="px-6 py-4 text-black">{item.email}</td>
                 <td className="px-6 py-4 text-black">{item.phone}</td>
                 <td className="ps-2 pe-0 text-black py-4 font-bold text-center">

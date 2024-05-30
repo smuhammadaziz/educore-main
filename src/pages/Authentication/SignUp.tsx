@@ -105,8 +105,8 @@ const SignUp: React.FC = () => {
                 </h2>
 
                 <form onSubmit={handleRegister}>
-                  <div className="flex flex-col md:flex-row">
-                    <div className="mb-4 md:mr-4">
+                  <div className="flex flex-col md:flex-row justify-between">
+                    <div className="mb-4 md:mr-4 lg:w-1/2">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
                         {content[selectedLang as string].log.fname}
                       </label>
@@ -122,7 +122,7 @@ const SignUp: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <div className="mb-4 md:ml-4">
+                    <div className="mb-4 md:ml-4 lg:w-1/2">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
                         {content[selectedLang as string].log.lname}
                       </label>
@@ -154,8 +154,8 @@ const SignUp: React.FC = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-col md:flex-row">
-                    <div className="mb-4 md:mr-4">
+                  <div className="flex flex-col md:flex-row justify-between">
+                    <div className="mb-4 md:mr-4 lg:w-1/2">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
                         {content[selectedLang as string].log.phone}
                       </label>
@@ -169,7 +169,7 @@ const SignUp: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <div className="mb-4 md:ml-4">
+                    <div className="mb-4 md:ml-4 lg:w-1/2">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
                         {content[selectedLang as string].log.age}
                       </label>
@@ -184,8 +184,8 @@ const SignUp: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:flex-row">
-                    <div className="mb-4 md:mr-4">
+                  <div className="flex flex-col md:flex-row justify-between">
+                    <div className="mb-4 md:mr-4 lg:w-1/2">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
                         {content[selectedLang as string].log.address}
                       </label>
@@ -201,7 +201,7 @@ const SignUp: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <div className="mb-4 md:ml-4">
+                    <div className="mb-4 md:ml-4 lg:w-1/2">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
                         {content[selectedLang as string].log.tg}
                       </label>
