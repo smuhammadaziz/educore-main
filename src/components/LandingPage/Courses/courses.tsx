@@ -55,7 +55,7 @@ export default function Courses() {
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {coursess.map((product: any) => (
-            <div key={product.course_id} className=" ">
+            <div key={product.course_id} className="">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
                 <img
                   src={`${backurl}upload/${product.image}`}
@@ -69,9 +69,6 @@ export default function Courses() {
                     <span aria-hidden="true" className="inset-0" />
                     {product.title}
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    <Rating value={5} readonly />
-                  </p>
 
                   <NavLink
                     to={`/all/courses/${product.course_id}`}
@@ -80,19 +77,10 @@ export default function Courses() {
                     {content[selectledLang as string].popularCourse.more} →
                   </NavLink>
                 </div>
-
-                <div>
-                  {content[selectledLang as string].popularCourse.explore} is
-                  your verification code
-                  {
-                    content[selectledLang as string].popularCourse
-                      .popularcourses
-                  }{' '}
-                  is your verification code for sign in
-                </div>
                 <div>
                   <p className="text-sm font-medium text-gray-900">
-                    {product.price} UZS
+                    {product.price.toLocaleString('en-US').replace(/,/g, ' ')}{' '}
+                    UZS
                   </p>
                 </div>
               </div>

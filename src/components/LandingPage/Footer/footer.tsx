@@ -55,11 +55,11 @@ const Footer = () => {
         </div>
 
         {/* social links */}
-        <div className="mt-8">
+        <div className="mt-8 mx-auto justify-center block">
           <span className="text-[#767E94] block text-center mb-6 font-medium text-lg">
             {content[selectledLang as string].footer.follow}
           </span>
-          <ul className="flex gap-6 items-center">
+          <ul className="flex gap-6 items-center mx-auto justify-center block">
             {socialLinks.map(({ name, icon, link }) => (
               <li key={name}>
                 <a

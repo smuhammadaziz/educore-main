@@ -29,8 +29,6 @@ export default function AllCourses() {
         const allCourse = data.Courses;
 
         setData(allCourse.reverse());
-
-        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
@@ -40,26 +38,26 @@ export default function AllCourses() {
 
   const [price, setPrice] = useState(1000000);
 
-  const handleSliderChange = (event) => {
+  const handleSliderChange = (event: any) => {
     setPrice(event.target.value);
   };
 
-  const filterCourses = (courses) => {
+  const filterCourses = (courses: any) => {
     return courses
-      .filter((course) => {
-        if (selectedOptionn) {
+      .filter((course: any) => {
+        if (selectedOptionn && selectedOptionn !== 'ALL') {
           return course.subject === selectedOptionn;
         }
         return true;
       })
-      .filter((course) => {
+      .filter((course: any) => {
         if (selectedOption) {
           const rating = parseFloat(selectedOption);
           return course.rating >= rating && course.rating < rating + 0.1;
         }
         return true;
       })
-      .filter((course) => {
+      .filter((course: any) => {
         return course.price <= price;
       });
   };
@@ -73,7 +71,7 @@ export default function AllCourses() {
     indexOfLastProduct,
   );
 
-  const paginate = (pageNumber) => {
+  const paginate = (pageNumber: any) => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -90,11 +88,12 @@ export default function AllCourses() {
           {content[selectedLanguage as string].coursesPage.find}
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-4 mx-auto justify-center block">
           <select
             value={selectedOptionn}
             onChange={(e) => {
-              setSelectedOptionn(e.target.value);
+              const value = e.target.value;
+              setSelectedOptionn(value === 'ALL' ? '' : value);
               changeTextColor();
             }}
             className={`w-full rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
@@ -103,6 +102,9 @@ export default function AllCourses() {
           >
             <option value="" disabled className="text-body dark:text-bodydark">
               {content[selectedLanguage as string].coursesPage.course}
+            </option>
+            <option value="ALL" className="text-body dark:text-bodydark">
+              ALL
             </option>
             <option value="IELTS" className="text-body dark:text-bodydark">
               IELTS
@@ -120,31 +122,10 @@ export default function AllCourses() {
               AS/A-LEVELS
             </option>
           </select>
-
-          <select
-            value={selectedOption}
-            onChange={(e) => {
-              setSelectedOption(e.target.value);
-              changeTextColor();
-            }}
-            className={`w-full rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
-              isOptionSelected ? 'text-black dark:text-white' : ''
-            }`}
-          >
-            <option value="" disabled className="text-body dark:text-bodydark">
-              {content[selectedLanguage as string].coursesPage.rating}
-            </option>
-            <option value="5.0" className="text-body dark:text-bodydark">
-              ⭐⭐⭐⭐⭐
-            </option>
-            <option value="4.8" className="text-body dark:text-bodydark">
-              ⭐⭐⭐⭐
-            </option>
-          </select>
           <div className="">
             <h2 className="text-xl font-bold">
-              {content[selectedLanguage as string].coursesPage.price}: {price}{' '}
-              UZS
+              {content[selectedLanguage as string].coursesPage.price}:{' '}
+              {price.toLocaleString('en-US').replace(/,/g, ' ')} UZS
             </h2>
             <input
               type="range"
@@ -180,7 +161,8 @@ export default function AllCourses() {
                   </h3>
 
                   <p className="mt-5 text-lg font-medium text-gray-900">
-                    {product.price}
+                    {product.price.toLocaleString('en-US').replace(/,/g, ' ')}{' '}
+                    UZS
                   </p>
                 </NavLink>
               ))
