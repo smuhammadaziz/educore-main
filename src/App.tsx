@@ -85,6 +85,9 @@ import UseFreeTrialSessionForStudent from './components/Dashboard/Student/freeTr
 import AdminSettings from './pages/Role/Admin/settings';
 import StudentSettings from './pages/Role/Student/settings';
 import TeacherSettings from './pages/Role/Teacher/settings';
+import ProfileStudent from './pages/Role/Student/profile';
+import ProfileTeacher from './pages/Role/Teacher/profile';
+import ProfileAdmin from './pages/Role/Admin/profile';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -742,6 +745,35 @@ function App() {
             <>
               <PageTitle title="Settings | Educore" />
               <TeacherSettings />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/teacher/profile"
+          element={
+            <>
+              <PageTitle title="Profile | Educore" />
+              <ProfileTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/profile"
+          element={
+            <>
+              <PageTitle title="Profile | Educore" />
+              <ProfileAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/profile"
+          element={
+            <>
+              <PageTitle title="Profile | Educore" />
+              <ProfileStudent />
             </>
           }
         />

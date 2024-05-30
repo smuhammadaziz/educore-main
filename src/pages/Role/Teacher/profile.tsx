@@ -6,7 +6,7 @@ import backurl from '../links';
 import CoverOne from '../images/cover/cover-01.png';
 import defaultUserImg from '../images/user/user-06.png';
 
-const Profile = () => {
+const ProfileTeacher = () => {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('TOKEN');
@@ -189,4 +189,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileTeacher;
