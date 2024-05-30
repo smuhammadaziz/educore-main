@@ -750,7 +750,7 @@ function App() {
         />
         {/* =============================================================== */}
         {/* =============================================================== */}
-        {/* <Route
+        <Route
           path="/dashboard/teacher/profile/:profile_id"
           element={
             <>
@@ -758,7 +758,7 @@ function App() {
               <ProfileTeacher />
             </>
           }
-        /> */}
+        />
         <Route
           path="/dashboard/admin/profile/:profile_id"
           element={
