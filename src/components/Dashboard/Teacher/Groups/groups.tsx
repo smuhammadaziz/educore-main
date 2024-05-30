@@ -90,7 +90,7 @@ export default function AllGroupsListTeacher() {
                     to={`/dashboard/teacher/group/${e.course_id}`}
                     className="bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
                   >
-                    Add to this course
+                    Add to this course →
                   </NavLink>
                 </div>
               ))

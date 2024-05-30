@@ -70,24 +70,16 @@ function ShowAllLessonsTeacher() {
                   <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                     {product.l_desc}
                   </p>
-                  <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
-                    <a
-                      href={product.l_url}
-                      target="_blank"
-                      className="text-blue-700 underline"
-                    >
-                      join the lesson
-                    </a>
-                  </p>
+
                   <p className="mt-2 text-md font-medium text-gray-900 dark:text-white text-right">
                     Lesson Status:
                     <span
                       className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
                         product.procces_lesson === 'active'
                           ? 'bg-green-500'
-                          : product.status === 'pending'
+                          : product.procces_lesson === 'pending'
                           ? 'bg-yellow-500'
-                          : product.status === 'rejected'
+                          : product.procces_lesson === 'inactive'
                           ? 'bg-red-500'
                           : ''
                       }`}
@@ -99,6 +91,15 @@ function ShowAllLessonsTeacher() {
                     Created time: {moment(product.created_at).format('LT')},{' '}
                     {''}
                     {moment(product.created_at).format('l')}
+                  </p>
+                  <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
+                    <a
+                      href={product.l_url}
+                      target="_blank"
+                      className="text-white mt-5 inline-block bg-blue-700 hover:underline hover:bg-blue-500 py-2 px-5 rounded-full"
+                    >
+                      join the lesson →
+                    </a>
                   </p>
                 </div>
               ))
