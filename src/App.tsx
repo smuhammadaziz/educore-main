@@ -88,6 +88,10 @@ import TeacherSettings from './pages/Role/Teacher/settings';
 import ProfileStudent from './pages/Role/Student/profile';
 import ProfileTeacher from './pages/Role/Teacher/profile';
 import ProfileAdmin from './pages/Role/Admin/profile';
+import AllStudentListTeacher from './components/Dashboard/Teacher/Students/students';
+import AllStudentsListTeachers from './components/Dashboard/Teacher/Students/allStudents';
+import AllInfoStudentTeacher from './components/Dashboard/Teacher/Students/allStudents';
+import OneStudentGetTeacherPage from './components/Dashboard/Teacher/Students/oneStudent';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -556,6 +560,24 @@ function App() {
             <>
               <PageTitle title="Educore | course" />
               <AllGroupViewCourseStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/group/students/:group_id"
+          element={
+            <>
+              <PageTitle title="Educore | Group " />
+              <AllInfoStudentTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/group/student/id/:user_id"
+          element={
+            <>
+              <PageTitle title="Educore | Group " />
+              <OneStudentGetTeacherPage />
             </>
           }
         />

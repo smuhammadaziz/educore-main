@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Dialog,
@@ -7,81 +7,38 @@ import {
   DialogFooter,
 } from '@material-tailwind/react';
 import { NavLink } from 'react-router-dom';
+import backurl from '../../../../links';
 
 const AllStudentListTeacher = () => {
-  // Define an array of objects containing the data for each row
-  const tableData = [
-    {
-      productName: 'Apple MacBook Pro 17"',
-      color: 'Silver',
-      category: 'Laptop',
-      price: '$2999',
-      status: 'PAID',
-    },
-    {
-      productName: 'Microsoft Surface Pro',
-      color: 'White',
-      category: 'Laptop PC',
-      price: '$1999',
-      status: 'UNPAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'PAID',
-    },
-    {
-      productName: 'Magic Mouse 2',
-      color: 'Black',
-      category: 'Accessories',
-      price: '$99',
-      status: 'UNPAID',
-    },
-  ];
+  const [courses, setCourses] = useState([]);
+
+  const token = localStorage.getItem('TOKEN');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${backurl}/api/get/groups`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const reversed = data.Data.reverse();
+
+        // console.log(reversed);
+
+        setCourses(reversed);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -90,68 +47,31 @@ const AllStudentListTeacher = () => {
           All <span className="underline">Students</span> List
         </h2>
       </div>
-      <div className="relative overflow-x-auto shadow-xl sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Product name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Color
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Category
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Price
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Status
-              </th>
-              <th scope="col" className="px-6 py-3">
-                <span className="sr-only">Edit</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableData.map((item, index) => (
-              <tr
-                key={index}
-                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-              >
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
+      <div className="bg-gray-100 my-20">
+        <h2 className="text-left font-bold text-xl">
+          Select one group and see your students
+        </h2>
+        <div className="mt-2 grid lg:grid-cols-3">
+          {courses && courses
+            ? courses.map((e: any) => (
+                <div
+                  className="my-10 mx-4  block p-4 bg-white rounded shadow-xl hover:shadow-2xl"
+                  key={e.course_id}
                 >
-                  {item.productName}
-                </th>
-                <td className="px-6 py-4 text-black">{item.color}</td>
-                <td className="px-6 py-4 text-black">{item.category}</td>
-                <td className="px-6 py-4 text-black">{item.price}</td>
-                <td className="ps-2 pe-0 text-black py-4 font-bold text-center">
-                  <p
-                    className={`px-1 pe-1 py-2 rounded-full text-center ${
-                      item.status === 'PAID'
-                        ? 'bg-green-600 text-white'
-                        : 'bg-red-600 text-white'
-                    }`}
+                  <h2 className="text-2xl mt-5">{e.g_name}</h2>
+                  <h2 className="text-2xl mt-5">
+                    {e.subj_start}:00 - {e.subj_end}:00
+                  </h2>
+                  <NavLink
+                    to={`/dashboard/teacher/group/students/${e.group_id}`}
+                    className="bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
                   >
-                    {item.status}
-                  </p>
-                </td>
-                <td className="px-6 py-4 text-right">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    Edit
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                    See students
+                  </NavLink>
+                </div>
+              ))
+            : "user don't have any courses"}
+        </div>
       </div>
     </>
   );
