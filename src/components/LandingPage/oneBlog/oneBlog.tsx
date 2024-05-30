@@ -32,6 +32,7 @@ function OneBlogLanding() {
   };
 
   const description = course && course.Data ? course.Data.descr : 'Lorem ipsum';
+
   return (
     <div className="mx-left container px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 py-10 sm:py-16 lg:py-20 text-center">
       <img

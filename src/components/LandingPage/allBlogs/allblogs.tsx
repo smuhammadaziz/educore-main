@@ -55,7 +55,26 @@ export function Blog() {
     img,
     created_at,
   }: ContentCardPropsType) {
-    const truncatedDesc = truncateText(descr, 12);
+    const CourseDescription = ({ description }) => {
+      return <div dangerouslySetInnerHTML={{ __html: description }} />;
+    };
+
+    // const description = course && course ? course.descr : 'Lorem ipsum';
+    let textBlog: string = '';
+
+    course.map((e: any) => {
+      let descriptionBlog = e.descr;
+
+      textBlog = descriptionBlog;
+
+      // console.log(textBlog);
+
+      // console.log(descriptionBlog);
+    });
+
+    console.log(textBlog);
+
+    const truncatedDesc = truncateText(textBlog, 12);
 
     return (
       <Card
@@ -106,6 +125,8 @@ export function Blog() {
       </Card>
     );
   }
+
+  // console.log(textBlog);
 
   return (
     <div className="relative isolate overflow-hidden bg-white sm:py-0 lg:px-8 mt-20">
