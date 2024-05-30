@@ -24,11 +24,11 @@ export default function AllContactFormAdmin() {
 
         // console.log(data);
 
-        const reversedData = data.Contacts.reverse();
+        const reversedData = data.Contacts;
 
         console.log(reversedData);
 
-        setContacts(reversedData);
+        setContacts(reversedData.reverse());
       } catch (error) {
         console.log(error);
       }
