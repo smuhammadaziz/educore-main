@@ -66,6 +66,8 @@ const BuyOneCourseNowStudent = () => {
 
         const allCourse = data.Profil;
 
+        // console.log(allCourse);
+
         setProfile(allCourse);
 
         // console.log(allCourse);
@@ -141,19 +143,23 @@ const BuyOneCourseNowStudent = () => {
                 </p>
               </div>
               <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-                <NavLink
-                  to={`/dashboard/student/courses/buy/${course_id}`}
-                  className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
-                >
-                  Buy now
-                </NavLink>
-                {profile.free_trial ? (
+                {profile.group_id ? (
                   <NavLink
-                    to={`/dashboard/student/courses/use/free/${course_id}`}
-                    className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    to={`/dashboard/student/courses/buy/${course_id}`}
+                    className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                   >
-                    Use Free Trial
+                    Buy now
                   </NavLink>
+                ) : null}
+                {profile.free_trial ? (
+                  <div>
+                    <NavLink
+                      to={`/dashboard/student/courses/use/free/${course_id}`}
+                      className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    >
+                      Use Free Trial
+                    </NavLink>
+                  </div>
                 ) : null}
               </div>
             </div>
