@@ -2,20 +2,27 @@ import React, { FormEvent, useState } from 'react';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 import backurl from '../../../../links';
 
+import { stateToHTML } from 'draft-js-export-html';
+
+import { RefObject, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
+
+import {
+  Editor,
+  EditorState,
+  RichUtils,
+  convertToRaw,
+  convertFromRaw,
+  ContentBlock,
+  BlockMap,
+} from 'draft-js';
+import Toolbar from '../../../../editor/toolbar';
+// import './DraftEditor.css';
+
+import 'draft-js/dist/Draft.css';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// import {
-//   EditorContent,
-//   FloatingMenu,
-//   BubbleMenu,
-//   useEditor,
-// } from '@tiptap/react';
-// import StarterKit from '@tiptap/starter-kit';
-
-// const extensions = [StarterKit];
-
-// const content = '<p>Hello World!</p>';
 
 function AddNewBlogAdmin() {
   const [name, setName] = useState('');
@@ -67,10 +74,117 @@ function AddNewBlogAdmin() {
     }
   };
 
-  // const editor = useEditor({
-  //   extensions,
-  //   content,
-  // });
+  const [editorState, setEditorState] = useState(
+    EditorState.createWithContent(
+      convertFromRaw({
+        blocks: [
+          {
+            key: '3eesq',
+            text: 'Sample text',
+            type: 'unstyled',
+            depth: 0,
+            inlineStyleRanges: [
+              {
+                offset: 19,
+                length: 6,
+                style: 'BOLD',
+              },
+              {
+                offset: 25,
+                length: 5,
+                style: 'ITALIC',
+              },
+              {
+                offset: 30,
+                length: 8,
+                style: 'UNDERLINE',
+              },
+            ],
+            entityRanges: [],
+            data: {},
+          },
+        ],
+        entityMap: {},
+      }),
+    ),
+  );
+
+  const editor = useRef<Editor>(null);
+
+  useEffect(() => {
+    focusEditor();
+  }, []);
+
+  const focusEditor = () => {
+    editor.current?.focus();
+  };
+
+  const handleKeyCommand = (
+    command: string,
+    editorState: EditorState,
+  ): DraftHandleValue => {
+    const newState = RichUtils.handleKeyCommand(editorState, command);
+    if (newState) {
+      setEditorState(newState);
+      return 'handled';
+    }
+    return 'not-handled';
+  };
+
+  // FOR INLINE STYLES
+  const styleMap: { [key: string]: React.CSSProperties } = {
+    CODE: {
+      backgroundColor: 'rgba(0, 0, 0, 0.05)',
+      fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
+      fontSize: 16,
+      padding: 2,
+    },
+    HIGHLIGHT: {
+      backgroundColor: '#F7A5F7',
+    },
+    UPPERCASE: {
+      textTransform: 'uppercase',
+    },
+    LOWERCASE: {
+      textTransform: 'lowercase',
+    },
+    CODEBLOCK: {
+      fontFamily: '"fira-code", "monospace"',
+      fontSize: 'inherit',
+      background: '#ffeff0',
+      fontStyle: 'italic',
+      lineHeight: 1.5,
+      padding: '0.3rem 0.5rem',
+      borderRadius: ' 0.2rem',
+    },
+    SUPERSCRIPT: {
+      verticalAlign: 'super',
+      fontSize: '80%',
+    },
+    SUBSCRIPT: {
+      verticalAlign: 'sub',
+      fontSize: '80%',
+    },
+  };
+
+  // FOR BLOCK LEVEL STYLES(Returns CSS Class From DraftEditor.css)
+  const myBlockStyleFn = (contentBlock: ContentBlock): string | undefined => {
+    const type = contentBlock.getType();
+    switch (type) {
+      case 'blockQuote':
+        return 'superFancyBlockquote';
+      case 'leftAlign':
+        return 'leftAlign';
+      case 'rightAlign':
+        return 'rightAlign';
+      case 'centerAlign':
+        return 'centerAlign';
+      case 'justifyAlign':
+        return 'justifyAlign';
+      default:
+        return undefined;
+    }
+  };
 
   return (
     <DefaultLayoutAdmin>
@@ -80,13 +194,7 @@ function AddNewBlogAdmin() {
         Adding new <span className="underline">blog</span>
       </div>
 
-      <div>
-        {/* <EditorProvider
-          slotBefore={<MenuBar />}
-          extensions={extensions}
-          content={content}
-        ></EditorProvider> */}
-      </div>
+      <div></div>
       <form onSubmit={handleSubmit} className="dark:text-white">
         <div className="p-6.5">
           <div className="">
@@ -104,17 +212,36 @@ function AddNewBlogAdmin() {
               />
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Description
-              </label>
-              <textarea
-                rows={10}
-                placeholder="Enter your full name"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              ></textarea>
+              <div
+                className="editor-wrapper border-2 bg-white dark:bg-black dark:border-white border-slate-200 w-2/2 h-100 overflow-x-hidden"
+                onClick={focusEditor}
+              >
+                <div className="border-slate-200 border-b-2">
+                  <Toolbar
+                    editorState={editorState}
+                    setEditorState={setEditorState}
+                  />
+                </div>
+                <div className="editor-container p-2">
+                  <Editor
+                    ref={editor}
+                    placeholder="Write Here"
+                    handleKeyCommand={handleKeyCommand}
+                    editorState={editorState}
+                    customStyleMap={styleMap}
+                    // blockStyleFn={myBlockStyleFn}
+                    onChange={(newEditorState) => {
+                      const contentState = newEditorState.getCurrentContent();
+                      const rowFile = convertToRaw(contentState);
+
+                      const plaintext = stateToHTML(contentState);
+                      // console.log(plaintext);
+                      setEditorState(newEditorState);
+                      setDescription(plaintext);
+                    }}
+                  />
+                </div>
+              </div>
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">

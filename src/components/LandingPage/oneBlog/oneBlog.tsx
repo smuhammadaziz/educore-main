@@ -26,6 +26,12 @@ function OneBlogLanding() {
     }
     fetchCourses();
   }, []);
+
+  const CourseDescription = ({ description }) => {
+    return <div dangerouslySetInnerHTML={{ __html: description }} />;
+  };
+
+  const description = course && course.Data ? course.Data.descr : 'Lorem ipsum';
   return (
     <div className="mx-left container px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 py-10 sm:py-16 lg:py-20 text-center">
       <img
@@ -41,7 +47,8 @@ function OneBlogLanding() {
         {course && course ? course.Data.title : 'Hello world'}
       </h2>
       <p className="text-left sm:text-lg w-full sm:leading-6 lg:text-xl text-black mx-left mt-6 sm:mt-8 lg:mt-10 leading-6">
-        {course && course ? course.Data.descr : 'Lorem ipsum'}
+        {/* {course && course ? course.Data.descr : 'Lorem ipsum'} */}
+        <CourseDescription description={description} />
       </p>
       <div className="flex items-center mx-left justify-between w-75 mt-8 sm:mt-12 lg:mt-16">
         <p className="flex flex-col  font-bold lg:text-lg">

@@ -111,19 +111,19 @@ const Toolbar: React.FC<ToolbarProps> = ({ editorState, setEditorState }) => {
   };
 
   return (
-    <div className="toolbar-grid border-0 border-black grid grid-cols-8 border-b-2">
+    <div className="toolbar-grid grid grid-cols-8 ">
       {tools.map((item, idx) => (
         <button
           style={{
             color: isActive(item.style, item.method)
               ? 'rgba(0, 0, 0, 1)'
-              : 'rgba(0, 0, 0, 0.3)',
+              : 'rgba(0, 0, 0, 0.4)',
           }}
           key={`${item.label}-${idx}`}
           title={item.label}
           onClick={(e) => applyStyle(e, item.style, item.method)}
           onMouseDown={(e) => e.preventDefault()}
-          className="py-2 px-4 border-b-4 border-2 border-black"
+          className="py-2 px-4 border-r-2 border-slate-200"
         >
           {item.icon || item.label}
         </button>
