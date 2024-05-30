@@ -34,15 +34,11 @@ function OneBlogLanding() {
   const description = course && course.Data ? course.Data.descr : 'Lorem ipsum';
 
   return (
-    <div className="mx-left container px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 py-10 sm:py-16 lg:py-20 text-center">
+    <div className="mx-auto container sm:px-8 md:px-16 lg:px-20 xl:px-32 py-10 sm:py-16 lg:py-20 text-center">
       <img
-        src={`${backurl}upload/${
-          course
-            ? course.Data.img
-            : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
-        }`}
+        src={`${backurl}upload/${course ? course.Data.img : 'Loading...'}`}
         alt="image"
-        className="mx-left rounded-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
+        className="mx-left rounded-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-3xl"
       />
       <h2 className="text-2xl  sm:text-2xl lg:text-3xl text-black mt-8 sm:mt-10 text-left">
         {course && course ? course.Data.title : 'Hello world'}

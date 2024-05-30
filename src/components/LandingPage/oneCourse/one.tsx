@@ -57,7 +57,7 @@ const CoffeeComponent = () => {
       key={course_id}
     >
       <div className="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
-        <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
+        <div className="grid flex items-center items-start grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
           <div className="lg:col-span-3 bg-gray-100 rounded-sm w-full lg:sticky top-0 text-center p-8">
             <img
               src={`${backurl}upload/${
@@ -83,12 +83,12 @@ const CoffeeComponent = () => {
               </p>
             </div>
 
-            <div className="flex space-x-2 mt-4">
+            {/* <div className="flex space-x-2 mt-4">
               <Rating value={5} readonly />
               <p className="bg-black px-2 py-2 rounded-full text-white text-xl font-extrabold text-5xl ">
                 {data && data['rating'] ? data['rating'] : 'SAT | IELTS'}
               </p>
-            </div>
+            </div> */}
 
             <div className="mt-8">
               <h3 className="text-lg font-bold text-gray-800">
