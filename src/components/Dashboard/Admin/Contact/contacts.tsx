@@ -26,7 +26,7 @@ export default function AllContactFormAdmin() {
 
         const reversedData = data.Contacts;
 
-        console.log(reversedData);
+        // console.log(reversedData);
 
         setContacts(reversedData.reverse());
       } catch (error) {

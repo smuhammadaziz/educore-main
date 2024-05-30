@@ -68,9 +68,9 @@ function GEtAllLessonsTeacher() {
                       className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
                         product.procces_lesson === 'active'
                           ? 'bg-green-500'
-                          : product.status === 'pending'
+                          : product.procces_lesson === 'pending'
                           ? 'bg-yellow-500'
-                          : product.status === 'rejected'
+                          : product.procces_lesson === 'inactive'
                           ? 'bg-red-500'
                           : ''
                       }`}
