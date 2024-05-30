@@ -76,7 +76,10 @@ const CoffeeComponent = () => {
             </h2>
             <div className="flex flex-wrap gap-4 mt-4">
               <p className="text-gray-800 text-xl font-extrabold text-5xl ">
-                {data && data['price'] ? data['price'] : 'SAT | IELTS'} UZS
+                {data && data['price']
+                  ? data['price'].toLocaleString('en-US').replace(/,/g, ' ')
+                  : 'SAT | IELTS'}{' '}
+                UZS
               </p>
             </div>
 
