@@ -179,19 +179,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Home
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  to="/dashboard/users"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/users') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i116} alt="home icon" width="20" height="20" />
-                  Users
-                </NavLink>
-              </li> */}
-
               <li>
                 <NavLink
                   to="/dashboard/teachers"
@@ -214,30 +201,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 >
                   <img src={i114} alt="home icon" width="20" height="20" />
                   Students
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/dashboard/courses"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/courses') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i115} alt="home icon" width="20" height="20" />
-                  Courses
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/dashboard/groups"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/groups') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i113} alt="home icon" width="20" height="20" />
-                  Groups
                 </NavLink>
               </li>
               <li>

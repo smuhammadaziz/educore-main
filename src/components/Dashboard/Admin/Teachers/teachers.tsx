@@ -63,9 +63,6 @@ const AddTeachersList = () => {
                 Phone Number
               </th>
               <th scope="col" className="px-6 py-3">
-                Role
-              </th>
-              <th scope="col" className="px-6 py-3">
                 <span className="sr-only">Edit</span>
               </th>
             </tr>
@@ -85,17 +82,7 @@ const AddTeachersList = () => {
                 <td className="px-6 py-4 text-black">{item.main_subject}</td>
                 <td className="px-6 py-4 text-black">{item.email}</td>
                 <td className="px-6 py-4 text-black">{item.phone}</td>
-                <td className="ps-2 pe-0 text-black py-4 font-bold text-center">
-                  <p
-                    className={`px-1 pe-1 py-2 rounded-full text-center ${
-                      item.role === 'teacher'
-                        ? 'bg-green-600 text-white'
-                        : 'bg-red-600 text-white'
-                    }`}
-                  >
-                    {item.role}
-                  </p>
-                </td>
+
                 <td className="px-6 py-4 text-right">
                   <NavLink
                     to={`/dashboard/admin/teacher/${item.user_id}`}
