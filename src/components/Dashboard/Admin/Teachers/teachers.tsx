@@ -21,11 +21,11 @@ const AddTeachersList = () => {
         }
         const data = await response.json();
 
-        const reversedData = data.message.reverse();
+        const reversedData = data.message;
 
         // console.log(reversedData);
 
-        setTeachers(reversedData);
+        setTeachers(reversedData.reverse());
       } catch (error) {
         console.log(error);
       }
