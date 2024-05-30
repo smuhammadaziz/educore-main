@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DefaultLayout from '../layout/DefaultLayout';
-import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import backurl from '../links';
-import CoverOne from '../images/cover/cover-01.png';
-import defaultUserImg from '../images/user/user-06.png';
+import DefaultLayout from '../../../layout/DefaultLayout';
+import DefaultLayoutStudent from '../../../layout/DefaultStudent';
+import Breadcrumb from '../../../components/Breadcrumbs/Breadcrumb';
+import backurl from '../../../links';
+import CoverOne from '../../../images/cover/cover-01.png';
+import defaultUserImg from '../../../images/user/user-06.png';
 
 const ProfileStudent = () => {
   const [profileData, setProfileData] = useState(null);
@@ -39,17 +40,17 @@ const ProfileStudent = () => {
 
   if (loading) {
     return (
-      <DefaultLayout>
+      <DefaultLayoutStudent>
         <div className="text-center py-10">Loading...</div>
-      </DefaultLayout>
+      </DefaultLayoutStudent>
     );
   }
 
   if (!profileData) {
     return (
-      <DefaultLayout>
+      <DefaultLayoutStudent>
         <div className="text-center py-10">Profile data not available</div>
-      </DefaultLayout>
+      </DefaultLayoutStudent>
     );
   }
 
@@ -73,7 +74,7 @@ const ProfileStudent = () => {
   } = profileData;
 
   return (
-    <DefaultLayout>
+    <DefaultLayoutStudent>
       <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="relative z-20 h-35 md:h-65">
           <img
@@ -185,7 +186,7 @@ const ProfileStudent = () => {
           </div>
         </div>
       </div>
-    </DefaultLayout>
+    </DefaultLayoutStudent>
   );
 };
 

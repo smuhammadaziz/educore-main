@@ -9,6 +9,7 @@ import i113 from '../../images/country/113.svg';
 import i114 from '../../images/country/114.svg';
 import i115 from '../../images/country/115.svg';
 import i116 from '../../images/country/116.svg';
+import backurl from '../../links';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -61,6 +62,37 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       document.querySelector('body')?.classList.remove('sidebar-expanded');
     }
   }, [sidebarExpanded]);
+
+  const [profileData, setProfileData] = useState(null);
+
+  const token = localStorage.getItem('TOKEN');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${backurl}/api/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          localStorage.removeItem('TOKEN');
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const userId = data.Profil.user_id;
+
+        // console.log(userId);
+
+        setProfileData(userId);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <aside
@@ -157,18 +189,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   View All Courses
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  to="/dashboard/student/my/courses"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/my/courses') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <img src={i115} alt="home icon" width="20" height="20" />
-                  My Courses
-                </NavLink>
-              </li> */}
               <li>
                 <NavLink
                   to="/dashboard/student/groups"
@@ -221,7 +241,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <hr className="my-5" />
               <li>
                 <NavLink
-                  to="/dashboard/student/settings"
+                  to={`/dashboard/student/settings/${profileData}`}
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('settings') &&
                     'bg-graydark dark:bg-meta-4'
@@ -261,7 +281,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
-                  to="/student/profile"
+                  to={`/dashboard/student/profile/${profileData}`}
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
                   }`}

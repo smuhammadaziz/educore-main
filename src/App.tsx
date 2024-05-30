@@ -731,7 +731,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/student/settings"
+          path="/dashboard/student/settings/:profile_id"
           element={
             <>
               <PageTitle title="Settings | Educore" />
@@ -740,7 +740,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/teacher/settings"
+          path="/dashboard/teacher/settings/:profile_id"
           element={
             <>
               <PageTitle title="Settings | Educore" />
@@ -750,17 +750,17 @@ function App() {
         />
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
-          path="/dashboard/teacher/profile"
+        {/* <Route
+          path="/dashboard/teacher/profile/:profile_id"
           element={
             <>
               <PageTitle title="Profile | Educore" />
               <ProfileTeacher />
             </>
           }
-        />
+        /> */}
         <Route
-          path="/dashboard/admin/profile"
+          path="/dashboard/admin/profile/:profile_id"
           element={
             <>
               <PageTitle title="Profile | Educore" />
@@ -769,7 +769,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/student/profile"
+          path="/dashboard/student/profile/:profile_id"
           element={
             <>
               <PageTitle title="Profile | Educore" />

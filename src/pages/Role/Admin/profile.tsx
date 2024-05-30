@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DefaultLayout from '../layout/DefaultLayout';
-import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import backurl from '../links';
-import CoverOne from '../images/cover/cover-01.png';
-import defaultUserImg from '../images/user/user-06.png';
+import DefaultLayout from '../../../layout/DefaultLayout';
+import Breadcrumb from '../../../components/Breadcrumbs/Breadcrumb';
+import backurl from '../../../links';
+import CoverOne from '../../../images/cover/cover-01.png';
+import defaultUserImg from '../../../images/user/user-06.png';
 
 const ProfileAdmin = () => {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('TOKEN');
+
   const navigate = useNavigate();
 
   useEffect(() => {
