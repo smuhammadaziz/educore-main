@@ -98,13 +98,13 @@ export function Blog() {
           <Typography variant="h4" color="white">
             {title}
           </Typography>
-          <Typography
+          {/* <Typography
             variant="paragraph"
             color="white"
             className="my-2 font-normal"
           >
             {truncatedDesc}
-          </Typography>
+          </Typography> */}
           <div className="flex justify-between items-center mt-5">
             <NavLink
               to={`/all/blogs/${blog_id}`}
