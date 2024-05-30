@@ -80,9 +80,21 @@ export default function Courses() {
                     {content[selectledLang as string].popularCourse.more} →
                   </NavLink>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price} UZS
-                </p>
+
+                <div>
+                  {content[selectledLang as string].popularCourse.explore} is
+                  your verification code
+                  {
+                    content[selectledLang as string].popularCourse
+                      .popularcourses
+                  }{' '}
+                  is your verification code for sign in
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">
+                    {product.price} UZS
+                  </p>
+                </div>
               </div>
             </div>
           ))}
