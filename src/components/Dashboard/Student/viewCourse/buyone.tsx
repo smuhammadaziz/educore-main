@@ -86,7 +86,7 @@ const BuyOneCourseNowStudent = () => {
               </h2>
               <p className="text-gray-800 text-xl font-extrabold text-5xl mt-4">
                 Price:{' '}
-                {data && data
+                {data && data.price
                   ? data.price.toLocaleString('en-US').replace(/,/g, ' ') ||
                     'SAT | IELTS'
                   : '100'}{' '}
