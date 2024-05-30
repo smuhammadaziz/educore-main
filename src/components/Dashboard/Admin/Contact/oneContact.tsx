@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import backurl from '../../../../links';
-
 import moment from 'moment';
+
 function OneContactGetAdmin() {
-  const [contacts, setContacts] = useState([]);
+  const [contact, setContact] = useState({});
 
   const token = localStorage.getItem('TOKEN');
-
   const { contact_id } = useParams();
 
   useEffect(() => {
-    async function fetchCourses() {
+    async function fetchContact() {
       try {
         const response = await fetch(
           `${backurl}/api/admin/contact/${contact_id}`,
@@ -26,43 +24,48 @@ function OneContactGetAdmin() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
-        const reversedData = data.Contact;
-
-        setContacts(reversedData);
+        setContact(data.Contact);
       } catch (error) {
         console.log(error);
       }
     }
-    fetchCourses();
-  }, []);
-  return (
-    <div>
-      <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-        <div
-          key={contacts.contact_id}
-          className="bg-white p-5 w-full sm:w-50 md:w-50 xl:w-160 lg:w-150 dark:bg-slate-700 dark:text-white "
-        >
-          <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
-            Full name: {contacts.name} <span></span>
-            {contacts.l_name}
-          </h3>
-          <p className="mt-1 text-lg font-medium text-gray-900 dark:text-white">
-            Phone Number: {contacts.phone}
-          </p>
-          <p className="mt-1 text-lg font-medium text-gray-900 dark:text-white">
-            Email: {contacts.email}
-          </p>
-          <p className="inline-block w-50 mt-1 text-lg font-medium text-gray-900 dark:text-white">
-            Message: {contacts.message}
-          </p>
+    fetchContact();
+  }, [contact_id, token]);
 
-          <p className="mt-1 text-lg font-medium text-gray-900 dark:text-white">
-            Created time: {moment(contacts.created_at).format('LLL')}
+  return (
+    <div className="container mx-auto p-6">
+      <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-6 w-full sm:w-1/2 md:w-2/3 lg:w-1/2 mx-auto">
+        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800 dark:text-white">
+          Contact Details
+        </h2>
+        <div className="text-gray-700 dark:text-white mb-4">
+          <h3 className="text-xl font-bold">Full Name:</h3>
+          <p className="text-lg">
+            {contact.name} {contact.l_name}
           </p>
+        </div>
+        <div className="text-gray-700 dark:text-white mb-4">
+          <h3 className="text-xl font-bold">Phone Number:</h3>
+          <p className="text-lg">{contact.phone || 'N/A'}</p>
+        </div>
+        <div className="text-gray-700 dark:text-white mb-4">
+          <h3 className="text-xl font-bold">Email:</h3>
+          <p className="text-lg">{contact.email || 'N/A'}</p>
+        </div>
+        <div className="text-gray-700 dark:text-white mb-4">
+          <h3 className="text-xl font-bold">Message:</h3>
+          <p className="text-lg">{contact.message || 'N/A'}</p>
+        </div>
+        <div className="text-gray-700 dark:text-white mb-4">
+          <h3 className="text-xl font-bold">Created Time:</h3>
+          <p className="text-lg">
+            {moment(contact.created_at).format('LLL') || 'N/A'}
+          </p>
+        </div>
+        <div className="text-center">
           <NavLink
-            to={`/dashboard/contact`}
-            className="inline-block mt-5 bg-blue-700 rounded px-5 py-1 text-white text-right"
+            to="/dashboard/contact"
+            className="inline-block mt-5 bg-blue-700 hover:bg-blue-800 rounded px-5 py-2 text-white"
           >
             Go back
           </NavLink>

@@ -7,12 +7,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function GetOnePaymentAdmin() {
-  const [blogs, setBlogs] = useState([]);
+  const [payment, setPayment] = useState({});
   const token = localStorage.getItem('TOKEN');
   const { payment_id } = useParams();
 
   useEffect(() => {
-    const fetchBlogs = async () => {
+    const fetchPayment = async () => {
       try {
         const response = await fetch(
           `${backurl}/api/admin/get/payment/${payment_id}`,
@@ -24,17 +24,17 @@ function GetOnePaymentAdmin() {
           },
         );
         if (!response.ok) {
-          throw new Error('Failed to fetch blogs');
+          throw new Error('Failed to fetch payment');
         }
 
         const data = await response.json();
-        setBlogs(data.Userpayments);
+        setPayment(data.Userpayments);
       } catch (error) {
-        console.error('Error fetching blogs:', error);
+        console.error('Error fetching payment:', error);
       }
     };
 
-    fetchBlogs();
+    fetchPayment();
   }, [payment_id, token]);
 
   const handleVerifyPayment = async () => {
@@ -70,19 +70,12 @@ function GetOnePaymentAdmin() {
           },
         },
       );
-      //  if (!response.ok) {
-      //    throw new Error('Failed to reject payment');
-      //  }
       if (response.ok) {
         toast.error('Payment rejected', {
           position: 'top-right',
         });
         //    window.location.reload();
       }
-
-      //  console.log(response);
-
-      // Handle successful rejection (e.g., show a success message, update state)
     } catch (error) {
       console.error('Error rejecting payment:', error);
     }
@@ -90,99 +83,99 @@ function GetOnePaymentAdmin() {
 
   return (
     <DefaultLayoutAdmin>
-      <ToastContainer></ToastContainer>
-      <div className="bg-white dark:bg-black text-center mx-auto justify-center p-5">
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="font-bold">Student full name: </p>
-          <p className="ms-5 font-bold">
-            {blogs ? `${blogs.name} ${blogs.l_name}` : 'John Doe'}
-          </p>
+      <ToastContainer />
+      <div className="bg-white dark:bg-slate-800 text-center mx-auto justify-center p-5 rounded-lg shadow-md w-full sm:w-2/3 lg:w-1/2">
+        <h2 className="text-2xl font-bold mb-5">Payment Details</h2>
+        <div className="flex flex-col space-y-4 text-left">
+          <div className="flex justify-between">
+            <p className="font-bold">Student Full Name:</p>
+            <p>{payment ? `${payment.name} ${payment.l_name}` : 'John Doe'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Student Email:</p>
+            <p>{payment.email || 'john@example.com'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Group Name:</p>
+            <p>{payment.g_name || 'Group A'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Card Type:</p>
+            <p>{payment.card_type || 'Visa'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Course Time:</p>
+            <p>{payment.l_days || 'Weekdays'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Payment Description:</p>
+            <p>{payment.pay_desc || 'Tuition Fee'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Course Period:</p>
+            <p>{payment.period ? `${payment.period} months` : '4 months'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Course Fee:</p>
+            <p>{payment.price ? `${payment.price} so'm` : "400,000 so'm"}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Class Time:</p>
+            <p>
+              {payment.subj_start && payment.subj_end
+                ? `${payment.subj_start}:00 - ${payment.subj_end}:00`
+                : '13:00 - 14:00'}
+            </p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Main Subject:</p>
+            <p>{payment.subject || 'Math'}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-bold">Group Max Limit:</p>
+            <p>
+              {payment.user_count
+                ? `${payment.user_count} people`
+                : '30 people'}
+            </p>
+          </div>
+          <div className="text-center">
+            <p className="font-bold inline-block">Status:</p>
+            <span
+              className={`ml-2 inline-block py-1 px-3 rounded-full text-md font-bold text-white ${
+                payment.pay_status === 'paid'
+                  ? 'bg-green-500'
+                  : payment.pay_status === 'pending'
+                  ? 'bg-yellow-500'
+                  : payment.pay_status === 'unpaid'
+                  ? 'bg-red-500'
+                  : ''
+              }`}
+            >
+              {payment.pay_status}
+            </span>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="font-bold mb-2">Payment Cheque Photo:</p>
+            <img
+              src={`${backurl}upload/${payment.image}`}
+              alt={payment.title}
+              className="w-full h-auto object-cover rounded-lg shadow-md"
+            />
+          </div>
         </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student email:</p>
-          <p className="font-bold">
-            {blogs ? blogs.email : 'john@example.com'}
-          </p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student group name:</p>
-          <p className="font-bold">{blogs ? blogs.g_name : 'Group A'}</p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student card type:</p>
-          <p className="font-bold">{blogs ? blogs.card_type : 'Visa'}</p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student course time:</p>
-          <p className="font-bold">{blogs ? blogs.l_days : 'Weekdays'}</p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student payment description:</p>
-          <p className="font-bold">{blogs ? blogs.pay_desc : 'Tuition Fee'}</p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student course period:</p>
-          <p className="font-bold">{blogs ? blogs.period : '4'} months</p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student course fee:</p>
-          <p className="font-bold">{blogs ? blogs.price : '400,000'} so'm</p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student class time:</p>
-          <p className="font-bold">
-            {blogs
-              ? `${blogs.subj_start}:00 - ${blogs.subj_end}:00`
-              : '13:00 - 14:00'}
-          </p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student main subject:</p>
-          <p className="font-bold">{blogs ? blogs.subject : 'Math'}</p>
-        </div>
-        <div className="flex text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">Student group maximum limit:</p>
-          <p className="font-bold">{blogs ? blogs.user_count : '30'} people</p>
-        </div>
-        <p className="mt-2 text-md font-medium text-gray-900 dark:text-white text-center">
-          Status:
-          <span
-            className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
-              blogs.pay_status === 'paid'
-                ? 'bg-green-500'
-                : blogs.pay_status === 'pending'
-                ? 'bg-yellow-500'
-                : blogs.pay_status === 'unpaid'
-                ? 'bg-red-500'
-                : ''
-            }`}
-          >
-            {blogs.pay_status}
-          </span>
-        </p>
-        <div className="flex flex-col text-center mx-auto justify-center p-2">
-          <p className="me-5 font-bold">
-            Student payment cheque photo for verify:
-          </p>
-          <img
-            src={`${backurl}upload/${blogs.image}`}
-            alt={blogs.title}
-            className="w-100 object-cover mx-auto mt-5"
-          />
-        </div>
-
-        <div className="flex flex-col text-center mx-auto justify-center p-2">
+        <div className="flex space-x-4 mt-6 justify-center">
           <button
-            className="bg-green-800 w-50 mx-auto py-3 text-white rounded text-md hover:bg-green-700"
+            className="bg-green-700 hover:bg-green-600 text-white py-2 px-4 rounded-lg"
             onClick={handleVerifyPayment}
           >
-            Verify payment
+            Verify Payment
           </button>
           <button
-            className="mt-5 bg-red-800 w-50 mx-auto py-3 text-white rounded text-md hover:bg-red-700"
+            className="bg-red-700 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
             onClick={handleRejectPayment}
           >
-            Reject payment
+            Reject Payment
           </button>
         </div>
       </div>
