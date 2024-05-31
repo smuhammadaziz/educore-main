@@ -5,12 +5,9 @@ import React, {
   ChangeEvent,
   KeyboardEvent,
 } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import { jwtDecode } from 'jwt-decode';
 
 import backurl from '../../links';
 import useLang from '../../hooks/useLang';
@@ -69,10 +66,7 @@ const CodeEntry: React.FC = () => {
 
   const [error, setError] = useState('');
 
-  // const navigateTo = useNavigate();
-
   const enteredCode = code.join('');
-
   const registerToken = localStorage.getItem('TOKEN_FOR_REGISTER');
 
   const handleRegister = async (e: React.FormEvent) => {
@@ -91,8 +85,6 @@ const CodeEntry: React.FC = () => {
 
       const data = await response.json();
 
-      console.log(data);
-
       if (response.ok) {
         toast.success('Login successful!', {
           position: 'top-right',
@@ -100,20 +92,15 @@ const CodeEntry: React.FC = () => {
         const token = data.token2;
 
         localStorage.removeItem('TOKEN_FOR_REGISTER');
-
         localStorage.setItem('TOKEN', token);
 
         setTimeout(() => {
           window.location.href = '/dashboard/student';
         }, 100);
-      }
-
-      if (!response.ok) {
-        // const responseData = await response.json();
+      } else {
         toast.error(data.message, {
           position: 'top-right',
         });
-        // throw new Error();
       }
     } catch (error: any) {
       setError(error.message);
@@ -121,34 +108,31 @@ const CodeEntry: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <ToastContainer></ToastContainer>
-      <form action="" onSubmit={handleRegister}>
-        <div className="flex flex-col items-center justify-center p-30 pb-20 shadow-xl rounded-xl px-30 bg-white">
-          <div className="flex space-x-4 mb-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
+      <ToastContainer />
+      <form onSubmit={handleRegister} className="w-full max-w-sm">
+        <div className="bg-white shadow-xl rounded-xl py-20 p-8 space-y-6">
+          <div className="flex justify-center space-x-2">
             {code.map((digit, index) => (
               <input
                 key={index}
                 type="text"
                 maxLength={1}
                 value={digit}
-                onChange={(e) => {
-                  handleChange(e, index);
-                }}
+                onChange={(e) => handleChange(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 ref={(el) => (inputRefs.current[index] = el)}
                 className="w-12 h-12 text-center text-2xl border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               />
             ))}
           </div>
-          {error && <div className="text-red-500 mb-4">{error}</div>}
-
-          <div className="mb-4 text-xl">
+          {error && <div className="text-red-500 text-center">{error}</div>}
+          <div className="text-center text-xl">
             {showResendButton ? (
               <NavLink
-                to="/auth/signup"
+                to="#"
                 onClick={handleResend}
-                className="px-4 py-2  text-black underline rounded-lg hover:opacity-50 focus:outline-none"
+                className="text-blue-500 underline hover:text-blue-700"
               >
                 Resend code
               </NavLink>
@@ -156,10 +140,10 @@ const CodeEntry: React.FC = () => {
               <span>Time remaining: {formatTime(timer)}</span>
             )}
           </div>
-          <div className="mb-4 mt-5 text-xl">
+          <div className="text-center">
             <button
               type="submit"
-              className="px-8 py-2 bg-blue-700  text-white rounded-lg hover:opacity-50 focus:outline-none"
+              className="w-full px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 focus:outline-none"
             >
               Submit
             </button>
