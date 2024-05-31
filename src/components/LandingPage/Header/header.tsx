@@ -85,6 +85,13 @@ export default function Header() {
           >
             {content[selectedLanguage as string].header.register}
           </NavLink>
+          <a
+            href="https://t.me/educore_tutors_bot"
+            target="_blank"
+            className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-white border border-black  text-black px-5 py-2 rounded-full hover:bg-slate-100 active:bg-slate-100 focus:outline-none focus:ring focus:ring-slate-100"
+          >
+            {content[selectedLanguage as string].header.teacher}
+          </a>
         </div>
       </nav>
       <Dialog
