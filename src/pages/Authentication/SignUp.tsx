@@ -96,12 +96,21 @@ const SignUp: React.FC = () => {
 
             <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
               <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-                <span className="mb-1.5 block font-medium">
+                <span className="mb-1.5 block font-medium sm:flex-row sm:items-center ">
                   {content[selectedLang as string].log.start}
                 </span>
-                <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                  {content[selectedLang as string].log.register}
-                </h2>
+                <div className="mb-10 flex flex-col items-center sm:flex-row sm:items-center">
+                  <h2 className="mb-6 text-2xl font-bold text-black dark:text-white sm:text-title-xl2 sm:mb-0 sm:mr-6">
+                    {content[selectedLang as string].log.register}
+                  </h2>
+                  <a
+                    href="https://t.me/educore_tutors_bot"
+                    target="_blank"
+                    className="mt-3 sm:mt-0 inline-block text-sm font-semibold leading-6 text-gray-900 primary bg-white border border-black text-black px-5 py-2 rounded-full hover:bg-slate-100 active:bg-slate-100 focus:outline-none focus:ring focus:ring-slate-100"
+                  >
+                    {content[selectedLang as string].header.teacher} →
+                  </a>
+                </div>
 
                 <form onSubmit={handleRegister}>
                   <div className="flex flex-col md:flex-row justify-between">
