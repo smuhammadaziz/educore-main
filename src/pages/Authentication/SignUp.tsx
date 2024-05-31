@@ -26,6 +26,8 @@ const SignUp: React.FC = () => {
 
   const navigateTo = useNavigate();
 
+  // localStorage.removeItem('TOKEN');
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -43,27 +45,24 @@ const SignUp: React.FC = () => {
         method: 'POST',
         body: formData,
       });
+      const data = await response.json();
+
+      // console.log(data);
 
       if (response.ok) {
         toast.success('Login successful!', {
           position: 'top-right',
         });
+        navigateTo('/auth/code/entry');
+        const token = data.token;
+
+        localStorage.setItem('TOKEN_FOR_REGISTER', token);
       }
 
       if (!response.ok) {
         const responseData = await response.json();
         throw new Error(responseData.message);
       }
-
-      const data = await response.json();
-
-      const token = data.token;
-
-      localStorage.setItem('TOKEN', token);
-
-      setTimeout(() => {
-        window.location.href = '/dashboard/student';
-      }, 100);
     } catch (error: any) {
       setError(error.message);
 

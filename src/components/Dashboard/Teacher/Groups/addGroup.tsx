@@ -138,11 +138,11 @@ function AddNewGroupTeacher() {
             </div>
             <div className="mb-4.5 md:w-1/2 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Lesson Start End (only numbers) example: 15
+                Lesson End Time (only numbers) example: 15
               </label>
               <input
                 type="text"
-                placeholder="Enter your lesson (only numbers) example: 15"
+                placeholder="Enter your lesson time (only numbers) example: 15"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}

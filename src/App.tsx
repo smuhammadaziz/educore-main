@@ -92,6 +92,7 @@ import AllStudentListTeacher from './components/Dashboard/Teacher/Students/stude
 import AllStudentsListTeachers from './components/Dashboard/Teacher/Students/allStudents';
 import AllInfoStudentTeacher from './components/Dashboard/Teacher/Students/allStudents';
 import OneStudentGetTeacherPage from './components/Dashboard/Teacher/Students/oneStudent';
+import CodeEntry from './pages/Authentication/Code';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -738,6 +739,15 @@ function App() {
             <>
               <PageTitle title="Signup | Educore" />
               <SignUp />
+            </>
+          }
+        />
+        <Route
+          path="/auth/code/entry"
+          element={
+            <>
+              <PageTitle title="Signup | Educore" />
+              <CodeEntry />
             </>
           }
         />
