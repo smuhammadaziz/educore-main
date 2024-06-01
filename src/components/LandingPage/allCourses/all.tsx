@@ -36,7 +36,7 @@ export default function AllCourses() {
     fetchCourses();
   }, []);
 
-  const [price, setPrice] = useState(1000000);
+  const [price, setPrice] = useState(10000000);
 
   const handleSliderChange = (event: any) => {
     setPrice(event.target.value);
@@ -130,7 +130,7 @@ export default function AllCourses() {
             <input
               type="range"
               min="50000"
-              max="1000000"
+              max="10000000"
               value={price}
               onChange={handleSliderChange}
               className="w-full h-1 bg-fuchsia-900 rounded-lg appearance-none cursor-pointer"
