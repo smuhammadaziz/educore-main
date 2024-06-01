@@ -22,7 +22,7 @@ function Home() {
       <section>
         <Testimonials />
         <Blogs />
-        <OurPartnersLanding />
+        {/* <OurPartnersLanding /> */}
         <ContactForm />
       </section>
 

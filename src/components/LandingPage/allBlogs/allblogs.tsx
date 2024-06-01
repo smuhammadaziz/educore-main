@@ -72,7 +72,7 @@ export function Blog() {
       // console.log(descriptionBlog);
     });
 
-    console.log(textBlog);
+    // console.log(textBlog);
 
     const truncatedDesc = truncateText(textBlog, 12);
 
