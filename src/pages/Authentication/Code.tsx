@@ -111,7 +111,8 @@ const CodeEntry: React.FC = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
       <ToastContainer />
       <form onSubmit={handleRegister} className="w-full max-w-sm">
-        <div className="bg-white shadow-xl rounded-xl py-20 p-8 space-y-6">
+        <div className="bg-white shadow-xl rounded-xl py-20 p-8 space-y-8">
+          <h2 className="text-center text-2xl">Enter a code</h2>
           <div className="flex justify-center space-x-2">
             {code.map((digit, index) => (
               <input
@@ -130,7 +131,7 @@ const CodeEntry: React.FC = () => {
           <div className="text-center text-xl">
             {showResendButton ? (
               <NavLink
-                to="#"
+                to="/auth/signup"
                 onClick={handleResend}
                 className="text-blue-500 underline hover:text-blue-700"
               >
