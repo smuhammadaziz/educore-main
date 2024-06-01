@@ -139,7 +139,7 @@ export function Blog() {
           {content[selectedLang as string].blogs.blogs}
         </Typography>
 
-        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-3">
           {course.map(({ blog_id, img, title, descr, created_at }) => (
             <ContentCard
               key={blog_id}
