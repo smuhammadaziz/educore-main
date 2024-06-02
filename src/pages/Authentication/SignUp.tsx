@@ -47,10 +47,10 @@ const SignUp: React.FC = () => {
       });
       const data = await response.json();
 
-      // console.log(data);
+      // console.log(data.message);
 
       if (response.ok) {
-        toast.success('Login successful!', {
+        toast.success(data.message, {
           position: 'top-right',
         });
         navigateTo('/auth/code/entry');
