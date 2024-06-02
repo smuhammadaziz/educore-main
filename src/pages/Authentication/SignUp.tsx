@@ -60,14 +60,17 @@ const SignUp: React.FC = () => {
       }
 
       if (!response.ok) {
-        const responseData = await response.json();
+        // const responseData = await response.json();
         // throw new Error(responseData.message);
-        toast.error(responseData.message, {
+        toast.error(data.message, {
           position: 'top-right',
         });
       }
     } catch (error: any) {
       setError(error.message);
+      toast.error(error.message, {
+        position: 'top-right',
+      });
     }
   };
 
