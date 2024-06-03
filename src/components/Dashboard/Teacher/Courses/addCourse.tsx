@@ -52,8 +52,16 @@ function AddnewCourseTeacher() {
         body: formData,
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         toast.success('Course successfully added', {
+          position: 'top-right',
+        });
+      }
+
+      if (!response.ok) {
+        toast.error(data.message, {
           position: 'top-right',
         });
       }
