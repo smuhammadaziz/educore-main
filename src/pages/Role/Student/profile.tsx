@@ -84,7 +84,9 @@ const ProfileStudent = () => {
         />
         <div className="flex flex-col items-center mt-4">
           <img
-            src={`${backurl}/upload/${image || defaultUserImg}`}
+            src={`${backurl}/upload/${
+              image || '128-1280406_view-user-icon-png-user-circle-icon-png.png'
+            }`}
             alt="profile"
             className="w-50 h-50 -mt-22 rounded-full object-cover border-4 border-white"
           />
