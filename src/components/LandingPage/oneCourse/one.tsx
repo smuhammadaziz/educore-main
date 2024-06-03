@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
 import { Rating } from '@material-tailwind/react';
 import { NavLink, useParams } from 'react-router-dom';
-
 import backurl from '../../../links';
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
@@ -21,85 +19,71 @@ const CoffeeComponent = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
         const allCourse = data.getidbycourse;
-
         setData(allCourse);
-
-        // console.log(allCourse);
       } catch (error) {
         console.log(error);
       }
     }
     fetchCourses();
-  }, []);
+  }, [course_id]);
 
   const givenRatingIntoCouse = () => {
     if (data.rating) {
-      if (data.rating == 'very bad') {
+      if (data.rating === 'very bad') {
         return 1;
-      } else if (data.rating == 'bad') {
+      } else if (data.rating === 'bad') {
         return 2;
-      } else if (data.rating == 'good') {
+      } else if (data.rating === 'good') {
         return 3;
-      } else if (data.rating == 'better') {
+      } else if (data.rating === 'better') {
         return 4;
-      } else if (data.rating == 'best') {
+      } else if (data.rating === 'best') {
         return 5;
       }
     }
   };
 
   const [selectedLanguage] = useLang();
+
   return (
-    <div
-      className="font-sans bg-white pb-20 mx-auto justify-center"
-      key={course_id}
-    >
-      <div className="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
-        <div className="grid flex items-center items-start grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
-          <div className="lg:col-span-3 bg-gray-100 rounded-sm w-full lg:sticky top-0 text-center p-8">
+    <div className="font-sans bg-white pb-20 mx-auto flex justify-center">
+      <div className="p-6 lg:max-w-7xl max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
+          <div className="lg:col-span-2 bg-gray-100 rounded-sm w-full lg:sticky top-0 text-center p-8">
             <img
               src={`${backurl}upload/${
-                data && data['image'] ? data['image'] : 'SAT | IELTS'
+                data && data.image ? data.image : 'SAT | IELTS'
               }`}
               alt="Product"
-              className="w-150 rounded object-cover mx-auto sm:w-200 md:w-250"
+              width="400"
+              className="  rounded object-cover mx-auto"
             />
-
             <hr className="border-white border-2 my-6" />
           </div>
 
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-extrabold text-gray-800">
-              {data && data['title'] ? data['title'] : 'SAT | IELTS'}
+          <div className="lg:col-span-3">
+            <h2 className="text-2xl font-extrabold text-gray-800 mt-7">
+              {data && data.title ? data.title : 'SAT | IELTS'}
             </h2>
             <div className="flex flex-wrap gap-4 mt-4">
-              <p className="text-gray-800 text-xl font-extrabold text-5xl ">
-                {data && data['price']
-                  ? data['price'].toLocaleString('en-US').replace(/,/g, ' ')
+              <p className="text-gray-800 text-xl font-extrabold">
+                {data && data.price
+                  ? data.price.toLocaleString('en-US').replace(/,/g, ' ')
                   : 'SAT | IELTS'}{' '}
                 UZS
               </p>
             </div>
-
-            {/* <div className="flex space-x-2 mt-4">
-              <Rating value={5} readonly />
-              <p className="bg-black px-2 py-2 rounded-full text-white text-xl font-extrabold text-5xl ">
-                {data && data['rating'] ? data['rating'] : 'SAT | IELTS'}
-              </p>
-            </div> */}
-
             <div className="mt-8">
               <h3 className="text-lg font-bold text-gray-800">
                 {content[selectedLanguage as string].buy.about}
               </h3>
-              <p className="text-md font-bold text-gray-00 mt-3">
-                {data && data['descr'] ? data['descr'] : 'SAT | IELTS'}
+              <p className="text-md font-bold text-gray-800 mt-3">
+                {data && data.descr ? data.descr : 'SAT | IELTS'}
               </p>
-              <p className="text-sm font-bold text-gray-00 mt-3">
+              <p className="text-sm font-bold text-gray-800 mt-3">
                 {content[selectedLanguage as string].buy.period}{' '}
-                {data && data['period'] ? data['period'] : 'SAT | IELTS'}{' '}
+                {data && data.period ? data.period : 'SAT | IELTS'}{' '}
                 {content[selectedLanguage as string].buy.month}
               </p>
             </div>
@@ -107,9 +91,9 @@ const CoffeeComponent = () => {
               <h3 className="text-lg font-bold text-gray-800">
                 {content[selectedLanguage as string].buy.teacher}
               </h3>
-              <p className="text-sm font-bold text-gray-00 mt-3">
-                {data && data['name'] ? data['name'] : 'SAT | IELTS'}{' '}
-                {data && data['l_name'] ? data['l_name'] : 'SAT | IELTS'}{' '}
+              <p className="text-sm font-bold text-gray-800 mt-3">
+                {data && data.name ? data.name : 'SAT | IELTS'}{' '}
+                {data && data.l_name ? data.l_name : 'SAT | IELTS'}{' '}
               </p>
             </div>
             <div className="mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-2">
