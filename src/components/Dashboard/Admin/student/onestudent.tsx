@@ -3,6 +3,7 @@ import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 import backurl from '../../../../links';
 import { useParams } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
+import moment from 'moment';
 
 function OneStudentGetAdmin() {
   const [student, setStudent] = useState({});
@@ -80,7 +81,9 @@ function OneStudentGetAdmin() {
           </div>
           <div>
             <h2 className="text-xl font-bold">Created Time:</h2>
-            <p>{student.created_at || 'No data'}</p>
+            <p>
+              {moment(student.created_at || 'No data').format('lll')} {}
+            </p>
           </div>
           <div>
             <h2 className="text-xl font-bold">Education:</h2>
