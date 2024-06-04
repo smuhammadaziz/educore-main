@@ -149,7 +149,7 @@ const SignIn: React.FC = () => {
                     <button
                       type="submit"
                       // onClick={notify}
-                      className="text-center font-bold block w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                      className="text-center font-bold block w-full cursor-pointer rounded-lg border border-primary bg-fuchsia-800 p-4 text-white transition hover:bg-opacity-90"
                     >
                       {content[selectedLang as string].log.signin}
                     </button>

@@ -10,11 +10,9 @@ interface FormData {
   age: string;
   education: string;
   address: string;
-  skills: string;
   birthday: string;
   tgusername: string;
   phone: string;
-  langs: string;
   bio: string;
   img: null;
 }
@@ -30,11 +28,9 @@ const AdminSettings = () => {
     age: '',
     education: '',
     address: '',
-    skills: '',
     birthday: '',
     tgusername: '',
     phone: '',
-    langs: '',
     bio: '',
     img: null,
   });
@@ -63,16 +59,14 @@ const AdminSettings = () => {
       age: formData.age,
       education: formData.education,
       adress: formData.address,
-      skills: formData.skills,
       birth_date: formData.birthday,
       username_tg: formData.tgusername,
       phone: formData.phone,
-      languages: formData.langs,
       about_me: formData.bio,
-      // image: formData.img,
+      image: formData.img,
     };
 
-    console.log(data);
+    // console.log(data);
 
     try {
       const response = await fetch(
@@ -80,26 +74,27 @@ const AdminSettings = () => {
         {
           method: 'PUT',
           headers: {
-            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(data),
         },
       );
+
       setFormData({
         fname: '',
         lname: '',
         age: '',
         education: '',
         address: '',
-        skills: '',
         birthday: '',
         tgusername: '',
         phone: '',
-        langs: '',
         bio: '',
         img: null,
       });
+
+      const datas = await response.json();
       if (response.ok) {
         toast.success('User successfully updated', {
           position: 'top-right',
@@ -107,13 +102,21 @@ const AdminSettings = () => {
       } else {
         // Handle error
         console.error('Failed to update profile');
+        toast.error(datas.message, {
+          position: 'top-right',
+        });
       }
 
-      console.log(await response.json());
+      // console.log(await response.json());
     } catch (error) {
       console.error('Error updating profile:', error);
+      toast.error('Error updating profile', {
+        position: 'top-right',
+      });
     }
   };
+
+  // console.log(formData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -274,18 +277,18 @@ const AdminSettings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="phoneNumber"
                       >
-                        Skills
+                        Phone Number
                       </label>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="text"
-                        name="Skills"
-                        id="Skills"
-                        placeholder="Skills"
+                        name="Phone Number"
+                        id="Phone Number"
+                        placeholder="Phone Number"
                         defaultValue={
                           profileData && profileData
-                            ? profileData.Profil['skills']
-                            : formData.skills
+                            ? profileData.Profil['phone']
+                            : formData.phone
                         }
                         // value={}
                         onChange={handleChange}
@@ -339,54 +342,6 @@ const AdminSettings = () => {
                       />
                     </div>
                   </div>
-                  <div className="mb-5.5 flex flex-col gap-5.5 sm:flex-row">
-                    <div className="w-full sm:w-1/2">
-                      <label
-                        className="mb-3 block text-sm font-medium text-black dark:text-white"
-                        htmlFor="phoneNumber"
-                      >
-                        Phone Number
-                      </label>
-                      <input
-                        className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                        type="text"
-                        name="Phone Number"
-                        id="Phone Number"
-                        placeholder="Phone Number"
-                        defaultValue={
-                          profileData && profileData
-                            ? profileData.Profil['phone']
-                            : formData.phone
-                        }
-                        // value={}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="w-full sm:w-1/2">
-                      <label
-                        className="mb-3 block text-sm font-medium text-black dark:text-white"
-                        htmlFor="phoneNumber"
-                      >
-                        Languages
-                      </label>
-                      <input
-                        className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                        type="text"
-                        name="Languages"
-                        id="Languages"
-                        placeholder="Languages"
-                        defaultValue={
-                          profileData && profileData
-                            ? profileData.Profil['languages']
-                            : formData.langs
-                        }
-                        // value={}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-
                   <div className="mb-5.5">
                     <label
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
@@ -472,7 +427,10 @@ const AdminSettings = () => {
                 <form action="#">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="h-14 w-14 rounded-full">
-                      <img src={userThree} alt="User" />
+                      <img
+                        src={`${backurl}upload/${profileData.Profil['image']}`}
+                        alt="User"
+                      />
                     </div>
                     <div>
                       <span className="mb-1.5 text-black dark:text-white">
