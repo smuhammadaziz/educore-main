@@ -144,9 +144,9 @@ const CodeEntry: React.FC = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 focus:outline-none"
+              className="w-full px-4 py-2 bg-fuchsia-800 text-white rounded-lg hover:bg-fuchsia-500 focus:outline-none"
             >
-              Submit
+              Submit and Register
             </button>
           </div>
         </div>
