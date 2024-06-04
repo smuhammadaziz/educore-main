@@ -149,22 +149,6 @@ const ProfileStudent = () => {
                   {education ? education : 'no data'}
                 </td>
               </tr>
-              <tr>
-                <td className="border border-stone-300 px-4 py-4 font-semibold">
-                  Languages
-                </td>
-                <td className="border border-stone-300 px-4 py-4">
-                  {languages ? languages : 'no data'}
-                </td>
-              </tr>
-              <tr>
-                <td className="border border-stone-300 px-4 py-4 font-semibold">
-                  Skills
-                </td>
-                <td className="border border-stone-300 px-4 py-4">
-                  {skills ? skills : 'no data'}
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
