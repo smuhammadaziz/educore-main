@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../../layout/DefaultLayout';
 import DefaultLayoutTeacher from '../../../layout/DefaultTeacher';
+import DefaultLayoutStudent from '../../../layout/DefaultStudent';
 import Breadcrumb from '../../../components/Breadcrumbs/Breadcrumb';
 import backurl from '../../../links';
 import CoverOne from '../../../images/cover/cover-01.png';
@@ -20,7 +21,6 @@ const ProfileTeacher = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-          a,
         });
         if (!response.ok) {
           localStorage.removeItem('TOKEN');
@@ -41,17 +41,17 @@ const ProfileTeacher = () => {
 
   if (loading) {
     return (
-      <DefaultLayoutTeacher>
+      <DefaultLayout>
         <div className="text-center py-10">Loading...</div>
-      </DefaultLayoutTeacher>
+      </DefaultLayout>
     );
   }
 
   if (!profileData) {
     return (
-      <DefaultLayoutTeacher>
+      <DefaultLayout>
         <div className="text-center py-10">Profile data not available</div>
-      </DefaultLayoutTeacher>
+      </DefaultLayout>
     );
   }
 
@@ -88,7 +88,7 @@ const ProfileTeacher = () => {
               image || '128-1280406_view-user-icon-png-user-circle-icon-png.png'
             }`}
             alt="profile"
-            className="w-50 h-50 -mt-22 rounded-full object-cover border-4 border-white"
+            className="w-50 h-50 -mt-22 bg-white rounded-full object-cover border-4 border-white"
           />
           <h3 className="text-2xl font-semibold mt-4">
             {name} {l_name}

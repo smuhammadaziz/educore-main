@@ -312,7 +312,7 @@ const TeacherSettings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="tgusername"
                       >
-                        Telegram Username
+                        Telegram Username (without @)
                       </label>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
@@ -326,7 +326,7 @@ const TeacherSettings = () => {
                     </div>
                   </div>
 
-                  <div className="mb-5.5">
+                  <div className="mb-5.5 ">
                     <label
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="bio"
@@ -344,7 +344,7 @@ const TeacherSettings = () => {
                     ></textarea>
                   </div>
 
-                  <div className="mb-5.5">
+                  <div className="mb-5.5 bg-gray p-5">
                     <label
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="img"
