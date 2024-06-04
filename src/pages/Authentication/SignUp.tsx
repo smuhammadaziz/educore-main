@@ -13,6 +13,11 @@ import backurl from '../../links';
 import useLang from '../../hooks/useLang';
 import content from '../../localization/content';
 
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/bootstrap.css';
+// import 'react-phone-input-2/lib/material.css';
+// import 'react-phone-input-2/lib/material.css';
+
 const SignUp: React.FC = () => {
   const [name, setName] = useState('');
   const [l_name, setl_name] = useState('');
@@ -170,12 +175,10 @@ const SignUp: React.FC = () => {
                         {content[selectedLang as string].log.phone}
                       </label>
                       <div className="relative">
-                        <input
-                          type="telephone"
+                        <PhoneInput
+                          country={'uz'}
                           value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          placeholder={`+998 (__) ___-__-__`}
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          onChange={(phone) => setPhone(phone)}
                         />
                       </div>
                     </div>
@@ -185,7 +188,7 @@ const SignUp: React.FC = () => {
                       </label>
                       <div className="relative">
                         <input
-                          type="telephone"
+                          type="text"
                           value={age}
                           onChange={(e) => setAge(e.target.value)}
                           placeholder={content[selectedLang as string].log.age}
