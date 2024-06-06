@@ -5,18 +5,8 @@ import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
-import Calendar from './pages/Calendar';
-import Chart from './pages/Chart';
-import FormElements from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
-import Profile from './pages/Profile';
-import Settings from './pages/Settings';
-import Tables from './pages/Tables';
-import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
 
 // landing page
-
 import Home from './pages/LandingPage/Home/home';
 import Admin from './pages/Role/Admin/admin';
 import Teacher from './pages/Role/Teacher/teacher';
@@ -309,25 +299,6 @@ function App() {
             <>
               <PageTitle title="Blogs | Educore Dashboard" />
               <AllBlogsPAgeAdmin />
-            </>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <>
-              <PageTitle title="Profile | Educore" />
-              <Profile />
-            </>
-          }
-        />
-
-        <Route
-          path="/settings"
-          element={
-            <>
-              <PageTitle title="Settings | Educore" />
-              <Settings />
             </>
           }
         />
