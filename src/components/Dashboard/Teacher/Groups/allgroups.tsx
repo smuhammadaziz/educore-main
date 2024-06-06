@@ -72,24 +72,25 @@ function AllGroupViewCourseStudent() {
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
           {groups.length > 0 ? (
-            groups.map((group) => (
+            groups.map((group: any) => (
               <div
                 key={group.group_id}
                 className="group bg-white p-5 rounded-lg shadow-md dark:bg-slate-700 dark:text-white"
               >
-                <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
+                <h3 className="mt-4 text-xl font-bold text-gray-700 dark:text-white">
                   {group.g_name}
                 </h3>
+                <hr className="my-5" />
                 <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                   Lesson Days: {group.l_days}
                 </p>
                 <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                   Maximum Group Size: {group.user_count} students
                 </p>
-                <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
-                  Lesson Time: {group.subj_start}:00 - {group.subj_end}:00
+                <p className="mt-1 text-md font-medium text-gray-900 text-left dark:text-white">
+                  Lesson Time: {group.subj_start} - {group.subj_end}
                 </p>
-                <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
+                <p className="mt-1 text-md font-medium text-gray-900 text-left dark:text-white">
                   Created Time: {moment(group.created_at).format('LLL')}
                 </p>
               </div>

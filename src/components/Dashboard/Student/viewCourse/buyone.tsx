@@ -67,8 +67,11 @@ const BuyOneCourseNowStudent = () => {
 
   return (
     <DefaultLayoutStudent>
-      <div className="font-sans bg-white pb-20" key={course_id}>
-        <div className="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
+      <div
+        className="font-sans bg-white pb-20 dark:bg-strokedark dark:text-white"
+        key={course_id}
+      >
+        <div className="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto ">
           <div className="grid flex items-center grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
             <div className="bg-gray-100 rounded-sm p-8 flex flex-col justify-center items-center">
               <img
@@ -76,7 +79,7 @@ const BuyOneCourseNowStudent = () => {
                 alt="Product"
                 className="w-150 rounded object-cover mx-auto sm:w-200 md:w-250"
               />
-              <hr className="border-white border-2 my-6" />
+              {/* <hr className="border-white border-2 my-6" /> */}
               {/* <Rating value={renderRating()} /> */}
             </div>
 
@@ -123,7 +126,7 @@ const BuyOneCourseNowStudent = () => {
                 {!profile.group_id && (
                   <NavLink
                     to={`/dashboard/student/courses/buy/${course_id}`}
-                    className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    className="inline-flex items-center dark:bg-blue-700 dark:hover:bg-blue-800 justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                   >
                     Buy now
                   </NavLink>
@@ -132,7 +135,7 @@ const BuyOneCourseNowStudent = () => {
                 {profile.free_trial && (
                   <NavLink
                     to={`/dashboard/student/courses/use/free/${course_id}`}
-                    className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    className="inline-flex dark:bg-green-700 dark:hover:bg-green-800 items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                   >
                     Use Free Trial
                   </NavLink>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
-
 import moment from 'moment';
 
 function ShowAllLessonsTeacher() {
@@ -29,8 +28,6 @@ function ShowAllLessonsTeacher() {
 
         const reversed = data.Data.reverse();
 
-        //    console.log(reversed);
-
         setCourses(reversed);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -39,6 +36,7 @@ function ShowAllLessonsTeacher() {
 
     fetchData();
   }, []);
+
   return (
     <DefaultLayoutTeacher>
       <div className="right-0 top-0 mx-auto mb-10">
@@ -47,7 +45,7 @@ function ShowAllLessonsTeacher() {
         </h2>
         <NavLink
           to={`/dashboard/teacher/add/new/lesson/${group_id}`}
-          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          className="text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
         >
           Add new Lesson
         </NavLink>
@@ -56,25 +54,25 @@ function ShowAllLessonsTeacher() {
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
             {courses && courses ? (
-              courses.map((product) => (
+              courses.map((product: any, index: any) => (
                 <div
                   key={product.lesson_id}
-                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white"
+                  className={`group bg-white p-5 dark:bg-slate-700 dark:text-white rounded-xl shadow-xl hover:shadow-2xl ${
+                    index !== courses.length - 1 ? 'mb-8' : ''
+                  }`}
                 >
                   <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
                     {product.title}
                   </h3>
-                  <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                    {product.l_days}
-                  </p>
+                  <hr className="my-5" />
                   <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
                     {product.l_desc}
                   </p>
 
-                  <p className="mt-2 text-md font-medium text-gray-900 dark:text-white text-right">
-                    Lesson Status:
+                  <p className="mt-2 text-md font-medium text-gray-900 dark:text-white text-left">
+                    Lesson Status:{' '}
                     <span
-                      className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
+                      className={`ms-2 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
                         product.procces_lesson === 'active'
                           ? 'bg-green-500'
                           : product.procces_lesson === 'pending'
@@ -87,15 +85,16 @@ function ShowAllLessonsTeacher() {
                       {product.procces_lesson}
                     </span>
                   </p>
-                  <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
+                  <p className="mt-1 text-md font-medium text-gray-900 text-left mt-5 dark:text-white">
                     Created time: {moment(product.created_at).format('LT')},{' '}
-                    {''}
                     {moment(product.created_at).format('l')}
                   </p>
-                  <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
+                  <hr className="mt-5 mb-2" />
+                  <p className="mt-1 text-md font-medium text-gray-900 text-right dark:text-white">
                     <a
                       href={product.l_url}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-white mt-5 inline-block bg-blue-700 hover:underline hover:bg-blue-500 py-2 px-5 rounded-full"
                     >
                       join the lesson →
@@ -104,7 +103,9 @@ function ShowAllLessonsTeacher() {
                 </div>
               ))
             ) : (
-              <p>you don't have any courses</p>
+              <p className="text-center text-gray-700 dark:text-white">
+                You don't have any lessons
+              </p>
             )}
           </div>
         </div>

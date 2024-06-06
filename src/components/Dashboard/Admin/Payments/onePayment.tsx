@@ -28,6 +28,9 @@ function GetOnePaymentAdmin() {
         }
 
         const data = await response.json();
+
+        console.log(data);
+
         setPayment(data.Userpayments);
       } catch (error) {
         console.error('Error fetching payment:', error);
@@ -70,6 +73,8 @@ function GetOnePaymentAdmin() {
           },
         },
       );
+
+      // const data = await response.json();
       if (response.ok) {
         toast.error('Payment rejected', {
           position: 'top-right',

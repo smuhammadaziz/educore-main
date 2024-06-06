@@ -90,7 +90,7 @@ const ProfileAdmin = () => {
             alt="profile"
             className="w-50 h-50 -mt-22 bg-white rounded-full object-cover border-4 border-white"
           />
-          <h3 className="text-2xl font-semibold mt-4">
+          <h3 className="text-2xl font-semibold mt-4 text-center">
             {name} {l_name}
           </h3>
           <p className="text-lg font-medium text-gray-700">{role}</p>

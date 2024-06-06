@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from '@material-tailwind/react';
 import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 
 const AllInfoStudentTeacher = () => {
-  // Define an array of objects containing the data for each row
   const { group_id } = useParams();
-
   const [teachers, setTeachers] = useState([]);
-
   const token = localStorage.getItem('TOKEN');
 
   useEffect(() => {
@@ -30,82 +20,78 @@ const AllInfoStudentTeacher = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
         const reversedData = data.Myusers;
-
         setTeachers(reversedData.reverse());
       } catch (error) {
         console.log(error);
       }
     }
     fetchCourses();
-  }, []);
+  }, [group_id, token]);
 
   return (
     <DefaultLayoutTeacher>
-      <div className="right-0 top-0 mb-10 mx-auto">
-        <h2 className="text-2xl mb-5">
+      <div className="mb-10 mx-auto">
+        <h2 className="text-3xl font-bold mb-5">
           All <span className="underline">Students</span> List
         </h2>
       </div>
-      <div className="relative overflow-x-auto shadow-xl sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className="relative overflow-x-auto shadow-lg sm:rounded-lg">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-white dark:bg-strokedark">
+          <thead className="text-xs text-gray-700 uppercase text-left bg-slate-200 dark:text-white dark:bg-strokedark">
             <tr>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-5">
                 Full Name
               </th>
-              <th scope="col" className="px-6 py-3">
-                Telegram username
+              <th scope="col" className="px-6 py-5">
+                Telegram Username
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-5">
                 Email
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-5">
                 Phone Number
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-5">
                 Payment
               </th>
-              <th scope="col" className="px-6 py-3">
-                <span className="sr-only">Edit</span>
+              <th scope="col" className="px-6 py-3 text-right">
+                Actions
               </th>
             </tr>
           </thead>
-          <tbody>
-            {teachers.map((item, index) => (
+          <tbody className="bg-white dark:text-white dark:bg-slate-600">
+            {teachers.map((item: any) => (
               <tr
                 key={item.user_id}
-                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                className="border-b hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
+                  className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
                 >
                   {item.name} {item.l_name}
                 </th>
-                <td className="px-6 py-4 text-black">
-                  {item && item.username_tg ? item.username_tg : 'no data'}
-                </td>
-                <td className="px-6 py-4 text-black">{item.email}</td>
-                <td className="px-6 py-4 text-black">{item.phone}</td>
-                <td className="ps-2 pe-0 text-black py-4 font-bold text-center">
-                  <p
-                    className={`px-1 pe-1 py-2 rounded-full text-center ${
+                <td className="px-6 py-4">{item.username_tg || 'no data'}</td>
+                <td className="px-6 py-4">{item.email}</td>
+                <td className="px-6 py-4">{item.phone}</td>
+                <td className="px-6 py-4 text-center">
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm font-semibold ${
                       item.pay_status === 'paid'
-                        ? 'bg-green-600 text-white'
-                        : 'bg-red-600 text-white'
+                        ? 'bg-green-500 text-white'
+                        : 'bg-red-500 text-white'
                     }`}
                   >
                     {item.pay_status}
-                  </p>
+                  </span>
                 </td>
                 <td className="px-6 py-4 text-right">
                   <NavLink
-                    to={`/dashboard/teacher/group/student/id/${item.user_id}`}
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    to={`/dashboard/teacher/group/student/id/${item.group_id}`}
+                    className="text-blue-600 hover:underline dark:text-blue-400"
                   >
-                    more
+                    More
                   </NavLink>
                 </td>
               </tr>

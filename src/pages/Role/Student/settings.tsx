@@ -344,7 +344,7 @@ const StudentSettings = () => {
                     ></textarea>
                   </div>
 
-                  <div className="mb-5.5 bg-gray p-5 rounded">
+                  <div className="mb-5.5 bg-gray p-5 rounded dark:bg-strokedark">
                     <label
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="img"

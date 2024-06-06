@@ -56,7 +56,7 @@ function ShowAllHomeworksTeacher() {
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
             {courses && courses ? (
-              courses.map((product) => (
+              courses.map((product: any) => (
                 <div
                   key={product.lesson_id}
                   className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl"

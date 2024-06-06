@@ -1,8 +1,6 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import backurl from '../../../../links';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
@@ -15,9 +13,7 @@ function AddNewGroupTeacher() {
   const [time, setTime] = useState('');
 
   const { course_id } = useParams();
-
   const [courses, setCourses] = useState([]);
-
   const token = localStorage.getItem('TOKEN');
 
   const handleCancel = () => {
@@ -31,18 +27,12 @@ function AddNewGroupTeacher() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Create a form data object
     const formData = new FormData();
     formData.append('g_name', name);
     formData.append('l_days', description);
     formData.append('u_count', main);
     formData.append('subj_start', cost);
     formData.append('subj_end', time);
-    // formData.append('id', params);
-
-    // console.log(formData);
-
-    // console.log(course_id);
 
     try {
       const response = await fetch(`${backurl}api/add/group/${course_id}`, {
@@ -53,11 +43,16 @@ function AddNewGroupTeacher() {
         body: formData,
       });
 
-      // const result = await response.json();
-      // console.log('Response:', result);
+      const data = await response.json();
 
       if (response.ok) {
         toast.success('Group successfully added', {
+          position: 'top-right',
+        });
+      }
+
+      if (!response.ok) {
+        toast.error(data.message, {
           position: 'top-right',
         });
       }
@@ -71,123 +66,109 @@ function AddNewGroupTeacher() {
 
   return (
     <DefaultLayoutTeacher>
-      <ToastContainer></ToastContainer>
-      <div className="mb-5 text-left mx-auto text-2xl">
-        {' '}
-        Adding new <span className="underline">Group</span>
-      </div>
-      <form onSubmit={handleSubmit} className="dark:text-white">
-        <div className="p-6.5">
-          <div className="">
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
+      <ToastContainer />
+      <div className="container mx-auto p-8">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+            Adding new <span className="underline">Group</span>
+          </h2>
+        </div>
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg dark:bg-strokedark"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-gray-700 dark:text-gray-200 mb-2">
                 Your Group's name
               </label>
               <input
                 type="text"
                 placeholder="Enter your title"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-300 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
+            <div>
+              <label className="block text-gray-700 dark:text-gray-200 mb-2">
                 What days does your class take place?
               </label>
               <select
                 name="courses"
-                id="cpurses"
+                id="courses"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="w-full py-3 bg-white dark:bg-black ps-5"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-300 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
               >
-                <option value="couple">couple</option>
-                <option value="odd">odd</option>
-                <option value="everyday">everyday</option>
-                <option value="weekands">weekands</option>
-                <option value="work_days">work_days</option>
+                <option value="" disabled>
+                  Select days
+                </option>
+                <option value="couple">Couple</option>
+                <option value="odd">Odd</option>
+                <option value="everyday">Everyday</option>
+                <option value="weekends">Weekends</option>
+                <option value="work_days">Work Days</option>
               </select>
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Your Group's maximum student limit
+            <div>
+              <label className="block text-gray-700 dark:text-gray-200 mb-2">
+                Your Group's maximum student limit (only numbers)
               </label>
               <input
                 type="text"
                 placeholder="Enter your maximum student limit"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-300 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={main}
                 onChange={(e) => setMain(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Lesson Start Time (only numbers) example: 13
+            <div>
+              <label className="block text-gray-700 dark:text-gray-200 mb-2">
+                Lesson Start Time (only numbers) example: 13:00
               </label>
               <input
                 type="text"
                 placeholder="Enter your lesson time (only numbers) example: 13"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-300 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Lesson End Time (only numbers) example: 15
+            <div>
+              <label className="block text-gray-700 dark:text-gray-200 mb-2">
+                Lesson End Time (only numbers) example: 14:30
               </label>
               <input
                 type="text"
                 placeholder="Enter your lesson time (only numbers) example: 15"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white dark:bg-strokedark dark:text-white dark:bg-gray-700 rounded border border-stone-300 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
               />
             </div>
-            {/* <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                which course
-              </label>
-              <select
-                name="courses"
-                id="cpurses"
-                value={params}
-                onChange={handleChange}
-                className="w-full py-3 bg-white dark:bg-black ps-5"
-              >
-                {courses && courses
-                  ? courses.map((e) => (
-                      <option value={e.course_id} key={e.course_id}>
-                        {e.title}
-                      </option>
-                    ))
-                  : 'you don`t have any courses'}
-              </select>
-            </div> */}
           </div>
-
-          <div className="flex flex-row justify-end mt-20">
+          <div className="flex justify-end mt-6 space-x-4">
             <a
               href="/dashboard/teacher/my/courses"
-              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
+              className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors duration-300"
               onClick={handleCancel}
             >
               Cancel
             </a>
             <button
               type="submit"
-              className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
+              className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300"
             >
               Add
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </DefaultLayoutTeacher>
   );
 }

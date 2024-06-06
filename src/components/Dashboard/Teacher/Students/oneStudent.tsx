@@ -7,31 +7,32 @@ import { FaUserCircle } from 'react-icons/fa';
 function OneStudentGetTeacherPage() {
   const [student, setStudent] = useState({});
 
-  const { user_id } = useParams();
+  const { group_id } = useParams();
 
   const token = localStorage.getItem('TOKEN');
   useEffect(() => {
     async function fetchStudent() {
       try {
-        const response = await fetch(
-          `${backurl}api/admin/get/student/${user_id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+        const response = await fetch(`${backurl}api/get/my/users/${group_id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+
         const data = await response.json();
-        setStudent(data.Student);
+
+        console.log(data);
+
+        // setStudent(data.Student);
       } catch (error) {
         console.log(error);
       }
     }
     fetchStudent();
-  }, [user_id, token]);
+  }, []);
 
   const getImageSrc = () => {
     return student.img
@@ -41,11 +42,11 @@ function OneStudentGetTeacherPage() {
 
   return (
     <DefaultLayoutTeacher>
-      <div className="mb-5 text-center mx-auto text-3xl font-semibold">
-        <span className="underline">Student Info</span>
+      <div className="mb-5 text-center mx-auto text-3xl font-semibold ">
+        <span className="underline dark:text-white">Student Info</span>
       </div>
-      <div className="bg-white shadow-md rounded-lg p-8">
-        <div className="flex justify-center mb-10">
+      <div className="bg-white shadow-md rounded-lg p-8 dark:text-white dark:bg-strokedark">
+        <div className="flex justify-center mb-10 ">
           {student.img ? (
             <img
               src={getImageSrc()}

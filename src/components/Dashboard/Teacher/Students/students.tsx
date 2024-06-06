@@ -43,30 +43,30 @@ const AllStudentListTeacher = () => {
   return (
     <>
       <div className="right-0 top-0 mb-10 mx-auto">
-        <h2 className="text-2xl mb-5">
+        <h2 className="text-3xl mb-5 dark:text-white text-center font-bold">
           All <span className="underline">Students</span> List
         </h2>
       </div>
       <div className="bg-gray-100 my-20">
-        <h2 className="text-left font-bold text-xl">
+        <h2 className="text-left font-bold text-xl text-center dark:text-white">
           Select one group and see your students
         </h2>
         <div className="mt-2 grid lg:grid-cols-3">
           {courses && courses
             ? courses.map((e: any) => (
                 <div
-                  className="my-10 mx-4  block p-4 bg-white rounded shadow-xl hover:shadow-2xl"
+                  className="my-10 mx-4 dark:bg-strokedark dark:text-white  block p-4 bg-white rounded shadow-xl hover:shadow-2xl"
                   key={e.course_id}
                 >
                   <h2 className="text-2xl mt-5">{e.g_name}</h2>
-                  <h2 className="text-2xl mt-5">
-                    {e.subj_start}:00 - {e.subj_end}:00
+                  <h2 className="text-lg mt-5">
+                    {e.subj_start} - {e.subj_end}
                   </h2>
                   <NavLink
                     to={`/dashboard/teacher/group/students/${e.group_id}`}
                     className="bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
                   >
-                    See students
+                    See all students
                   </NavLink>
                 </div>
               ))

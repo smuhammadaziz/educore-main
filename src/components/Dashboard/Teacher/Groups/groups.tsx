@@ -12,7 +12,7 @@ const products = [
   },
 ];
 
-const courses = [
+const courseList = [
   {
     id: 1,
     name: 'SAT',
@@ -66,35 +66,44 @@ export default function AllGroupsListTeacher() {
     };
 
     fetchData();
-  }, []);
+  }, [token]);
+
   return (
     <>
-      <div className="right-0 top-0 mx-auto">
-        <h2 className="text-2xl mb-5">
-          My <span className="underline">Groups</span> List
-        </h2>
-      </div>
-      <div className="bg-gray-100 my-20">
-        <h2 className="text-left font-bold text-xl">
-          Which course do you want to add Group? Select and Add your Groups
-        </h2>
-        <div className="mt-2 grid lg:grid-cols-3">
-          {courses && courses
-            ? courses.map((e: any) => (
+      <div className="container mx-auto py-10">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+            My <span className="underline">Groups</span> List
+          </h2>
+        </div>
+        <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+          <h2 className="text-left font-bold text-xl text-gray-900 dark:text-gray-100 mb-6">
+            Which course do you want to add Group? Select and Add your Groups
+          </h2>
+          <div className="grid lg:grid-cols-3 gap-6">
+            {courses && courses.length > 0 ? (
+              courses.map((e: any) => (
                 <div
-                  className="my-10 mx-4  block p-4 bg-white rounded"
+                  className="bg-white dark:bg-strokedark dark:text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                   key={e.course_id}
                 >
-                  <h2 className="text-2xl mt-5">{e.title}</h2>
+                  <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+                    {e.title}
+                  </h2>
                   <NavLink
                     to={`/dashboard/teacher/group/${e.course_id}`}
-                    className="bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
+                    className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
                   >
                     Add to this course →
                   </NavLink>
                 </div>
               ))
-            : "user don't have any courses"}
+            ) : (
+              <p className="text-center text-gray-700 dark:text-gray-200 col-span-full">
+                User doesn't have any courses
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </>

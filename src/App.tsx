@@ -545,7 +545,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/teacher/group/student/id/:user_id"
+          path="/dashboard/teacher/group/student/id/:group_id"
           element={
             <>
               <PageTitle title="Educore | Group " />

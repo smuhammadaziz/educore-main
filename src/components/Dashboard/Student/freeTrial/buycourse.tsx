@@ -1,9 +1,6 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-
-import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import backurl from '../../../../links';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
@@ -12,10 +9,9 @@ function BuyOneCourseGroupStudent() {
   const [name, setName] = useState('');
   const [main, setMain] = useState('');
   const [cost, setCost] = useState(null);
+  const [fileName, setFileName] = useState('');
 
   const { group_id } = useParams();
-
-  const [courses, setCourses] = useState([]);
 
   const token = localStorage.getItem('TOKEN');
 
@@ -23,6 +19,7 @@ function BuyOneCourseGroupStudent() {
     setName('');
     setMain('');
     setCost(null);
+    setFileName('');
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -33,10 +30,8 @@ function BuyOneCourseGroupStudent() {
     formData.append('card_t', name);
     formData.append('pay_desc', main);
     if (cost) {
-      formData.append('image', cost);
+      formData.append('image', cost, cost.name);
     }
-
-    // console.log(formData);
 
     try {
       const response = await fetch(
@@ -49,9 +44,6 @@ function BuyOneCourseGroupStudent() {
           body: formData,
         },
       );
-
-      // const result = await response.json();
-      // // console.log(result);
 
       if (response.ok) {
         toast.success('Payment successfully sent', {
@@ -71,7 +63,6 @@ function BuyOneCourseGroupStudent() {
     <DefaultLayoutStudent>
       <ToastContainer></ToastContainer>
       <div className="mb-5 text-left mx-auto text-2xl">
-        {' '}
         Sending new <span className="underline">Payment</span>
       </div>
       <form onSubmit={handleSubmit} className="dark:text-white">
@@ -118,7 +109,7 @@ function BuyOneCourseGroupStudent() {
               </label>
               <input
                 type="text"
-                placeholder="Enter your desctiption"
+                placeholder="Enter your description"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={main}
                 onChange={(e) => setMain(e.target.value)}
@@ -133,10 +124,13 @@ function BuyOneCourseGroupStudent() {
                 type="file"
                 placeholder="Enter your file"
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                // value={cost}
-                onChange={(e) => setCost(e.target.files[0])}
+                onChange={(e) => {
+                  setCost(e.target.files[0]);
+                  setFileName(e.target.files[0].name);
+                }}
                 required
               />
+              {fileName && <p className="text-sm mt-2">{fileName}</p>}
             </div>
           </div>
 

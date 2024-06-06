@@ -41,8 +41,6 @@ function AddnewCourseTeacher() {
       formData.append('image', photo);
     }
 
-    console.log(formData);
-
     try {
       const response = await fetch(`${backurl}api/add/course`, {
         method: 'POST',
@@ -58,16 +56,15 @@ function AddnewCourseTeacher() {
         toast.success('Course successfully added', {
           position: 'top-right',
         });
-      }
-
-      if (!response.ok) {
+        handleCancel();
+      } else {
         toast.error(data.message, {
           position: 'top-right',
         });
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting the form', error);
-      toast.warning(error.message, {
+      toast.warning('Error submitting the form', {
         position: 'top-right',
       });
     }
@@ -91,41 +88,41 @@ function AddnewCourseTeacher() {
       </div>
       <form onSubmit={handleSubmit} className="dark:text-white">
         <div className="p-6.5">
-          <div className="">
-            <div className="mb-4.5 md:w-1/2 px-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="mb-4.5 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
                 Course name
               </label>
               <input
                 type="text"
                 placeholder="Enter your Course title"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
                 Short information about your course
               </label>
               <input
                 type="text"
                 placeholder="Enter your short information"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
                 Main Subject
               </label>
               <select
                 value={main}
                 onChange={handleMainChange}
-                className={`w-full rounded border border-stroke bg-white py-3 px-5 pe-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
+                className="w-full rounded border border-stroke bg-white py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
               >
                 <option
                   value=""
@@ -152,14 +149,14 @@ function AddnewCourseTeacher() {
               </select>
             </div>
             {(main === 'IGCSE' || main === 'AS/A-LEVELS') && (
-              <div className="mb-4.5 md:w-1/2 px-2">
+              <div className="mb-4.5 px-2">
                 <label className="mb-2.5 block text-black dark:text-white">
                   Subjects
                 </label>
                 <select
                   value={sub}
                   onChange={(e) => setSub(e.target.value)}
-                  className={`w-full rounded border border-stroke bg-white py-3 px-5 pe-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
+                  className="w-full rounded border border-stroke bg-white py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
                 >
                   <option
                     value=""
@@ -199,7 +196,7 @@ function AddnewCourseTeacher() {
                     value="Computer-Science"
                     className="text-body dark:text-bodydark"
                   >
-                    Computer-Science
+                    Computer Science
                   </option>
                   <option
                     value="Economics"
@@ -210,55 +207,55 @@ function AddnewCourseTeacher() {
                 </select>
               </div>
             )}
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
                 Price (example: 300000)
               </label>
               <input
                 type="text"
                 placeholder="Enter your course price. Example: 300000"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
-                Period (only numbers) example: 6 months
+                Period (only numbers) example: 6
               </label>
               <input
                 type="text"
                 placeholder="Enter your course period. Example: 6 (only numbers)"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 px-2">
               <label className="mb-2.5 block text-black dark:text-white">
                 Photo (only one image)
               </label>
               <input
                 type="file"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 onChange={(e) => setPhoto(e.target.files[0])}
               />
             </div>
           </div>
 
-          <div className="flex flex-row justify-end mt-20">
-            <a
-              href="/dashboard/teacher/my/courses"
-              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
+          <div className="flex justify-end mt-10">
+            <button
+              type="button"
+              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-white hover:bg-red-500 transition duration-300"
               onClick={handleCancel}
             >
               Cancel
-            </a>
+            </button>
             <button
               type="submit"
-              className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
+              className="ml-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-white hover:bg-green-500 transition duration-300"
             >
               Add
             </button>

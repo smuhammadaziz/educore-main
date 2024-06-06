@@ -4,10 +4,19 @@ import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import moment from 'moment';
 
-function GetOneMyGroupsTeacher() {
-  const { group_id } = useParams();
-  const [courses, setCourses] = useState([]);
+interface Group {
+  group_id: number;
+  g_name: string;
+  l_days: string;
+  user_count: number;
+  subj_start: string;
+  subj_end: string;
+  created_at: string;
+}
 
+function GetOneMyGroupsTeacher() {
+  const { group_id } = useParams<{ group_id: string }>();
+  const [groups, setGroups] = useState<Group[]>([]);
   const token = localStorage.getItem('TOKEN');
 
   useEffect(() => {
@@ -25,46 +34,41 @@ function GetOneMyGroupsTeacher() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
-        const reversed = data.Data;
-
-        //    console.log(data.Data);
-
-        setCourses(reversed);
+        setGroups(data.Data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [group_id, token]);
 
   return (
     <DefaultLayoutTeacher>
       <div className="container mx-auto px-4">
-        {courses && courses.length > 0 ? (
-          courses.map((product) => (
+        {groups.length > 0 ? (
+          groups.map((group) => (
             <div
-              key={product.group_id}
-              className="bg-white dark:bg-gray-800 dark:text-white p-6 mb-6 rounded-lg shadow-md"
+              key={group.group_id}
+              className="bg-white dark:bg-strokedark dark:text-white p-6 mb-6 rounded-lg shadow-md"
             >
               <h2 className="text-center text-2xl text-black dark:text-white mb-4">
-                About Group
+                About the group
               </h2>
               <h3 className="text-xl text-gray-700 dark:text-gray-300 mb-2">
-                Group Name: {product.g_name}
+                Group Name: {group.g_name}
               </h3>
               <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Which days: {product.l_days}
+                Which days: {group.l_days}
               </p>
               <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Maximum group size: {product.user_count} students
+                Maximum group size: {group.user_count} students
               </p>
               <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Lesson time: {product.subj_start}:00 - {product.subj_end}:00
+                Lesson time: {group.subj_start} - {group.subj_end}
               </p>
               <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Created time: {moment(product.created_at).format('l')}
+                Created time: {moment(group.created_at).format('l')}
               </p>
 
               <NavLink
