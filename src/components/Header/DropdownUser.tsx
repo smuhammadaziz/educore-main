@@ -104,6 +104,7 @@ const DropdownUser = () => {
                 : '128-1280406_view-user-icon-png-user-circle-icon-png.png'
             }`}
             alt="user logo"
+            className="w-full h-full object-cover rounded-full"
           />
         </span>
 

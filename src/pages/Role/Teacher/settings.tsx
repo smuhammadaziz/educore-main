@@ -344,7 +344,7 @@ const TeacherSettings = () => {
                     ></textarea>
                   </div>
 
-                  <div className="mb-5.5 bg-gray p-5">
+                  <div className="mb-5.5 bg-gray p-5 dark:bg-strokedark">
                     <label
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="img"
@@ -362,7 +362,7 @@ const TeacherSettings = () => {
                   </div>
 
                   <button
-                    className="w-full rounded bg-primary py-3 px-6 text-white font-medium hover:bg-opacity-90"
+                    className="w-full rounded bg-primary py-3 px-6 text-white font-medium hover:bg-opacity-80"
                     type="submit"
                   >
                     Save Changes

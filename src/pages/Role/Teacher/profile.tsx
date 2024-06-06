@@ -41,17 +41,17 @@ const ProfileTeacher = () => {
 
   if (loading) {
     return (
-      <DefaultLayout>
+      <DefaultLayoutTeacher>
         <div className="text-center py-10">Loading...</div>
-      </DefaultLayout>
+      </DefaultLayoutTeacher>
     );
   }
 
   if (!profileData) {
     return (
-      <DefaultLayout>
+      <DefaultLayoutTeacher>
         <div className="text-center py-10">Profile data not available</div>
-      </DefaultLayout>
+      </DefaultLayoutTeacher>
     );
   }
 
