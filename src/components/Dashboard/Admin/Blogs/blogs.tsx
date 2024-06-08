@@ -46,7 +46,7 @@ export default function AllBlogsList() {
           <div className="mx-auto max-w-2xl py-8 sm:py-24 lg:max-w-none lg:py-32">
             <div className="mt-10  lg:grid lg:grid-cols-3 lg:gap-x-6  ">
               {blogs && blogs
-                ? blogs.map((blog) => (
+                ? blogs.map((blog: any) => (
                     <div
                       key={blog.blog_id}
                       className="bg-white p-3 my-5 rounded dark:bg-black"

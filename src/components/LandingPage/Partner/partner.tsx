@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import backurl from '../../../links';
 
 function OurPartnersLanding() {
+  const [course, setCourses] = useState([]);
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}api/get/all/company`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const reversed = data.Company;
+        // console.log(reversed);
+
+        setCourses(reversed);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
+
   return (
     <div>
       <section className="bg-white dark:bg-gray-900 mt-20">

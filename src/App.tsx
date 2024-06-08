@@ -83,6 +83,9 @@ import AllStudentsListTeachers from './components/Dashboard/Teacher/Students/all
 import AllInfoStudentTeacher from './components/Dashboard/Teacher/Students/allStudents';
 import OneStudentGetTeacherPage from './components/Dashboard/Teacher/Students/oneStudent';
 import CodeEntry from './pages/Authentication/Code';
+import AllCompanyPageAdmin from './pages/Dashboard/Admin/Company/company';
+import AddingCompanyAdmin from './components/Dashboard/Admin/Companies/addCompany';
+import OneCompanyGetAdmin from './components/Dashboard/Admin/Companies/oneCompany';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -299,6 +302,33 @@ function App() {
             <>
               <PageTitle title="Blogs | Educore Dashboard" />
               <AllBlogsPAgeAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/companies"
+          element={
+            <>
+              <PageTitle title="Companies | Educore Dashboard" />
+              <AllCompanyPageAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/companies/add"
+          element={
+            <>
+              <PageTitle title="Companies | Educore Dashboard" />
+              <AddingCompanyAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/edit/company/:company_id"
+          element={
+            <>
+              <PageTitle title="Companies | Educore Dashboard" />
+              <OneCompanyGetAdmin />
             </>
           }
         />
