@@ -34,7 +34,7 @@ function AddnewteacherAdmin() {
     main_subjectt: '',
     username_tgg: '',
     phonee: '',
-    id: company_id,
+    id: company_id == 'individual' ? null : company_id,
   });
 
   // console.log(company_id);
@@ -63,7 +63,7 @@ function AddnewteacherAdmin() {
       main_subject: formData.main_subjectt,
       username_tg: formData.username_tgg,
       phone: formData.phonee,
-      id: company_id,
+      id: company_id == 'individual' ? null : company_id,
     };
 
     const token = localStorage.getItem('TOKEN');
@@ -98,7 +98,7 @@ function AddnewteacherAdmin() {
         main_subjectt: '',
         username_tgg: '',
         phonee: '',
-        id: company_id,
+        id: company_id == 'individual' ? null : company_id,
       });
 
       toast.success('Teacher successfully added', {

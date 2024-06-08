@@ -7,6 +7,7 @@ import moment from 'moment';
 
 function OneTeacherGetAdmin() {
   const [teacher, setTeacher] = useState({});
+  const [company, setCompany] = useState({});
 
   const { user_id } = useParams();
 
@@ -15,7 +16,7 @@ function OneTeacherGetAdmin() {
     async function fetchTeacher() {
       try {
         const response = await fetch(
-          `${backurl}/api/admin/get/teacher/${user_id}`,
+          `${backurl}api/admin/get/teacher/${user_id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -27,7 +28,7 @@ function OneTeacherGetAdmin() {
         }
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         setTeacher(data.Teacher);
       } catch (error) {
@@ -35,7 +36,33 @@ function OneTeacherGetAdmin() {
       }
     }
     fetchTeacher();
-  }, [user_id, token]);
+  }, []);
+
+  useEffect(() => {
+    async function fetchTeacher() {
+      try {
+        const response = await fetch(
+          `${backurl}api/admin/get/teacher/company/${user_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        // console.log(data);
+
+        setCompany(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchTeacher();
+  }, []);
 
   const getImageSrc = () => {
     return teacher.img
@@ -102,7 +129,7 @@ function OneTeacherGetAdmin() {
           </div>
           <div>
             <h2 className="text-xl font-bold">Company:</h2>
-            <p>{teacher.id || 'No data'}</p>
+            <p>{company.name || 'No data'}</p>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">

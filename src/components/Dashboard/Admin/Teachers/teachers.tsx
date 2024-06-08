@@ -23,7 +23,7 @@ const AddTeachersList = () => {
 
         const reversedData = data.message;
 
-        // console.log(reversedData);
+        console.log(reversedData);
 
         setTeachers(reversedData.reverse());
       } catch (error) {
