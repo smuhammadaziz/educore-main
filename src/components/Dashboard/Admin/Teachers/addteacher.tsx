@@ -12,14 +12,17 @@ interface FormData {
   main_subjectt: string;
   username_tgg: string;
   phonee: string;
+  id: any;
 }
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import backurl from '../../../../links';
+import { useParams } from 'react-router-dom';
 
 function AddnewteacherAdmin() {
+  const { company_id } = useParams();
   const [formData, setFormData] = useState<FormData>({
     emaill: '',
     passwordd: '',
@@ -31,7 +34,10 @@ function AddnewteacherAdmin() {
     main_subjectt: '',
     username_tgg: '',
     phonee: '',
+    id: company_id,
   });
+
+  // console.log(company_id);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -57,6 +63,7 @@ function AddnewteacherAdmin() {
       main_subject: formData.main_subjectt,
       username_tg: formData.username_tgg,
       phone: formData.phonee,
+      id: company_id,
     };
 
     const token = localStorage.getItem('TOKEN');
@@ -83,7 +90,7 @@ function AddnewteacherAdmin() {
       setFormData({
         emaill: '',
         passwordd: '',
-        rolee: '',
+        rolee: 'teacher',
         namee: '',
         l_namee: '',
         agee: '',
@@ -91,6 +98,7 @@ function AddnewteacherAdmin() {
         main_subjectt: '',
         username_tgg: '',
         phonee: '',
+        id: company_id,
       });
 
       toast.success('Teacher successfully added', {

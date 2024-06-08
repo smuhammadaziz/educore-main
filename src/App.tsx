@@ -86,6 +86,7 @@ import CodeEntry from './pages/Authentication/Code';
 import AllCompanyPageAdmin from './pages/Dashboard/Admin/Company/company';
 import AddingCompanyAdmin from './components/Dashboard/Admin/Companies/addCompany';
 import OneCompanyGetAdmin from './components/Dashboard/Admin/Companies/oneCompany';
+import CompanySelectTeacherCreateAdmin from './components/Dashboard/Admin/Teachers/companyTeacher';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -364,6 +365,15 @@ function App() {
         />
         <Route
           path="/dashboard/admin/add/new/teacher"
+          element={
+            <>
+              <PageTitle title="Educore | Add new teacher" />
+              <CompanySelectTeacherCreateAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/add/new/teacher/:company_id"
           element={
             <>
               <PageTitle title="Educore | Add new teacher" />

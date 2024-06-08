@@ -5,6 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
 
+import click from '../../../../images/payment/photo_2024-06-04_22-36-43.jpg';
+import payme from '../../../../images/payment/photo_2024-06-04_22-40-26.jpg';
+
 function BuyOneCourseGroupStudent() {
   const [name, setName] = useState('');
   const [main, setMain] = useState('');
@@ -62,18 +65,52 @@ function BuyOneCourseGroupStudent() {
   return (
     <DefaultLayoutStudent>
       <ToastContainer></ToastContainer>
-      <div className="mb-5 text-left mx-auto text-2xl">
+      <div className="mb-5 text-left mx-auto text-2xl text-center">
         Sending new <span className="underline">Payment</span>
       </div>
       <div>
-        <div className="">Choose You Payment method:</div>
+        <div className="px-4 sm:px-6 lg:px-8 py-8 dark:text-white">
+          <h2 className="text-center text-2xl font-bold text-black mb-8 dark:text-white">
+            Choose your payment method:
+          </h2>
+          <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-8">
+            <div className="m-5 flex-1 max-w-xs">
+              <img
+                src={payme}
+                alt="payme qr code"
+                className="w-full h-auto object-contain mb-4 rounded-lg shadow-lg"
+              />
+              <p className="text-center text-xl font-bold text-black dark:text-white">
+                Payme
+              </p>
+            </div>
+            <div className="m-5 flex-1 max-w-xs">
+              <img
+                src={click}
+                alt="click qr code"
+                className="w-full h-auto object-contain mb-4 rounded-lg shadow-lg"
+              />
+              <p className="text-center text-xl font-bold text-black dark:text-white">
+                Click
+              </p>
+            </div>
+          </div>
+          <div className="mt-8 mx-auto text-center">
+            <h2 className="text-black text-xl mb-2 dark:text-white">
+              If you don't have payment methods, send your payment to this card:
+            </h2>
+            <h2 className="text-black text-xl font-bold dark:text-white">
+              9860 1901 0282 1880
+            </h2>
+          </div>
+        </div>
 
-        <form onSubmit={handleSubmit} className="dark:text-white">
-          <div className="p-6.5">
-            <div className="">
-              <div className="mb-4.5 md:w-1/2 px-2">
+        <form onSubmit={handleSubmit} className="dark:text-white ">
+          <div className="p-6.5 mx-auto block justify-center">
+            <div className="mx-auto block justify-center">
+              <div className="mb-4.5 md:w-1/2 px-2 mx-auto block justify-center">
                 <label className="mb-2.5 block text-black dark:text-white">
-                  Card type
+                  Payment Method
                 </label>
                 <select
                   value={name}
@@ -87,7 +124,7 @@ function BuyOneCourseGroupStudent() {
                     disabled
                     className="text-body dark:text-bodydark"
                   >
-                    Choose Your Card Type
+                    Choose Your Payment Method
                   </option>
                   <option
                     value="Click"
@@ -112,20 +149,21 @@ function BuyOneCourseGroupStudent() {
                   </option>
                 </select>
               </div>
-              <div className="mb-4.5 md:w-1/2 px-2">
+              <div className="mb-4.5 md:w-1/2 px-2 mx-auto block justify-center">
                 <label className="mb-2.5 block text-black dark:text-white">
-                  Description
+                  Short information of your payment. Example: your course name
+                  and payment cost
                 </label>
-                <input
-                  type="text"
-                  placeholder="Enter your description"
-                  className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                <textarea
+                  rows={5}
                   value={main}
                   onChange={(e) => setMain(e.target.value)}
                   required
-                />
+                  placeholder="Enter description"
+                  className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                ></textarea>
               </div>
-              <div className="mb-4.5 md:w-1/2 px-2">
+              <div className="mb-4.5 md:w-1/2 px-2 mx-auto block justify-center">
                 <label className="mb-2.5 block text-black dark:text-white">
                   Cheque image
                 </label>
@@ -142,7 +180,7 @@ function BuyOneCourseGroupStudent() {
               </div>
             </div>
 
-            <div className="flex flex-row justify-end mt-20">
+            <div className="flex flex-row justify-end mt-20 mx-auto block justify-center">
               <a
                 href="/dashboard/teacher/my/all/groups"
                 className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"

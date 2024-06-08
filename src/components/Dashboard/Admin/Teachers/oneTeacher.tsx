@@ -26,6 +26,9 @@ function OneTeacherGetAdmin() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+
+        console.log(data);
+
         setTeacher(data.Teacher);
       } catch (error) {
         console.log(error);
@@ -98,8 +101,8 @@ function OneTeacherGetAdmin() {
             <p>{teacher.languages || 'No data'}</p>
           </div>
           <div>
-            <h2 className="text-xl font-bold">Location:</h2>
-            <p>{teacher.location || 'No data'}</p>
+            <h2 className="text-xl font-bold">Company:</h2>
+            <p>{teacher.id || 'No data'}</p>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
