@@ -15,6 +15,36 @@ function AddnewCourseTeacher() {
   const [time, setTime] = useState('');
   const [photo, setPhoto] = useState(null);
 
+  const [showprice, setShowPrice] = useState({
+    seventeen: '',
+    eightyThree: '',
+  });
+
+  const formatPrice = (price: any) => {
+    return new Intl.NumberFormat().format(price);
+  };
+
+  const handleCostChange = (e: any) => {
+    const inputCost = e.target.value;
+    setCost(inputCost);
+
+    if (inputCost) {
+      const price = parseFloat(inputCost.replace(/,/g, ' '));
+      if (!isNaN(price)) {
+        const seventeenPercent = price * 0.17;
+        const eightyThreePercent = price * 0.83;
+        setShowPrice({
+          seventeen: formatPrice(seventeenPercent),
+          eightyThree: formatPrice(eightyThreePercent),
+        });
+      } else {
+        setShowPrice({ seventeen: '', eightyThree: '' });
+      }
+    } else {
+      setShowPrice({ seventeen: '', eightyThree: '' });
+    }
+  };
+
   const token = localStorage.getItem('TOKEN');
 
   const handleCancel = () => {
@@ -208,15 +238,17 @@ function AddnewCourseTeacher() {
               </div>
             )}
             <div className="mb-4.5 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
+              <label className="mb-2.5 block text-black dark:text-white flex ">
                 Price (example: 300000)
+                <p className="ms-10">you get: {showprice.eightyThree}</p>
               </label>
               <input
                 type="text"
                 placeholder="Enter your course price. Example: 300000"
                 className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={cost}
-                onChange={(e) => setCost(e.target.value)}
+                // onChange={(e) => setCost(e.target.value)}
+                onChange={handleCostChange}
                 required
               />
             </div>

@@ -12,7 +12,7 @@ const IntroSection = () => {
   const [selectedLanguage] = useLang();
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-200 relative">
+    <div className="flex flex-col items-center justify-center bg-gray-200 relative">
       {/* <img
         src={Brand}
         alt="Brand"

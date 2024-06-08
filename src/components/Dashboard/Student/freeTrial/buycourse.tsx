@@ -30,7 +30,7 @@ function BuyOneCourseGroupStudent() {
     formData.append('card_t', name);
     formData.append('pay_desc', main);
     if (cost) {
-      formData.append('image', cost, cost.name);
+      formData.append('image', cost);
     }
 
     try {
@@ -65,92 +65,101 @@ function BuyOneCourseGroupStudent() {
       <div className="mb-5 text-left mx-auto text-2xl">
         Sending new <span className="underline">Payment</span>
       </div>
-      <form onSubmit={handleSubmit} className="dark:text-white">
-        <div className="p-6.5">
-          <div className="">
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Card type
-              </label>
-              <select
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                className={`w-full rounded border border-stroke bg-white py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
-              >
-                <option
-                  value=""
-                  disabled
-                  className="text-body dark:text-bodydark"
-                >
-                  Choose Your Card Type
-                </option>
-                <option value="Humo" className="text-body dark:text-bodydark">
-                  Humo
-                </option>
-                <option value="Uzcard" className="text-body dark:text-bodydark">
-                  Uzcard
-                </option>
-                <option value="Visa" className="text-body dark:text-bodydark">
-                  Visa
-                </option>
-                <option
-                  value="Mastercard"
-                  className="text-body dark:text-bodydark"
-                >
-                  Mastercard
-                </option>
-              </select>
-            </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Description
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your description"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                value={main}
-                onChange={(e) => setMain(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
-              <label className="mb-2.5 block text-black dark:text-white">
-                Cheque image
-              </label>
-              <input
-                type="file"
-                placeholder="Enter your file"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                onChange={(e) => {
-                  setCost(e.target.files[0]);
-                  setFileName(e.target.files[0].name);
-                }}
-                required
-              />
-              {fileName && <p className="text-sm mt-2">{fileName}</p>}
-            </div>
-          </div>
+      <div>
+        <div className="">Choose You Payment method:</div>
 
-          <div className="flex flex-row justify-end mt-20">
-            <a
-              href="/dashboard/teacher/my/all/groups"
-              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
-              onClick={handleCancel}
-            >
-              Cancel
-            </a>
-            <button
-              type="submit"
-              className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
-            >
-              Send
-            </button>
+        <form onSubmit={handleSubmit} className="dark:text-white">
+          <div className="p-6.5">
+            <div className="">
+              <div className="mb-4.5 md:w-1/2 px-2">
+                <label className="mb-2.5 block text-black dark:text-white">
+                  Card type
+                </label>
+                <select
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                  className={`w-full rounded border border-stroke bg-white py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input`}
+                >
+                  <option
+                    value=""
+                    disabled
+                    className="text-body dark:text-bodydark"
+                  >
+                    Choose Your Card Type
+                  </option>
+                  <option
+                    value="Click"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Click
+                  </option>
+                  <option
+                    value="Payme"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Payme
+                  </option>
+                  <option value="Uzum" className="text-body dark:text-bodydark">
+                    Uzum
+                  </option>
+                  <option
+                    value="Zoomrad"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Zoomrad
+                  </option>
+                </select>
+              </div>
+              <div className="mb-4.5 md:w-1/2 px-2">
+                <label className="mb-2.5 block text-black dark:text-white">
+                  Description
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your description"
+                  className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  value={main}
+                  onChange={(e) => setMain(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4.5 md:w-1/2 px-2">
+                <label className="mb-2.5 block text-black dark:text-white">
+                  Cheque image
+                </label>
+                <input
+                  type="file"
+                  placeholder="Enter your file"
+                  className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  onChange={(e) => {
+                    setCost(e.target.files[0]);
+                  }}
+                  required
+                />
+                {fileName && <p className="text-sm mt-2">{fileName}</p>}
+              </div>
+            </div>
+
+            <div className="flex flex-row justify-end mt-20">
+              <a
+                href="/dashboard/teacher/my/all/groups"
+                className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
+                onClick={handleCancel}
+              >
+                Cancel
+              </a>
+              <button
+                type="submit"
+                className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
+              >
+                Send
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </DefaultLayoutStudent>
   );
 }
