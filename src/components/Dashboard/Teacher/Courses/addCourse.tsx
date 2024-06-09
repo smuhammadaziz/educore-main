@@ -32,7 +32,7 @@ function AddnewCourseTeacher() {
       const price = parseFloat(inputCost.replace(/,/g, ' '));
       if (!isNaN(price)) {
         const seventeenPercent = price * 0.17;
-        const eightyThreePercent = price * 0.83;
+        const eightyThreePercent = price * 0.834;
         setShowPrice({
           seventeen: formatPrice(seventeenPercent),
           eightyThree: formatPrice(eightyThreePercent),
@@ -108,6 +108,12 @@ function AddnewCourseTeacher() {
     } else {
       setSub('');
     }
+  };
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
   };
 
   return (
@@ -238,9 +244,11 @@ function AddnewCourseTeacher() {
               </div>
             )}
             <div className="mb-4.5 px-2">
-              <label className="mb-2.5 block text-black dark:text-white flex ">
-                Price (example: 300000)
-                <p className="ms-10">you get: {showprice.eightyThree}</p>
+              <label className="mb-2.5 block text-black dark:text-white flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <p>Price (example: 300000)</p>
+                <p className="mt-2 sm:mt-0 sm:ml-10">
+                  you get: {showprice.eightyThree} UZS
+                </p>
               </label>
               <input
                 type="text"
@@ -277,20 +285,54 @@ function AddnewCourseTeacher() {
             </div>
           </div>
 
-          <div className="flex justify-end mt-10">
-            <button
-              type="button"
-              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-white hover:bg-red-500 transition duration-300"
-              onClick={handleCancel}
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="ml-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-white hover:bg-green-500 transition duration-300"
-            >
-              Add
-            </button>
+          <div className="flex items-center justify-end bg-gray-100">
+            <div className="">
+              <div className="flex flex-col">
+                <div className="flex items-center mt-10 mb-0">
+                  <input
+                    type="checkbox"
+                    id="music"
+                    name="interest"
+                    value="music"
+                    className="me-3 transform scale-150"
+                    onChange={handleCheckboxChange}
+                  />
+                  <label htmlFor="music text-right">
+                    <p className="ml-2 text-right">
+                      I read and accept
+                      <a
+                        className="ms-2 text-blue-600 underline"
+                        href="https://docs.google.com/document/d/12A_fMNIn-3ryDlcEtXtPQJqN7c10pCyQcunGtbvVV5w/edit?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Terms of Services
+                      </a>
+                    </p>
+                  </label>
+                </div>
+                <div className="flex justify-end mt-10">
+                  <button
+                    type="button"
+                    className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-white hover:bg-red-500 transition duration-300"
+                    onClick={handleCancel}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className={`ml-5 flex w-25 justify-center rounded p-3 font-medium text-white transition duration-300 ${
+                      isChecked
+                        ? 'bg-green-600 hover:bg-green-500'
+                        : 'bg-green-200 cursor-not-allowed'
+                    }`}
+                    disabled={!isChecked}
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </form>
