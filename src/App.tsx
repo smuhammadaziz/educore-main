@@ -87,6 +87,7 @@ import AllCompanyPageAdmin from './pages/Dashboard/Admin/Company/company';
 import AddingCompanyAdmin from './components/Dashboard/Admin/Companies/addCompany';
 import OneCompanyGetAdmin from './components/Dashboard/Admin/Companies/oneCompany';
 import CompanySelectTeacherCreateAdmin from './components/Dashboard/Admin/Teachers/companyTeacher';
+import AllCompanyCourseLanding from './components/LandingPage/Partner/allCompanyCourse';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -181,6 +182,15 @@ function App() {
             <>
               <PageTitle title="Educore | Blogs " />
               <OneBlogPage />
+            </>
+          }
+        />
+        <Route
+          path="/all/courses/company/:company_id"
+          element={
+            <>
+              <PageTitle title="Educore | Blogs " />
+              <AllCompanyCourseLanding />
             </>
           }
         />

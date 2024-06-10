@@ -28,6 +28,8 @@ export default function AllCourses() {
 
         const allCourse = data.Courses;
 
+        // console.log(allCourse);
+
         setData(allCourse.reverse());
       } catch (error) {
         console.log(error);

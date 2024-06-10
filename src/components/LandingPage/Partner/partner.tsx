@@ -32,9 +32,9 @@ function OurPartnersLanding() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 sm:gap-12">
             {course && course.length > 0 ? (
-              course.map((e) => (
+              course.map((e: any) => (
                 <div className="justify-center items-center" key={e.company_id}>
-                  <NavLink to={`all/courses/${e.name}`}>
+                  <NavLink to={`/all/courses/company/${e.company_id}`}>
                     <img
                       src={`${backurl}upload/${e.image}`}
                       alt={e.name}
