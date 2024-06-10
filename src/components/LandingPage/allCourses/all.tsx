@@ -155,10 +155,10 @@ export default function AllCourses() {
                       className="w-100 h-64 object-cover"
                     />
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-gray-700">
+                  <h3 className="mt-4 text-lg font-bold text-black">
                     {product.title}
                   </h3>
-                  <h3 className=" text-lg font-bold text-gray-700">
+                  <h3 className=" text-sm font-bold text-black opacity-80 uppercase">
                     {product.name} {product.l_name}
                   </h3>
 

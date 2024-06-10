@@ -20,6 +20,9 @@ const CoffeeComponent = () => {
         }
         const data = await response.json();
         const allCourse = data.getidbycourse;
+
+        // console.log(allCourse);
+
         setData(allCourse);
       } catch (error) {
         console.log(error);
@@ -63,10 +66,10 @@ const CoffeeComponent = () => {
           </div>
 
           <div className="lg:col-span-3">
-            <h2 className="text-2xl font-extrabold text-gray-800 mt-7">
+            <h2 className="text-2xl font-extrabold text-black mt-7">
               {data && data.title ? data.title : 'SAT | IELTS'}
             </h2>
-            <div className="flex flex-wrap gap-4 mt-4">
+            <div className="flex flex-wrap gap-4 mt-4 text-black">
               <p className="text-gray-800 text-xl font-extrabold">
                 {data && data.price
                   ? data.price.toLocaleString('en-US').replace(/,/g, ' ')
@@ -75,7 +78,7 @@ const CoffeeComponent = () => {
               </p>
             </div>
             <div className="mt-8">
-              <h3 className="text-lg font-bold text-gray-800">
+              <h3 className="text-lg font-bold text-black">
                 {content[selectedLanguage as string].buy.about}
               </h3>
               <p className="text-md font-bold text-gray-800 mt-3">
@@ -88,10 +91,10 @@ const CoffeeComponent = () => {
               </p>
             </div>
             <div className="mt-8">
-              <h3 className="text-lg font-bold text-gray-800">
+              <h3 className="text-lg font-bold text-black">
                 {content[selectedLanguage as string].buy.teacher}
               </h3>
-              <p className="text-sm font-bold text-gray-800 mt-3">
+              <p className="text-sm font-bold text-gray-800 mt-3 uppercase ">
                 {data && data.name ? data.name : 'SAT | IELTS'}{' '}
                 {data && data.l_name ? data.l_name : 'SAT | IELTS'}{' '}
               </p>

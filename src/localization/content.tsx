@@ -87,6 +87,9 @@ type Content = {
       buy: string;
       free: string;
     };
+    partner: {
+      part: string;
+    };
   };
 };
 
@@ -190,6 +193,9 @@ const content: Content = {
       buy: 'Buy now',
       free: 'Use Free Trial',
     },
+    partner: {
+      part: 'Our Partners',
+    },
   },
   uz: {
     header: {
@@ -289,6 +295,9 @@ const content: Content = {
       teacher: 'Ustoz haqida ',
       buy: 'Hozir sotib olish',
       free: 'Free Trialdan foydalanish',
+    },
+    partner: {
+      part: 'Bizning hamkorlarimiz',
     },
   },
   ru: {
@@ -390,6 +399,9 @@ const content: Content = {
       teacher: 'Об учителе ',
       buy: 'Купить сейчас',
       free: 'Использование Free Trial',
+    },
+    partner: {
+      part: 'Наши партнеры',
     },
   },
 };
