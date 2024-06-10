@@ -185,12 +185,12 @@ const SignUp: React.FC = (props) => {
                         {content[selectedLang as string].log.phone}
                       </label>
                       <div className="relative">
-                        {/* <PhoneInput
+                        <PhoneInput
                           country={'uz'}
                           value={phone}
                           onChange={(phone) => setPhone(phone)}
-                        /> */}
-                        <InputMask
+                        />
+                        {/* <InputMask
                           // type="text"
                           value={phone}
                           // onChange={(e) => setPhone(e.target.value)}
@@ -199,7 +199,7 @@ const SignUp: React.FC = (props) => {
                           className="ms-2 w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                           mask="+999 (99) 999 99 99"
                           {...props}
-                        />
+                        /> */}
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4 lg:w-1/2">
