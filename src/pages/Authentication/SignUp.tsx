@@ -81,6 +81,27 @@ const SignUp: React.FC = () => {
 
   const [selectedLang] = useLang();
 
+  // const handleChange = (event) => {
+  //   // setPhone(event.target.value);
+  //   const input = event.target.value.replace(/\D/g, '');
+  //   let formattedNumber = '+998 ';
+
+  //   if (input.length > 2) {
+  //     formattedNumber += `(${input.substring(0, 2)}) `;
+  //   }
+  //   if (input.length > 5) {
+  //     formattedNumber += `${input.substring(2, 5)}-`;
+  //   }
+  //   if (input.length > 7) {
+  //     formattedNumber += `${input.substring(5, 7)}-`;
+  //   }
+  //   if (input.length > 9) {
+  //     formattedNumber += `${input.substring(7, 9)}`;
+  //   }
+
+  //   setPhone(formattedNumber);
+  // };
+
   return (
     <>
       <ToastContainer></ToastContainer>
@@ -175,10 +196,17 @@ const SignUp: React.FC = () => {
                         {content[selectedLang as string].log.phone}
                       </label>
                       <div className="relative">
-                        <PhoneInput
+                        {/* <PhoneInput
                           country={'uz'}
                           value={phone}
                           onChange={(phone) => setPhone(phone)}
+                        /> */}
+                        <input
+                          type="text"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder={`+998 (99) 999 99 99`}
+                          className="ms-2 w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
                     </div>

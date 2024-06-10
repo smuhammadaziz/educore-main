@@ -140,7 +140,7 @@ export default function AllCourses() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 mx-auto">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mt-10 mx-auto">
           {currentProducts && currentProducts.length > 0
             ? currentProducts.map((product: any) => (
                 <NavLink

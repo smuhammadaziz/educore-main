@@ -29,8 +29,8 @@ function AllCompanyCourseLanding() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const reversed = data.Company;
-        //    console.log(reversed);
+        const reversed = data.Company.reverse();
+        // console.log(reversed);
         setCourses(reversed);
       } catch (error) {
         console.log(error);
@@ -98,7 +98,7 @@ function AllCompanyCourseLanding() {
                   {content[selectedLanguage as string].coursesPage.find}
                 </h2>
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mt-10 mx-auto">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 mt-10 mx-auto">
                   {course && course.length > 0
                     ? course.map((product: any) => (
                         <NavLink
@@ -108,15 +108,15 @@ function AllCompanyCourseLanding() {
                         >
                           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                             <img
-                              src={`${backurl}upload/${product.company_image}`}
+                              src={`${backurl}upload/${product.course_image}`}
                               alt="course image"
                               className="w-100 h-64 object-cover"
                             />
                           </div>
                           <h3 className="mt-4 text-lg font-bold text-gray-700">
-                            {product.title}
+                            {product.course_title}
                           </h3>
-                          <h3 className=" text-lg font-bold text-gray-700">
+                          <h3 className=" text-lg font-bold text-black uppercase">
                             {product.name} {product.l_name}
                           </h3>
 
