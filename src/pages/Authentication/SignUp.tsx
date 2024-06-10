@@ -18,7 +18,9 @@ import 'react-phone-input-2/lib/bootstrap.css';
 // import 'react-phone-input-2/lib/material.css';
 // import 'react-phone-input-2/lib/material.css';
 
-const SignUp: React.FC = () => {
+import InputMask from 'react-input-mask';
+
+const SignUp: React.FC = (props) => {
   const [name, setName] = useState('');
   const [l_name, setl_name] = useState('');
   const [email, setEmail] = useState('');
@@ -81,30 +83,17 @@ const SignUp: React.FC = () => {
 
   const [selectedLang] = useLang();
 
-  // const handleChange = (event) => {
-  //   // setPhone(event.target.value);
-  //   const input = event.target.value.replace(/\D/g, '');
-  //   let formattedNumber = '+998 ';
-
-  //   if (input.length > 2) {
-  //     formattedNumber += `(${input.substring(0, 2)}) `;
-  //   }
-  //   if (input.length > 5) {
-  //     formattedNumber += `${input.substring(2, 5)}-`;
-  //   }
-  //   if (input.length > 7) {
-  //     formattedNumber += `${input.substring(5, 7)}-`;
-  //   }
-  //   if (input.length > 9) {
-  //     formattedNumber += `${input.substring(7, 9)}`;
-  //   }
-
-  //   setPhone(formattedNumber);
-  // };
+  const handleChange = (e) => {
+    const value = e.target.value;
+    // Allow only digits and specific characters (+ and spaces)
+    const formattedValue = value.replace(/[^\d+ ]/g, '');
+    setPhone(formattedValue);
+  };
 
   return (
     <>
       <ToastContainer></ToastContainer>
+      {/* <InputMask /> */}
       <div className="bg-white">
         <div className="m-2 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div className="flex flex-wrap items-center">
@@ -201,12 +190,15 @@ const SignUp: React.FC = () => {
                           value={phone}
                           onChange={(phone) => setPhone(phone)}
                         /> */}
-                        <input
-                          type="text"
+                        <InputMask
+                          // type="text"
                           value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          placeholder={`+998 (99) 999 99 99`}
+                          // onChange={(e) => setPhone(e.target.value)}
+                          onChange={handleChange}
+                          placeholder="+998 (99) 999 99 99"
                           className="ms-2 w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          mask="+999 (99) 999 99 99"
+                          {...props}
                         />
                       </div>
                     </div>
