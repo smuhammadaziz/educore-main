@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LogoDark from '../../images/logo/logo-1.svg';
 import Logo from '../../images/logo/logo-light-1.svg';
@@ -16,11 +16,11 @@ import content from '../../localization/content';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 // import 'react-phone-input-2/lib/material.css';
-// import 'react-phone-input-2/lib/material.css';
+// import 'react-phone-input-2/lib/semantic-ui.css';
 
 import InputMask from 'react-input-mask';
 
-const SignUp: React.FC = (props) => {
+const SignUp: React.FC = () => {
   const [name, setName] = useState('');
   const [l_name, setl_name] = useState('');
   const [email, setEmail] = useState('');
@@ -32,8 +32,6 @@ const SignUp: React.FC = (props) => {
   const [error, setError] = useState('');
 
   const navigateTo = useNavigate();
-
-  // localStorage.removeItem('TOKEN');
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,8 +65,6 @@ const SignUp: React.FC = (props) => {
       }
 
       if (!response.ok) {
-        // const responseData = await response.json();
-        // throw new Error(responseData.message);
         toast.error(data.message, {
           position: 'top-right',
         });
@@ -83,17 +79,9 @@ const SignUp: React.FC = (props) => {
 
   const [selectedLang] = useLang();
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    // Allow only digits and specific characters (+ and spaces)
-    const formattedValue = value.replace(/[^\d+ ]/g, '');
-    setPhone(formattedValue);
-  };
-
   return (
     <>
       <ToastContainer></ToastContainer>
-      {/* <InputMask /> */}
       <div className="bg-white">
         <div className="m-2 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div className="flex flex-wrap items-center">
@@ -185,21 +173,15 @@ const SignUp: React.FC = (props) => {
                         {content[selectedLang as string].log.phone}
                       </label>
                       <div className="relative">
-                        <PhoneInput
-                          country={'uz'}
+                        <input
+                          type="text"
                           value={phone}
-                          onChange={(phone) => setPhone(phone)}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder={
+                            content[selectedLang as string].log.phone
+                          }
+                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
-                        {/* <InputMask
-                          // type="text"
-                          value={phone}
-                          // onChange={(e) => setPhone(e.target.value)}
-                          onChange={handleChange}
-                          placeholder="+998 (99) 999 99 99"
-                          className="ms-2 w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                          mask="+999 (99) 999 99 99"
-                          {...props}
-                        /> */}
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4 lg:w-1/2">

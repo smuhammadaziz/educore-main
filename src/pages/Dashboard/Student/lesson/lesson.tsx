@@ -43,23 +43,20 @@ function GetAllLessonsStudent() {
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
             {courses && courses ? (
-              courses.map((product) => (
+              courses.map((product: any) => (
                 <div
                   key={product.lesson_id}
-                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white"
+                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white rounded-xl shadow-xl hover:shadow-2xl"
                 >
-                  <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
+                  <h3 className="mt-4 text-2xl text-gray-700 dark:text-white">
                     {product.title}
                   </h3>
-                  <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                    {product.subj_start}
-                  </p>
-                  <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
+                  <p className="mt-1 text-lg text-gray-900 dark:text-white">
                     {product.l_desc}
                   </p>
 
-                  <p className="mt-2 text-md font-medium text-gray-900 dark:text-white text-right">
-                    Lesson Status:
+                  <p className="mt-5 text-md font-medium text-gray-900 dark:text-white text-left">
+                    <span className="font-bold">Lesson Status:</span>
                     <span
                       className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
                         product.procces_lesson === 'active'
@@ -74,18 +71,19 @@ function GetAllLessonsStudent() {
                       {product.procces_lesson}
                     </span>
                   </p>
-                  <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
-                    Created time: {moment(product.created_at).format('LT')},{' '}
-                    {''}
+                  <p className="mt-1 text-md font-medium text-gray-900 text-left mt-5 dark:text-white">
+                    <span className="font-bold">Created time:</span>{' '}
+                    {moment(product.created_at).format('LT')}, {''}
                     {moment(product.created_at).format('l')}
                   </p>
-                  <p className="mt-2 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
+                  <hr className="mt-5" />
+                  <p className=" text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
                     <a
                       href={product.l_url}
                       target="_blank"
-                      className="bg-blue-700 mt-2 rounded-full inline-block text-white px-8 py-2 hover:underline hover:bg-blue-500"
+                      className="bg-blue-700 rounded-full inline-block text-white px-8 py-2 hover:underline hover:bg-blue-500"
                     >
-                      join the lesson
+                      join the lesson →
                     </a>
                   </p>
                 </div>
