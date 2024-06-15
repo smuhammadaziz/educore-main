@@ -108,7 +108,7 @@ function AddNewGroupTeacher() {
                 <option value="couple">Couple</option>
                 <option value="odd">Odd</option>
                 <option value="everyday">Everyday</option>
-                <option value="weekends">Weekends</option>
+                <option value="weekands">Weekands</option>
                 <option value="work_days">Work Days</option>
               </select>
             </div>
