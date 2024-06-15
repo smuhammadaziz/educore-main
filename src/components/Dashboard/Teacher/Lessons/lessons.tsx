@@ -3,6 +3,10 @@ import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import backurl from '../../../../links';
 import moment from 'moment';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { NavLink } from 'react-router-dom';
+
 interface Lesson {
   lesson_id: number;
   title: string;
@@ -37,6 +41,29 @@ function GEtAllLessonsTeacher() {
 
     fetchData();
   }, [token]);
+
+  async function deleteItem() {
+    try {
+      const response = await fetch(`${backurl}/api/delete/course/${cour}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete course');
+      }
+      toast.success('Successfully deleted course', {
+        position: 'top-right',
+      });
+      // navigate('/dashboard/courses');
+    } catch (error) {
+      console.error('Error deleting course:', error);
+      toast.error('Failed to delete course', {
+        position: 'top-right',
+      });
+    }
+  }
 
   return (
     <DefaultLayoutTeacher>
@@ -78,16 +105,26 @@ function GEtAllLessonsTeacher() {
                 Created time: {moment(product.created_at).format('LT')},{' '}
                 {moment(product.created_at).format('l')}
               </p>
-              <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
-                <a
-                  href={product.l_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white mt-5 inline-block bg-blue-700 hover:underline hover:bg-blue-500 py-2 px-5 rounded-full"
-                >
-                  join the lesson →
-                </a>
-              </p>
+              <div>
+                <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
+                  <a
+                    href={product.l_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white mt-5 inline-block bg-blue-700 hover:underline hover:bg-blue-500 py-2 px-5 rounded-full"
+                  >
+                    join the lesson →
+                  </a>
+                </p>
+                <p className="mt-1 text-md font-medium text-gray-900 text-right dark:text-white">
+                  <NavLink
+                    to={`/dashboard/teacher/lesson/${product.lesson_id}`}
+                    className="text-white mt-5 inline-block bg-red-700 hover:underline hover:bg-red-500 py-2 px-5 rounded-full"
+                  >
+                    Delete this lesson
+                  </NavLink>
+                </p>
+              </div>
             </div>
           ))}
         </div>

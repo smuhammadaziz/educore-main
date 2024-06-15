@@ -88,6 +88,7 @@ import AddingCompanyAdmin from './components/Dashboard/Admin/Companies/addCompan
 import OneCompanyGetAdmin from './components/Dashboard/Admin/Companies/oneCompany';
 import CompanySelectTeacherCreateAdmin from './components/Dashboard/Admin/Teachers/companyTeacher';
 import AllCompanyCourseLanding from './components/LandingPage/Partner/allCompanyCourse';
+import GetOneLessonTeacher from './components/Dashboard/Teacher/Lessons/oneLesson';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -600,6 +601,15 @@ function App() {
             <>
               <PageTitle title="Educore | Group " />
               <OneStudentGetTeacherPage />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/lesson/:lesson_id"
+          element={
+            <>
+              <PageTitle title="Educore | Group " />
+              <GetOneLessonTeacher />
             </>
           }
         />
