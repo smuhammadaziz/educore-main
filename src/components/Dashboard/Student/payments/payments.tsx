@@ -78,9 +78,9 @@ export default function AllPaymentsViewStudent() {
             {filteredData.map((product: any) => (
               <div
                 key={product.payment_id}
-                className="group bg-white p-5 dark:bg-slate-700 dark:text-white "
+                className="group bg-white p-5 dark:bg-slate-700 dark:text-white rounded-xl shadow-xl hover:shadow-2xl"
               >
-                <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
+                <h3 className="mt-4 text-xl text-black dark:text-white">
                   {product.name} <span></span>
                   {product.l_name}
                 </h3>
@@ -88,7 +88,14 @@ export default function AllPaymentsViewStudent() {
                   {product.subject}
                 </p>
                 <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                  {product.price} 000 so'm
+                  {product.g_name}
+                </p>
+                <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
+                  {' '}
+                  {product.price
+                    .toLocaleString('en-US', { useGrouping: true })
+                    .replace(/,/g, ' ')}{' '}
+                  UZS
                 </p>
                 <p className="mt-1 text-md font-bold text-gray-500 dark:text-white text-right">
                   {product.date}
