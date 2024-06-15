@@ -59,6 +59,32 @@ function OneCourseGetTeacher() {
   const { image, title, descr, period, price, subject, main_sub, created_at } =
     courseData;
 
+  async function deleteItem() {
+    try {
+      const response = await fetch(
+        `${backurl}/api/delete/course/${course_id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      if (!response.ok) {
+        throw new Error('Failed to delete course');
+      }
+      toast.success('Successfully deleted course', {
+        position: 'top-right',
+      });
+      // navigate('/dashboard/courses');
+    } catch (error) {
+      console.error('Error deleting course:', error);
+      toast.error('Failed to delete course', {
+        position: 'top-right',
+      });
+    }
+  }
+
   return (
     <DefaultLayoutTeacher>
       <ToastContainer />
@@ -84,9 +110,16 @@ function OneCourseGetTeacher() {
           </p>
           <NavLink
             to="/dashboard/teacher/my/courses"
-            className="inline-block text-lg bg-blue-700 px-8 py-2 text-white rounded-full hover:bg-blue-500 transition duration-300"
+            className="inline-block text-base sm:text-lg bg-blue-700 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-blue-500 transition duration-300"
           >
             Go back
+          </NavLink>
+          <NavLink
+            onClick={deleteItem}
+            to="/dashboard/teacher/my/courses"
+            className="mt-3 sm:mt-0 sm:ml-5 inline-block text-base sm:text-lg bg-red-600 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-red-500 transition duration-300"
+          >
+            Delete course
           </NavLink>
         </div>
       </div>

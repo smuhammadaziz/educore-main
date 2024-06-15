@@ -80,7 +80,7 @@ function AddNewGroupTeacher() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-gray-700 dark:text-gray-200 mb-2">
-                Your Group's name
+                Your Group name
               </label>
               <input
                 type="text"
@@ -114,7 +114,7 @@ function AddNewGroupTeacher() {
             </div>
             <div>
               <label className="block text-gray-700 dark:text-gray-200 mb-2">
-                Your Group's maximum student limit (only numbers)
+                Your Group's maximum student limit (only number)
               </label>
               <input
                 type="text"
@@ -127,11 +127,11 @@ function AddNewGroupTeacher() {
             </div>
             <div>
               <label className="block text-gray-700 dark:text-gray-200 mb-2">
-                Lesson Start Time (only numbers) example: 13:00
+                Lesson Start Time (only number) example: 13:00
               </label>
               <input
                 type="text"
-                placeholder="Enter your lesson time (only numbers) example: 13"
+                placeholder="Enter your lesson time (only numbers) example: 13:00"
                 className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-300 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
@@ -140,11 +140,11 @@ function AddNewGroupTeacher() {
             </div>
             <div>
               <label className="block text-gray-700 dark:text-gray-200 mb-2">
-                Lesson End Time (only numbers) example: 14:30
+                Lesson End Time (only number) example: 14:30
               </label>
               <input
                 type="text"
-                placeholder="Enter your lesson time (only numbers) example: 15"
+                placeholder="Enter your lesson time (only numbers) example: 14:30"
                 className="w-full bg-white dark:bg-strokedark dark:text-white dark:bg-gray-700 rounded border border-stone-300 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}

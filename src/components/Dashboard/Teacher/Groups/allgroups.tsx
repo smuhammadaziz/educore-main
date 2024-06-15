@@ -75,17 +75,17 @@ function AllGroupViewCourseStudent() {
             groups.map((group: any) => (
               <div
                 key={group.group_id}
-                className="group bg-white p-5 rounded-lg shadow-md dark:bg-slate-700 dark:text-white"
+                className="group bg-white p-5 rounded-lg shadow-md dark:bg-slate-700 dark:text-white hover:shadow-xl"
               >
                 <h3 className="mt-4 text-xl font-bold text-gray-700 dark:text-white">
                   {group.g_name}
                 </h3>
-                <hr className="my-5" />
+                <hr className="my-5 border-slate-400" />
                 <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                  Lesson Days: {group.l_days}
+                  Lesson days: {group.l_days}
                 </p>
                 <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                  Maximum Group Size: {group.user_count} students
+                  Maximum group <samp></samp>ize: {group.user_count} students
                 </p>
                 <p className="mt-1 text-md font-medium text-gray-900 text-left dark:text-white">
                   Lesson Time: {group.subj_start} - {group.subj_end}

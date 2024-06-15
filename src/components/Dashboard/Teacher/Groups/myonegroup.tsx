@@ -4,6 +4,9 @@ import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import moment from 'moment';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 interface Group {
   group_id: number;
   g_name: string;
@@ -43,8 +46,32 @@ function GetOneMyGroupsTeacher() {
     fetchData();
   }, [group_id, token]);
 
+  async function deleteItem() {
+    try {
+      const response = await fetch(`${backurl}/api/delete/group/${group_id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete course');
+      }
+      toast.success('Successfully deleted course', {
+        position: 'top-right',
+      });
+      // navigate('/dashboard/courses');
+    } catch (error) {
+      console.error('Error deleting course:', error);
+      toast.error('Failed to delete course', {
+        position: 'top-right',
+      });
+    }
+  }
+
   return (
     <DefaultLayoutTeacher>
+      <ToastContainer />
       <div className="container mx-auto px-4">
         {groups.length > 0 ? (
           groups.map((group) => (
@@ -90,6 +117,13 @@ function GetOneMyGroupsTeacher() {
                   className="bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
                 >
                   Show all homeworks
+                </NavLink>
+                <NavLink
+                  onClick={deleteItem}
+                  to={`/dashboard/teacher/my/all/groups`}
+                  className="bg-red-700 py-3 px-10 text-white hover:bg-red-600 rounded"
+                >
+                  Delete this group
                 </NavLink>
               </div>
             </div>

@@ -43,7 +43,7 @@ function GetMyAllGroupsTeacher() {
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
             {courses && courses ? (
-              courses.map((product) => (
+              courses.map((product: any) => (
                 <NavLink
                   key={product.group_id}
                   to={`/dashboard/teacher/my/all/groups/${product.group_id}`}
@@ -53,7 +53,7 @@ function GetMyAllGroupsTeacher() {
                     {product.g_name}
                   </h3>
 
-                  <hr className="my-5" />
+                  <hr className="my-5 border-slate-400" />
 
                   <p className="mt-1 text-md font-medium text-gray-900 text-left mt-5 dark:text-white">
                     Lesson time: {product.subj_start} - {product.subj_end}
