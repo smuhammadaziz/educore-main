@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import backurl from '../../../../links';
 import moment from 'moment';
+import { NavLink } from 'react-router-dom';
 
 function GetAllHomeworksTeacher() {
   const [homeworks, setHomeworks] = useState([]);
@@ -56,6 +57,14 @@ function GetAllHomeworksTeacher() {
               <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
                 Created time: {moment(homework.created_at).format('LT')},{' '}
                 {moment(homework.created_at).format('l')}
+              </p>
+              <p className="mt-1 text-md font-medium text-gray-900 text-right dark:text-white">
+                <NavLink
+                  to={`/dashboard/teacher/homework/${homework.homework_id}`}
+                  className="text-white mt-5 inline-block bg-green-700 hover:underline hover:bg-green-500 py-2 px-5 rounded-full"
+                >
+                  more
+                </NavLink>
               </p>
             </div>
           ))}

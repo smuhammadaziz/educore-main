@@ -17,17 +17,17 @@ interface Lesson {
   l_url: string;
 }
 
-function GetOneLessonTeacher() {
+function GetOneHomeworkTeacher() {
   const [courses, setCourses] = useState<Lesson[]>([]);
   const token = localStorage.getItem('TOKEN');
 
-  const { lesson_id } = useParams();
+  const { homework_id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${backurl}/api/get/lesson/by/${lesson_id}`,
+          `${backurl}/api/get/homework/by/${homework_id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ function GetOneLessonTeacher() {
   async function deleteItem() {
     try {
       const response = await fetch(
-        `${backurl}/api/delete/lesson/${lesson_id}`,
+        `${backurl}/api/delete/homework/${homework_id}`,
         {
           method: 'DELETE',
           headers: {
@@ -63,15 +63,15 @@ function GetOneLessonTeacher() {
         },
       );
       if (!response.ok) {
-        throw new Error('Failed to delete lesson');
+        throw new Error('Failed to delete homeowork');
       }
-      toast.success('Successfully deleted lesson', {
+      toast.success('Successfully deleted homeowork', {
         position: 'top-right',
       });
-      // navigate('/dashboard/lessons');
+      // navigate('/dashboard/homeoworks');
     } catch (error) {
-      console.error('Error deleting lesson:', error);
-      toast.error('Failed to delete lesson', {
+      console.error('Error deleting homeowork:', error);
+      toast.error('Failed to delete homeowork', {
         position: 'top-right',
       });
     }
@@ -89,25 +89,7 @@ function GetOneLessonTeacher() {
           </div>
           <div className="text-gray-700 dark:text-white mb-4">
             <h3 className="text-xl font-bold">Description:</h3>
-            <p className="text-lg">{courses.l_desc || 'N/A'}</p>
-          </div>
-          <div className="text-gray-700 dark:text-white mb-4">
-            <h3 className="text-xl font-bold">Link to join:</h3>
-            <p className="text-lg">
-              <a
-                href={courses.l_url || 'N/A'}
-                target="_blank"
-                className="hover:underline text-blue-600"
-              >
-                {courses.l_url || 'N/A'}
-              </a>
-            </p>
-          </div>
-          <div className="text-gray-700 dark:text-white mb-4">
-            <h3 className="text-xl font-bold">Status:</h3>
-            <p className="text-lg font-bold">
-              {courses.procces_lesson || 'N/A'}
-            </p>
+            <p className="text-lg">{courses.h_desc || 'N/A'}</p>
           </div>
           <div className="text-gray-700 dark:text-white mb-4">
             <h3 className="text-xl font-bold">Created Time:</h3>
@@ -117,14 +99,14 @@ function GetOneLessonTeacher() {
           </div>
           <div className="text-center mx-auto justify-center">
             <NavLink
-              to="/dashboard/teacher/my/all/lessons"
+              to="/dashboard/teacher/my/all/homeworks"
               className="inline-block mt-5 bg-blue-700 hover:bg-blue-800 rounded px-5 py-2 text-white"
             >
               Go back
             </NavLink>
             <NavLink
               onClick={deleteItem}
-              to="/dashboard/teacher/my/all/lessons"
+              to="/dashboard/teacher/my/all/homeworks"
               className="ms-5 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
             >
               Delete this lesson
@@ -136,4 +118,4 @@ function GetOneLessonTeacher() {
   );
 }
 
-export default GetOneLessonTeacher;
+export default GetOneHomeworkTeacher;

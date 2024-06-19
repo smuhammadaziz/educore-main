@@ -89,6 +89,8 @@ import OneCompanyGetAdmin from './components/Dashboard/Admin/Companies/oneCompan
 import CompanySelectTeacherCreateAdmin from './components/Dashboard/Admin/Teachers/companyTeacher';
 import AllCompanyCourseLanding from './components/LandingPage/Partner/allCompanyCourse';
 import GetOneLessonTeacher from './components/Dashboard/Teacher/Lessons/oneLesson';
+import GetOneHomeworkTeacher from './components/Dashboard/Teacher/Homeworks/oneHomework';
+import EditCourseTeacher from './components/Dashboard/Teacher/Courses/editCourse';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -590,7 +592,7 @@ function App() {
           path="/dashboard/teacher/group/students/:group_id"
           element={
             <>
-              <PageTitle title="Educore | Group " />
+              <PageTitle title="Educore | Students " />
               <AllInfoStudentTeacher />
             </>
           }
@@ -608,8 +610,26 @@ function App() {
           path="/dashboard/teacher/lesson/:lesson_id"
           element={
             <>
-              <PageTitle title="Educore | Group " />
+              <PageTitle title="Educore | Lesson " />
               <GetOneLessonTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/homework/:homework_id"
+          element={
+            <>
+              <PageTitle title="Educore | Homework " />
+              <GetOneHomeworkTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/edit/course/:course_id"
+          element={
+            <>
+              <PageTitle title="Educore | Course " />
+              <EditCourseTeacher />
             </>
           }
         />

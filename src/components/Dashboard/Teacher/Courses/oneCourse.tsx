@@ -85,6 +85,8 @@ function OneCourseGetTeacher() {
     }
   }
 
+  // console.log(courseData);
+
   return (
     <DefaultLayoutTeacher>
       <ToastContainer />
@@ -120,6 +122,12 @@ function OneCourseGetTeacher() {
             className="mt-3 sm:mt-0 sm:ml-5 inline-block text-base sm:text-lg bg-red-600 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-red-500 transition duration-300"
           >
             Delete course
+          </NavLink>
+          <NavLink
+            to={`/dashboard/teacher/edit/course/${course_id}`}
+            className="mt-3 sm:mt-0 sm:ml-5 inline-block text-base sm:text-lg bg-green-600 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-green-500 transition duration-300"
+          >
+            Edit
           </NavLink>
         </div>
       </div>
