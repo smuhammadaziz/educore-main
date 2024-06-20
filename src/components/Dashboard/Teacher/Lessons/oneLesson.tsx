@@ -8,6 +8,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import moment from 'moment';
 
+import { TiArrowBack } from 'react-icons/ti';
+
 interface Lesson {
   lesson_id: number;
   title: string;
@@ -118,15 +120,19 @@ function GetOneLessonTeacher() {
           <div className="text-center mx-auto justify-center">
             <NavLink
               to="/dashboard/teacher/my/all/lessons"
-              className="inline-block mt-5 bg-blue-700 hover:bg-blue-800 rounded px-5 py-2 text-white"
+              className="flex items-center inline-block mt-5 bg-blue-700 hover:bg-blue-800 rounded px-5 py-2 text-white"
             >
+              <span className="me-2">
+                <TiArrowBack />
+              </span>
               Go back
             </NavLink>
             <NavLink
               onClick={deleteItem}
               to="/dashboard/teacher/my/all/lessons"
-              className="ms-5 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
+              className="flex items-center ms-5 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
             >
+              <span className="me-2">{/* <HiViewGridAdd /> */}</span>
               Delete this lesson
             </NavLink>
           </div>

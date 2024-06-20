@@ -4,6 +4,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import moment from 'moment';
 
+import { MdAddCircle } from 'react-icons/md';
+
 function ShowAllLessonsTeacher() {
   const { group_id } = useParams();
   const [courses, setCourses] = useState([]);
@@ -40,13 +42,16 @@ function ShowAllLessonsTeacher() {
   return (
     <DefaultLayoutTeacher>
       <div className="right-0 top-0 mx-auto mb-10">
-        <h2 className="text-2xl mb-5">
+        <h2 className="text-2xl mb-5 mx-auto text-center">
           My <span className="underline">Lessons</span> List
         </h2>
         <NavLink
           to={`/dashboard/teacher/add/new/lesson/${group_id}`}
-          className="text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          className="flex items-center w-55 mx-auto text-center text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
         >
+          <span className="me-2">
+            <MdAddCircle />
+          </span>
           Add new Lesson
         </NavLink>
       </div>

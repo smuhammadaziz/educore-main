@@ -6,6 +6,10 @@ import moment from 'moment';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { RiArrowGoBackFill } from 'react-icons/ri';
+import { MdPlayLesson } from 'react-icons/md';
+import { MdMapsHomeWork } from 'react-icons/md';
+import { MdDelete } from 'react-icons/md';
 
 interface Group {
   group_id: number;
@@ -100,29 +104,41 @@ function GetOneMyGroupsTeacher() {
 
               <NavLink
                 to="/dashboard/teacher/my/all/groups"
-                className="underline text-blue-700 dark:text-blue-400 mt-5 inline-block"
+                className="flex items-center underline text-blue-700 dark:text-blue-400 mt-5 inline-block"
               >
+                <span className="me-2">
+                  <RiArrowGoBackFill />
+                </span>
                 Go to my all groups
               </NavLink>
 
               <div className="flex text-center flex-col md:flex-row mt-10 space-y-3 md:space-y-0 md:space-x-3">
                 <NavLink
                   to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
-                  className="bg-green-700 py-3 px-10 text-white hover:bg-green-600 rounded"
+                  className="flex items-center bg-green-700 py-3 px-10 text-white hover:bg-green-600 rounded"
                 >
+                  <span className="me-2">
+                    <MdPlayLesson />
+                  </span>
                   Show all lessons
                 </NavLink>
                 <NavLink
                   to={`/dashboard/teacher/my/all/groups/show/homeworks/${group_id}`}
-                  className="bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
+                  className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
                 >
+                  <span className="me-2">
+                    <MdMapsHomeWork />
+                  </span>
                   Show all homeworks
                 </NavLink>
                 <NavLink
                   onClick={deleteItem}
                   to={`/dashboard/teacher/my/all/groups`}
-                  className="bg-red-700 py-3 px-10 text-white hover:bg-red-600 rounded"
+                  className="flex items-center bg-red-700 py-3 px-10 text-white hover:bg-red-600 rounded"
                 >
+                  <span className="me-2">
+                    <MdDelete />
+                  </span>
                   Delete this group
                 </NavLink>
               </div>

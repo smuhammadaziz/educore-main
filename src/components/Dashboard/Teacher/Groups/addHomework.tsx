@@ -5,7 +5,9 @@ import backurl from '../../../../links';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+
+import { MdAddCircle, MdCancel } from 'react-icons/md';
 
 function AddNewHomeworkTeacher() {
   const [name, setName] = useState('');
@@ -96,17 +98,23 @@ function AddNewHomeworkTeacher() {
           </div>
 
           <div className="flex flex-row justify-end mt-20">
-            <a
-              href="/dashboard/teacher/my/all/groups"
-              className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
+            <NavLink
+              to="/dashboard/teacher/my/all/groups"
+              className="flex flex items-center w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
               onClick={handleCancel}
             >
+              <span className="me-2">
+                <MdCancel />
+              </span>
               Cancel
-            </a>
+            </NavLink>
             <button
               type="submit"
-              className="ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
+              className="flex items-center ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
             >
+              <span className="me-2">
+                <MdAddCircle />
+              </span>
               Add
             </button>
           </div>

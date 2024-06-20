@@ -7,6 +7,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink } from 'react-router-dom';
 
+import { CgDetailsMore } from 'react-icons/cg';
+import { HiViewGridAdd } from 'react-icons/hi';
+
 interface Lesson {
   lesson_id: number;
   title: string;
@@ -41,29 +44,6 @@ function GEtAllLessonsTeacher() {
 
     fetchData();
   }, [token]);
-
-  async function deleteItem() {
-    try {
-      const response = await fetch(`${backurl}/api/delete/course/${less}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (!response.ok) {
-        throw new Error('Failed to delete course');
-      }
-      toast.success('Successfully deleted course', {
-        position: 'top-right',
-      });
-      // navigate('/dashboard/courses');
-    } catch (error) {
-      console.error('Error deleting course:', error);
-      toast.error('Failed to delete course', {
-        position: 'top-right',
-      });
-    }
-  }
 
   return (
     <DefaultLayoutTeacher>
@@ -109,8 +89,11 @@ function GEtAllLessonsTeacher() {
                 <p className="mt-1 text-md font-medium text-gray-900 text-right dark:text-white">
                   <NavLink
                     to={`/dashboard/teacher/lesson/${product.lesson_id}`}
-                    className="text-white mt-5 inline-block bg-green-700 hover:underline hover:bg-green-500 py-2 px-5 rounded-full"
+                    className="flex items-center text-white mt-5 inline-block bg-green-700 hover:underline hover:bg-green-500 py-2 px-5 rounded-full"
                   >
+                    <span className="me-2">
+                      <CgDetailsMore />
+                    </span>
                     more
                   </NavLink>
                 </p>
@@ -119,8 +102,11 @@ function GEtAllLessonsTeacher() {
                     href={product.l_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white mt-5 inline-block bg-blue-700 hover:underline hover:bg-blue-500 py-2 px-5 rounded-full"
+                    className="flex items-center text-white mt-5 inline-block bg-blue-700 hover:underline hover:bg-blue-500 py-2 px-5 rounded-full"
                   >
+                    <span className="me-2">
+                      <HiViewGridAdd />
+                    </span>
                     join the lesson →
                   </a>
                 </p>

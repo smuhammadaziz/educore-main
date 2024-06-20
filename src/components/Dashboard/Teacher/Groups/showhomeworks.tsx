@@ -5,6 +5,8 @@ import backurl from '../../../../links';
 
 import moment from 'moment';
 
+import { MdAddCircle } from 'react-icons/md';
+
 function ShowAllHomeworksTeacher() {
   const { group_id } = useParams();
   const [courses, setCourses] = useState([]);
@@ -42,13 +44,16 @@ function ShowAllHomeworksTeacher() {
   return (
     <DefaultLayoutTeacher>
       <div className="right-0 top-0 mx-auto mb-10">
-        <h2 className="text-2xl mb-5">
+        <h2 className="text-2xl mb-5 mx-auto text-center">
           My <span className="underline">Homeworks</span> List
         </h2>
         <NavLink
           to={`/dashboard/teacher/add/new/homework/${group_id}`}
-          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          className="text-sm flex items-center w-64 mx-auto text-center  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
         >
+          <span className="me-2">
+            <MdAddCircle />
+          </span>
           Add new Homework
         </NavLink>
       </div>
@@ -59,7 +64,7 @@ function ShowAllHomeworksTeacher() {
               courses.map((product: any) => (
                 <div
                   key={product.lesson_id}
-                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl"
+                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl rounded-xl"
                 >
                   <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
                     {product.title}
