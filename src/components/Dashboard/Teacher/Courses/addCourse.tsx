@@ -6,6 +6,11 @@ import backurl from '../../../../links';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { MdCancel } from 'react-icons/md';
+
+// import { MdOutlineAdd } from 'react-icons/md';
+import { RiAddCircleFill } from 'react-icons/ri';
+
 function AddnewCourseTeacher() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -311,23 +316,29 @@ function AddnewCourseTeacher() {
                     </p>
                   </label>
                 </div>
-                <div className="flex justify-end mt-10">
+                <div className="flex flex-col md:flex-row justify-end mt-10 space-y-3 md:space-y-0 md:space-x-5">
                   <button
                     type="button"
-                    className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-white hover:bg-red-500 transition duration-300"
+                    className="flex items-center justify-center w-full md:w-40 rounded bg-red-600 p-3 font-medium text-white hover:bg-red-500 transition duration-300"
                     onClick={handleCancel}
                   >
+                    <span className="mr-2">
+                      <MdCancel />
+                    </span>
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className={`ml-5 flex w-25 justify-center rounded p-3 font-medium text-white transition duration-300 ${
+                    className={`flex items-center justify-center w-full md:w-40 rounded p-3 font-medium text-white transition duration-300 ${
                       isChecked
                         ? 'bg-green-600 hover:bg-green-500'
                         : 'bg-green-200 cursor-not-allowed'
                     }`}
-                    disabled={!isChecked}
+                    // disabled={!isChecked}
                   >
+                    <span className="mr-2">
+                      <RiAddCircleFill />
+                    </span>
                     Add
                   </button>
                 </div>

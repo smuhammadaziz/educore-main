@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react';
 import backurl from '../../../../links';
 import moment from 'moment';
 
+import { CiCircleMore } from 'react-icons/ci';
+import { CgDetailsMore } from 'react-icons/cg';
+import { RiAddCircleFill } from 'react-icons/ri';
+
 export default function AllCoursesListTeacher() {
   const [courses, setCourses] = useState([]);
   const token = localStorage.getItem('TOKEN');
@@ -37,8 +41,11 @@ export default function AllCoursesListTeacher() {
         </h2>
         <NavLink
           to="/dashboard/teacher/add/new/course"
-          className="inline-block text-sm py-3 px-8 bg-blue-700 text-white rounded-full hover:bg-blue-500 transition duration-300"
+          className="flex items-center w-50 mx-auto inline-block text-sm py-3 px-8 bg-blue-700 text-white rounded-full hover:bg-blue-500 transition duration-300"
         >
+          <span className="me-2">
+            <RiAddCircleFill />
+          </span>
           Add New Course
         </NavLink>
       </div>
@@ -65,8 +72,11 @@ export default function AllCoursesListTeacher() {
                       </p>
                       <NavLink
                         to={`/dashboard/teacher/course/${course.course_id}`}
-                        className="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition duration-300"
+                        className="flex items-center w-27 text-center inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition duration-300"
                       >
+                        <span className="me-2">
+                          <CgDetailsMore />
+                        </span>
                         More
                       </NavLink>
                     </div>
