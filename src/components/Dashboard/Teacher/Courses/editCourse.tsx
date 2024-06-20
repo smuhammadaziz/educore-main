@@ -7,6 +7,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink, useParams } from 'react-router-dom';
 
+import { RxUpdate } from 'react-icons/rx';
+import { MdCancel } from 'react-icons/md';
+
 function EditCourseTeacher() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -338,20 +341,23 @@ function EditCourseTeacher() {
           <div className="flex items-center justify-end bg-gray-100">
             <div className="">
               <div className="flex flex-col">
-                <div className="flex items-center mt-10 mb-0">
+                <div className="flex flex-col sm:flex-col md:flex-row  items-center mt-10 mb-0">
                   <input
                     type="checkbox"
                     id="music"
                     name="interest"
                     value="music"
-                    className="me-3 transform scale-150"
+                    className="mb-3 md:mb-0 md:mr-3 transform scale-150"
                     onChange={handleCheckboxChange}
                   />
-                  <label htmlFor="music text-right">
-                    <p className="ml-2 text-right">
+                  <label
+                    htmlFor="music"
+                    className="text-right w-full md:w-auto"
+                  >
+                    <p className="ml-2 md:ml-0 text-right">
                       I read and accept
                       <a
-                        className="ms-2 text-blue-600 underline"
+                        className="ml-2 text-blue-600 underline"
                         href="https://docs.google.com/document/d/12A_fMNIn-3ryDlcEtXtPQJqN7c10pCyQcunGtbvVV5w/edit?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -361,23 +367,30 @@ function EditCourseTeacher() {
                     </p>
                   </label>
                 </div>
-                <div className="flex justify-end mt-10">
+
+                <div className="flex flex-col md:flex-row justify-end mt-10 space-y-3 md:space-y-0 md:space-x-5">
                   <button
                     type="button"
-                    className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-white hover:bg-red-500 transition duration-300"
+                    className="flex items-center justify-center w-full md:w-40 rounded bg-red-600 p-3 font-medium text-white hover:bg-red-500 transition duration-300"
                     onClick={handleCancel}
                   >
+                    <span className="mr-2">
+                      <MdCancel />
+                    </span>
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className={`ml-5 flex w-25 justify-center rounded p-3 font-medium text-white transition duration-300 ${
+                    className={`flex items-center justify-center w-full md:w-40 rounded p-3 font-medium text-white transition duration-300 ${
                       isChecked
                         ? 'bg-green-600 hover:bg-green-500'
                         : 'bg-green-200 cursor-not-allowed'
                     }`}
                     // disabled={!isChecked}
                   >
+                    <span className="mr-2">
+                      <RxUpdate />
+                    </span>
                     Update
                   </button>
                 </div>
