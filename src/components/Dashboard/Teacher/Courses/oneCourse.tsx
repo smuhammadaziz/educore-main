@@ -7,6 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import backurl from '../../../../links';
 
+// import { TiArrowBack } from 'react-icons/ti';
+// import {} from 'react-icons/ai';
+import { TiArrowBack } from 'react-icons/ti';
+import { MdDelete } from 'react-icons/md';
+import { MdModeEdit } from 'react-icons/md';
+
 function OneCourseGetTeacher() {
   const [courseData, setCourseData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -110,25 +116,36 @@ function OneCourseGetTeacher() {
           <p className="text-lg text-gray-700 mb-4">
             Created time: {moment(created_at).format('LLL')}
           </p>
-          <NavLink
-            to="/dashboard/teacher/my/courses"
-            className="inline-block text-base sm:text-lg bg-blue-700 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-blue-500 transition duration-300"
-          >
-            Go back
-          </NavLink>
-          <NavLink
-            onClick={deleteItem}
-            to="/dashboard/teacher/my/courses"
-            className="mt-3 sm:mt-0 sm:ml-5 inline-block text-base sm:text-lg bg-red-600 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-red-500 transition duration-300"
-          >
-            Delete course
-          </NavLink>
-          <NavLink
-            to={`/dashboard/teacher/edit/course/${course_id}`}
-            className="mt-3 sm:mt-0 sm:ml-5 inline-block text-base sm:text-lg bg-green-600 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-green-500 transition duration-300"
-          >
-            Edit
-          </NavLink>
+          <div className="flex">
+            <NavLink
+              to="/dashboard/teacher/my/courses"
+              className="flex items-center inline-block text-base sm:text-lg bg-blue-700 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-blue-500 transition duration-300"
+            >
+              <span className="me-2">
+                <TiArrowBack />
+              </span>
+              Go back
+            </NavLink>
+            <NavLink
+              onClick={deleteItem}
+              to="/dashboard/teacher/my/courses"
+              className=" flex items-center mt-3 sm:mt-0 sm:ml-5 inline-block text-base sm:text-lg bg-red-600 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-red-500 transition duration-300"
+            >
+              <span className="me-2">
+                <MdDelete />
+              </span>
+              Delete course
+            </NavLink>
+            <NavLink
+              to={`/dashboard/teacher/edit/course/${course_id}`}
+              className=" flex items-center mt-3 sm:mt-0 sm:ml-5 inline-block text-base sm:text-lg bg-green-600 px-6 sm:px-8 py-2 text-white rounded-full hover:bg-green-500 transition duration-300"
+            >
+              <span className="me-2">
+                <MdModeEdit />
+              </span>
+              Edit course
+            </NavLink>
+          </div>
         </div>
       </div>
     </DefaultLayoutTeacher>
