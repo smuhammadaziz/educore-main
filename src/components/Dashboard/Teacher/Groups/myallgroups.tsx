@@ -47,7 +47,7 @@ function GetMyAllGroupsTeacher() {
                 <NavLink
                   key={product.group_id}
                   to={`/dashboard/teacher/my/all/groups/${product.group_id}`}
-                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl hover:shadow-2xl rounded"
+                  className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl hover:shadow-2xl rounded-xl"
                 >
                   <h3 className="mt-4 font-bold text-xl text-gray-700 dark:text-white">
                     {product.g_name}

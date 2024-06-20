@@ -2,33 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import backurl from '../../../../links';
 
-const products = [
-  {
-    id: 1,
-    name: 'SAT with Sardor',
-    price: '320.000 UZS',
-    course: 'SAT course',
-    rating: '⭐⭐⭐⭐⭐',
-  },
-];
-
-const courseList = [
-  {
-    id: 1,
-    name: 'SAT',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/SAT_logo_%282017%29.svg/1200px-SAT_logo_%282017%29.svg.png',
-  },
-  {
-    id: 2,
-    name: 'IELTS',
-    img: 'https://i.ytimg.com/vi/C3XwcFQmQA4/maxresdefault.jpg',
-  },
-  {
-    id: 3,
-    name: 'CAMBRIDGE',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy0nTApZ1wq_-2k1fszMGwnyxOCda5Ltw2avzRamJLw&s',
-  },
-];
+import { MdOutlineAddCircle } from 'react-icons/md';
 
 export default function AllGroupsListTeacher() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -78,7 +52,7 @@ export default function AllGroupsListTeacher() {
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
           <h2 className="text-left font-bold text-xl text-gray-900 dark:text-gray-100 mb-6">
-            Which course do you want to add Group? Select and Add your Groups
+            Which course do you want to add group? Select and add your groups.
           </h2>
           <div className="grid lg:grid-cols-3 gap-6">
             {courses && courses.length > 0 ? (
@@ -92,8 +66,11 @@ export default function AllGroupsListTeacher() {
                   </h2>
                   <NavLink
                     to={`/dashboard/teacher/group/${e.course_id}`}
-                    className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                    className="flex items-center text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
                   >
+                    <span className="me-3">
+                      <MdOutlineAddCircle />
+                    </span>
                     Add to this course →
                   </NavLink>
                 </div>

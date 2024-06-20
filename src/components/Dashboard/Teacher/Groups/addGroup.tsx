@@ -3,7 +3,10 @@ import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import backurl from '../../../../links';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+
+import { MdOutlineAddCircle } from 'react-icons/md';
+import { MdCancel } from 'react-icons/md';
 
 function AddNewGroupTeacher() {
   const [name, setName] = useState('');
@@ -153,17 +156,23 @@ function AddNewGroupTeacher() {
             </div>
           </div>
           <div className="flex justify-end mt-6 space-x-4">
-            <a
-              href="/dashboard/teacher/my/courses"
-              className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors duration-300"
+            <NavLink
+              to="/dashboard/teacher/my/groups"
+              className="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors duration-300"
               onClick={handleCancel}
             >
+              <span className="me-2">
+                <MdCancel />
+              </span>
               Cancel
-            </a>
+            </NavLink>
             <button
               type="submit"
-              className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300"
+              className="flex items-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300"
             >
+              <span className="me-2">
+                <MdOutlineAddCircle />
+              </span>
               Add
             </button>
           </div>

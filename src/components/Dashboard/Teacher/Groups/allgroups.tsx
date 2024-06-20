@@ -3,6 +3,7 @@ import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import { NavLink, useParams } from 'react-router-dom';
 import moment from 'moment';
 import backurl from '../../../../links';
+import { MdOutlineAddCircle } from 'react-icons/md';
 
 function AllGroupViewCourseStudent() {
   const { course_id } = useParams();
@@ -57,15 +58,18 @@ function AllGroupViewCourseStudent() {
 
   return (
     <DefaultLayoutTeacher>
-      <div className="right-0 top-0 mx-auto mb-10">
-        <h2 className="text-2xl mb-5">
+      <div className="right-0 top-0 mx-auto mb-10 ">
+        <h2 className="text-2xl mb-5 mx-auto justify-center text-center">
           My <span className="underline">Groups</span> List
         </h2>
         <NavLink
           to={`/dashboard/teacher/add/new/groups/${course_id}`}
-          className="text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          className="mx-auto justify-center text-center flex items-center w-55 text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
         >
-          Add New Group
+          <span className="me-3">
+            <MdOutlineAddCircle />
+          </span>
+          Add new group
         </NavLink>
       </div>
 
@@ -75,7 +79,7 @@ function AllGroupViewCourseStudent() {
             groups.map((group: any) => (
               <div
                 key={group.group_id}
-                className="group bg-white p-5 rounded-lg shadow-md dark:bg-slate-700 dark:text-white hover:shadow-xl"
+                className="group bg-white p-5 rounded-xl shadow-md dark:bg-slate-700 dark:text-white hover:shadow-xl"
               >
                 <h3 className="mt-4 text-xl font-bold text-gray-700 dark:text-white">
                   {group.g_name}
@@ -96,7 +100,7 @@ function AllGroupViewCourseStudent() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-700 dark:text-white">
+            <p className="text-center mx-auto justify-center text-gray-700 dark:text-white">
               You don't have any groups
             </p>
           )}
