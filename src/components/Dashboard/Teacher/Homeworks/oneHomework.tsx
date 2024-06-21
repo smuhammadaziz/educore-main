@@ -8,6 +8,9 @@ import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import moment from 'moment';
 
+import { TiArrowBack } from 'react-icons/ti';
+import { MdDelete } from 'react-icons/md';
+
 interface Lesson {
   lesson_id: number;
   title: string;
@@ -97,18 +100,24 @@ function GetOneHomeworkTeacher() {
               {moment(courses.created_at).format('LLL') || 'N/A'}
             </p>
           </div>
-          <div className="text-center mx-auto justify-center">
+          <div className="flex text-center mx-auto justify-center">
             <NavLink
               to="/dashboard/teacher/my/all/homeworks"
-              className="inline-block mt-5 bg-blue-700 hover:bg-blue-800 rounded px-5 py-2 text-white"
+              className="flex items-center inline-block mt-5 bg-blue-700 hover:bg-blue-800 rounded px-5 py-2 text-white"
             >
+              <span className="me-2">
+                <TiArrowBack />
+              </span>
               Go back
             </NavLink>
             <NavLink
               onClick={deleteItem}
               to="/dashboard/teacher/my/all/homeworks"
-              className="ms-5 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
+              className="flex items-center ms-5 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
             >
+              <span className="me-2">
+                <MdDelete />
+              </span>
               Delete this lesson
             </NavLink>
           </div>
