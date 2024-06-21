@@ -9,6 +9,8 @@ import {
 import { NavLink } from 'react-router-dom';
 import backurl from '../../../../links';
 
+import { BsFillPeopleFill } from 'react-icons/bs';
+
 const AllStudentListTeacher = () => {
   const [courses, setCourses] = useState([]);
 
@@ -56,16 +58,19 @@ const AllStudentListTeacher = () => {
             ? courses.map((e: any) => (
                 <div
                   className="my-10 mx-4 dark:bg-strokedark dark:text-white  block p-4 bg-white rounded shadow-xl hover:shadow-2xl"
-                  key={e.course_id}
+                  key={e.group_id}
                 >
-                  <h2 className="text-2xl mt-5">{e.g_name}</h2>
+                  <h2 className="text-2xl mt-5 font-bold">{e.g_name}</h2>
                   <h2 className="text-lg mt-5">
                     {e.subj_start} - {e.subj_end}
                   </h2>
                   <NavLink
                     to={`/dashboard/teacher/group/students/${e.group_id}`}
-                    className="bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
+                    className="flex w-45 items-center bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
                   >
+                    <span className="me-2">
+                      <BsFillPeopleFill />
+                    </span>
                     See all students
                   </NavLink>
                 </div>
