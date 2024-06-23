@@ -41,7 +41,7 @@ export default function AllCoursesListTeacher() {
         </h2>
         <NavLink
           to="/dashboard/teacher/add/new/course"
-          className="flex items-center w-50 mx-auto inline-block text-sm py-3 px-8 bg-blue-700 text-white rounded-full hover:bg-blue-500 transition duration-300"
+          className="flex items-center w-50 mx-auto inline-block text-sm py-3 px-8 bg-blue-700 text-white rounded hover:bg-blue-500 transition duration-300"
         >
           <span className="me-2">
             <RiAddCircleFill />
@@ -82,7 +82,7 @@ export default function AllCoursesListTeacher() {
                     </div>
                   </div>
                 ))
-              : "User doesn't have any courses"}
+              : 'You have no courses'}
           </div>
         </div>
       </div>
