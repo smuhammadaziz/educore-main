@@ -64,7 +64,7 @@ function GetMyAllGroupsTeacher() {
                 </NavLink>
               ))
             ) : (
-              <p>you don't have any courses</p>
+              <p className="text-center inline-block">You have no groups</p>
             )}
           </div>
         </div>

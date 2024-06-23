@@ -7,9 +7,15 @@ import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RiArrowGoBackFill } from 'react-icons/ri';
-import { MdPlayLesson } from 'react-icons/md';
+import { MdPlayLesson, MdEdit } from 'react-icons/md';
 import { MdMapsHomeWork } from 'react-icons/md';
 import { MdDelete } from 'react-icons/md';
+
+import { MdVideoChat } from 'react-icons/md';
+import { MdAddHomeWork } from 'react-icons/md';
+
+import img1 from '../../../../images/icon/8449776_3907913.svg';
+import img2 from '../../../../images/icon/9649836_7408.svg';
 
 interface Group {
   group_id: number;
@@ -103,7 +109,7 @@ function GetOneMyGroupsTeacher() {
               </p>
 
               <NavLink
-                to="/dashboard/teacher/my/all/groups"
+                to="/dashboard/teacher/my/groups"
                 className="flex items-center underline text-blue-700 dark:text-blue-400 mt-5 inline-block"
               >
                 <span className="me-2">
@@ -115,7 +121,7 @@ function GetOneMyGroupsTeacher() {
               <div className="flex text-center flex-col md:flex-row mt-10 space-y-3 md:space-y-0 md:space-x-3">
                 <NavLink
                   to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
-                  className="flex items-center bg-green-700 py-3 px-10 text-white hover:bg-green-600 rounded"
+                  className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
                 >
                   <span className="me-2">
                     <MdPlayLesson />
@@ -133,13 +139,22 @@ function GetOneMyGroupsTeacher() {
                 </NavLink>
                 <NavLink
                   onClick={deleteItem}
-                  to={`/dashboard/teacher/my/all/groups`}
+                  to={`/dashboard/teacher/my/groups`}
                   className="flex items-center bg-red-700 py-3 px-10 text-white hover:bg-red-600 rounded"
                 >
                   <span className="me-2">
                     <MdDelete />
                   </span>
-                  Delete this group
+                  Delete group
+                </NavLink>
+                <NavLink
+                  to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
+                  className="flex items-center bg-green-700 py-3 px-10 text-white hover:bg-green-600 rounded"
+                >
+                  <span className="me-2">
+                    <MdEdit />
+                  </span>
+                  Edit group
                 </NavLink>
               </div>
             </div>
@@ -149,6 +164,37 @@ function GetOneMyGroupsTeacher() {
             You don't have any courses
           </p>
         )}
+
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-col bg-white p-5">
+            <span className="mx-auto justify-center inline-block mb-5">
+              <MdVideoChat size="150" />
+            </span>
+            <NavLink
+              to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
+              className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
+            >
+              <span className="me-2">
+                <MdPlayLesson />
+              </span>
+              Show all lessons
+            </NavLink>
+          </div>
+          <div className="flex flex-col bg-white p-5">
+            <span className="mx-auto justify-center inline-block mb-5">
+              <MdAddHomeWork size="150" />
+            </span>
+            <NavLink
+              to={`/dashboard/teacher/my/all/groups/show/homeworks/${group_id}`}
+              className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
+            >
+              <span className="me-2">
+                <MdMapsHomeWork />
+              </span>
+              Show all homeworks
+            </NavLink>
+          </div>
+        </div>
       </div>
     </DefaultLayoutTeacher>
   );
