@@ -78,16 +78,18 @@ const CoffeeComponent = () => {
               </p>
             </div>
             <div className="mt-8">
-              <h3 className="text-lg font-bold text-black">
+              <h3 className="text-md text-black">
                 {content[selectedLanguage as string].buy.about}
               </h3>
-              <p className="text-md font-bold text-gray-800 mt-3">
+              <p className="text-lg font-bold text-black mt-3">
                 {data && data.descr ? data.descr : 'SAT | IELTS'}
               </p>
-              <p className="text-sm font-bold text-gray-800 mt-3">
+              <p className="text-lg text-gray-800 mt-3 flex flex-col">
                 {content[selectedLanguage as string].buy.period}{' '}
-                {data && data.period ? data.period : 'SAT | IELTS'}{' '}
-                {content[selectedLanguage as string].buy.month}
+                <span className="font-bold text-black">
+                  {data && data.period ? data.period : 'SAT | IELTS'}{' '}
+                  {content[selectedLanguage as string].buy.month}
+                </span>
               </p>
             </div>
             <div className="mt-8">
@@ -102,13 +104,13 @@ const CoffeeComponent = () => {
             <div className="mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-2">
               <NavLink
                 to="/auth/signup"
-                className="inline-flex items-center justify-center rounded-full bg-primary py-3 px-6 text-center font-medium text-white hover:bg-opacity-90 sm:px-8 lg:px-10"
+                className="inline-flex items-center justify-center rounded-full bg-blue-700 py-3 px-6 text-center font-medium text-white hover:bg-blue-800 sm:px-8 lg:px-10"
               >
                 {content[selectedLanguage as string].buy.buy}
               </NavLink>
               <NavLink
                 to="/auth/signup"
-                className="inline-flex items-center justify-center rounded-full bg-meta-3 py-3 px-6 text-center font-medium text-white hover:bg-opacity-90 sm:px-8 lg:px-10"
+                className="inline-flex items-center justify-center rounded-full bg-green-700 py-3 px-6 text-center font-medium text-white hover:bg-green-800 sm:px-8 lg:px-10"
               >
                 {content[selectedLanguage as string].buy.free}
               </NavLink>
