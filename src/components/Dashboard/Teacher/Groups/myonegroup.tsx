@@ -118,29 +118,11 @@ function GetOneMyGroupsTeacher() {
                 Go to my all groups
               </NavLink>
 
-              <div className="flex text-center flex-col md:flex-row mt-10 space-y-3 md:space-y-0 md:space-x-3">
-                <NavLink
-                  to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
-                  className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
-                >
-                  <span className="me-2">
-                    <MdPlayLesson />
-                  </span>
-                  Show all lessons
-                </NavLink>
-                <NavLink
-                  to={`/dashboard/teacher/my/all/groups/show/homeworks/${group_id}`}
-                  className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
-                >
-                  <span className="me-2">
-                    <MdMapsHomeWork />
-                  </span>
-                  Show all homeworks
-                </NavLink>
+              <div className="flex text-center flex-col md:flex-row mt-10 gap-5">
                 <NavLink
                   onClick={deleteItem}
                   to={`/dashboard/teacher/my/groups`}
-                  className="flex items-center bg-red-700 py-3 px-10 text-white hover:bg-red-600 rounded"
+                  className=" flex  justify-center items-center bg-red-700 py-3 px-10 text-white hover:bg-red-800 rounded"
                 >
                   <span className="me-2">
                     <MdDelete />
@@ -149,7 +131,7 @@ function GetOneMyGroupsTeacher() {
                 </NavLink>
                 <NavLink
                   to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
-                  className="flex items-center bg-green-700 py-3 px-10 text-white hover:bg-green-600 rounded"
+                  className="justify-center flex items-center bg-green-700 py-3 px-10 text-white hover:bg-green-800 rounded"
                 >
                   <span className="me-2">
                     <MdEdit />
@@ -165,33 +147,33 @@ function GetOneMyGroupsTeacher() {
           </p>
         )}
 
-        <div className="flex flex-row justify-between">
-          <div className="flex flex-col bg-white p-5">
-            <span className="mx-auto justify-center inline-block mb-5">
+        <div className="flex flex-col md:flex-row ">
+          <div className="flex flex-col bg-white p-5 shadow-xl hover:shadow-2xl rounded-md dark:bg-strokedark mb-5 md:mb-0">
+            <span className="mx-auto justify-center inline-block mb-7 pt-10">
               <MdVideoChat size="150" />
             </span>
             <NavLink
               to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
-              className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
+              className="flex items-center bg-blue-700 py-3 px-10 text-white mx-auto hover:bg-blue-900 rounded"
             >
               <span className="me-2">
                 <MdPlayLesson />
               </span>
-              Show all lessons
+              View all lessons
             </NavLink>
           </div>
-          <div className="flex flex-col bg-white p-5">
-            <span className="mx-auto justify-center inline-block mb-5">
+          <div className="md:ms-10 flex flex-col bg-white p-5 shadow-xl hover:shadow-2xl rounded-md dark:bg-strokedark">
+            <span className="mx-auto justify-center inline-block mb-7 pt-10">
               <MdAddHomeWork size="150" />
             </span>
             <NavLink
               to={`/dashboard/teacher/my/all/groups/show/homeworks/${group_id}`}
-              className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-600 rounded"
+              className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-900 mx-auto rounded"
             >
               <span className="me-2">
                 <MdMapsHomeWork />
               </span>
-              Show all homeworks
+              View all homeworks
             </NavLink>
           </div>
         </div>
