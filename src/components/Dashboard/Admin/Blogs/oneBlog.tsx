@@ -95,7 +95,7 @@ function OneBlogGetAdmin() {
         <img
           src={`${backurl}upload/${blog.img || 'default-image.png'}`}
           alt="Blog"
-          className="w-full h-auto max-w-lg"
+          className="w-full h-100 max-w-lg object-cover"
         />
         <h2 className="text-2xl sm:text-4xl mt-5 text-black dark:text-white">
           {blog.title}
