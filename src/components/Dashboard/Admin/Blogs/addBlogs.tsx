@@ -196,22 +196,22 @@ function AddNewBlogAdmin() {
 
       <div></div>
       <form onSubmit={handleSubmit} className="dark:text-white">
-        <div className="p-6.5">
+        <div className="">
           <div className="">
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 md:w-5/6">
               <label className="mb-2.5 block text-black dark:text-white">
-                Name
+                Blog title
               </label>
               <input
                 type="text"
-                placeholder="Enter your full name"
+                placeholder="type here ..."
                 className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 md:w-5/6">
               <div
                 className="editor-wrapper border-2 bg-white dark:bg-black dark:border-white border-slate-200 w-2/2 h-100 overflow-x-hidden"
                 onClick={focusEditor}
@@ -243,7 +243,7 @@ function AddNewBlogAdmin() {
                 </div>
               </div>
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 md:w-5/6">
               <label className="mb-2.5 block text-black dark:text-white">
                 Photo (only one image)
               </label>
