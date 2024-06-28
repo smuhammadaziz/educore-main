@@ -9,6 +9,8 @@ import { MdPlayLesson } from 'react-icons/md';
 import { MdMapsHomeWork } from 'react-icons/md';
 import { PiStudentFill } from 'react-icons/pi';
 
+import GuideComponent from '../../../components/Dashboard/Reminder/joyride';
+
 const Teacher: React.FC = () => {
   return (
     <DefaultLayoutTeacher>
@@ -16,10 +18,13 @@ const Teacher: React.FC = () => {
         Welcome to Educore Dashboard for{' '}
         <span className="underline font-bold">Teacher</span>
       </h2>
-      <div className="mt-10 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 dark:text-white">
+      <div>
+        <GuideComponent />
+      </div>
+      <div className=" mt-10 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 dark:text-white pb-20">
         <NavLink
           to="/dashboard/teacher/my/courses"
-          className="flex items-center dark:bg-black dark:border-stone-500 dark:border-2  bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+          className="link1 flex items-center dark:bg-black dark:border-stone-500 dark:border-2  bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
         >
           <span className="me-3">
             <MdSubject size="30" />
@@ -28,7 +33,7 @@ const Teacher: React.FC = () => {
         </NavLink>
         <NavLink
           to="/dashboard/teacher/my/groups"
-          className="flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+          className="link2 flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
         >
           <span className="me-3">
             <MdGroups2 size="30" />
@@ -46,7 +51,7 @@ const Teacher: React.FC = () => {
         </NavLink> */}
         <NavLink
           to="/dashboard/teacher/my/all/lessons"
-          className="flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+          className="link3 flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
         >
           <span className="me-3">
             <MdPlayLesson size="30" />
@@ -55,7 +60,7 @@ const Teacher: React.FC = () => {
         </NavLink>
         <NavLink
           to="/dashboard/teacher/my/all/homeworks"
-          className="flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+          className="link4 flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
         >
           <span className="me-3">
             <MdMapsHomeWork size="30" />
@@ -64,7 +69,7 @@ const Teacher: React.FC = () => {
         </NavLink>
         <NavLink
           to="/dashboard/teacher/my/students"
-          className="flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+          className="link5 flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
         >
           <span className="me-3">
             <PiStudentFill size="30" />
