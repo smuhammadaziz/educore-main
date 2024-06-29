@@ -185,7 +185,7 @@ function EditCourseTeacher() {
               <input
                 type="text"
                 placeholder="Type here ..."
-                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -198,7 +198,7 @@ function EditCourseTeacher() {
               <input
                 type="text"
                 placeholder="Type here ..."
-                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
@@ -211,7 +211,7 @@ function EditCourseTeacher() {
               <select
                 value={main}
                 onChange={handleMainChange}
-                className="w-full rounded border border-stroke bg-white py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
+                className="w-full rounded-xl border-2 border-stroke bg-white py-4 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
               >
                 <option
                   value=""
@@ -245,7 +245,7 @@ function EditCourseTeacher() {
                 <select
                   value={sub}
                   onChange={(e) => setSub(e.target.value)}
-                  className="w-full rounded border border-stroke bg-white py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
+                  className="w-full rounded-xl border-2 border-stroke bg-white py-4 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
                 >
                   <option
                     value=""
@@ -307,7 +307,7 @@ function EditCourseTeacher() {
               <input
                 type="text"
                 placeholder="Type here ..."
-                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={cost}
                 // onChange={(e) => setCost(e.target.value)}
                 onChange={handleCostChange}
@@ -321,7 +321,7 @@ function EditCourseTeacher() {
               <input
                 type="text"
                 placeholder="Type here ..."
-                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
@@ -333,7 +333,7 @@ function EditCourseTeacher() {
               </label>
               <input
                 type="file"
-                className="w-full bg-white rounded border-[1.5px] border-stroke py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 onChange={(e) => setPhoto(e.target.files[0])}
               />
             </div>
