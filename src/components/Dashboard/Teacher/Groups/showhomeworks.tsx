@@ -66,15 +66,14 @@ function ShowAllHomeworksTeacher() {
                   key={product.lesson_id}
                   className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl rounded-xl"
                 >
-                  <h3 className="mt-4 text-xl text-gray-700 dark:text-white">
+                  <h3 className="mt-4 text-xl font-bold text-gray-700 dark:text-white">
                     {product.title}
                   </h3>
-                  <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
+                  <p className="mt-1 text-md font-bold font-medium text-gray-900 dark:text-white">
                     {product.h_desc}
                   </p>
-                  <p className="mt-1 text-md font-medium text-gray-900 text-right mt-5 dark:text-white">
-                    Created time: {moment(product.created_at).format('LT')},{' '}
-                    {''}
+                  <p className="mt-1 text-md font-medium text-gray-900 text-left mt-5 dark:text-white">
+                    Created: {moment(product.created_at).format('LT')}, {''}
                     {moment(product.created_at).format('l')}
                   </p>
                 </div>

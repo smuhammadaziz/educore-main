@@ -76,7 +76,7 @@ function AddNewHomeworkTeacher() {
               <input
                 type="text"
                 placeholder="Enter your title"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded-xl border-2 border-stroke bg-transparent py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -89,7 +89,7 @@ function AddNewHomeworkTeacher() {
               <input
                 type="text"
                 placeholder="Enter your desctiption"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full bg-white rounded-xl border-2 border-stroke bg-transparent py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={main}
                 onChange={(e) => setMain(e.target.value)}
                 required
