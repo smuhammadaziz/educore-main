@@ -50,14 +50,14 @@ const AllStudentListTeacher = () => {
         </h2>
       </div>
       <div className="bg-gray-100 my-20">
-        <h2 className="text-left font-bold text-xl text-center dark:text-white">
-          Select one group and see your students
+        <h2 className="text-left uppercase font-bold text-xl text-center dark:text-white">
+          Select one group to see your students
         </h2>
         <div className="mt-2 grid lg:grid-cols-3">
           {courses && courses
             ? courses.map((e: any) => (
                 <div
-                  className="my-10 mx-4 dark:bg-strokedark dark:text-white  block p-4 bg-white rounded shadow-xl hover:shadow-2xl"
+                  className="my-10 mx-4 dark:bg-strokedark dark:text-white  block p-4 bg-white rounded-xl border-2 border-stone-100 shadow-xl hover:shadow-2xl"
                   key={e.group_id}
                 >
                   <h2 className="text-2xl mt-5 font-bold">{e.g_name}</h2>
@@ -66,7 +66,7 @@ const AllStudentListTeacher = () => {
                   </h2>
                   <NavLink
                     to={`/dashboard/teacher/group/students/${e.group_id}`}
-                    className="flex w-45 items-center bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-400 mt-5 inline-block"
+                    className="flex w-45 items-center bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-800 mt-5 inline-block"
                   >
                     <span className="me-2">
                       <BsFillPeopleFill />
