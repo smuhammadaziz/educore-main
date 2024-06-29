@@ -109,7 +109,7 @@ const SignUp: React.FC = () => {
                     {content[selectedLang as string].log.register}
                   </h2>
                   <a
-                    href="https://t.me/educore_tutors_bot"
+                    href="https://forms.gle/ZFRt7bNVWxSqNGgc6"
                     target="_blank"
                     className="mt-3 sm:mt-0 inline-block text-sm font-semibold leading-6 text-gray-900 primary bg-white border border-black text-black px-5 py-2 rounded-full hover:bg-slate-100 active:bg-slate-100 focus:outline-none focus:ring focus:ring-slate-100"
                   >

@@ -109,13 +109,13 @@ const content: Content = {
     },
     intro: {
       heading: (
-        <span>
+        <span className="">
           Learn anything <span className="underline">easy</span> and{' '}
           <span className="underline">remote</span> at Educore
         </span>
       ),
       p: (
-        <span>
+        <span className="leading-20">
           Connect with Qualified Tutors from around the world and book your
           First {''}
           <span className="font-bold underline"> Free Trial</span> session.
@@ -212,13 +212,13 @@ const content: Content = {
     },
     intro: {
       heading: (
-        <span>
+        <span className="leading-20">
           Educoreda barcha kurslarni <span className="underline">oson</span> va{' '}
           <span className="underline">masofadan</span> o`rganing
         </span>
       ),
       p: (
-        <span>
+        <span className="leading-20">
           Dunyo bo'ylab malakali o'qituvchilar bilan bog'laning va birinchi
           <span className="font-bold underline"> bepul sinov</span> darsingizni
           bron qiling.
@@ -315,13 +315,13 @@ const content: Content = {
     },
     intro: {
       heading: (
-        <span>
+        <span className="leading-20">
           Научитесь всему <span className="underline">легко</span> и{' '}
           <span className="underline">удаленно</span> в Educore
         </span>
       ),
       p: (
-        <span>
+        <span className="leading-20">
           Получите доступ к Квалифицированным Преподавателям со всего мира и
           запланируйте свое первое
           <span className="font-bold underline"> Бесплатное пробное</span>{' '}
