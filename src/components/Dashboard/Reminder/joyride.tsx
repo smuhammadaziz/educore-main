@@ -54,17 +54,17 @@ const GuideComponent = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100">
+    <div className="flex flex-row items-center bg-gray-100">
       <button
         onClick={() => setRun(true)}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md mb-4"
+        className=" px-4 py-2 bg-blue-500 text-white rounded-md"
       >
         Show Guide
       </button>
 
       <button
         onClick={handleDontShowAgain}
-        className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md"
+        className="ms-2 px-4 py-2 bg-gray-300 text-gray-800 rounded-md"
       >
         Don't show me again
       </button>

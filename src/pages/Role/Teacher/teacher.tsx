@@ -18,7 +18,7 @@ const Teacher: React.FC = () => {
         Welcome to Educore Dashboard for{' '}
         <span className="underline font-bold">Teacher</span>
       </h2>
-      <div>
+      <div className="justify-start">
         <GuideComponent />
       </div>
       <div className=" mt-10 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 dark:text-white pb-20">
