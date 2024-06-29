@@ -91,6 +91,7 @@ import AllCompanyCourseLanding from './components/LandingPage/Partner/allCompany
 import GetOneLessonTeacher from './components/Dashboard/Teacher/Lessons/oneLesson';
 import GetOneHomeworkTeacher from './components/Dashboard/Teacher/Homeworks/oneHomework';
 import EditCourseTeacher from './components/Dashboard/Teacher/Courses/editCourse';
+import GetGroupsForLessonTeacher from './components/Dashboard/Teacher/Lessons/allGroupLesson';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -525,6 +526,15 @@ function App() {
         />
         <Route
           path="/dashboard/teacher/my/all/lessons"
+          element={
+            <>
+              <PageTitle title="All lessons | Teacher Dashboard" />
+              <GetGroupsForLessonTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/my/all/lessons/:group_id"
           element={
             <>
               <PageTitle title="All lessons | Teacher Dashboard" />
