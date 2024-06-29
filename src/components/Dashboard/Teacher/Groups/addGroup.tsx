@@ -73,7 +73,7 @@ function AddNewGroupTeacher() {
       <div className="container mx-auto p-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-            Add new <span className="underline">Group</span>
+            Adding new <span className="underline">Group</span>
           </h2>
         </div>
         <form
@@ -88,7 +88,7 @@ function AddNewGroupTeacher() {
               <input
                 type="text"
                 placeholder="Enter your title"
-                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-400 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded-xl border-2 border-stone-300 dark:border-stone-600 py-4 px-5 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -103,7 +103,7 @@ function AddNewGroupTeacher() {
                 id="courses"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-400 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded-xl border-2 border-stone-300 dark:border-stone-600 py-4 px-5 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
               >
                 <option value="" disabled>
                   Select days
@@ -122,7 +122,7 @@ function AddNewGroupTeacher() {
               <input
                 type="text"
                 placeholder="Enter your maximum student limit"
-                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-400 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded-xl border-2 border-stone-300 dark:border-stone-600 py-4 px-5 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={main}
                 onChange={(e) => setMain(e.target.value)}
                 required
@@ -135,7 +135,7 @@ function AddNewGroupTeacher() {
               <input
                 type="text"
                 placeholder="Enter your lesson time (only numbers) example: 13:00"
-                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded border border-stone-400 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
+                className="w-full bg-white dark:bg-gray-700 dark:bg-strokedark dark:text-white rounded-xl border-2 border-stone-300 dark:border-stone-600 py-4 px-5 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
                 required
@@ -148,7 +148,7 @@ function AddNewGroupTeacher() {
               <input
                 type="text"
                 placeholder="Enter your lesson time (only numbers) example: 14:30"
-                className="w-full bg-white dark:bg-strokedark dark:text-white dark:bg-gray-700 rounded border border-stone-400 dark:border-stone-600 py-2 px-4 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
+                className="w-full bg-white dark:bg-strokedark dark:text-white dark:bg-gray-700 rounded-xl border-2 border-stone-300 dark:border-stone-600 py-4 px-5 text-gray-700 dark:text-gray-200 focus:outline-none focus:border-blue-500"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
