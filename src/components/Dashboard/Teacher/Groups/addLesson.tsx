@@ -67,42 +67,42 @@ function AddNewLessonForTeacher() {
         Adding new <span className="underline">Lesson</span>
       </div>
       <form onSubmit={handleSubmit} className="dark:text-white">
-        <div className="p-6.5">
-          <div className="">
-            <div className="mb-4.5 md:w-1/2 px-2">
+        <div className="">
+          <div className="pt-5">
+            <div className="mb-4.5 md:w-1/2 ">
               <label className="mb-2.5 block text-black dark:text-white">
-                Lesson Name
+                Lesson title
               </label>
               <input
                 type="text"
-                placeholder="Enter your lesson title"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                placeholder="type here ... "
+                className="w-full bg-white rounded-xl border-2 border-stroke bg-transparent py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 md:w-1/2 ">
               <label className="mb-2.5 block text-black dark:text-white">
                 Short information about your lesson
               </label>
               <input
                 type="text"
-                placeholder="Enter your description"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                placeholder="type here ..."
+                className="w-full bg-white rounded-xl border-2 border-stroke bg-transparent py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={main}
                 onChange={(e) => setMain(e.target.value)}
                 required
               />
             </div>
-            <div className="mb-4.5 md:w-1/2 px-2">
+            <div className="mb-4.5 md:w-1/2 ">
               <label className="mb-2.5 block text-black dark:text-white">
                 Lesson url for join
               </label>
               <input
                 type="text"
-                placeholder="Enter your lesson url"
-                className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                placeholder="type here ..."
+                className="w-full bg-white rounded-xl border-2 border-stroke bg-transparent py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
                 required
@@ -110,10 +110,19 @@ function AddNewLessonForTeacher() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-end mt-20">
+          <div className="flex flex-row justify-left mt-20">
+            <button
+              type="submit"
+              className="flex items-center  flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
+            >
+              <span className="me-2">
+                <MdAddCircle />
+              </span>
+              Add
+            </button>
             <NavLink
-              to="/dashboard/teacher/my/all/groups"
-              className="flex flex items-center w-25 justify-center rounded bg-red-600 py-3 font-medium text-gray hover:bg-opacity-90"
+              to="/dashboard/teacher/my/groups"
+              className="flex ms-5 flex items-center w-25 justify-center rounded bg-red-600 py-3 font-medium text-gray hover:bg-opacity-90"
               onClick={handleCancel}
             >
               <span className="me-2">
@@ -121,15 +130,6 @@ function AddNewLessonForTeacher() {
               </span>
               Cancel
             </NavLink>
-            <button
-              type="submit"
-              className="flex items-center ms-5 flex w-25 justify-center rounded bg-green-600 p-3 font-medium text-gray hover:bg-opacity-90"
-            >
-              <span className="me-2">
-                <MdAddCircle />
-              </span>
-              Add
-            </button>
           </div>
         </div>
       </form>

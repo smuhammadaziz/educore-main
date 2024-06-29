@@ -156,6 +156,15 @@ function AddNewGroupTeacher() {
             </div>
           </div>
           <div className="flex justify-end mt-6 space-x-4">
+            <button
+              type="submit"
+              className="flex items-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300"
+            >
+              <span className="me-2">
+                <MdOutlineAddCircle />
+              </span>
+              Add
+            </button>
             <NavLink
               to="/dashboard/teacher/my/groups"
               className="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors duration-300"
@@ -166,15 +175,6 @@ function AddNewGroupTeacher() {
               </span>
               Cancel
             </NavLink>
-            <button
-              type="submit"
-              className="flex items-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300"
-            >
-              <span className="me-2">
-                <MdOutlineAddCircle />
-              </span>
-              Add
-            </button>
           </div>
         </form>
       </div>
