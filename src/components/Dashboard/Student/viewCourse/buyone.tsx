@@ -4,6 +4,9 @@ import { NavLink, useParams } from 'react-router-dom';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import backurl from '../../../../links';
 
+import { FaFire } from 'react-icons/fa';
+import { MdSell } from 'react-icons/md';
+
 const BuyOneCourseNowStudent = () => {
   const { course_id } = useParams();
   const [data, setData] = useState({});
@@ -79,21 +82,23 @@ const BuyOneCourseNowStudent = () => {
                 alt="Product"
                 className="w-150 rounded object-cover mx-auto sm:w-200 md:w-250"
               />
-              {/* <hr className="border-white border-2 my-6" /> */}
-              {/* <Rating value={renderRating()} /> */}
             </div>
 
             <div>
-              <h2 className="text-2xl font-extrabold text-gray-800">
-                Course Name: {data.title || 'SAT | IELTS'}
+              <h2 className="flex flex-row text-2xl text-gray-800">
+                Course name:{' '}
+                <span className="ms-2 font-bold">
+                  {data.title || 'SAT | IELTS'}
+                </span>
               </h2>
-              <p className="text-gray-800 text-xl font-extrabold text-5xl mt-4">
-                Price:{' '}
-                {data && data.price
-                  ? data.price.toLocaleString('en-US').replace(/,/g, ' ') ||
-                    'SAT | IELTS'
-                  : '100'}{' '}
-                UZS
+              <p className="flex flex-col text-gray-800 text-2xl text-5xl mt-4">
+                <span className="font-bold">
+                  {data && data.price
+                    ? data.price.toLocaleString('en-US').replace(/,/g, ' ') ||
+                      'SAT | IELTS'
+                    : '100'}{' '}
+                  UZS
+                </span>
               </p>
               <div className="mt-8">
                 <h3 className="text-lg font-bold text-gray-800">
@@ -102,32 +107,44 @@ const BuyOneCourseNowStudent = () => {
                 <p className="text-md text-gray-600 mt-3">
                   {data.descr || 'SAT | IELTS'}
                 </p>
-                <p className="text-sm text-gray-600 mt-3">
-                  Period: {data.period || 'SAT | IELTS'} months
+                <p className="text-xl text-gray-600 mt-3">
+                  Period:{' '}
+                  <span className="ms-1 font-bold">
+                    {data.period || 'SAT | IELTS'} months
+                  </span>
                 </p>
               </div>
               <div className="mt-8">
                 <h3 className="text-lg font-bold text-gray-800">
                   About the Course Teacher
                 </h3>
-                <p className="text-md text-gray-600 mt-3">
+                <p className="text-xl font-bold text-gray-600 mt-3">
                   {`${data.name || 'SAT | IELTS'} ${
                     data.l_name || 'SAT | IELTS'
                   }`}
                 </p>
-                <p className="text-sm text-gray-600 mt-3">
-                  Email: {data.email || 'SAT | IELTS'}
+                <p className="text-xl text-gray-600 mt-3">
+                  Email:{' '}
+                  <span className="ms-1 font-bold">
+                    {data.email || 'SAT | IELTS'}
+                  </span>
                 </p>
-                <p className="text-sm text-gray-600 mt-3">
-                  Phone number: {data.phone || 'SAT | IELTS'}
+                <p className="text-xl text-gray-600 mt-3">
+                  Phone number:{' '}
+                  <span className="ms-1 font-bold">
+                    {data.phone || 'SAT | IELTS'}
+                  </span>
                 </p>
               </div>
               <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                 {!profile.group_id && (
                   <NavLink
                     to={`/dashboard/student/courses/buy/${course_id}`}
-                    className="inline-flex items-center dark:bg-blue-700 dark:hover:bg-blue-800 justify-center rounded-full bg-primary py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    className="inline-flex items-center dark:bg-blue-700 dark:hover:bg-blue-800 justify-center rounded-full bg-blue-600 py-3 px-9 text-center font-medium text-white hover:bg-blue-800 lg:px-8 xl:px-10"
                   >
+                    <span className="me-2">
+                      <MdSell />
+                    </span>
                     Buy now
                   </NavLink>
                 )}
@@ -135,8 +152,11 @@ const BuyOneCourseNowStudent = () => {
                 {profile.free_trial && (
                   <NavLink
                     to={`/dashboard/student/courses/use/free/${course_id}`}
-                    className="inline-flex dark:bg-green-700 dark:hover:bg-green-800 items-center justify-center rounded-full bg-meta-3 py-3 px-9 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    className="inline-flex items-center justify-center rounded-full bg-meta-7 py-3 px-9 text-center font-medium text-white hover:bg-red-500 lg:px-8 xl:px-10"
                   >
+                    <span className="me-2">
+                      <FaFire />
+                    </span>
                     Use Free Trial
                   </NavLink>
                 )}
