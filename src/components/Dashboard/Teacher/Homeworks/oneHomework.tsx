@@ -118,7 +118,7 @@ function GetOneHomeworkTeacher() {
               <span className="me-2">
                 <MdDelete />
               </span>
-              Delete this lesson
+              Delete this homework
             </NavLink>
           </div>
         </div>
