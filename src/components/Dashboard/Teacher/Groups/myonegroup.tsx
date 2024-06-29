@@ -92,20 +92,31 @@ function GetOneMyGroupsTeacher() {
               <h2 className="text-center text-2xl text-black dark:text-white mb-4">
                 About the group
               </h2>
-              <h3 className="text-xl text-gray-700 dark:text-gray-300 mb-2">
-                Group Name: {group.g_name}
+              <h3 className="flex flex-col text-xl text-gray-700 dark:text-gray-300 mb-2">
+                Group Name{' '}
+                <span className="font-bold text-black">{group.g_name}</span>
               </h3>
-              <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Which days: {group.l_days}
+              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                Which days{' '}
+                <span className="font-bold text-black">{group.l_days}</span>
               </p>
-              <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Maximum group size: {group.user_count} students
+              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                Maximum group size{' '}
+                <span className="font-bold text-black">
+                  {group.user_count} students
+                </span>
               </p>
-              <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Lesson time: {group.subj_start} - {group.subj_end}
+              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                Lesson time{' '}
+                <span className="font-bold text-black">
+                  {group.subj_start} - {group.subj_end}
+                </span>
               </p>
-              <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Created time: {moment(group.created_at).format('l')}
+              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                Created{' '}
+                <span className="font-bold text-black">
+                  {moment(group.created_at).format('lll')}
+                </span>
               </p>
 
               <NavLink
@@ -129,7 +140,7 @@ function GetOneMyGroupsTeacher() {
                   </span>
                   Delete group
                 </NavLink>
-                <NavLink
+                {/* <NavLink
                   to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
                   className="justify-center flex items-center bg-green-700 py-3 px-10 text-white hover:bg-green-800 rounded"
                 >
@@ -137,7 +148,7 @@ function GetOneMyGroupsTeacher() {
                     <MdEdit />
                   </span>
                   Edit group
-                </NavLink>
+                </NavLink> */}
               </div>
             </div>
           ))
