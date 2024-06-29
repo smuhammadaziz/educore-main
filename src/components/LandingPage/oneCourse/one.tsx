@@ -5,6 +5,9 @@ import backurl from '../../../links';
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
 
+import { FaFire } from 'react-icons/fa';
+import { MdSell } from 'react-icons/md';
+
 const CoffeeComponent = () => {
   const { course_id } = useParams();
   const [data, setData] = useState(null);
@@ -54,13 +57,13 @@ const CoffeeComponent = () => {
   return (
     <div className="font-sans bg-white pb-20 mx-auto flex justify-center">
       <div className="p-6 lg:max-w-7xl max-w-2xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
+        <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
           <div className="lg:col-span-2 bg-gray-100 rounded-sm w-full lg:sticky top-0 text-center p-8">
             <img
               src={`${backurl}upload/${image || 'SAT | IELTS'}`}
               alt="Product"
               className="w-full h-full object-contain"
-              // width="400"
+              // width="100"
               // height="300"
             />
             {/* <hr className="border-white border-2 my-6" /> */}
@@ -71,12 +74,13 @@ const CoffeeComponent = () => {
             <h2 className="text-2xl font-extrabold text-black mt-7">
               {title || 'SAT | IELTS'}
             </h2>
-            <p className="text-gray-800 text-xl font-extrabold mt-4">
+            <p className="text-black text-2xl md:text-5xl font-bold mt-4">
               {price
                 ? price.toLocaleString('en-US').replace(/,/g, ' ')
                 : 'SAT | IELTS'}{' '}
-              UZS
+              uzs/per month
             </p>
+
             <div className="mt-8">
               <h3 className="text-md text-black">
                 {content[selectedLanguage].buy.about}
@@ -105,12 +109,18 @@ const CoffeeComponent = () => {
                 to="/auth/signup"
                 className="inline-flex items-center justify-center rounded-full bg-blue-700 py-3 px-6 text-center font-medium text-white hover:bg-blue-800 sm:px-8 lg:px-10"
               >
+                <span className="me-3">
+                  <MdSell />
+                </span>
                 {content[selectedLanguage].buy.buy}
               </NavLink>
               <NavLink
                 to="/auth/signup"
                 className="inline-flex items-center justify-center rounded-full bg-green-700 py-3 px-6 text-center font-medium text-white hover:bg-green-800 sm:px-8 lg:px-10"
               >
+                <span className="me-3">
+                  <FaFire />
+                </span>
                 {content[selectedLanguage].buy.free}
               </NavLink>
             </div>
