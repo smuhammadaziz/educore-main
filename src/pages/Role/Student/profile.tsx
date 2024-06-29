@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DefaultLayout from '../../../layout/DefaultLayout';
-import DefaultLayoutTeacher from '../../../layout/DefaultTeacher';
 import DefaultLayoutStudent from '../../../layout/DefaultStudent';
-import Breadcrumb from '../../../components/Breadcrumbs/Breadcrumb';
 import backurl from '../../../links';
 import CoverOne from '../../../images/cover/cover-01.png';
-import defaultUserImg from '../../../images/user/user-06.png';
 
 const ProfileStudent = () => {
   const [profileData, setProfileData] = useState(null);
@@ -18,9 +14,7 @@ const ProfileStudent = () => {
     const fetchProfileData = async () => {
       try {
         const response = await fetch(`${backurl}/api/profile`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
         if (!response.ok) {
           localStorage.removeItem('TOKEN');
@@ -56,23 +50,18 @@ const ProfileStudent = () => {
   }
 
   const {
-    Profil: {
-      image,
-      name,
-      l_name,
-      role,
-      phone,
-      username_tg,
-      email,
-      about_me,
-      adress,
-      birth_date,
-      age,
-      education,
-      languages,
-      skills,
-    },
-  } = profileData;
+    image,
+    name,
+    l_name,
+    role,
+    phone,
+    username_tg,
+    email,
+    about_me,
+    adress,
+    birth_date,
+    education,
+  } = profileData.Profil;
 
   return (
     <DefaultLayoutStudent>
@@ -88,69 +77,47 @@ const ProfileStudent = () => {
               image || '128-1280406_view-user-icon-png-user-circle-icon-png.png'
             }`}
             alt="profile"
-            className="w-50 h-50 -mt-22 rounded-full object-cover border-4 border-white"
+            className="w-64 h-64 -mt-32 bg-white rounded-full object-cover border-4 border-white"
           />
           <h3 className="text-2xl font-semibold mt-4 text-center">
             {name} {l_name}
           </h3>
           <p className="text-lg font-medium text-gray-700">{role}</p>
-          <p className="mt-2 text-gray-700">
-            Phone Number: {phone ? phone : 'no data'}
-          </p>
-          <p className="mt-1 text-gray-700">
-            Telegram username:{' '}
-            <a
-              href={`https://t.me/${username_tg}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              {username_tg ? username_tg : 'no data'}
-            </a>
-          </p>
-          <p className="mt-1 text-gray-700">
-            Email: {email ? email : 'no data'}
-          </p>
-          <div className="mt-4 text-center">
-            <h4 className="text-lg font-semibold">About Me</h4>
-            <p className="mt-2 text-gray-700">
-              {about_me ? about_me : 'no data'}
-            </p>
+
+          <div className="mt-6 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h5 className="text-md font-semibold">Phone</h5>
+                <p className="text-gray-700 mt-2">{phone || 'No data'}</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h5 className="text-md font-semibold">Telegram Username</h5>
+                <p className="text-gray-700 mt-2">
+                  @{username_tg || 'No data'}
+                </p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h5 className="text-md font-semibold">Email</h5>
+                <p className="text-gray-700 mt-2">{email || 'No data'}</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h5 className="text-md font-semibold">About me</h5>
+                <p className="text-gray-700 mt-2">{about_me || 'No data'}</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h5 className="text-md font-semibold">Address</h5>
+                <p className="text-gray-700 mt-2">{adress || 'No data'}</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h5 className="text-md font-semibold">Birthday</h5>
+                <p className="text-gray-700 mt-2">{birth_date || 'No data'}</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h5 className="text-md font-semibold">Education</h5>
+                <p className="text-gray-700 mt-2">{education || 'No data'}</p>
+              </div>
+            </div>
           </div>
-          <table className="table-auto mt-6 w-full">
-            <thead>
-              <tr>
-                <th className="px-4 py-2">Category</th>
-                <th className="px-4 py-2">Data</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border border-stone-300 px-4 py-4 font-semibold">
-                  Address
-                </td>
-                <td className="border border-stone-300 px-4 py-4">
-                  {adress ? adress : 'no data'}
-                </td>
-              </tr>
-              <tr>
-                <td className="border border-stone-300 px-4 py-4 font-semibold">
-                  Birthday
-                </td>
-                <td className="border border-stone-300 px-4 py-4">
-                  {birth_date ? birth_date : 'no data'}
-                </td>
-              </tr>
-              <tr>
-                <td className="border border-stone-300 px-4 py-4 font-semibold">
-                  Education
-                </td>
-                <td className="border border-stone-300 px-4 py-4">
-                  {education ? education : 'no data'}
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </DefaultLayoutStudent>
