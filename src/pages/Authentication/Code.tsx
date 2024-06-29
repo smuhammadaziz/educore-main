@@ -13,6 +13,8 @@ import backurl from '../../links';
 import useLang from '../../hooks/useLang';
 import content from '../../localization/content';
 
+import entercodeimg from '../../images/brand/entercode.png';
+
 const CodeEntry: React.FC = () => {
   const [code, setCode] = useState<string[]>(['', '', '', '']);
   const [timer, setTimer] = useState<number>(120);
@@ -108,11 +110,20 @@ const CodeEntry: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
+    <div className="flex flex-col lg:flex-row bg-white p-5 items-center justify-center min-h-screen bg-gray-100 px-4">
       <ToastContainer />
+      <div className="flex justify-center lg:mb-0">
+        <img
+          src={entercodeimg}
+          alt="entering code image"
+          className="w-full max-w-50 sm:max-w-sm lg:max-w-md"
+        />
+      </div>
       <form onSubmit={handleRegister} className="w-full max-w-sm">
-        <div className="bg-white shadow-xl rounded-xl py-20 p-8 space-y-8">
-          <h2 className="text-center text-2xl">Enter a code</h2>
+        <div className="py-10 p-8 space-y-8">
+          <h2 className="text-center text-2xl">
+            Enter the code we sent to your email
+          </h2>
           <div className="flex justify-center space-x-2">
             {code.map((digit, index) => (
               <input
@@ -123,7 +134,7 @@ const CodeEntry: React.FC = () => {
                 onChange={(e) => handleChange(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 ref={(el) => (inputRefs.current[index] = el)}
-                className="w-12 h-12 text-center text-2xl border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                className="w-12 font-bold h-12 text-center text-2xl border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               />
             ))}
           </div>
@@ -146,7 +157,7 @@ const CodeEntry: React.FC = () => {
               type="submit"
               className="w-full px-4 py-2 bg-fuchsia-800 text-white rounded-lg hover:bg-fuchsia-500 focus:outline-none"
             >
-              Submit and Register
+              Sign Up
             </button>
           </div>
         </div>

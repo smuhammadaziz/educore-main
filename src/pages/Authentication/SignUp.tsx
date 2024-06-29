@@ -82,14 +82,14 @@ const SignUp: React.FC = () => {
   return (
     <>
       <ToastContainer></ToastContainer>
-      <div className="bg-white">
-        <div className="m-2 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+      <div className="h-screen bg-white">
+        <div className="m-2 rounded-sm  border border-stroke bg-white shadow-default">
           <div className="flex flex-wrap items-center">
             <div className="hidden w-full xl:block xl:w-1/2">
               <div className="py-17.5 px-26 text-center">
                 <Link className="mb-5.5 inline-block" to="/">
-                  <img className="hidden dark:block" src={Logo} alt="Logo" />
-                  <img className="dark:hidden" src={LogoDark} alt="Logo" />
+                  {/* <img className="hidden dark:block" src={Logo} alt="Logo" /> */}
+                  <img className="" src={LogoDark} alt="Logo" />
                 </Link>
                 <p className="2xl:px-20"></p>
 
@@ -99,13 +99,13 @@ const SignUp: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
+            <div className="w-full border-stroke xl:w-1/2 xl:border-l-2">
               <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
                 <span className="mb-1.5 block font-medium sm:flex-row sm:items-center ">
                   {content[selectedLang as string].log.start}
                 </span>
                 <div className="mb-10 flex flex-col items-center sm:flex-row sm:items-center">
-                  <h2 className="mb-6 text-2xl font-bold text-black dark:text-white sm:text-title-xl2 sm:mb-0 sm:mr-6">
+                  <h2 className="mb-6 text-2xl font-bold text-black sm:text-title-xl2 sm:mb-0 sm:mr-6">
                     {content[selectedLang as string].log.register}
                   </h2>
                   <a
@@ -120,7 +120,7 @@ const SignUp: React.FC = () => {
                 <form onSubmit={handleRegister}>
                   <div className="flex flex-col md:flex-row justify-between">
                     <div className="mb-4 md:mr-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      <label className="mb-2.5 block font-medium text-black">
                         {content[selectedLang as string].log.fname}
                       </label>
                       <div className="relative">
@@ -131,12 +131,12 @@ const SignUp: React.FC = () => {
                           placeholder={
                             content[selectedLang as string].log.fname
                           }
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                         />
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      <label className="mb-2.5 block font-medium text-black">
                         {content[selectedLang as string].log.lname}
                       </label>
                       <div className="relative">
@@ -147,14 +147,14 @@ const SignUp: React.FC = () => {
                           placeholder={
                             content[selectedLang as string].log.lname
                           }
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                         />
                       </div>
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <label className="mb-2.5 block font-medium text-black dark:text-white">
+                    <label className="mb-2.5 block font-medium text-black">
                       {content[selectedLang as string].log.email}
                     </label>
                     <div className="relative">
@@ -163,13 +163,13 @@ const SignUp: React.FC = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder={content[selectedLang as string].log.email}
-                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row justify-between">
                     <div className="mb-4 md:mr-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      <label className="mb-2.5 block font-medium text-black">
                         {content[selectedLang as string].log.phone}
                       </label>
                       <div className="relative">
@@ -180,12 +180,12 @@ const SignUp: React.FC = () => {
                           placeholder={
                             content[selectedLang as string].log.phone
                           }
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                         />
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      <label className="mb-2.5 block font-medium text-black">
                         {content[selectedLang as string].log.age}
                       </label>
                       <div className="relative">
@@ -194,14 +194,14 @@ const SignUp: React.FC = () => {
                           value={age}
                           onChange={(e) => setAge(e.target.value)}
                           placeholder={content[selectedLang as string].log.age}
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                         />
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row justify-between">
                     <div className="mb-4 md:mr-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      <label className="mb-2.5 block font-medium text-black">
                         {content[selectedLang as string].log.address}
                       </label>
                       <div className="relative">
@@ -212,12 +212,12 @@ const SignUp: React.FC = () => {
                           placeholder={
                             content[selectedLang as string].log.address
                           }
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                         />
                       </div>
                     </div>
                     <div className="mb-4 md:ml-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      <label className="mb-2.5 block font-medium text-black">
                         {content[selectedLang as string].log.tg}
                       </label>
                       <div className="relative">
@@ -226,14 +226,14 @@ const SignUp: React.FC = () => {
                           value={tgusername}
                           onChange={(e) => setTgUsername(e.target.value)}
                           placeholder={content[selectedLang as string].log.tg}
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                         />
                       </div>
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <label className="mb-2.5 block font-medium text-black dark:text-white">
+                    <label className="mb-2.5 block font-medium text-black">
                       {content[selectedLang as string].log.pass}
                     </label>
                     <div className="relative">
@@ -242,7 +242,7 @@ const SignUp: React.FC = () => {
                         value={hashedpass}
                         onChange={(e) => setHashedPass(e.target.value)}
                         placeholder={content[selectedLang as string].log.pass}
-                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
                       />
                     </div>
                   </div>
