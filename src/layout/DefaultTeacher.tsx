@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from 'react';
-import Header from '../components/Header/index';
+import HeaderTeacher from '../components/Header/dropTeacher';
 import Sidebar from '../components/Sidebar/sideforteachers';
 
 const DefaultLayoutTeacher: React.FC<{ children: ReactNode }> = ({
@@ -16,7 +16,10 @@ const DefaultLayoutTeacher: React.FC<{ children: ReactNode }> = ({
 
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           {/* <!-- ===== Header Start ===== --> */}
-          <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+          <HeaderTeacher
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          />
           {/* <!-- ===== Header End ===== --> */}
 
           {/* <!-- ===== Main Content Start ===== --> */}
