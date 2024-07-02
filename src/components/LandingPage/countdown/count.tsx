@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 const CountdownLanding: React.FC = () => {
   const [countDownTime, setCountDownTime] = useState({
-    days: '10',
-    hours: '10',
-    minutes: '10',
-    seconds: '10',
+    days: '00',
+    hours: '00',
+    minutes: '00',
+    seconds: '00',
   });
 
   const getTimeDifference = (endTime: number) => {
@@ -49,23 +49,7 @@ const CountdownLanding: React.FC = () => {
   };
 
   const startCountDown = useCallback(() => {
-    const savedEndTime = localStorage.getItem('countdownEndTime');
-    let countDownDate: number;
-
-    if (savedEndTime) {
-      countDownDate = parseInt(savedEndTime, 10);
-    } else {
-      const customDate = new Date();
-      countDownDate = new Date(
-        customDate.getFullYear(),
-        customDate.getMonth(),
-        customDate.getDate() + 10,
-        customDate.getHours() + 10,
-        customDate.getMinutes() + 10,
-        customDate.getSeconds() + 10,
-      ).getTime();
-      localStorage.setItem('countdownEndTime', countDownDate.toString());
-    }
+    const countDownDate = new Date('2024-07-15T00:00:00').getTime();
 
     const interval = setInterval(() => {
       getTimeDifference(countDownDate);
@@ -79,10 +63,10 @@ const CountdownLanding: React.FC = () => {
   }, [startCountDown]);
 
   return (
-    <div className="max-w-full bg-fuchsia-300 py-7">
+    <div className="max-w-full bg-fuchsia-200 py-7">
       <div className="container text-white text-center mx-auto font-bold">
         <div className="flex flex-col items-center justify-center w-full h-full gap-8 sm:gap-8">
-          <span className="uppercase text-2xl sm:text-3xl font-semibold text-black text-center tracking-widest">
+          <span className="text-2xl sm:text-3xl font-semibold text-black text-center tracking-widest uppercase">
             Until the marathon
           </span>
           <div className="flex justify-center gap-3 sm:gap-8">
@@ -95,7 +79,7 @@ const CountdownLanding: React.FC = () => {
                   </span>
                   <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px] rounded-full bg-fuchsia-300"></div>
                 </div>
-                <span className="text-black text-sm sm:text-lg text-center">
+                <span className="text-black text-sm sm:text-lg text-center capitalize">
                   {countDownTime[unit as keyof typeof countDownTime] === '01'
                     ? unit.slice(0, -1)
                     : unit}
@@ -104,10 +88,8 @@ const CountdownLanding: React.FC = () => {
             ))}
           </div>
         </div>
-
-        {/* <NavLink to="/auth/signup" className="text-lg underline">
-          Go
-        </NavLink> */}
+        {/* <p>Until Free Marathon</p> */}
+        {/* <NavLink to="/auth/signup" className="text-lg underline">Go</NavLink> */}
       </div>
     </div>
   );
