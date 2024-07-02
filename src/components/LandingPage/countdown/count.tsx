@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import useLang from '../../../hooks/useLang';
+import content from '../../../localization/content';
 const CountdownLanding: React.FC = () => {
+  const [selectedLanguage] = useLang();
   const [countDownTime, setCountDownTime] = useState({
     days: '00',
     hours: '00',
@@ -67,7 +69,7 @@ const CountdownLanding: React.FC = () => {
       <div className="container text-white text-center mx-auto font-bold">
         <div className="flex flex-col items-center justify-center w-full h-full gap-8 sm:gap-8">
           <span className="text-2xl sm:text-3xl font-semibold text-black text-center tracking-widest uppercase">
-            Until the marathon
+            {content[selectedLanguage as string].marathon.until}
           </span>
           <div className="flex justify-center gap-3 sm:gap-8">
             {['days', 'hours', 'minutes', 'seconds'].map((unit, index) => (

@@ -90,6 +90,9 @@ type Content = {
     partner: {
       part: string;
     };
+    marathon: {
+      until: string;
+    };
   };
 };
 
@@ -196,6 +199,9 @@ const content: Content = {
     partner: {
       part: 'Our Partners',
     },
+    marathon: {
+      until: 'Until the marathon',
+    },
   },
   uz: {
     header: {
@@ -298,6 +304,9 @@ const content: Content = {
     },
     partner: {
       part: 'Bizning hamkorlarimiz',
+    },
+    marathon: {
+      until: 'Marafongacha',
     },
   },
   ru: {
@@ -402,6 +411,9 @@ const content: Content = {
     },
     partner: {
       part: 'Наши партнеры',
+    },
+    marathon: {
+      until: 'До марафона',
     },
   },
 };
