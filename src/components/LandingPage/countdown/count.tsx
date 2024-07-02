@@ -73,11 +73,11 @@ const CountdownLanding: React.FC = () => {
             {['days', 'hours', 'minutes', 'seconds'].map((unit, index) => (
               <div key={index} className="flex flex-col gap-5 relative">
                 <div className="h-16 w-16 sm:w-32 sm:h-32 lg:w-20 lg:h-20 flex justify-between items-center bg-[#343650] rounded-lg">
-                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -left-[6px] rounded-full bg-fuchsia-300"></div>
+                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -left-[6px] rounded-full bg-fuchsia-200"></div>
                   <span className="lg:text-4xl sm:text-3xl text-3xl font-semibold text-fuchsia-200">
                     {countDownTime[unit as keyof typeof countDownTime]}
                   </span>
-                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px] rounded-full bg-fuchsia-300"></div>
+                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px] rounded-full bg-fuchsia-200"></div>
                 </div>
                 <span className="text-black text-sm sm:text-lg text-center capitalize">
                   {countDownTime[unit as keyof typeof countDownTime] === '01'
