@@ -6,6 +6,7 @@ import Footer from '../../../components/LandingPage/Footer/footer';
 import Testimonials from '../../../components/LandingPage/testimonials/testi';
 import Blogs from '../../../components/LandingPage/Blogs/blogs';
 import OurPartnersLanding from '../../../components/LandingPage/Partner/partner';
+import CountdownLanding from '../../../components/LandingPage/countdown/count';
 
 function Home() {
   return (
@@ -14,7 +15,8 @@ function Home() {
         <Header />
       </header>
 
-      <main className="">
+      <main>
+        <CountdownLanding />
         <IntroSection />
         <Courses />
       </main>
