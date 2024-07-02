@@ -90,7 +90,7 @@ const CountdownLanding: React.FC = () => {
               <div key={index} className="flex flex-col gap-5 relative">
                 <div className="h-16 w-16 sm:w-32 sm:h-32 lg:w-30 lg:h-30 flex justify-between items-center bg-[#343650] rounded-lg">
                   <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -left-[6px] rounded-full bg-fuchsia-400"></div>
-                  <span className="lg:text-6xl sm:text-5xl text-3xl font-semibold text-fuchsia-400">
+                  <span className="lg:text-6xl sm:text-5xl text-3xl font-semibold text-fuchsia-200">
                     {countDownTime[unit as keyof typeof countDownTime]}
                   </span>
                   <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px] rounded-full bg-fuchsia-400"></div>
