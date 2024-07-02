@@ -7,13 +7,13 @@ import { FaUserCircle } from 'react-icons/fa';
 function OneStudentGetTeacherPage() {
   const [student, setStudent] = useState({});
 
-  const { group_id } = useParams();
+  const { user_id } = useParams();
 
   const token = localStorage.getItem('TOKEN');
   useEffect(() => {
     async function fetchStudent() {
       try {
-        const response = await fetch(`${backurl}api/get/my/users/${group_id}`, {
+        const response = await fetch(`${backurl}api/get/my/users/${user_id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -24,9 +24,9 @@ function OneStudentGetTeacherPage() {
 
         const data = await response.json();
 
-        console.log(data);
+        const arrayData = data.Myusers;
 
-        // setStudent(data.Student);
+        setStudent(arrayData);
       } catch (error) {
         console.log(error);
       }
@@ -35,9 +35,11 @@ function OneStudentGetTeacherPage() {
   }, []);
 
   const getImageSrc = () => {
-    return student.img
-      ? `${backurl}upload/${student.img}`
-      : 'https://via.placeholder.com/200';
+    return student
+      ? student.img
+        ? `${backurl}upload/${student.img}`
+        : 'https://via.placeholder.com/200'
+      : 'null';
   };
 
   return (
@@ -47,22 +49,26 @@ function OneStudentGetTeacherPage() {
       </div>
       <div className="bg-white shadow-md rounded-lg p-8 dark:text-white dark:bg-strokedark">
         <div className="flex justify-center mb-10 ">
-          {student.img ? (
-            <img
-              src={getImageSrc()}
-              alt="Student"
-              width="200"
-              className="rounded-full shadow-lg"
-            />
+          {student ? (
+            student.img ? (
+              <img
+                src={`${backurl}upload/${student.image}`}
+                alt="Student"
+                width="200"
+                className="rounded-full shadow-lg"
+              />
+            ) : (
+              <FaUserCircle size={200} className="text-gray-400" />
+            )
           ) : (
-            <FaUserCircle size={200} className="text-gray-400" />
+            'null'
           )}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <div>
             <h2 className="text-xl font-bold">Full Name:</h2>
             <p>
-              {student.name} {student.l_name}
+              {student ? student.name : 'no data'} {student.l_name}
             </p>
           </div>
           <div>
