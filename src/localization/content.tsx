@@ -386,7 +386,7 @@ const content: Content = {
       fname: 'Имя',
       lname: 'Фамилия',
       phone: 'Номер телефона',
-      age: 'Yosh',
+      age: 'Возраст',
       address: 'Адрес',
       tg: 'Имя пользователя Telegram (необязательно)',
       create: 'Завести аккаунт',
