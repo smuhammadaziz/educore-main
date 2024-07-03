@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 type Content = {
   [key: string]: {
     header: {
@@ -121,7 +123,10 @@ const content: Content = {
         <span className="leading-20">
           Connect with Qualified Tutors from around the world and book your
           First {''}
-          <span className="font-bold underline"> Free Trial</span> session.
+          <NavLink to="/all/courses">
+            <span className="font-bold underline"> Free Trial</span>
+          </NavLink>{' '}
+          session.
         </span>
       ),
       get: 'Get started',
@@ -226,8 +231,10 @@ const content: Content = {
       p: (
         <span className="leading-20">
           Dunyo bo'ylab malakali o'qituvchilar bilan bog'laning va birinchi
-          <span className="font-bold underline"> bepul sinov</span> darsingizni
-          bron qiling.
+          <NavLink to="/all/courses">
+            <span className="font-bold underline"> bepul sinov</span>
+          </NavLink>{' '}
+          darsingizni bron qiling.
         </span>
       ),
       get: 'Boshlash',
@@ -326,14 +333,16 @@ const content: Content = {
       heading: (
         <span className="leading-20">
           Научитесь всему <span className="underline">легко</span> и{' '}
-          <span className="underline">удаленно</span> в Educore
+          <span className="underline">удаленно</span>в Educore
         </span>
       ),
       p: (
         <span className="leading-20">
           Получите доступ к Квалифицированным Преподавателям со всего мира и
           запланируйте свое первое
-          <span className="font-bold underline"> Бесплатное пробное</span>{' '}
+          <NavLink to="/all/courses">
+            <span className="font-bold underline"> Бесплатное пробное</span>
+          </NavLink>{' '}
           занятие
         </span>
       ),
