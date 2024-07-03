@@ -7,6 +7,9 @@ import backurl from '../../../links';
 
 import moment from 'moment';
 
+import { MdOutlineDateRange } from 'react-icons/md';
+import { CgDetailsMore } from 'react-icons/cg';
+
 interface ContentCardPropsType {
   blog_id: string;
   img: string;
@@ -90,25 +93,24 @@ export function Blog() {
           <Typography variant="h4" color="white">
             {title}
           </Typography>
-          {/* <Typography
-            variant="paragraph"
-            color="white"
-            className="my-2 font-normal"
-          >
-            {truncatedDesc}
-          </Typography> */}
           <div className="flex justify-between items-center mt-5">
             <NavLink
               to={`/all/blogs/${blog_id}`}
-              className="my-2 font-normal text-center bg-fuchsia-800 w-40 py-2 text-white hover:bg-fuchsia-600 active:bg-fuchsia-500"
+              className="flex flex-row items-center px-7 my-2 font-normal text-center bg-fuchsia-800  py-2 text-white hover:bg-fuchsia-600 active:bg-fuchsia-500"
             >
+              <span className="me-2">
+                <CgDetailsMore />
+              </span>
               {content[selectedLang as string].blogs.more}
             </NavLink>
             <Typography
               variant="paragraph"
               color="white"
-              className="my-2 font-normal text-right"
+              className="my-2 font-normal text-right flex flex-row items-center"
             >
+              <span className="me-2">
+                <MdOutlineDateRange />
+              </span>
               {moment(created_at).format('l')}
             </Typography>
           </div>
