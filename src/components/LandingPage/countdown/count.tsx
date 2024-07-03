@@ -2,6 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
+
+import PhotoBack from '../../../images/brand/book.jpg';
+
 const CountdownLanding: React.FC = () => {
   const [selectedLanguage] = useLang();
   const [countDownTime, setCountDownTime] = useState({
@@ -65,23 +68,30 @@ const CountdownLanding: React.FC = () => {
   }, [startCountDown]);
 
   return (
-    <div className="max-w-full bg-fuchsia-200 py-7">
-      <div className="container text-white text-center mx-auto font-bold">
+    <div className="relative max-w-full py-7">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${PhotoBack})`,
+          filter: 'brightness(20%)',
+        }}
+      ></div>
+      <div className="relative container text-white text-center mx-auto font-bold">
         <div className="flex flex-col items-center justify-center w-full h-full gap-8 sm:gap-8">
-          <span className="text-2xl sm:text-3xl font-semibold text-black text-center tracking-widest uppercase">
+          <span className="text-2xl sm:text-3xl font-semibold text-white text-center tracking-widest uppercase">
             {content[selectedLanguage as string].marathon.until}
           </span>
           <div className="flex justify-center gap-3 sm:gap-8">
             {['days', 'hours', 'minutes', 'seconds'].map((unit, index) => (
               <div key={index} className="flex flex-col gap-5 relative">
                 <div className="h-16 w-16 sm:w-32 sm:h-32 lg:w-20 lg:h-20 flex justify-between items-center bg-[#343650] rounded-lg">
-                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -left-[6px] rounded-full bg-fuchsia-200"></div>
-                  <span className="lg:text-4xl sm:text-3xl text-3xl font-semibold text-fuchsia-200">
+                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -left-[6px] rounded-full bg-transparent"></div>
+                  <span className="lg:text-4xl sm:text-3xl text-3xl font-semibold text-white">
                     {countDownTime[unit as keyof typeof countDownTime]}
                   </span>
-                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px] rounded-full bg-fuchsia-200"></div>
+                  <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px] rounded-full bg-transparent"></div>
                 </div>
-                <span className="text-black text-sm sm:text-lg text-center capitalize">
+                <span className="text-white text-sm sm:text-lg text-center capitalize">
                   {countDownTime[unit as keyof typeof countDownTime] === '01'
                     ? unit.slice(0, -1)
                     : unit}
@@ -90,8 +100,6 @@ const CountdownLanding: React.FC = () => {
             ))}
           </div>
         </div>
-        {/* <p>Until Free Marathon</p> */}
-        {/* <NavLink to="/auth/signup" className="text-lg underline">Go</NavLink> */}
       </div>
     </div>
   );
