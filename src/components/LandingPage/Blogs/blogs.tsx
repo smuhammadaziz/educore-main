@@ -96,7 +96,7 @@ export function Blog() {
           <div className="flex justify-between items-center mt-5">
             <NavLink
               to={`/all/blogs/${blog_id}`}
-              className="flex flex-row items-center px-7 my-2 font-normal text-center bg-fuchsia-800  py-2 text-white hover:bg-fuchsia-600 active:bg-fuchsia-500"
+              className="flex flex-row items-center px-7 my-2 font-normal text-center bg-fuchsia-800  py-2 text-white hover:bg-fuchsia-900 active:bg-fuchsia-500"
             >
               <span className="me-2">
                 <CgDetailsMore />
