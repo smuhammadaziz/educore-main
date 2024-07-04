@@ -68,12 +68,13 @@ const CountdownLanding: React.FC = () => {
   }, [startCountDown]);
 
   return (
-    <div className="relative max-w-full py-7">
+    <div className="relative max-w-full py-7 pt-13">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center mx-auto justify-center h-75"
         style={{
           backgroundImage: `url(${PhotoBack})`,
           filter: 'brightness(20%)',
+          // height: '300px',
         }}
       ></div>
       <div className="relative container text-white text-center mx-auto font-bold">
