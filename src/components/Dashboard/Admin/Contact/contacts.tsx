@@ -40,7 +40,7 @@ export default function AllContactFormAdmin() {
     <>
       <div className="">
         <h2 className="text-xl">All Contacts list</h2>
-        <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
+        <div className=" max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
             {contacts.map((item) => (
               <div
