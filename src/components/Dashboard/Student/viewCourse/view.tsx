@@ -26,26 +26,33 @@ const courses = [
 
 function ViewAllTypesCouseStudent() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-      {courses.map((e: any) => {
-        return (
-          <NavLink
-            to={`/dashboard/student/view/${e.name}`}
-            key={e.id}
-            className="rounded-lg dark:bg-strokedark hover:shadow-2xl dark:shadow-slate-800 shadow-lg px-20 py-6 bg-white dark:bg-gray-800 dark:text-white text-black hover:shadow-2xl cursor-pointer"
-          >
-            <img
-              src={e.img}
-              alt={e.name}
-              className="w-50 h-50 object-contain mb-5 mx-auto"
-            />
-            <h3 className="text-xl text-center md:text-2xl lg:text-3xl font-bold">
-              {e.name}
-            </h3>
-          </NavLink>
-        );
-      })}
-    </div>
+    <>
+      <div>
+        <h2 className="text-center font-bold uppercase text-2xl mb-10">
+          Choose course which you might like
+        </h2>
+      </div>
+      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-10">
+        {courses.map((e: any) => {
+          return (
+            <NavLink
+              to={`/dashboard/student/view/${e.name}`}
+              key={e.id}
+              className="rounded-lg text-center dark:bg-strokedark hover:shadow-2xl dark:shadow-slate-800 shadow-lg px-20 py-6 bg-white dark:bg-gray-800 dark:text-white text-black hover:shadow-2xl cursor-pointer"
+            >
+              <img
+                src={e.img}
+                alt={e.name}
+                className="w-100 h-50 object-contain mb-5 mx-auto"
+              />
+              <h3 className="text-xl text-center md:text-2xl lg:text-3xl font-bold">
+                {e.name}
+              </h3>
+            </NavLink>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
