@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Joyride, { STATUS } from 'react-joyride';
 // import './App.css'; // Your custom styles
 
+import { TiLocationArrow } from 'react-icons/ti';
+
 const GuideComponent = () => {
   const [run, setRun] = useState(false);
   const [steps] = useState([
@@ -54,11 +56,14 @@ const GuideComponent = () => {
   };
 
   return (
-    <div className="flex flex-row items-center bg-gray-100">
+    <div className="flex flex-row items-center bg-gray-100 justify-end">
       <button
         onClick={() => setRun(true)}
-        className=" px-4 py-2 bg-blue-500 text-white rounded-md"
+        className="flex flex-row items-center px-4 py-2 bg-blue-500 text-white rounded-md"
       >
+        <span className="me-2">
+          <TiLocationArrow size={20} />
+        </span>
         Show Guide
       </button>
 
