@@ -42,13 +42,13 @@ function GetAllCompaniesAdmin() {
         </h2>
         <NavLink
           to="/dashboard/admin/companies/add"
-          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          className="text-sm  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-900 active:bg-blue-950"
         >
           Add new Company
         </NavLink>
       </div>
       <div className="">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto">
           <div className="mx-auto max-w-2xl py-8 sm:py-24 lg:max-w-none lg:py-32">
             <div className="mt-10  lg:grid lg:grid-cols-3 lg:gap-x-6  ">
               {contacts && contacts
