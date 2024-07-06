@@ -11,7 +11,7 @@ export default function AllCourses() {
   const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [isOptionSelectedd, setIsOptionSelectedd] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 15;
+  const productsPerPage = 16;
 
   const [selectedLanguage] = useLang();
 
