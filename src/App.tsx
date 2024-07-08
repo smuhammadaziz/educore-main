@@ -231,15 +231,6 @@ function App() {
         {/* =============================================================== */}
         {/* =============================================================== */}
         {/* ===================ADMIN============================= */}
-        {/* <Route
-          path="/dashboard/users"
-          element={
-            <>
-              <PageTitle title="Educore Dashboard | Users" />
-              <AllUsers />
-            </>
-          }
-        /> */}
         <Route
           path="/dashboard/teachers"
           element={
