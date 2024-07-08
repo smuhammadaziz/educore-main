@@ -99,6 +99,7 @@ import OneMarathonAdmin from './components/Dashboard/Admin/Marafon/oneMarathon';
 import AllMarathonTeacher from './components/Dashboard/Teacher/Marathon/marathon';
 import AllLessonMarathonTeacher from './components/Dashboard/Teacher/Marathon/lessons';
 import AddLessonMarathonTeacher from './components/Dashboard/Teacher/Marathon/addLesson';
+import OneMarathonLessonTeacher from './components/Dashboard/Teacher/Marathon/oneLesson';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -618,6 +619,15 @@ function App() {
             <>
               <PageTitle title="Marathon | Teacher Dashboard" />
               <AddLessonMarathonTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/marathon/lesson/:maraphonel_id"
+          element={
+            <>
+              <PageTitle title="Marathon | Teacher Dashboard" />
+              <OneMarathonLessonTeacher />
             </>
           }
         />
