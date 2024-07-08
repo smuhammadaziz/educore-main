@@ -95,6 +95,7 @@ import GetGroupsForLessonTeacher from './components/Dashboard/Teacher/Lessons/al
 import GetGroupsForHomeworkTeacher from './components/Dashboard/Teacher/Homeworks/allGroupsHw';
 import MarathonAdmin from './components/Dashboard/Admin/Marafon/marathon';
 import AddingMarathonAdmin from './components/Dashboard/Admin/Marafon/addMarathon';
+import OneMarathonAdmin from './components/Dashboard/Admin/Marafon/oneMarathon';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -356,6 +357,15 @@ function App() {
             <>
               <PageTitle title="Marathon | Educore Dashboard" />
               <AddingMarathonAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/admin/edit/marathon/:maraphone_id"
+          element={
+            <>
+              <PageTitle title="Marathon | Educore Dashboard" />
+              <OneMarathonAdmin />
             </>
           }
         />

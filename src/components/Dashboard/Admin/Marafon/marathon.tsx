@@ -22,7 +22,7 @@ function MarathonAdmin() {
         }
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         const reversedData = data.message.reverse();
 
@@ -90,7 +90,7 @@ function MarathonAdmin() {
                         to={`/dashboard/admin/edit/marathon/${blog.maraphone_id}`}
                         className="bg-blue-600 px-8 py-1 text-white rounded mt-5 inline-block mb-5 hover:bg-blue-800"
                       >
-                        More info
+                        More
                       </NavLink>
                     </div>
                   ))
