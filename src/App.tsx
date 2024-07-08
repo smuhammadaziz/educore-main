@@ -96,6 +96,9 @@ import GetGroupsForHomeworkTeacher from './components/Dashboard/Teacher/Homework
 import MarathonAdmin from './components/Dashboard/Admin/Marafon/marathon';
 import AddingMarathonAdmin from './components/Dashboard/Admin/Marafon/addMarathon';
 import OneMarathonAdmin from './components/Dashboard/Admin/Marafon/oneMarathon';
+import AllMarathonTeacher from './components/Dashboard/Teacher/Marathon/marathon';
+import AllLessonMarathonTeacher from './components/Dashboard/Teacher/Marathon/lessons';
+import AddLessonMarathonTeacher from './components/Dashboard/Teacher/Marathon/addLesson';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -588,6 +591,33 @@ function App() {
             <>
               <PageTitle title="My Students | Teacher Dashboard" />
               <AllStudentPageTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/marathon"
+          element={
+            <>
+              <PageTitle title="Marathon | Teacher Dashboard" />
+              <AllMarathonTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/add/lesson/:maraphone_id"
+          element={
+            <>
+              <PageTitle title="Marathon | Teacher Dashboard" />
+              <AllLessonMarathonTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/add/new/marathon/lesson/:maraphone_id"
+          element={
+            <>
+              <PageTitle title="Marathon | Teacher Dashboard" />
+              <AddLessonMarathonTeacher />
             </>
           }
         />

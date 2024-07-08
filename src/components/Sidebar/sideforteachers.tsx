@@ -11,6 +11,7 @@ import { TbHomeSearch } from 'react-icons/tb';
 import { FaLayerGroup } from 'react-icons/fa';
 import { FaBookmark } from 'react-icons/fa6';
 import { GoHomeFill } from 'react-icons/go';
+import { MdVideoLibrary } from 'react-icons/md';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -226,6 +227,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <PiStudentFill size={20} />
                   </span>
                   My Students
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/teacher/marathon"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/teacher/marathon') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <span>
+                    <MdVideoLibrary size={20} />
+                  </span>
+                  Marathon
                 </NavLink>
               </li>
             </ul>
