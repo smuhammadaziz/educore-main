@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dialog, Popover } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
@@ -9,11 +9,36 @@ import { NavLink } from 'react-router-dom';
 
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
+import backurl from '../../../links';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useLang();
 
+  const [course, setCourses] = useState([]);
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}api/generate/link`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        // console.log(response);
+
+        const data = await response.json();
+
+        const reversed = data;
+        console.log(reversed);
+
+        // setCourses(reversed);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
   return (
     <header className="bg-white">
       <nav
