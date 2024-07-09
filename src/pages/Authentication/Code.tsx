@@ -128,6 +128,9 @@ const CodeEntry: React.FC = () => {
           <h2 className="text-center text-2xl">
             Enter the code we sent to your email
           </h2>
+          <h2 className="text-center text-2xl">
+            The code has been sent to the SPAM section
+          </h2>
           <div className="flex justify-center space-x-2">
             {code.map((digit, index) => (
               <input
