@@ -5,6 +5,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import moment from 'moment';
 
+import { TiArrowBack } from 'react-icons/ti';
+
 function OneMarathonLessonStudent() {
   const [contact, setContact] = useState({});
 
@@ -39,21 +41,32 @@ function OneMarathonLessonStudent() {
   return (
     <DefaultLayoutStudent>
       <div className="lg:w-4/4 text-black h-full lg:sticky lg:top-0 bg-white dark:bg-slate-800 shadow-md rounded-lg p-6 mb-8 lg:mb-0">
-        <h2 className="text-2xl font-semibold mb-5 text-left text-gray-800 dark:text-white">
+        <div className="inline-block dark:text-white mb-5">
+          <NavLink
+            to="/dashboard/student/marathon"
+            className="flex flex-row items-center  text-md font-semibold ps-0 py-1 px-3 mt-5 text-black inline-block hover:bg-blue-200 rounded"
+          >
+            <span className="me-2">
+              <TiArrowBack size={20} />
+            </span>
+            Go back
+          </NavLink>
+        </div>
+        <h2 className="text-2xl font-semibold text-slate-600 mb-5 text-left mt-10 text-gray-800 dark:text-white">
           Lesson Details
         </h2>
         <div className="flex flex-row items-center text-gray-700 dark:text-white mb-2">
-          <h3 className="text-xl font-bold me-2">Lesson title: </h3>
+          <h3 className="text-lg font-bold me-2">Lesson title: </h3>
           <p className="text-lg">{contact.title}</p>
         </div>
         <div className="flex flex-row items-center text-gray-700 dark:text-white mb-2">
-          <h3 className="text-xl font-bold me-2">Lesson Status:</h3>
+          <h3 className="text-lg font-bold me-2">Lesson Status:</h3>
           <p className="text-lg py-1 px-5 text-white mt-1 bg-green-600 inline-block rounded-full">
             {contact.process_m || 'N/A'}
           </p>
         </div>
         <div className="flex flex-row items-center text-gray-700 dark:text-white mb-2">
-          <h3 className="text-xl font-bold me-2">Created:</h3>
+          <h3 className="text-lg font-bold me-2">Created:</h3>
           <p className="text-lg">
             {moment(contact.created_at || 'N/A').format('lll')}
           </p>
