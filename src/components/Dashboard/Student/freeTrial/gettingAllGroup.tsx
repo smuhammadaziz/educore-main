@@ -71,7 +71,7 @@ export default function GetAllGroupsFromCourseStudent() {
                     </p>
                     <p className="text-gray-700 dark:text-gray-200">
                       <span className="font-medium">Time:</span>{' '}
-                      {product.subj_start}:00 - {product.subj_end}:00
+                      {product.subj_start} - {product.subj_end}
                     </p>
                     <p className="text-gray-700 dark:text-gray-200">
                       <span className="font-medium">Subject:</span>{' '}
