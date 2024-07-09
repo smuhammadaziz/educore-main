@@ -103,8 +103,8 @@ function OneMarathonStudent() {
 
         <div className="lg:w-3/4 px-0 py-16 sm:px-6 sm:py-24 lg:py-0 lg:px-0">
           <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-3 md:p-6 mb-8">
-            <h2 className="text-xl uppercase font-semibold mb-4 text-gray-800 dark:text-white py-2 text-center md:text-left">
-              {contact.title}
+            <h2 className="text-xl text-black uppercase font-semibold mb-4 text-gray-800 dark:text-white py-2 text-center md:text-left">
+              {contact.title}, {contact.m_start} - {contact.m_end}
             </h2>
             <div className="space-y-4">
               {contacts && contacts.length ? (
@@ -116,7 +116,7 @@ function OneMarathonStudent() {
                         : '#'
                     }
                     key={product.maraphonel_id}
-                    className={`flex items-center border border-slate-100 justify-between p-5 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-lg ${
+                    className={`flex items-center text-black border border-slate-100 dark:border-slate-900 dark:hover:bg-slate-900 justify-between p-5 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-lg ${
                       product.process_m === 'active'
                         ? 'hover:bg-slate-100'
                         : 'cursor-not-allowed opacity-50'
