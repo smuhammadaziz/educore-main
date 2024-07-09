@@ -102,6 +102,7 @@ import AddLessonMarathonTeacher from './components/Dashboard/Teacher/Marathon/ad
 import OneMarathonLessonTeacher from './components/Dashboard/Teacher/Marathon/oneLesson';
 import AllMarathonStudent from './components/Dashboard/Student/marathon/marathon';
 import OneMarathonStudent from './components/Dashboard/Student/marathon/oneMarathon';
+import OneMarathonLessonStudent from './components/Dashboard/Student/marathon/oneLesson';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -859,6 +860,15 @@ function App() {
             <>
               <PageTitle title="Educore | Marathon" />
               <OneMarathonStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/marathon/lesson/:maraphonel_id"
+          element={
+            <>
+              <PageTitle title="Educore | Marathon" />
+              <OneMarathonLessonStudent />
             </>
           }
         />
