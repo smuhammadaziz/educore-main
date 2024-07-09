@@ -52,7 +52,7 @@ function OneMarathonStudent() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const reversedData = data.message.reverse();
+        const reversedData = data.message;
         setContacts(reversedData);
       } catch (error) {
         console.log(error);
