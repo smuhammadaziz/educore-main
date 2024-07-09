@@ -12,6 +12,7 @@ import { RiGroupFill } from 'react-icons/ri';
 import { GiWhiteBook } from 'react-icons/gi';
 import { GiOpenBook } from 'react-icons/gi';
 import { SiAirplayvideo } from 'react-icons/si';
+import { PiPhoneOutgoingFill } from 'react-icons/pi';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -241,6 +242,22 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   </span>
                   My Payments
                 </NavLink>
+              </li>
+              <hr className="my-5" />
+              <li>
+                <a
+                  href="https://t.me/educore_admin"
+                  target="_blank"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('https://t.me/educore_admin') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <span>
+                    <PiPhoneOutgoingFill size={20} />
+                  </span>
+                  Contact Us
+                </a>
               </li>
             </ul>
           </div>
