@@ -842,6 +842,15 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/dashboard/student/marathon"
+          element={
+            <>
+              <PageTitle title="Educore | All lessons list" />
+              <GetAllLessonsStudent />
+            </>
+          }
+        />
         {/* =============================================================== */}
         {/* =============================================================== */}
         <Route

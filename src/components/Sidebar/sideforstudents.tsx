@@ -158,6 +158,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
+                  to="/dashboard/student/marathon"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/student/marathon') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <span>
+                    <MdLibraryBooks size={20} />
+                  </span>
+                  Marathon
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/dashboard/student/courses"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/student/courses') &&
