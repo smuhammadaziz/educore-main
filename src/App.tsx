@@ -100,6 +100,7 @@ import AllMarathonTeacher from './components/Dashboard/Teacher/Marathon/marathon
 import AllLessonMarathonTeacher from './components/Dashboard/Teacher/Marathon/lessons';
 import AddLessonMarathonTeacher from './components/Dashboard/Teacher/Marathon/addLesson';
 import OneMarathonLessonTeacher from './components/Dashboard/Teacher/Marathon/oneLesson';
+import AllMarathonStudent from './components/Dashboard/Student/marathon/marathon';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -846,8 +847,8 @@ function App() {
           path="/dashboard/student/marathon"
           element={
             <>
-              <PageTitle title="Educore | All lessons list" />
-              <GetAllLessonsStudent />
+              <PageTitle title="Educore | Marathon" />
+              <AllMarathonStudent />
             </>
           }
         />
