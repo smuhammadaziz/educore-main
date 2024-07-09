@@ -11,6 +11,7 @@ import { MdLibraryBooks } from 'react-icons/md';
 import { RiGroupFill } from 'react-icons/ri';
 import { GiWhiteBook } from 'react-icons/gi';
 import { GiOpenBook } from 'react-icons/gi';
+import { SiAirplayvideo } from 'react-icons/si';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -165,7 +166,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <span>
-                    <MdLibraryBooks size={20} />
+                    <SiAirplayvideo size={20} />
                   </span>
                   Marathon
                 </NavLink>
