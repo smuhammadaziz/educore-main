@@ -61,6 +61,8 @@ const SignUp: React.FC = () => {
         navigateTo('/auth/code/entry');
         const token = data.token;
 
+        console.log(token);
+
         localStorage.setItem('TOKEN_FOR_REGISTER', token);
       }
 

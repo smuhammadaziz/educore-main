@@ -91,10 +91,14 @@ const CodeEntry: React.FC = () => {
         toast.success('Login successful!', {
           position: 'top-right',
         });
-        const token = data.token2;
+        const secondToken = data.token2;
+
+        console.log(secondToken);
+
+        console.log(data);
 
         localStorage.removeItem('TOKEN_FOR_REGISTER');
-        localStorage.setItem('TOKEN', token);
+        localStorage.setItem('TOKEN', secondToken);
 
         setTimeout(() => {
           window.location.href = '/dashboard/student';
