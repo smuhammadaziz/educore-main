@@ -254,7 +254,9 @@ function AddnewCourseTeacher() {
                 <p>Price (example: 300000)</p>
                 <p className="mt-2 sm:mt-0 sm:ml-10">
                   you will receive:{' '}
-                  <span className="font-bold">{showprice.eightyThree} UZS</span>
+                  <span className="font-bold">
+                    {showprice.eightyThree} UZS/Monthly
+                  </span>
                 </p>
               </label>
               <input
