@@ -84,7 +84,7 @@ function AllLessonMarathonTeacher() {
       </div>
       <div className="lg:w-3/4 px-0 py-16 sm:px-6 sm:py-24 lg:py-0 lg:px-0 mt-15">
         <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-3 md:p-6 mb-8">
-          <h2 className="text-3xl mt-3 text-black font-bold italic uppercase text-center md:text-left">
+          <h2 className="text-3xl dark:text-white mt-3 text-black font-bold italic uppercase text-center md:text-left">
             All Lessons
           </h2>
           <hr className="my-2 mt-4" />
@@ -101,7 +101,7 @@ function AllLessonMarathonTeacher() {
                 <NavLink
                   to={`/dashboard/teacher/marathon/lesson/${product.maraphonel_id}`}
                   key={product.maraphonel_id}
-                  className={`flex items-center text-black border border-slate-100 dark:border-slate-900 dark:hover:bg-slate-900 justify-between p-5 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-lg `}
+                  className={`flex items-center text-black border border-slate-100 dark:border-slate-900 dark:hover:bg-slate-900 justify-between p-5 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-lg hover:bg-slate-100`}
                 >
                   <div className="flex items-center">
                     <button className="bg-blue-500 p-2 rounded-full text-white">
