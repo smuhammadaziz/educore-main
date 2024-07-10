@@ -242,12 +242,13 @@ function AddingMarathonAdmin() {
                 </label>
 
                 <select
-                  name=""
-                  id=""
+                  // name=""
+                  // id=""
                   value={user_id}
-                  onChange={(e) => setUserid(user_id)}
+                  onChange={(e) => setUserid(e.target.value)}
                   className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 >
+                  <option disabled>Select teacher</option>
                   {teachers.map((teacher: any) => (
                     <option key={teacher.user_id} value={teacher.user_id}>
                       {teacher.name} {teacher.l_name}
