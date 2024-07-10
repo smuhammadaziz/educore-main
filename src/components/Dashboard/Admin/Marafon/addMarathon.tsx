@@ -82,6 +82,35 @@ function AddingMarathonAdmin() {
     }
   };
 
+  const [teachers, setTeachers] = useState([]);
+
+  // const token = localStorage.getItem('TOKEN');
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await fetch(`${backurl}/api/admin/get/teachers`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const reversedData = data.message;
+
+        // console.log(reversedData);
+
+        setTeachers(reversedData.reverse());
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCourses();
+  }, []);
+
   return (
     <DefaultLayoutAdmin>
       <ToastContainer></ToastContainer>
@@ -211,14 +240,20 @@ function AddingMarathonAdmin() {
                 <label className="mb-2.5 block text-black dark:text-white">
                   Select a teacher
                 </label>
-                <input
-                  type="text"
-                  placeholder="type here ..."
-                  className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+
+                <select
+                  name=""
+                  id=""
                   value={user_id}
-                  onChange={(e) => setUserid(e.target.value)}
-                  required
-                />
+                  onChange={(e) => setUserid(user_id)}
+                  className="w-full bg-white rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                >
+                  {teachers.map((teacher: any) => (
+                    <option key={teacher.user_id} value={teacher.user_id}>
+                      {teacher.name} {teacher.l_name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="mb-4.5 md:w-2/3 px-2">
