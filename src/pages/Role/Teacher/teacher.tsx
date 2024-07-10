@@ -38,7 +38,7 @@ const Teacher: React.FC = () => {
           <span className="me-3">
             <MdGroups2 size="30" />
           </span>
-          My all groups →
+          My groups →
         </NavLink>
         {/* <NavLink
           to="/dashboard/teacher/my/all/groups"
