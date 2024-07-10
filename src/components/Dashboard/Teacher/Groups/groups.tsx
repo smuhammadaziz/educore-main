@@ -47,7 +47,7 @@ export default function AllGroupsListTeacher() {
       <div className="container mx-auto py-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-            My <span className="underline">Groups</span> List
+            My <span className="underline">Groups</span>
           </h2>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg">
