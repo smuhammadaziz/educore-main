@@ -95,6 +95,11 @@ type Content = {
     marathon: {
       until: string;
     };
+    video: {
+      team: string;
+      text: string;
+      watch: string;
+    };
   };
 };
 
@@ -207,6 +212,11 @@ const content: Content = {
     marathon: {
       until: 'Until the marathon',
     },
+    video: {
+      team: 'Educore Team',
+      text: 'How to Register and Buy your first course?',
+      watch: 'watch video',
+    },
   },
   uz: {
     header: {
@@ -314,6 +324,11 @@ const content: Content = {
     },
     marathon: {
       until: 'Marafongacha',
+    },
+    video: {
+      team: 'Educore Jamoasi',
+      text: 'Qanday qilib ro`yxatdan o`tish va birinchi kursni sotib olish mumkin?',
+      watch: 'Videono ko`rish',
     },
   },
   ru: {
@@ -423,6 +438,11 @@ const content: Content = {
     },
     marathon: {
       until: 'До марафона',
+    },
+    video: {
+      team: 'Команда Educore',
+      text: 'Как зарегистрироваться и купить свой первый курс?',
+      watch: 'Смотреть видео',
     },
   },
 };
