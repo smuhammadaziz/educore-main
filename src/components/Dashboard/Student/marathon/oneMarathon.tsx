@@ -3,9 +3,14 @@ import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../../links';
 import moment from 'moment';
-import { CgDetailsMore } from 'react-icons/cg';
-import { HiViewGridAdd } from 'react-icons/hi';
+
 import { TbVideo } from 'react-icons/tb';
+
+import { MdDriveFileRenameOutline } from 'react-icons/md';
+import { FiMessageSquare } from 'react-icons/fi';
+import { BsCalendarDate } from 'react-icons/bs';
+import { PiTimerLight } from 'react-icons/pi';
+import { FaRegCalendarCheck } from 'react-icons/fa6';
 
 function OneMarathonStudent() {
   const [contact, setContact] = useState({});
@@ -66,7 +71,7 @@ function OneMarathonStudent() {
   return (
     <DefaultLayoutStudent>
       <div className="flex flex-col lg:flex-row lg:space-x-8">
-        <div className="lg:w-1/4 h-full lg:sticky lg:top-0 bg-white dark:bg-slate-800 shadow-md rounded-lg p-6 mb-8 lg:mb-0">
+        <div className="lg:w-1/4 h-full lg:sticky lg:top-25 bg-white dark:bg-slate-800 shadow-md rounded-lg p-6 mb-8 lg:mb-0">
           <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800 dark:text-white">
             Marathon Details
           </h2>
@@ -74,30 +79,38 @@ function OneMarathonStudent() {
             <img
               src={`${backurl}upload/${contact.image}`}
               alt={contact.title}
-              className="h-full w-full object-cover rounded"
+              className="h-50 w-full object-cover rounded"
             />
           </div>
-          <div className="text-gray-700 dark:text-white mb-2">
-            <h3 className="text-xl font-bold">Title:</h3>
+          <div className="flex flex-row items-center text-gray-700 dark:text-white mb-2">
+            <h3 className="text-xl font-bold me-2">
+              <MdDriveFileRenameOutline />
+            </h3>
             <p className="text-lg">{contact.title}</p>
           </div>
-          <div className="text-gray-700 dark:text-white mb-2">
-            <h3 className="text-xl font-bold">Descriptions:</h3>
+          <div className="flex flex-row items-center text-gray-700 dark:text-white mb-2">
+            <h3 className="text-xl font-bold me-2">
+              <FiMessageSquare />
+            </h3>
             <p className="text-lg">{contact.descr || 'N/A'}</p>
           </div>
-          <div className="text-gray-700 dark:text-white mb-2">
-            <h3 className="text-xl font-bold">Short info:</h3>
+          <div className="flex flex-row items-center text-gray-700 dark:text-white mb-2">
+            <h3 className="text-xl font-bold me-2">
+              <span>
+                <FaRegCalendarCheck />
+              </span>
+            </h3>
             <p className="text-lg">{contact.m_days || 'N/A'}</p>
           </div>
-          <div className="text-gray-700 dark:text-white mb-2">
-            <h3 className="text-xl font-bold">Lesson time:</h3>
+          <div className="flex flex-row items-center text-gray-700 dark:text-white mb-2">
+            <h3 className="text-xl font-bold me-2">
+              <span>
+                <PiTimerLight />
+              </span>
+            </h3>
             <p className="text-lg">
               {contact.m_start || 'N/A'} - {contact.m_end || 'N/A'}
             </p>
-          </div>
-          <div className="text-gray-700 dark:text-white mb-2">
-            <h3 className="text-xl font-bold">Marathon period:</h3>
-            <p className="text-lg">{contact.m_period || 'N/A'} days</p>
           </div>
         </div>
 
