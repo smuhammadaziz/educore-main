@@ -38,7 +38,7 @@ const Student: React.FC = () => {
           <span className="mb-5 block">
             <FaPeopleGroup size={50} />
           </span>
-          My group list →
+          My group →
         </NavLink>
         <NavLink
           to="/dashboard/student/lessons"
