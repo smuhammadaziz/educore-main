@@ -73,7 +73,7 @@ const CountdownLanding: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center mx-auto justify-center h-75"
         style={{
           backgroundImage: `url(${PhotoBack})`,
-          filter: 'brightness(20%)',
+          filter: 'brightness(30%)',
           // height: '300px',
         }}
       ></div>
