@@ -41,7 +41,7 @@ function AllMarathonTeacher() {
   }, []);
   return (
     <DefaultLayoutTeacher>
-      <div className="text-2xl mb-10">All Marathons</div>
+      <div className="text-2xl mb-10">Marathons</div>
       <div className="space-y-5">
         {contacts && contacts.length > 0 ? (
           contacts.map((course: any) => (
