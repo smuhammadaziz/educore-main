@@ -9,27 +9,25 @@ const GuideComponentForStudent = () => {
   const [steps] = useState([
     {
       target: '.st1',
-      content:
-        'In this section, you will view and buy new course and send your payment after buying one course',
+      content: 'In this section you can search and buy our courses',
     },
     {
       target: '.st2',
-      content: 'In this section, You can see all groups you have joined',
+      content: 'Here you can see all the groups you have joined',
     },
     {
       target: '.st3',
       content:
-        'In this section, You can see all lessons belonging to your group ',
+        'In this section you can view all the lessons from the groups you have joined',
     },
     {
       target: '.st4',
       content:
-        'In this section, You can see all homeworks belonging to your group',
+        'Here you can see all the homework from the courses you have bought',
     },
     {
       target: '.st5',
-      content:
-        'In this section, You can see all payments belong to your course and group and checking your payment status',
+      content: 'Check the status of your payment here',
     },
   ]);
 
