@@ -9,28 +9,23 @@ const GuideComponent = () => {
   const [steps] = useState([
     {
       target: '.link1',
-      content:
-        'You can add new courses, edit them and delete them in this section',
+      content: 'Here you can create, edit, and delete courses',
     },
     {
       target: '.link2',
-      content:
-        'You can add new groups belong to your courses, edit them and delete them in this section',
+      content: 'Here you can manage groups for your existing courses',
     },
     {
       target: '.link3',
-      content:
-        'You can add new lessons belong to your groups, edit them and delete them in this section',
+      content: 'Here you can manage lessons for your existing groups',
     },
     {
       target: '.link4',
-      content:
-        'You can add new homeworks belong to your groups, edit them and delete them in this section',
+      content: 'Here you can manage homeworks for your existing groups',
     },
     {
       target: '.link5',
-      content:
-        'you can see your all students belong to your groups and view their payment status',
+      content: 'Check your students and their payment status here',
     },
   ]);
 
