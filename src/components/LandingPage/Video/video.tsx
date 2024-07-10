@@ -5,7 +5,11 @@ import ReactModal from 'react-modal';
 
 import { CgClose } from 'react-icons/cg';
 
+import useLang from '../../../hooks/useLang';
+import content from '../../../localization/content';
+
 function VideoComponentHome() {
+  const [selectedLanguage] = useLang();
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -25,11 +29,11 @@ function VideoComponentHome() {
         <div className="text-center text-white p-10 sm:p-10 md:p-20 rounded-lg">
           <h4 className="text-md sm:text-lg font-semibold mb-3 uppercase">
             {' '}
-            Educore Team{' '}
+            {content[selectedLanguage as string].video.team}
           </h4>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 sm:mb-10">
             {' '}
-            How to Register and Buy your first course?{' '}
+            {content[selectedLanguage as string].video.text}
           </h2>
           <button
             className="flex flex-row items-center mx-auto bg-white hover:bg-fuchsia-300 text-black hover:text-black uppercase text-lg sm:text-xl md:text-2xl py-2 sm:py-3 px-5 sm:px-10 rounded-full font-semibold transition duration-300"
@@ -38,7 +42,7 @@ function VideoComponentHome() {
             <span className="me-2">
               <FiPlayCircle />
             </span>
-            Watch Video
+            {content[selectedLanguage as string].video.watch}
           </button>
         </div>
       </div>
