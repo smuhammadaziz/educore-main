@@ -100,6 +100,13 @@ function OneMarathonLessonTeacher() {
             >
               Delete
             </NavLink>
+            <NavLink
+              onClick={deleteItem}
+              to="/dashboard/teacher/marathon"
+              className="ms-3 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
+            >
+              Delete
+            </NavLink>
           </div>
         </div>
       </div>

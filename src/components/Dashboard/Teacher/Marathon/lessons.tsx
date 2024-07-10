@@ -45,7 +45,6 @@ function AllLessonMarathonTeacher() {
   }, []);
   return (
     <DefaultLayoutTeacher>
-      <div>Marathon Lessons</div>
       <div className="right-0 top-0 mx-auto">
         <h2 className="text-2xl mb-5">
           All <span className="underline">Marathons</span>

@@ -5,6 +5,8 @@ import backurl from '../../../../links';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
+import { BiSolidRocket } from 'react-icons/bi';
+
 function AllMarathonTeacher() {
   const [contacts, setContacts] = useState([]);
 
@@ -38,57 +40,43 @@ function AllMarathonTeacher() {
   }, []);
   return (
     <DefaultLayoutTeacher>
-      <div>All Marathons</div>
-      <div className="">
-        <div className="mx-auto">
-          <div className="mx-auto max-w-2xl py-8 sm:py-24 lg:max-w-none lg:py-32">
-            <div className="mt-10  lg:grid lg:grid-cols-3 lg:gap-x-6  ">
-              {contacts && contacts
-                ? contacts.map((blog: any) => (
-                    <div
-                      key={blog.maraphone_id}
-                      className="bg-white p-3 my-5 rounded dark:bg-black"
-                    >
-                      <div className="relative h-full w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                        <img
-                          src={`${backurl}upload/${blog.image}`}
-                          alt={blog.title}
-                          className="h-full w-full object-contain object-center"
-                        />
-                      </div>
-                      <h3 className="mt-6 text-xl text-gray-800">
-                        Title: {blog.title}
-                      </h3>
-                      <h3 className="mt-6 text-xl text-gray-800">
-                        Description: {blog.descr}
-                      </h3>
-                      <h3 className="mt-6 text-xl text-gray-800">
-                        Short Info: {blog.m_days}
-                      </h3>
-                      <h3 className="mt-6 text-xl text-gray-800">
-                        Lesson time: {blog.m_start}:00 - {blog.m_end}:00
-                      </h3>
-                      <h3 className="mt-6 text-xl text-gray-800">
-                        Period: {blog.m_period} days
-                      </h3>
-                      <h3 className="mt-6 text-xl text-gray-800">
-                        Teacher email: {blog.email}
-                      </h3>
-                      <h3 className="mt-6 text-xl text-gray-800">
-                        Created: {moment(blog.created_at).format('lll')}
-                      </h3>
-                      <NavLink
-                        to={`/dashboard/teacher/add/lesson/${blog.maraphone_id}`}
-                        className="bg-blue-600 px-8 py-1 text-white rounded mt-5 inline-block mb-5 hover:bg-blue-800"
-                      >
-                        Select
-                      </NavLink>
-                    </div>
-                  ))
-                : 'you don`t have any blogs'}
+      <div className="text-2xl mb-10">All Marathons</div>
+      <div className="space-y-5">
+        {contacts && contacts.length > 0 ? (
+          contacts.map((course: any) => (
+            <div
+              key={course.maraphone_id}
+              className="bg-white p-6 py-8 rounded shadow-md flex flex-col sm:flex-row items-center justify-between"
+            >
+              <div className="flex items-center mb-4 sm:mb-0">
+                <div className="h-16 w-16 flex-shrink-0">
+                  <img
+                    src={`${backurl}upload/${course.image}`}
+                    alt={course.title}
+                    className="h-full w-full object-cover rounded-full"
+                  />
+                </div>
+                <div className="ml-4 text-black uppercase">
+                  <h3 className="text-2xl font-semibold">{course.title}</h3>
+                  <p className="text-xl">{course.m_days}</p>
+                </div>
+              </div>
+              <div className="text-center sm:text-right">
+                <NavLink
+                  to={`/dashboard/teacher/add/lesson/${course.maraphone_id}`}
+                  className="flex flex-row uppercase items-center bg-green-600 text-white px-4 py-2 rounded-lg mt-2 inline-block hover:bg-green-700"
+                >
+                  <span className="me-2">
+                    <BiSolidRocket />
+                  </span>
+                  Start now
+                </NavLink>
+              </div>
             </div>
-          </div>
-        </div>
+          ))
+        ) : (
+          <p className="text-gray-600">You don't have any courses.</p>
+        )}
       </div>
     </DefaultLayoutTeacher>
   );
