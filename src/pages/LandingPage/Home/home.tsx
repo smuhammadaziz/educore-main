@@ -7,6 +7,7 @@ import Testimonials from '../../../components/LandingPage/testimonials/testi';
 import Blogs from '../../../components/LandingPage/Blogs/blogs';
 import OurPartnersLanding from '../../../components/LandingPage/Partner/partner';
 import CountdownLanding from '../../../components/LandingPage/countdown/count';
+import VideoComponentHome from '../../../components/LandingPage/Video/video';
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <main>
         <CountdownLanding />
         <IntroSection />
+        <VideoComponentHome />
         <Courses />
       </main>
 
