@@ -29,7 +29,7 @@ function VideoComponentHome() {
           </h4>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 sm:mb-10">
             {' '}
-            Why should you study at Educore?{' '}
+            How to use Educore Website for Students?{' '}
           </h2>
           <button
             className="flex flex-row items-center mx-auto bg-white hover:bg-fuchsia-300 text-black hover:text-black uppercase text-lg sm:text-xl md:text-2xl py-2 sm:py-3 px-5 sm:px-10 rounded-full font-semibold transition duration-300"
