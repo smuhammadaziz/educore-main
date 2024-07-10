@@ -116,7 +116,7 @@ const content: Content = {
       heading: (
         <span className="">
           Learn anything <span className="underline">easy</span> and{' '}
-          <span className="underline">remote</span> at Educore
+          <span className="underline">remote</span> with Educore
         </span>
       ),
       p: (
