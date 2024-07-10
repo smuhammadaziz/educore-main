@@ -43,7 +43,7 @@ function ShowAllLessonsTeacher() {
     <DefaultLayoutTeacher>
       <div className="right-0 top-0 mx-auto mb-10">
         <h2 className="text-2xl mb-5 mx-auto text-center">
-          My <span className="underline">Lessons</span> List
+          My <span className="underline">Lessons</span>
         </h2>
         <NavLink
           to={`/dashboard/teacher/add/new/lesson/${group_id}`}
