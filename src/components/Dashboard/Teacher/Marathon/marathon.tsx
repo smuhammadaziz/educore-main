@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
 import { BiSolidRocket } from 'react-icons/bi';
+import { BiSolidEyedropper } from 'react-icons/bi';
 
 function AllMarathonTeacher() {
   const [contacts, setContacts] = useState([]);
@@ -29,7 +30,7 @@ function AllMarathonTeacher() {
 
         const reversedData = data.message.reverse();
 
-        //    console.log(reversedData);
+        // console.log(reversedData);
 
         setContacts(reversedData);
       } catch (error) {
@@ -67,9 +68,9 @@ function AllMarathonTeacher() {
                   className="flex flex-row uppercase items-center bg-green-600 text-white px-4 py-2 rounded-lg mt-2 inline-block hover:bg-green-700"
                 >
                   <span className="me-2">
-                    <BiSolidRocket />
+                    <BiSolidEyedropper />
                   </span>
-                  Start now
+                  View
                 </NavLink>
               </div>
             </div>
