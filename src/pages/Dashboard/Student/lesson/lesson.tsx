@@ -37,7 +37,7 @@ function GetAllLessonsStudent() {
   return (
     <DefaultLayoutStudent>
       <div>
-        <h2 className="text-3xl">All Lessons list</h2>
+        <h2 className="text-3xl">All Lessons</h2>
       </div>
       <div className="">
         <div className="mx-auto max-w-2xl px-0 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-0">
