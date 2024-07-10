@@ -116,7 +116,7 @@ function OneMarathonStudent() {
 
         <div className="lg:w-3/4 px-0 py-16 sm:px-6 sm:py-24 lg:py-0 lg:px-0">
           <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-3 md:p-6 mb-8">
-            <h2 className="text-2xl mt-3 text-black font-semibold uppercase text-center md:text-left">
+            <h2 className="text-3xl mt-3 text-black font-bold italic uppercase text-center md:text-left">
               All Lessons
             </h2>
             <hr className="my-2 mt-4" />
@@ -148,12 +148,14 @@ function OneMarathonStudent() {
                         <TbVideo size={20} />
                       </button>
                       <div className="ml-2 text-gray-800 dark:text-white">
-                        <p className="text-lg font-medium">{product.title}</p>
+                        <p className="text-sm md:text-lg font-medium">
+                          {product.title}
+                        </p>
                         <p className="text-sm">{product.l_desc}</p>
                       </div>
                     </div>
                     <div
-                      className={`ms-2 mt-1 py-1 px-2 rounded-full w-25 text-md font-bold text-white dark:text-white text-center ${
+                      className={`ms-2 mt-1 py-1 px-2 rounded-full w-20 md:w-25 text-md font-bold text-white dark:text-white text-center ${
                         product.process_m === 'active'
                           ? 'bg-green-600'
                           : product.process_m === 'pending'
