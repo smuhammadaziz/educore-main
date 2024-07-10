@@ -116,6 +116,10 @@ function OneMarathonStudent() {
 
         <div className="lg:w-3/4 px-0 py-16 sm:px-6 sm:py-24 lg:py-0 lg:px-0">
           <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-3 md:p-6 mb-8">
+            <h2 className="text-2xl mt-3 text-black font-semibold uppercase text-center md:text-left">
+              All Lessons
+            </h2>
+            <hr className="my-2 mt-4" />
             <h2 className="text-xl flex flex-col text-black uppercase font-semibold mb-4 text-gray-800 dark:text-white py-2 text-center md:text-left">
               {contact.title}
 
