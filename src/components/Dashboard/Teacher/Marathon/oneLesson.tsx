@@ -133,8 +133,20 @@ function OneMarathonLessonTeacher() {
             <p className="text-lg">{contact.title}</p>
           </div>
           <div className="text-gray-700 dark:text-white mb-4">
-            <h3 className="text-xl font-bold">Lesson Url:</h3>
-            <p className="text-lg">{contact.m_url || 'N/A'}</p>
+            <h3 className="text-xl font-bold ">Lesson Url:</h3>
+            <a
+              href={contact.m_url}
+              target="_blank"
+              className="text-lg uppercase underline"
+            >
+              Join the lesson
+            </a>
+          </div>
+          <div className="text-gray-700 dark:text-white mb-4">
+            <h3 className="text-xl font-bold">Lesson Status:</h3>
+            <p className="text-lg uppercase underline">
+              {contact.process_m || 'N/A'}
+            </p>
           </div>
           <div className="text-gray-700 dark:text-white mb-4">
             <h3 className="text-xl font-bold">Created:</h3>
