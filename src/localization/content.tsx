@@ -328,7 +328,7 @@ const content: Content = {
     video: {
       team: 'Educore Jamoasi',
       text: 'Qanday qilib ro`yxatdan o`tish va birinchi kursni sotib olish mumkin?',
-      watch: 'Videono ko`rish',
+      watch: 'Videoni ko`rish',
     },
   },
   ru: {
