@@ -217,7 +217,7 @@ const TeacherSettings = () => {
                   </div>
 
                   <div className="mb-5.5 flex flex-col gap-5.5 sm:flex-row">
-                    <div className="w-full sm:w-1/2">
+                    <div className="w-full sm:w-2/2">
                       <label
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="age"
@@ -232,23 +232,6 @@ const TeacherSettings = () => {
                         placeholder="Age"
                         onChange={handleChange}
                         value={formData.age}
-                      />
-                    </div>
-                    <div className="w-full sm:w-1/2">
-                      <label
-                        className="mb-3 block text-sm font-medium text-black dark:text-white"
-                        htmlFor="education"
-                      >
-                        Education
-                      </label>
-                      <input
-                        className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                        type="text"
-                        name="education"
-                        id="education"
-                        placeholder="Education"
-                        onChange={handleChange}
-                        value={formData.education}
                       />
                     </div>
                   </div>
