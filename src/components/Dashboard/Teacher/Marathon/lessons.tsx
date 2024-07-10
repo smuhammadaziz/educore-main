@@ -58,8 +58,6 @@ function AllLessonMarathonTeacher() {
         }
         const data = await response.json();
 
-        // console.log(data);
-
         const reversedData = data.message.reverse();
 
         setContacts(reversedData);
@@ -69,18 +67,48 @@ function AllLessonMarathonTeacher() {
     }
     fetchCourses();
   }, []);
+
+  const [profileData, setProfileData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${backurl}/api/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          localStorage.removeItem('TOKEN');
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const userId = data.Profil.user_id;
+
+        setProfileData(userId);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <DefaultLayoutTeacher>
       <div className="right-0 top-0 mx-auto">
         <h2 className="text-2xl mb-5">
-          All <span className="underline">Marathons</span>
+          All Marathon <span className="underline">Lessons</span>
         </h2>
-        <NavLink
-          to={`/dashboard/teacher/add/new/marathon/lesson/${maraphone_id}`}
-          className="text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
-        >
-          Add new lesson
-        </NavLink>
+        {contact.user_id === profileData && (
+          <NavLink
+            to={`/dashboard/teacher/add/new/marathon/lesson/${maraphone_id}`}
+            className="text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          >
+            Add new lesson
+          </NavLink>
+        )}
       </div>
       <div className="lg:w-3/4 px-0 py-16 sm:px-6 sm:py-24 lg:py-0 lg:px-0 mt-15">
         <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-3 md:p-6 mb-8">
