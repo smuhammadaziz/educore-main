@@ -37,7 +37,7 @@ export default function AllCoursesListTeacher() {
     <>
       <div className="text-center mx-auto my-8">
         <h2 className="text-3xl font-bold mb-4 dark:text-white">
-          My <span className="underline">Courses</span> List
+          My <span className="underline">Courses</span>
         </h2>
         <NavLink
           to="/dashboard/teacher/add/new/course"
