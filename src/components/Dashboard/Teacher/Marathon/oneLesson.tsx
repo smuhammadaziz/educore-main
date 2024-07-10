@@ -8,11 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function OneMarathonLessonTeacher() {
   const [contact, setContact] = useState({});
+  const [mara, setMara] = useState([]);
+  const [profileData, setProfileData] = useState(null);
 
   const token = localStorage.getItem('TOKEN');
-  const { maraphonel_id } = useParams();
-
-  //   console.log(maraphone_id);
+  const { maraphonel_id, maraphone_id } = useParams();
 
   useEffect(() => {
     async function fetchContact() {
@@ -29,6 +29,9 @@ function OneMarathonLessonTeacher() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+
+        // console.log(data);
+
         setContact(data.message);
       } catch (error) {
         console.log(error);
@@ -36,6 +39,58 @@ function OneMarathonLessonTeacher() {
     }
     fetchContact();
   }, [maraphonel_id, token]);
+
+  useEffect(() => {
+    async function fetchContact() {
+      try {
+        const response = await fetch(
+          `${backurl}api/admin/get/maraphone/${maraphone_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const marathonUserId = data.message.user_id;
+
+        // console.log(marathonUserId);
+
+        setMara(marathonUserId);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchContact();
+  }, [maraphone_id, token]);
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await fetch(`${backurl}/api/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          localStorage.removeItem('TOKEN');
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const userId = data.Profil.user_id;
+        setProfileData(userId);
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    };
+
+    fetchProfileData();
+  }, [token]);
 
   async function deleteItem() {
     try {
@@ -48,8 +103,6 @@ function OneMarathonLessonTeacher() {
           },
         },
       );
-
-      //  console.log(response);
 
       if (!response.ok) {
         throw new Error('Failed to delete lesson');
@@ -64,6 +117,9 @@ function OneMarathonLessonTeacher() {
       });
     }
   }
+
+  // console.log(profileData);
+  // console.log(contact.user_id);
 
   return (
     <DefaultLayoutTeacher>
@@ -93,23 +149,27 @@ function OneMarathonLessonTeacher() {
             >
               Go back
             </NavLink>
-            <NavLink
-              onClick={deleteItem}
-              to="/dashboard/teacher/marathon"
-              className="ms-3 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
-            >
-              Delete
-            </NavLink>
-            <NavLink
-              // onClick={deleteItem}
-              to={`/dashboard/teacher/marathon/edit/${maraphonel_id}`}
-              className="ms-3 inline-block mt-5 bg-green-700 hover:bg-green-800 rounded px-5 py-2 text-white"
-            >
-              Edit
-            </NavLink>
+            {mara === profileData && (
+              <>
+                <NavLink
+                  onClick={deleteItem}
+                  to="/dashboard/teacher/marathon"
+                  className="ms-3 inline-block mt-5 bg-red-700 hover:bg-red-800 rounded px-5 py-2 text-white"
+                >
+                  Delete
+                </NavLink>
+                <NavLink
+                  to={`/dashboard/teacher/marathon/edit/${maraphonel_id}`}
+                  className="ms-3 inline-block mt-5 bg-green-700 hover:bg-green-800 rounded px-5 py-2 text-white"
+                >
+                  Edit
+                </NavLink>
+              </>
+            )}
           </div>
         </div>
       </div>
+      <ToastContainer />
     </DefaultLayoutTeacher>
   );
 }

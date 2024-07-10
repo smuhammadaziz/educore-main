@@ -127,7 +127,7 @@ function AllLessonMarathonTeacher() {
             {contacts && contacts.length ? (
               contacts.map((product: any) => (
                 <NavLink
-                  to={`/dashboard/teacher/marathon/lesson/${product.maraphonel_id}`}
+                  to={`/dashboard/teacher/marathon/lesson/${maraphone_id}/${product.maraphonel_id}`}
                   key={product.maraphonel_id}
                   className={`flex items-center text-black border border-slate-100 dark:border-slate-900 dark:hover:bg-slate-900 justify-between p-5 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-lg hover:bg-slate-100`}
                 >

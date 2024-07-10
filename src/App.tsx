@@ -627,7 +627,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/teacher/marathon/lesson/:maraphonel_id"
+          path="/dashboard/teacher/marathon/lesson/:maraphone_id/:maraphonel_id"
           element={
             <>
               <PageTitle title="Marathon | Teacher Dashboard" />
