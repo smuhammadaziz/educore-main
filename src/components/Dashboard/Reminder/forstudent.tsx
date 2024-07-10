@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Joyride, { STATUS } from 'react-joyride';
-// import './App.css'; // Your custom styles
-
 import { TiLocationArrow } from 'react-icons/ti';
 
 const GuideComponentForStudent = () => {
@@ -38,7 +36,7 @@ const GuideComponentForStudent = () => {
     }
   }, []);
 
-  const handleJoyrideCallback = (data: any) => {
+  const handleJoyrideCallback = (data) => {
     const { status, type } = data;
     const finishedStatuses = [STATUS.FINISHED, STATUS.SKIPPED];
 
@@ -81,11 +79,16 @@ const GuideComponentForStudent = () => {
           options: {
             arrowColor: '#e3ffeb',
             backgroundColor: '#e3ffeb',
-            // overlayColor: 'rgba(79, 26, 0, 0.4)',
             primaryColor: '#4196e1',
             textColor: '#000',
             width: 500,
             zIndex: 1000,
+          },
+          tooltipContent: {
+            fontSize: '22px',
+            fontWeight: '500',
+            fontStyle: 'italic',
+            fontFamily: 'Arial',
           },
         }}
       />
