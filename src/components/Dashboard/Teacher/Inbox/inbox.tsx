@@ -56,7 +56,13 @@ function InboxForTeachers() {
                   {message.email}
                 </p>
                 <p className="mt-1 text-sm text-gray-500">{message.g_name}</p>
-                <p className="mt-1 text-sm text-gray-500">{message.status}</p>
+                <p
+                  className={`mt-1 text-sm text-gray-500 inline-block text-white p-1 rounded my-2 ${
+                    message.status === 'checked' ? 'bg-green-500' : 'bg-red-500'
+                  }`}
+                >
+                  {message.status}
+                </p>
                 <p className="mt-2 text-sm text-gray-500">
                   {moment(message.created_at).format('LT')},{' '}
                   {moment(message.created_at).format('l')}
