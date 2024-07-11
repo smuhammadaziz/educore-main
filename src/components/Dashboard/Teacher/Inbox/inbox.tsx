@@ -22,7 +22,7 @@ function InboxForTeachers() {
         }
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         setCourses(data.message.reverse());
       } catch (error) {

@@ -97,6 +97,36 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     fetchData();
   }, []);
 
+  const [inboxData, setCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${backurl}/api/get/notefs`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        // console.log(data);
+
+        setCourses(data.message);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const filtered = inboxData.filter((el: any) => el.status == 'unchecked');
+
+  // console.log();
+
   return (
     <aside
       ref={sidebar}
@@ -247,15 +277,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/inbox"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center justify-between gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/inbox') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}
                 >
-                  <span>
-                    <BiMessageRoundedDetail size={20} />
+                  <span className="flex flex-row items-center">
+                    <span className="me-2.5">
+                      <BiMessageRoundedDetail size={20} />
+                    </span>
+                    Inbox
                   </span>
-                  Inbox
+                  <span className="font-bold text-xs rounded-full py-1 px-1.5 bg-white text-black">
+                    +{filtered.length}
+                  </span>
                 </NavLink>
               </li>
             </ul>
