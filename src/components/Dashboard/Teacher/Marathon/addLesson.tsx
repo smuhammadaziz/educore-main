@@ -111,7 +111,7 @@ function AddLessonMarathonTeacher() {
               Add
             </button>
             <NavLink
-              to="/dashboard/teacher/my/groups"
+              to="/dashboard/teacher/marathon"
               className="flex ms-5 flex items-center w-25 justify-center rounded bg-red-600 py-3 font-medium text-gray hover:bg-opacity-90"
               onClick={handleCancel}
             >
