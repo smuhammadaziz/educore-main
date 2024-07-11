@@ -58,7 +58,7 @@ function AllLessonMarathonTeacher() {
         }
         const data = await response.json();
 
-        const reversedData = data.message.reverse();
+        const reversedData = data.message;
 
         setContacts(reversedData);
       } catch (error) {
