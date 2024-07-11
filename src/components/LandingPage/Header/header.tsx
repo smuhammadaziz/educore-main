@@ -30,7 +30,7 @@ export default function Header() {
         const data = await response.json();
 
         const reversed = data;
-        console.log(reversed);
+        // console.log(reversed);
 
         // setCourses(reversed);
       } catch (error) {
