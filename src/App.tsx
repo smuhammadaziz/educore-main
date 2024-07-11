@@ -104,6 +104,8 @@ import AllMarathonStudent from './components/Dashboard/Student/marathon/marathon
 import OneMarathonStudent from './components/Dashboard/Student/marathon/oneMarathon';
 import OneMarathonLessonStudent from './components/Dashboard/Student/marathon/oneLesson';
 import EditMarathonLessonTeacher from './components/Dashboard/Teacher/Marathon/editLesson';
+import InboxForTeachers from './components/Dashboard/Teacher/Inbox/inbox';
+import OneInboxForTeacher from './components/Dashboard/Teacher/Inbox/oneInbox';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -641,6 +643,24 @@ function App() {
             <>
               <PageTitle title="Marathon | Teacher Dashboard" />
               <EditMarathonLessonTeacher />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/inbox"
+          element={
+            <>
+              <PageTitle title="Inbox | Teacher Dashboard" />
+              <InboxForTeachers />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/teacher/inbox/:notef_id"
+          element={
+            <>
+              <PageTitle title="Inbox | Teacher Dashboard" />
+              <OneInboxForTeacher />
             </>
           }
         />
