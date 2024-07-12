@@ -26,7 +26,7 @@ function VideoComponentHome() {
         className="container mx-auto rounded-xl relative flex flex-col items-center justify-center bg-cover bg-center my-10"
         style={{ backgroundImage: `url(${videoBg})` }}
       >
-        <div className="text-center text-white p-10 pb-0 sm:p-10 md:p-20 rounded-lg">
+        <div className="text-center text-white p-15 px-5 pb-0 sm:p-10 md:p-20 rounded-lg">
           <h4 className="text-md sm:text-lg font-semibold mb-3 uppercase">
             {' '}
             {content[selectedLanguage as string].video.team}
