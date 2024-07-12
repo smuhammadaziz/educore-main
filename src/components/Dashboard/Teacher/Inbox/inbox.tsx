@@ -4,6 +4,9 @@ import backurl from '../../../../links';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
+import { PiContactlessPaymentBold } from 'react-icons/pi';
+import { SlFire } from 'react-icons/sl';
+
 function InboxForTeachers() {
   const [courses, setCourses] = useState([]);
 
@@ -42,8 +45,15 @@ function InboxForTeachers() {
             courses.map((message: any) => (
               <div
                 key={message.notef_id}
-                className="group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl rounded-lg"
+                className={`group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl rounded-lg hover:shadow-2xl`}
               >
+                {/* <div className="mb-5">
+                  {message.free_trial ? (
+                    <SlFire size={25} />
+                  ) : (
+                    <PiContactlessPaymentBold size={25} />
+                  )}
+                </div> */}
                 <div className="flex justify-between">
                   <h3 className="text-lg font-bold text-gray-700 dark:text-white">
                     {message.name} {message.l_name}
@@ -52,17 +62,24 @@ function InboxForTeachers() {
                     {moment(message.created_at).fromNow()}
                   </span>
                 </div>
-                <p className="mt-1 text-md font-medium text-gray-900 dark:text-white">
-                  {message.email}
-                </p>
-                <p className="mt-1 text-sm text-gray-500">{message.g_name}</p>
-                <p
-                  className={`mt-1 text-sm text-gray-500 inline-block text-white p-1 rounded my-2 ${
-                    message.status === 'checked' ? 'bg-green-500' : 'bg-red-500'
-                  }`}
-                >
-                  {message.status}
-                </p>
+                <div className="flex flex-row items-center mt-2">
+                  <p
+                    className={`mt-1 text-sm font-bold uppercase text-gray-500 inline-block text-white p-1 px-2 rounded my-2 ${
+                      message.status === 'checked'
+                        ? 'bg-green-500'
+                        : 'bg-red-500'
+                    }`}
+                  >
+                    {message.status}
+                  </p>
+                  <p
+                    className={`ms-3 mt-1 font-bold uppercase text-sm text-gray-500 inline-block text-white p-1 rounded my-2 ${
+                      message.free_trial ? 'bg-blue-500' : 'bg-blue-500'
+                    }`}
+                  >
+                    {message.free_trial ? 'free trial' : 'paid'}
+                  </p>
+                </div>
                 <p className="mt-2 text-sm text-gray-500">
                   {moment(message.created_at).format('LT')},{' '}
                   {moment(message.created_at).format('l')}
