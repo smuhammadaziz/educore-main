@@ -23,6 +23,9 @@ export default function GetAllGroupsFromCourseStudent() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+
+        console.log(data);
+
         setData(data.getidbycourse);
       } catch (error) {
         console.log(error);
