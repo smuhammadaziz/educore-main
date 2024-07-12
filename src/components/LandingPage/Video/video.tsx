@@ -23,10 +23,10 @@ function VideoComponentHome() {
   return (
     <div className="bg-white py-10 px-5">
       <div
-        className="container mx-auto rounded-xl relative flex items-center justify-center bg-cover bg-center my-10"
+        className="container mx-auto rounded-xl relative flex flex-col items-center justify-center bg-cover bg-center my-10"
         style={{ backgroundImage: `url(${videoBg})` }}
       >
-        <div className="text-center text-white p-10 sm:p-10 md:p-20 rounded-lg">
+        <div className="text-center text-white p-10 pb-0 sm:p-10 md:p-20 rounded-lg">
           <h4 className="text-md sm:text-lg font-semibold mb-3 uppercase">
             {' '}
             {content[selectedLanguage as string].video.team}
@@ -35,50 +35,20 @@ function VideoComponentHome() {
             {' '}
             {content[selectedLanguage as string].video.text}
           </h2>
-          <button
-            className="flex flex-row items-center mx-auto bg-white hover:bg-fuchsia-300 text-black hover:text-black uppercase text-lg sm:text-xl md:text-2xl py-2 sm:py-3 px-5 sm:px-10 rounded-full font-semibold transition duration-300"
-            onClick={openModal}
-          >
-            <span className="me-2">
-              <FiPlayCircle />
-            </span>
-            {content[selectedLanguage as string].video.watch}
-          </button>
+          <div className="pb-15 px-0">
+            <iframe
+              width="100%"
+              height="450px"
+              src="https://www.youtube.com/embed/JW_bGE0lYm4?autoplay=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-lg h-50 lg:h-100"
+            />
+          </div>
         </div>
       </div>
-      <ReactModal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        style={{
-          overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-          },
-          content: {
-            maxWidth: '800px',
-            maxHeight: '450px',
-            margin: '0 auto',
-            padding: '10px',
-            border: 'none',
-          },
-        }}
-        //    className="h-1/6 "
-      >
-        <button
-          onClick={closeModal}
-          className="justify-end inline-block text-right"
-        >
-          <CgClose size={25} />
-        </button>
-        <iframe
-          width="100%"
-          height="400px"
-          src="https://www.youtube.com/embed/JW_bGE0lYm4?autoplay=1"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </ReactModal>
     </div>
   );
 }
