@@ -89,7 +89,7 @@ function ViewAllCoursesIeltsStudent() {
               </h3>
 
               <p className="mt-5 text-lg font-medium text-gray-900">
-                {product.price} 000 so'm
+                {product.price} so'm
               </p>
             </NavLink>
           ))}
