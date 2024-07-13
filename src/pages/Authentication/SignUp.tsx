@@ -44,7 +44,7 @@ const SignUp: React.FC = () => {
       formData.append('age', age);
       formData.append('phone', phone);
       formData.append('tgusername', tgusername);
-      formData.append('adress', adress);
+      formData.append('adress', 'Tashkent');
 
       const response = await fetch(`${backurl}/api/register`, {
         method: 'POST',
@@ -201,36 +201,18 @@ const SignUp: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:flex-row justify-between">
-                    <div className="mb-4 md:mr-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black">
-                        {content[selectedLang as string].log.address}
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="text"
-                          value={adress}
-                          onChange={(e) => setAdress(e.target.value)}
-                          placeholder={
-                            content[selectedLang as string].log.address
-                          }
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
-                        />
-                      </div>
-                    </div>
-                    <div className="mb-4 md:ml-4 lg:w-1/2">
-                      <label className="mb-2.5 block font-medium text-black">
-                        {content[selectedLang as string].log.tg}
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="text"
-                          value={tgusername}
-                          onChange={(e) => setTgUsername(e.target.value)}
-                          placeholder={content[selectedLang as string].log.tg}
-                          className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
-                        />
-                      </div>
+                  <div className="mb-4">
+                    <label className="mb-2.5 block font-medium text-black">
+                      {content[selectedLang as string].log.tg}
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="password"
+                        value={tgusername}
+                        onChange={(e) => setTgUsername(e.target.value)}
+                        placeholder={content[selectedLang as string].log.pass}
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none"
+                      />
                     </div>
                   </div>
 
