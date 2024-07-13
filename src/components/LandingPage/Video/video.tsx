@@ -39,7 +39,7 @@ function VideoComponentHome() {
             <iframe
               width="100%"
               height="450px"
-              src="https://www.youtube.com/embed/JW_bGE0lYm4?autoplay=1"
+              src="https://www.youtube.com/embed/JW_bGE0lYm4?autoplay=0"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
