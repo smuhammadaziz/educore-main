@@ -25,6 +25,10 @@ const GuideComponent = () => {
       target: '.link5',
       content: 'Check your students and their payment status here',
     },
+    {
+      target: '.link6',
+      content: 'Check your new students here',
+    },
   ]);
 
   useEffect(() => {

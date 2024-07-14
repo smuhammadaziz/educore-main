@@ -39,7 +39,7 @@ function InboxForTeachers() {
   return (
     <DefaultLayoutTeacher>
       <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Inbox</h1>
+        <h2 className="text-2xl font-bold mb-4 text-center">Inbox</h2>
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
           {courses.length > 0 ? (
             courses.map((message: any) => (
@@ -93,8 +93,12 @@ function InboxForTeachers() {
               </div>
             ))
           ) : (
-            <div>
-              <p>You don't have any messages.</p>
+            <div className="flex justify-center items-center w-full col-span-full">
+              <div className="bg-white p-6 rounded-lg shadow-md w-full text-center">
+                <p className="text-xl font-medium text-gray-700 dark:text-white">
+                  You don't have any new students yet.
+                </p>
+              </div>
             </div>
           )}
         </div>

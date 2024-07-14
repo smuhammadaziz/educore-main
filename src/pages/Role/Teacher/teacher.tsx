@@ -40,15 +40,6 @@ const Teacher: React.FC = () => {
           </span>
           My groups →
         </NavLink>
-        {/* <NavLink
-          to="/dashboard/teacher/my/all/groups"
-          className="flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
-        >
-          <span className="me-3">
-            <MdGroups2 size="30" />
-          </span>
-          My all groups →
-        </NavLink> */}
         <NavLink
           to="/dashboard/teacher/my/all/lessons"
           className="link3 flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
@@ -75,6 +66,15 @@ const Teacher: React.FC = () => {
             <PiStudentFill size="30" />
           </span>
           My all students →
+        </NavLink>
+        <NavLink
+          to="/dashboard/teacher/inbox"
+          className="link6 flex items-center dark:bg-black dark:border-stone-500 dark:border-2 bg-white py-5 sm:py-10 text-lg sm:text-2xl px-5 sm:px-15 hover:underline shadow-2xl rounded-md m-2.5"
+        >
+          <span className="me-3">
+            <PiStudentFill size="30" />
+          </span>
+          New students →
         </NavLink>
       </div>
     </DefaultLayoutTeacher>
