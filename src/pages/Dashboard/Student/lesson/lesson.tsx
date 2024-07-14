@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import backurl from '../../../../links';
 import moment from 'moment';
+import { NavLink } from 'react-router-dom';
 
 function GetAllLessonsStudent() {
   const [courses, setCourses] = useState([]);
@@ -83,10 +84,22 @@ function GetAllLessonsStudent() {
             ))}
           </div>
         ) : (
-          <div className="flex items-center justify-center h-full">
-            <p className="text-center text-xl text-gray-700 dark:text-white">
-              You don't have any lessons
-            </p>
+          <div className="flex justify-center items-center w-full col-span-full">
+            <div className="bg-white p-6 rounded-lg shadow-md w-full text-center">
+              <p className="text-xl font-medium text-gray-700 dark:text-white">
+                You have no lessons yet.
+              </p>
+              <p className="text-xl font-medium text-gray-700 dark:text-white mt-3">
+                {' '}
+                <NavLink
+                  to="/dashboard/student/courses"
+                  className="text-primary"
+                >
+                  Click here
+                </NavLink>{' '}
+                to get your first course.
+              </p>
+            </div>
           </div>
         )}
       </div>

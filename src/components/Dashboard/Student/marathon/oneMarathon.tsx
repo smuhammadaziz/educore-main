@@ -140,7 +140,7 @@ function OneMarathonStudent() {
                     className={`flex items-center text-black border border-slate-100 dark:border-slate-900 dark:hover:bg-slate-900 justify-between p-5 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-lg ${
                       product.process_m === 'active'
                         ? 'hover:bg-slate-100'
-                        : 'cursor-not-allowed opacity-50'
+                        : 'cursor-not-allowed opacity-50 hover:bg-slate-200'
                     }`}
                   >
                     <div className="flex items-center">
@@ -155,7 +155,7 @@ function OneMarathonStudent() {
                       </div>
                     </div>
                     <div
-                      className={`ms-2 mt-1 py-1 px-2 rounded-full w-20 md:w-25 text-md font-bold text-white dark:text-white text-center ${
+                      className={`ms-2 mt-1 py-1 px-2 rounded-full w-20 md:w-25 text-sm font-bold text-white dark:text-white text-center ${
                         product.process_m === 'active'
                           ? 'bg-green-600'
                           : product.process_m === 'pending'

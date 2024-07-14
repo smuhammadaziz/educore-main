@@ -64,7 +64,7 @@ const Student: React.FC = () => {
           </p>
           <NavLink
             to="/dashboard/student/marathon"
-            className="bg-fuchsia-800 text-white py-2 md:py-3 px-6 md:px-10 text-xl md:text-2xl rounded-lg hover:bg-fuchsia-900"
+            className="bg-fuchsia-800 shadow-2xl hover:shadow-lg text-white py-2 md:py-3 px-6 md:px-10 text-xl md:text-2xl rounded-lg hover:bg-fuchsia-900"
           >
             View lessons
           </NavLink>
