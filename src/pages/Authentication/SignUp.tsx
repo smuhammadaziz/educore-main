@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LogoDark from '../../images/logo/logo-1.svg';
-import Logo from '../../images/logo/logo-light-1.svg';
 import iconphone from '../../images/brand/iconphone.svg';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,12 +12,7 @@ import backurl from '../../links';
 import useLang from '../../hooks/useLang';
 import content from '../../localization/content';
 
-import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
-// import 'react-phone-input-2/lib/material.css';
-// import 'react-phone-input-2/lib/semantic-ui.css';
-
-import InputMask from 'react-input-mask';
 
 const SignUp: React.FC = () => {
   const [name, setName] = useState('');
@@ -26,7 +20,6 @@ const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
   const [hashedpass, setHashedPass] = useState('');
   const [age, setAge] = useState('');
-  const [adress, setAdress] = useState('');
   const [tgusername, setTgUsername] = useState('');
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
@@ -52,16 +45,12 @@ const SignUp: React.FC = () => {
       });
       const data = await response.json();
 
-      // console.log(data.message);
-
       if (response.ok) {
         toast.success(data.message, {
           position: 'top-right',
         });
         navigateTo('/auth/code/entry');
         const token = data.token;
-
-        console.log(token);
 
         localStorage.setItem('TOKEN_FOR_REGISTER', token);
       }
@@ -90,7 +79,6 @@ const SignUp: React.FC = () => {
             <div className="hidden w-full xl:block xl:w-1/2">
               <div className="py-17.5 px-26 text-center">
                 <Link className="mb-5.5 inline-block" to="/">
-                  {/* <img className="hidden dark:block" src={Logo} alt="Logo" /> */}
                   <img className="" src={LogoDark} alt="Logo" />
                 </Link>
                 <p className="2xl:px-20"></p>

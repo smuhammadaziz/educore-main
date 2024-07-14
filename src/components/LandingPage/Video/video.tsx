@@ -1,24 +1,11 @@
 import React, { useState } from 'react';
 import videoBg from '../../../images/brand/videobg.jpg';
-import { FiPlayCircle } from 'react-icons/fi';
-import ReactModal from 'react-modal';
-
-import { CgClose } from 'react-icons/cg';
 
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
 
 function VideoComponentHome() {
   const [selectedLanguage] = useLang();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
 
   return (
     <div className="bg-white py-10 px-5">
@@ -41,7 +28,6 @@ function VideoComponentHome() {
               height="450px"
               src="https://www.youtube.com/embed/JW_bGE0lYm4?autoplay=0"
               title="YouTube video player"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="rounded-lg h-50 lg:h-100"
