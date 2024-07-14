@@ -10,23 +10,12 @@ import { NavLink } from 'react-router-dom';
 import backurl from '../../../../links';
 
 const AllStudentsList = () => {
-  // Define an array of objects containing the data for each row
-  const tableData = [
-    {
-      productName: 'Apple MacBook Pro 17"',
-      color: 'Silver',
-      category: 'Laptop',
-      price: '$2999',
-      status: 'PAID',
-    },
-  ];
-
-  const [teachers, setTeachers] = useState([]);
+  const [students, setStudents] = useState([]);
 
   const token = localStorage.getItem('TOKEN');
 
   useEffect(() => {
-    async function fetchCourses() {
+    async function fetchStudents() {
       try {
         const response = await fetch(`${backurl}/api/admin/get/students`, {
           headers: {
@@ -37,17 +26,13 @@ const AllStudentsList = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
         const reversedData = data.message.reverse();
-
-        // console.log(reversedData);
-
-        setTeachers(reversedData);
+        setStudents(reversedData);
       } catch (error) {
         console.log(error);
       }
     }
-    fetchCourses();
+    fetchStudents();
   }, []);
 
   return (
@@ -56,11 +41,18 @@ const AllStudentsList = () => {
         <h2 className="text-2xl mb-5">
           All <span className="underline">Students</span> List
         </h2>
+        <h2 className="text-2xl mb-5 mt-5">
+          Number of students:{' '}
+          <span className="font-bold">{students.length}</span>
+        </h2>
       </div>
       <div className="relative overflow-x-auto shadow-xl sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
+              <th scope="col" className="px-6 py-3">
+                #
+              </th>
               <th scope="col" className="px-6 py-3">
                 Full Name
               </th>
@@ -82,11 +74,14 @@ const AllStudentsList = () => {
             </tr>
           </thead>
           <tbody>
-            {teachers.map((item, index) => (
+            {students.map((item: any, index: number) => (
               <tr
                 key={item.user_id}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
               >
+                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                  {index + 1}
+                </td>
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
