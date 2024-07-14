@@ -5,6 +5,8 @@ import content from '../../../localization/content';
 
 import PhotoBack from '../../../images/brand/book.jpg';
 
+import { PiSignInBold } from 'react-icons/pi';
+
 const CountdownLanding: React.FC = () => {
   const [selectedLanguage] = useLang();
   const [countDownTime, setCountDownTime] = useState({
@@ -70,10 +72,10 @@ const CountdownLanding: React.FC = () => {
   return (
     <div className="relative max-w-full py-7 pt-13">
       <div
-        className="absolute inset-0 bg-cover bg-center mx-auto justify-center h-75"
+        className="absolute inset-0 bg-cover bg-center mx-auto justify-center h-90 md:h-75"
         style={{
           backgroundImage: `url(${PhotoBack})`,
-          filter: 'brightness(30%)',
+          filter: 'brightness(25%)',
           // height: '300px',
         }}
       ></div>
@@ -82,7 +84,10 @@ const CountdownLanding: React.FC = () => {
           <span className="text-2xl sm:text-3xl font-semibold text-white text-center tracking-widest uppercase">
             {content[selectedLanguage as string].marathon.until}
           </span>
-          <div className="flex justify-center gap-3 sm:gap-8">
+          <span className="text-xl sm:text-xl px-2 font-semibold text-white text-center tracking-widest uppercase">
+            {content[selectedLanguage as string].marathon.miss}
+          </span>
+          {/* <div className="flex justify-center gap-3 sm:gap-8">
             {['days', 'hours', 'minutes', 'seconds'].map((unit, index) => (
               <div key={index} className="flex flex-col gap-5 relative">
                 <div className="h-16 w-16 sm:w-32 sm:h-32 lg:w-20 lg:h-20 flex justify-between items-center bg-[#343650] rounded-lg">
@@ -99,6 +104,17 @@ const CountdownLanding: React.FC = () => {
                 </span>
               </div>
             ))}
+          </div> */}
+          <div className="">
+            <NavLink
+              to="/auth/signup"
+              className="flex flex-row items-center bg-fuchsia-800 text-md md:text-xl text-white px-6 py-3 uppercase rounded-xl hover:bg-fuchsia-900"
+            >
+              {content[selectedLanguage as string].marathon.register}
+              <span className="ms-2">
+                <PiSignInBold />
+              </span>
+            </NavLink>
           </div>
         </div>
       </div>

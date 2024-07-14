@@ -94,6 +94,8 @@ type Content = {
     };
     marathon: {
       until: string;
+      miss: string;
+      register: string;
     };
     video: {
       team: string;
@@ -210,7 +212,9 @@ const content: Content = {
       part: 'Our Partners',
     },
     marathon: {
-      until: 'Until the marathon',
+      until: 'The marathon has begun!',
+      miss: `Don't miss the opportunity. Click register Button`,
+      register: 'Register now',
     },
     video: {
       team: 'Educore Team',
@@ -323,7 +327,9 @@ const content: Content = {
       part: 'Bizning hamkorlarimiz',
     },
     marathon: {
-      until: 'Marafongacha',
+      until: 'Marafon boshlandi!',
+      miss: 'Imkoniyatingizni qo`ldan boy bermang. Ro`yhatdan o`tish tugmasini bosing',
+      register: 'Hoziroq roʻyxatdan oʻting',
     },
     video: {
       team: 'Educore Jamoasi',
@@ -437,7 +443,9 @@ const content: Content = {
       part: 'Наши партнеры',
     },
     marathon: {
-      until: 'До марафона',
+      until: 'Марафон начался!',
+      miss: 'Не упустите возможность. Нажмите кнопку регистрации',
+      register: 'Зарегистрироваться',
     },
     video: {
       team: 'Команда Educore',
