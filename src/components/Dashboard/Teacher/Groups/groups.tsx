@@ -51,7 +51,7 @@ export default function AllGroupsListTeacher() {
           </h2>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg">
-          <h2 className="text-left uppercase text-center font-bold text-xl text-gray-900 dark:text-gray-100 mb-10">
+          <h2 className="text-left text-center font-bold text-xl text-gray-900 dark:text-gray-100 mb-10">
             Select one course to see your groups
           </h2>
           <div className="grid lg:grid-cols-3 gap-8">
@@ -81,9 +81,22 @@ export default function AllGroupsListTeacher() {
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-700 dark:text-gray-200 col-span-full">
-                User doesn't have any courses
-              </p>
+              <div className="flex justify-center items-center w-full col-span-full">
+                <div className="bg-white p-6 rounded-lg shadow-md w-full text-center">
+                  <p className="text-xl font-medium text-gray-700 dark:text-white">
+                    You have no courses
+                  </p>
+                  <p className="text-xl font-medium text-gray-700 dark:text-white mt-3">
+                    If you want to add first your course,{' '}
+                    <NavLink
+                      to="/dashboard/teacher/my/courses"
+                      className="text-primary"
+                    >
+                      click here
+                    </NavLink>
+                  </p>
+                </div>
+              </div>
             )}
           </div>
         </div>

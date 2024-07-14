@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from '@material-tailwind/react';
 import { NavLink } from 'react-router-dom';
 import backurl from '../../../../links';
-
 import { BsFillPeopleFill } from 'react-icons/bs';
 
 const AllStudentListTeacher = () => {
   const [courses, setCourses] = useState([]);
-
   const token = localStorage.getItem('TOKEN');
 
   useEffect(() => {
@@ -28,11 +19,7 @@ const AllStudentListTeacher = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
         const reversed = data.Data.reverse();
-
-        // console.log(reversed);
-
         setCourses(reversed);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -40,42 +27,57 @@ const AllStudentListTeacher = () => {
     };
 
     fetchData();
-  }, []);
+  }, [token]);
 
   return (
     <>
-      <div className="right-0 top-0 mb-10 mx-auto">
-        <h2 className="text-3xl mb-5 dark:text-white text-center font-bold">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl mb-5 font-bold dark:text-white">
           All <span className="underline">Students</span> List
         </h2>
       </div>
-      <div className="bg-gray-100 my-20">
-        <h2 className="text-left uppercase font-bold text-xl text-center dark:text-white">
+      <div className="bg-gray-100 py-20">
+        <h2 className="text-xl font-bold text-center uppercase mb-5 dark:text-white">
           Select one group to see your students
         </h2>
-        <div className="mt-2 grid lg:grid-cols-3">
-          {courses && courses
-            ? courses.map((e: any) => (
-                <div
-                  className="my-10 mx-4 dark:bg-strokedark dark:text-white  block p-4 bg-white rounded-xl border-2 border-stone-100 shadow-xl hover:shadow-2xl"
-                  key={e.group_id}
+        <div className="container mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+          {courses.length > 0 ? (
+            courses.map((group) => (
+              <div
+                key={group.group_id}
+                className="bg-white dark:bg-strokedark dark:text-white rounded-xl shadow-xl hover:shadow-2xl p-6"
+              >
+                <h2 className="text-xl font-bold mb-4">{group.g_name}</h2>
+                <p className="text-sm text-gray-700 mb-4">
+                  Lesson time: {group.subj_start} - {group.subj_end}
+                </p>
+                <NavLink
+                  to={`/dashboard/teacher/group/students/${group.group_id}`}
+                  className="flex items-center bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-800 transition duration-300"
                 >
-                  <h2 className="text-2xl mt-5 font-bold">{e.g_name}</h2>
-                  <h2 className="text-lg mt-5">
-                    {e.subj_start} - {e.subj_end}
-                  </h2>
+                  <BsFillPeopleFill className="text-xl mr-2" />
+                  See all students
+                </NavLink>
+              </div>
+            ))
+          ) : (
+            <div className="flex justify-center items-center w-full col-span-full">
+              <div className="bg-white p-6 rounded-lg shadow-md w-full text-center">
+                <p className="text-xl font-medium text-gray-700 dark:text-white">
+                  You have no groups
+                </p>
+                <p className="text-xl font-medium text-gray-700 dark:text-white mt-3">
+                  If you want to add first your group,{' '}
                   <NavLink
-                    to={`/dashboard/teacher/group/students/${e.group_id}`}
-                    className="flex w-45 items-center bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-800 mt-5 inline-block"
+                    to="/dashboard/teacher/my/groups"
+                    className="text-primary"
                   >
-                    <span className="me-2">
-                      <BsFillPeopleFill />
-                    </span>
-                    See all students
+                    click here
                   </NavLink>
-                </div>
-              ))
-            : "user don't have any courses"}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
