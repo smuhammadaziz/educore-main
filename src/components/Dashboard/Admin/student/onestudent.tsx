@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 import backurl from '../../../../links';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import moment from 'moment';
 
@@ -39,6 +39,25 @@ function OneStudentGetAdmin() {
       ? `${backurl}upload/${student.img}`
       : 'https://via.placeholder.com/200';
   };
+
+  async function deleteItem() {
+    try {
+      const response = await fetch(
+        `${backurl}/api/admin/delete/student/${user_id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      if (!response.ok) {
+        throw new Error('Failed to delete blog');
+      }
+    } catch (error) {
+      console.error('Error deleting blog:', error);
+    }
+  }
 
   return (
     <DefaultLayoutAdmin>
@@ -131,6 +150,16 @@ function OneStudentGetAdmin() {
             <h2 className="text-xl font-bold">Username Tg:</h2>
             <p>{student.username_tg || 'No data'}</p>
           </div>
+        </div>
+
+        <div>
+          <NavLink
+            onClick={deleteItem}
+            to="/dashboard/students"
+            className="bg-red-700 px-6 py-3 text-lg rounded hover:bg-red-800 text-white"
+          >
+            Delete this student
+          </NavLink>
         </div>
       </div>
     </DefaultLayoutAdmin>
