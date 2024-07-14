@@ -57,7 +57,7 @@ function GetMyAllHomeworksStudent() {
           <div className="flex justify-center items-center w-full col-span-full">
             <div className="bg-white p-6 rounded-lg shadow-md w-full text-center">
               <p className="text-xl font-medium text-gray-700 dark:text-white">
-                You have no homeoworks yet.
+                You have no homeworks yet.
               </p>
               <p className="text-xl font-medium text-gray-700 dark:text-white mt-3">
                 {' '}
