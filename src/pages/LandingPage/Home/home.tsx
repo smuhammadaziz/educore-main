@@ -11,7 +11,7 @@ import Blogs from '../../../components/LandingPage/Blogs/blogs';
 import CountdownLanding from '../../../components/LandingPage/countdown/count';
 import VideoComponentHome from '../../../components/LandingPage/Video/video';
 
-import welcome from '../../../images/task/modern-welcome-composition-with-gradient-style.png';
+import welcome from '../../../images/task/11235579_10808.jpg';
 import { NavLink } from 'react-router-dom';
 
 import content from '../../../localization/content';
