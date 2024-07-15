@@ -49,10 +49,10 @@ function Home() {
             className="mx-auto w-3/4 md:w-2/4 lg:w-2/4 mb-6"
           />
           <h2 className="text-2xl md:text-4xl font-medium font-mono mb-6 ">
-            {content[selectedLanguage as string].sodiq.enrol}
+            {content[selectedLanguage as string].marathon.until}
           </h2>
           <h2 className="text-xl md:text-xl font-bold mb-4">
-            {content[selectedLanguage as string].sodiq.today}
+            {content[selectedLanguage as string].marathon.miss}
           </h2>
           <div className="flex flex-col md:flex-row md:justify-center gap-4 mb-6">
             <NavLink
