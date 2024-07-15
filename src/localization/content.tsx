@@ -102,6 +102,10 @@ type Content = {
       text: string;
       watch: string;
     };
+    sodiq: {
+      enrol: string;
+      today: string;
+    };
   };
 };
 
@@ -221,6 +225,11 @@ const content: Content = {
       text: 'How to Register and Buy your first course?',
       watch: 'watch video',
     },
+    sodiq: {
+      enrol: 'Enroll Now for SAT Prep at Sodiq Academy!',
+      today:
+        'Enroll today at Sodiq Academy for comprehensive SAT prep courses.',
+    },
   },
   uz: {
     header: {
@@ -335,6 +344,11 @@ const content: Content = {
       team: 'Educore Jamoasi',
       text: 'Qanday qilib ro`yxatdan o`tish va birinchi kursni sotib olish mumkin?',
       watch: 'Videoni ko`rish',
+    },
+    sodiq: {
+      enrol: 'Sodiq Akademiyasida SATga hoziroq yoziling!',
+      today:
+        'Bugunoq Sodiq Akademiyasida keng qamrovli SAT tayyorlov kurslariga yoziling.',
     },
   },
   ru: {
@@ -451,6 +465,11 @@ const content: Content = {
       team: 'Команда Educore',
       text: 'Как зарегистрироваться и купить свой первый курс?',
       watch: 'Смотреть видео',
+    },
+    sodiq: {
+      enrol: 'Запишитесь сейчас на подготовку к SAT в Sodiq Academy!',
+      today:
+        'Запишитесь сегодня в Sodiq Academy на комплексные курсы подготовки к SAT.',
     },
   },
 };
