@@ -195,7 +195,7 @@ const SignUp: React.FC = () => {
                     </label>
                     <div className="relative">
                       <input
-                        type="password"
+                        type="text"
                         value={tgusername}
                         onChange={(e) => setTgUsername(e.target.value)}
                         placeholder={content[selectedLang as string].log.pass}
