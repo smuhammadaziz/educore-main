@@ -31,7 +31,7 @@ function Home() {
 
   return (
     <div className="landing-home">
-      <ReactModal
+      {/* <ReactModal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         className="fixed inset-0 flex items-center justify-center p-4"
@@ -64,7 +64,7 @@ function Home() {
             </NavLink>
           </div>
         </div>
-      </ReactModal>
+      </ReactModal> */}
 
       <header className="z-50">
         <Header />
