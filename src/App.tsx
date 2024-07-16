@@ -106,6 +106,7 @@ import OneMarathonLessonStudent from './components/Dashboard/Student/marathon/on
 import EditMarathonLessonTeacher from './components/Dashboard/Teacher/Marathon/editLesson';
 import InboxForTeachers from './components/Dashboard/Teacher/Inbox/inbox';
 import OneInboxForTeacher from './components/Dashboard/Teacher/Inbox/oneInbox';
+import TeacherPasswordChange from './pages/Role/Teacher/password';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -998,6 +999,17 @@ function App() {
             <>
               <PageTitle title="Profile | Educore" />
               <ProfileStudent />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/teacher/change/password/:profile_id"
+          element={
+            <>
+              <PageTitle title="Profile | Educore" />
+              <TeacherPasswordChange />
             </>
           }
         />
