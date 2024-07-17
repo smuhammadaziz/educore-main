@@ -14,6 +14,7 @@ import backurl from '../../links';
 import { CgProfile } from 'react-icons/cg';
 import { RiSettings4Fill } from 'react-icons/ri';
 import { CiLogout } from 'react-icons/ci';
+import { HiLockClosed } from 'react-icons/hi';
 
 const DropdownUserForStudent = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -165,6 +166,17 @@ const DropdownUserForStudent = () => {
             <RiSettings4Fill size={25} />
           </span>
           Settings
+        </NavLink>
+        <NavLink
+          to={`/dashboard/student/change/password/${
+            datas ? datas?.Profil.user_id : 'admin'
+          }`}
+          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+        >
+          <span>
+            <HiLockClosed size={25} />
+          </span>
+          Change Password
         </NavLink>
         <button
           onClick={handleLogout}

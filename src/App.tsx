@@ -107,6 +107,7 @@ import EditMarathonLessonTeacher from './components/Dashboard/Teacher/Marathon/e
 import InboxForTeachers from './components/Dashboard/Teacher/Inbox/inbox';
 import OneInboxForTeacher from './components/Dashboard/Teacher/Inbox/oneInbox';
 import TeacherPasswordChange from './pages/Role/Teacher/password';
+import StudentPasswordChange from './pages/Role/Student/password';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -1010,6 +1011,15 @@ function App() {
             <>
               <PageTitle title="Profile | Educore" />
               <TeacherPasswordChange />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/change/password/:profile_id"
+          element={
+            <>
+              <PageTitle title="Profile | Educore" />
+              <StudentPasswordChange />
             </>
           }
         />
