@@ -1,19 +1,42 @@
 import { useEffect, useState } from 'react';
 import { Dialog, Popover } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { NavLink } from 'react-router-dom';
 
 import Logo from '../../../images/logo/logo-1.svg';
 import LogoIcon from '../../../images/logo/logo-icon-1.svg';
-
-import { NavLink } from 'react-router-dom';
 
 import useLang from '../../../hooks/useLang';
 import content from '../../../localization/content';
 import backurl from '../../../links';
 
+import { jwtDecode } from 'jwt-decode';
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useLang();
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('TOKEN');
+    if (token) {
+      const decodedToken: { role: string } = jwtDecode(token);
+      setRole(decodedToken.role);
+    }
+  }, []);
+
+  const getDashboardLink = () => {
+    switch (role) {
+      case 'admin':
+        return '/dashboard/admin';
+      case 'student':
+        return '/dashboard/student';
+      case 'teacher':
+        return '/dashboard/teacher';
+      default:
+        return '/';
+    }
+  };
 
   return (
     <header className="bg-white">
@@ -39,19 +62,19 @@ export default function Header() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <NavLink
             to="/about/us"
-            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline "
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline"
           >
             {content[selectedLanguage as string].header.about}
           </NavLink>
           <NavLink
             to="/all/courses"
-            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline "
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline"
           >
             {content[selectedLanguage as string].header.courses}
           </NavLink>
           <NavLink
             to="/all/blogs"
-            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline "
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline"
           >
             {content[selectedLanguage as string].header.blogs}
           </NavLink>
@@ -74,18 +97,29 @@ export default function Header() {
               {content[selectedLanguage as string].header.russian}
             </option>
           </select>
-          <NavLink
-            to="/auth/signin"
-            className="text-md font-semibold leading-6 text-gray-900 hover:underline"
-          >
-            {content[selectedLanguage as string].header.login}
-          </NavLink>
-          <NavLink
-            to="/auth/signup"
-            className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-fuchsia-800 text-white px-5 py-2 rounded-full hover:bg-fuchsia-950 active:bg-fuchsia-500 focus:outline-none focus:ring focus:ring-violet-300"
-          >
-            {content[selectedLanguage as string].header.register}
-          </NavLink>
+          {role ? (
+            <NavLink
+              to={getDashboardLink()}
+              className="text-md border-2 py-2 px-3 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
+            >
+              Go to Dashboard
+            </NavLink>
+          ) : (
+            <>
+              <NavLink
+                to="/auth/signin"
+                className="text-md font-semibold leading-6 text-gray-900 hover:underline"
+              >
+                {content[selectedLanguage as string].header.login}
+              </NavLink>
+              <NavLink
+                to="/auth/signup"
+                className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-fuchsia-800 text-white px-5 py-2 rounded-full hover:bg-fuchsia-950 active:bg-fuchsia-500 focus:outline-none focus:ring focus:ring-violet-300"
+              >
+                {content[selectedLanguage as string].header.register}
+              </NavLink>
+            </>
+          )}
         </div>
       </nav>
       <Dialog
@@ -155,18 +189,29 @@ export default function Header() {
                   </option>
                 </select>
                 <div className="mt-10">
-                  <NavLink
-                    to="/auth/signin"
-                    className="text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    {content[selectedLanguage as string].header.login}
-                  </NavLink>
-                  <NavLink
-                    to="/auth/signup"
-                    className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-fuchsia-800 text-white px-5 py-2 rounded-full hover:bg-fuchsia-950 active:bg-fuchsia-500 focus:outline-none focus:ring focus:ring-violet-300"
-                  >
-                    {content[selectedLanguage as string].header.register}
-                  </NavLink>
+                  {role ? (
+                    <NavLink
+                      to={getDashboardLink()}
+                      className="text-md border-2 py-2 px-3 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
+                    >
+                      Go to Dashboard
+                    </NavLink>
+                  ) : (
+                    <>
+                      <NavLink
+                        to="/auth/signin"
+                        className="text-sm font-semibold leading-6 text-gray-900"
+                      >
+                        {content[selectedLanguage as string].header.login}
+                      </NavLink>
+                      <NavLink
+                        to="/auth/signup"
+                        className="ms-3 text-sm font-semibold leading-6 text-gray-900 primary bg-fuchsia-800 text-white px-5 py-2 rounded-full hover:bg-fuchsia-950 active:bg-fuchsia-500 focus:outline-none focus:ring focus:ring-violet-300"
+                      >
+                        {content[selectedLanguage as string].header.register}
+                      </NavLink>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
