@@ -35,6 +35,9 @@ const SignIn: React.FC = () => {
       const response = await fetch(`${backurl}/api/login`, {
         method: 'POST',
         body: formData,
+        // headers: {
+        //   // 'Content-Type': 'application/json',
+        // },
       });
 
       if (response.ok) {

@@ -98,12 +98,12 @@ export default function Header() {
             </option>
           </select>
           {role ? (
-            <NavLink
-              to={getDashboardLink()}
+            <a
+              href={getDashboardLink()}
               className="text-md border-2 py-2 px-5 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
             >
               {content[selectedLanguage as string].header.go}
-            </NavLink>
+            </a>
           ) : (
             <>
               <NavLink
@@ -190,12 +190,12 @@ export default function Header() {
                 </select>
                 <div className="mt-10">
                   {role ? (
-                    <NavLink
-                      to={getDashboardLink()}
+                    <a
+                      href={getDashboardLink()}
                       className="text-md border-2 py-2 px-5 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
                     >
                       {content[selectedLanguage as string].header.go}
-                    </NavLink>
+                    </a>
                   ) : (
                     <>
                       <NavLink
