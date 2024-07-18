@@ -13,6 +13,7 @@ type Content = {
       register: string;
       gotodashboard: string;
       teacher: string;
+      go: string;
     };
     intro: {
       heading: JSX.Element;
@@ -122,6 +123,7 @@ const content: Content = {
       register: 'Register Now',
       gotodashboard: 'Go to dashboard →',
       teacher: 'For teachers',
+      go: 'Go to Dashboard',
     },
     intro: {
       heading: (
@@ -243,6 +245,7 @@ const content: Content = {
       register: 'Ro`yhatdan o`tish',
       gotodashboard: 'Dashboardga o`tish →',
       teacher: 'Ustozlar uchun',
+      go: 'Kirish',
     },
     intro: {
       heading: (
@@ -363,6 +366,7 @@ const content: Content = {
       register: 'Зарегистрироваться',
       gotodashboard: 'Перейти к dashboard →',
       teacher: 'Для учителей',
+      go: 'Войти',
     },
     intro: {
       heading: (

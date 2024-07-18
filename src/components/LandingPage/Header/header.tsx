@@ -100,9 +100,9 @@ export default function Header() {
           {role ? (
             <NavLink
               to={getDashboardLink()}
-              className="text-md border-2 py-2 px-3 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
+              className="text-md border-2 py-2 px-5 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
             >
-              Go to Dashboard
+              {content[selectedLanguage as string].header.go}
             </NavLink>
           ) : (
             <>
@@ -192,9 +192,9 @@ export default function Header() {
                   {role ? (
                     <NavLink
                       to={getDashboardLink()}
-                      className="text-md border-2 py-2 px-3 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
+                      className="text-md border-2 py-2 px-5 border-fuchsia-900 text-fuchsia-950 rounded-xl font-semibold leading-6 text-gray-900 hover:bg-fuchsia-900 hover:text-white transition duration-300"
                     >
-                      Go to Dashboard
+                      {content[selectedLanguage as string].header.go}
                     </NavLink>
                   ) : (
                     <>
