@@ -35,12 +35,14 @@ function CourseCategoryHome() {
     fetchCourses();
   }, []);
 
-  const filterCourses = (courses, category) => {
-    const filtered = courses.filter((course) => course.subject === category);
+  const filterCourses = (courses: any, category: any) => {
+    const filtered = courses.filter(
+      (course: any) => course.subject === category,
+    );
     setFilteredData(filtered);
   };
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: any) => {
     setSelectedCategory(category);
     filterCourses(data, category);
   };
@@ -71,7 +73,7 @@ function CourseCategoryHome() {
           ))}
         </div>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-          {filteredData.map((course) => (
+          {filteredData.map((course: any) => (
             <NavLink
               to={`/all/courses/${course.course_id}`}
               key={course.course_id}
