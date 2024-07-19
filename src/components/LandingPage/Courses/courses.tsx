@@ -59,11 +59,11 @@ export default function Courses() {
               key={product.course_id}
               className="hover:shadow-2xl p-4 shadow-lg rounded border border-stroke"
             >
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
                 <img
                   src={`${backurl}upload/${product.image}`}
                   alt={product.imageAlt}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  className="h-full w-full object-cover object-top lg:h-60 lg:w-60"
                 />
               </div>
               <div className="mt-4 flex justify-between">
