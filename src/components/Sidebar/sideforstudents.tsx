@@ -86,7 +86,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
         const userId = data.Profil.user_id;
 
-        // console.log(userId);
+        // console.log(data);
 
         setProfileData(userId);
       } catch (error) {

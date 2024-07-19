@@ -17,6 +17,7 @@ import { NavLink } from 'react-router-dom';
 import content from '../../../localization/content';
 import useLang from '../../../hooks/useLang';
 import OurPartnersLanding from '../../../components/LandingPage/Partner/partner';
+import CourseCategoryHome from '../../../components/LandingPage/CourseCategory/course';
 
 // Set the app element for accessibility
 ReactModal.setAppElement('#root');
@@ -79,6 +80,7 @@ function Home() {
 
       <section>
         <Testimonials />
+        <CourseCategoryHome />
         <Blogs />
         <OurPartnersLanding />
         <ContactForm />
