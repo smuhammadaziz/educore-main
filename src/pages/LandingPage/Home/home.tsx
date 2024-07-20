@@ -75,12 +75,11 @@ function Home() {
         <CountdownLanding />
         <IntroSection />
         <VideoComponentHome />
-        <Courses />
+        <CourseCategoryHome />
       </main>
 
       <section>
         <Testimonials />
-        <CourseCategoryHome />
         <Blogs />
         <OurPartnersLanding />
         <ContactForm />
