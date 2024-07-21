@@ -188,6 +188,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
+                  to="/dashboard/student/quiz"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/student/quiz') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <span>
+                    <RiGroupFill size={20} />
+                  </span>
+                  All Quizes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/dashboard/student/groups"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/student/groups') &&
@@ -243,6 +257,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   My Payments
                 </NavLink>
               </li>
+
               <hr className="my-5" />
               <li>
                 <a

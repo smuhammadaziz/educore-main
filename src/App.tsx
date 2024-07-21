@@ -108,6 +108,8 @@ import InboxForTeachers from './components/Dashboard/Teacher/Inbox/inbox';
 import OneInboxForTeacher from './components/Dashboard/Teacher/Inbox/oneInbox';
 import TeacherPasswordChange from './pages/Role/Teacher/password';
 import StudentPasswordChange from './pages/Role/Student/password';
+import QuizForStudents from './components/Dashboard/Student/quiz/quiz';
+import QuizForStudentsBusiness from './components/Dashboard/Student/quiz/business';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -118,7 +120,7 @@ function App() {
   }, [pathname]);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
+    setTimeout(() => setLoading(false), 555);
   }, []);
 
   const navigateTo = useNavigate();
@@ -901,6 +903,26 @@ function App() {
             <>
               <PageTitle title="Educore | Marathon" />
               <OneMarathonLessonStudent />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/student/quiz"
+          element={
+            <>
+              <PageTitle title="Educore | Quiz" />
+              <QuizForStudents />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/quiz/business"
+          element={
+            <>
+              <PageTitle title="Educore | Quiz" />
+              <QuizForStudentsBusiness />
             </>
           }
         />
