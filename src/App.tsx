@@ -110,6 +110,7 @@ import TeacherPasswordChange from './pages/Role/Teacher/password';
 import StudentPasswordChange from './pages/Role/Student/password';
 import QuizForStudents from './components/Dashboard/Student/quiz/quiz';
 import QuizForStudentsBusiness from './components/Dashboard/Student/quiz/business';
+import AllQuizAdmin from './components/Dashboard/Admin/Quiz/quiz';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -380,6 +381,15 @@ function App() {
             <>
               <PageTitle title="Marathon | Educore Dashboard" />
               <OneMarathonAdmin />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/quiz"
+          element={
+            <>
+              <PageTitle title="Quiz | Educore Dashboard" />
+              <AllQuizAdmin />
             </>
           }
         />

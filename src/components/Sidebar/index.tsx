@@ -13,6 +13,7 @@ import { PiStudentFill } from 'react-icons/pi';
 import { MdCastForEducation } from 'react-icons/md';
 import { BsCashCoin } from 'react-icons/bs';
 import { BsPostcardFill } from 'react-icons/bs';
+import { BsQuestionDiamond } from 'react-icons/bs';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -257,6 +258,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <VscVmRunning size={20} />
                   </span>
                   Marathon
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/quiz"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('/dashboard/quiz') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  {/* <img src={i116} alt="home icon" width="20" height="20" /> */}
+                  <span>
+                    <BsQuestionDiamond size={20} />
+                  </span>
+                  Quiz
                 </NavLink>
               </li>
             </ul>

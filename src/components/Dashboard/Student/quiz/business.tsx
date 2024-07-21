@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import { NavLink } from 'react-router-dom';
 import { TiArrowBack, TiChevronRight, TiChevronLeft } from 'react-icons/ti';
+import backurl from '../../../../links';
 
 const questions = [
   {
@@ -166,6 +167,29 @@ const QuizForStudentsBusiness: React.FC = () => {
     setScore(0);
     setShowResult(false);
     setShuffledQuestions(getShuffledQuestions());
+  };
+
+  const token = localStorage.getItem('TOKEN');
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    // Create a form data object
+    const formData = new FormData();
+
+    try {
+      const response = await fetch(`${backurl}api//quiz/add/`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      console.log(response);
+    } catch (error: any) {
+      console.error('Error submitting the payment', error);
+    }
   };
 
   return (
