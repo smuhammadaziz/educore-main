@@ -5,15 +5,19 @@ import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import { FaQuestion } from 'react-icons/fa';
 
 const subjects = [
-  { name: 'Business', path: '/dashboard/student/quiz/business', count: '10' },
-  { name: 'Biology', path: '/dashboard/quiz/biology', count: '10' },
-  { name: 'Chemistry', path: '/quiz/chemistry', count: '10' },
-  { name: 'Math', path: '/quiz/math', count: '10' },
-  { name: 'Science', path: '/quiz/science', count: '10' },
-  { name: 'English', path: '/quiz/english', count: '10' },
-  { name: 'SAT', path: '/quiz/sat', count: '10' },
-  { name: 'A-level', path: '/quiz/a-level', count: '10' },
-  { name: 'History', path: '/quiz/history', count: '10' },
+  {
+    name: 'SAT (MATH and English)',
+    path: '/dashboard/student/quiz/business',
+    count: '10',
+  },
+  // { name: 'Biology', path: '/dashboard/quiz/biology', count: '10' },
+  // { name: 'Chemistry', path: '/quiz/chemistry', count: '10' },
+  // { name: 'Math', path: '/quiz/math', count: '10' },
+  // { name: 'Science', path: '/quiz/science', count: '10' },
+  // { name: 'English', path: '/quiz/english', count: '10' },
+  // { name: 'SAT', path: '/quiz/sat', count: '10' },
+  // { name: 'A-level', path: '/quiz/a-level', count: '10' },
+  // { name: 'History', path: '/quiz/history', count: '10' },
 ];
 
 const QuizForStudents: React.FC = () => {

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import { NavLink } from 'react-router-dom';
 import { TiArrowBack, TiChevronRight, TiChevronLeft } from 'react-icons/ti';
 
-// Original questions array
 const questions = [
   {
     image: 'https://via.placeholder.com/150',
@@ -162,6 +161,13 @@ const QuizForStudentsBusiness: React.FC = () => {
     setShowResult(true);
   };
 
+  const handleRetryQuiz = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setShuffledQuestions(getShuffledQuestions());
+  };
+
   return (
     <DefaultLayoutStudent>
       <div className="container mx-auto p-4 w-2/3">
@@ -184,6 +190,12 @@ const QuizForStudentsBusiness: React.FC = () => {
             <p className="text-lg">
               Percentage: {(score / shuffledQuestions.length) * 100}%
             </p>
+            <button
+              onClick={handleRetryQuiz}
+              className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
+            >
+              Retry Test
+            </button>
           </div>
         ) : (
           <div>
