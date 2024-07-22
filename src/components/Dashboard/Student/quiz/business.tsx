@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import { NavLink } from 'react-router-dom';
 import { TiArrowBack, TiChevronRight, TiChevronLeft } from 'react-icons/ti';
@@ -108,7 +108,6 @@ Oswald chose to employ iambic pentameter in her free-flowing lyrical expression 
 
   // Add more questions here
 ];
-
 // Function to shuffle an array
 const shuffleArray = (array: any[]) => {
   return array.sort(() => Math.random() - 0.5);
@@ -129,6 +128,8 @@ const QuizForStudentsBusiness: React.FC = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState<any[]>(
     getShuffledQuestions(),
   );
+  const [finished, setFinished] = useState(false);
+  const [Nfinished, setNfinished] = useState(false);
 
   const token = localStorage.getItem('TOKEN');
 
@@ -152,7 +153,7 @@ const QuizForStudentsBusiness: React.FC = () => {
 
       console.log(response);
     } catch (error: any) {
-      console.error('Error submitting the payment', error);
+      console.error('Error submitting the quiz', error);
     }
   };
 
@@ -166,6 +167,7 @@ const QuizForStudentsBusiness: React.FC = () => {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowResult(true);
+      setFinished(true);
     }
   };
 
@@ -175,6 +177,7 @@ const QuizForStudentsBusiness: React.FC = () => {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowResult(true);
+      setFinished(true);
     }
   };
 
@@ -186,6 +189,7 @@ const QuizForStudentsBusiness: React.FC = () => {
 
   const handleFinishQuiz = () => {
     setShowResult(true);
+    setFinished(true);
     handleSubmit(true, false);
   };
 
@@ -194,11 +198,16 @@ const QuizForStudentsBusiness: React.FC = () => {
     setScore(0);
     setShowResult(false);
     setShuffledQuestions(getShuffledQuestions());
+    setFinished(false);
+    setNfinished(false);
   };
 
   useEffect(() => {
     const handleUnload = () => {
-      handleSubmit(false, true);
+      if (!finished) {
+        setNfinished(true);
+        handleSubmit(false, true);
+      }
     };
 
     window.addEventListener('beforeunload', handleUnload);
@@ -206,9 +215,9 @@ const QuizForStudentsBusiness: React.FC = () => {
     return () => {
       window.removeEventListener('beforeunload', handleUnload);
     };
-  }, []);
+  }, [finished]);
 
-  // console.log(score);
+  console.log(score);
 
   return (
     <DefaultLayoutStudent>
@@ -286,7 +295,7 @@ const QuizForStudentsBusiness: React.FC = () => {
                 Previous
               </button>
               <button
-                onClick={() => handleFinishQuiz()}
+                onClick={handleFinishQuiz}
                 className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700"
               >
                 Finish Now
