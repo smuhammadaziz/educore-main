@@ -26,7 +26,7 @@ function AllQuizAdmin() {
 
         const reversed = data.Data.reverse();
 
-        console.log(reversed);
+        // console.log(reversed);
 
         setCourses(reversed);
       } catch (error) {
