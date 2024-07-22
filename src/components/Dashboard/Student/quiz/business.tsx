@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useEffect } from 'react';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 import { NavLink } from 'react-router-dom';
 import { TiArrowBack, TiChevronRight, TiChevronLeft } from 'react-icons/ti';
@@ -130,6 +130,32 @@ const QuizForStudentsBusiness: React.FC = () => {
     getShuffledQuestions(),
   );
 
+  const token = localStorage.getItem('TOKEN');
+
+  const handleSubmit = async (finish: boolean, Nfinished: boolean) => {
+    // Create a form data object
+    const formData = new FormData();
+    formData.append('correct', score.toString());
+    formData.append('incorrect', (shuffledQuestions.length - score).toString());
+    formData.append('finish', finish.toString());
+    formData.append('Nfinished', Nfinished.toString());
+    formData.append('subject', 'SAT (MATH and English)');
+
+    try {
+      const response = await fetch(`${backurl}api/quiz/add/`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      console.log(response);
+    } catch (error: any) {
+      console.error('Error submitting the payment', error);
+    }
+  };
+
   const handleAnswerOptionClick = (option: string) => {
     if (option === shuffledQuestions[currentQuestion].answer) {
       setScore(score + 1);
@@ -160,6 +186,7 @@ const QuizForStudentsBusiness: React.FC = () => {
 
   const handleFinishQuiz = () => {
     setShowResult(true);
+    handleSubmit(true, false);
   };
 
   const handleRetryQuiz = () => {
@@ -169,28 +196,19 @@ const QuizForStudentsBusiness: React.FC = () => {
     setShuffledQuestions(getShuffledQuestions());
   };
 
-  const token = localStorage.getItem('TOKEN');
+  useEffect(() => {
+    const handleUnload = () => {
+      handleSubmit(false, true);
+    };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+    window.addEventListener('beforeunload', handleUnload);
 
-    // Create a form data object
-    const formData = new FormData();
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload);
+    };
+  }, []);
 
-    try {
-      const response = await fetch(`${backurl}api//quiz/add/`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
-
-      console.log(response);
-    } catch (error: any) {
-      console.error('Error submitting the payment', error);
-    }
-  };
+  // console.log(score);
 
   return (
     <DefaultLayoutStudent>
@@ -268,7 +286,7 @@ const QuizForStudentsBusiness: React.FC = () => {
                 Previous
               </button>
               <button
-                onClick={handleFinishQuiz}
+                onClick={() => handleFinishQuiz()}
                 className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700"
               >
                 Finish Now
