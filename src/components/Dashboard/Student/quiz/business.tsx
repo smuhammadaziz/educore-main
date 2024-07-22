@@ -138,8 +138,8 @@ const QuizForStudentsBusiness: React.FC = () => {
     const formData = new FormData();
     formData.append('correct', score.toString());
     formData.append('incorrect', (shuffledQuestions.length - score).toString());
-    formData.append('finish', finish.toString());
-    formData.append('Nfinished', Nfinished.toString());
+    formData.append('finish', finish);
+    formData.append('Nfinished', Nfinished);
     formData.append('subject', 'SAT (MATH and English)');
 
     try {
@@ -217,7 +217,7 @@ const QuizForStudentsBusiness: React.FC = () => {
     };
   }, [finished]);
 
-  console.log(score);
+  // console.log(score);
 
   return (
     <DefaultLayoutStudent>
