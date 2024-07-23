@@ -20,8 +20,16 @@ const subjects = [
     path: '/dashboard/student/quiz/chemistry',
     count: '10',
   },
-  // { name: 'Math', path: '/quiz/math', count: '10' },
-  // { name: 'Science', path: '/quiz/science', count: '10' },
+  {
+    name: 'A-LEVEL ECONOMICS',
+    path: '/dashboard/student/quiz/economics',
+    count: '10',
+  },
+  {
+    name: 'A-LEVEL PHYSICS',
+    path: '/dashboard/student/quiz/physics',
+    count: '10',
+  },
   // { name: 'English', path: '/quiz/english', count: '10' },
   // { name: 'SAT', path: '/quiz/sat', count: '10' },
   // { name: 'A-level', path: '/quiz/a-level', count: '10' },

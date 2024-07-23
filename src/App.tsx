@@ -113,6 +113,8 @@ import QuizForStudentsBusiness from './components/Dashboard/Student/quiz/busines
 import AllQuizAdmin from './components/Dashboard/Admin/Quiz/quiz';
 import QuizForBiologyStudent from './components/Dashboard/Student/quiz/biology';
 import QuizForChemistryStudent from './components/Dashboard/Student/quiz/chemistry';
+import QuizForEconomicsStudent from './components/Dashboard/Student/quiz/ecomomics';
+import QuizForPHYSICSStudent from './components/Dashboard/Student/quiz/physics';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -953,6 +955,24 @@ function App() {
             <>
               <PageTitle title="Educore | Quiz" />
               <QuizForChemistryStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/quiz/economics"
+          element={
+            <>
+              <PageTitle title="Educore | Quiz" />
+              <QuizForEconomicsStudent />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/student/quiz/physics"
+          element={
+            <>
+              <PageTitle title="Educore | Quiz" />
+              <QuizForPHYSICSStudent />
             </>
           }
         />
