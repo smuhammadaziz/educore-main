@@ -156,12 +156,12 @@ const QuizComponent: React.FC = () => {
               )}
             </div>
           ))}
-          <button
+          {/* <button
             className="w-full bg-red-600 hover:bg-red-800 text-white py-3 rounded-lg shadow-md focus:outline-none transition-all"
             onClick={() => handleSubmit(true, false)}
           >
             Finish Now
-          </button>
+          </button> */}
         </div>
       </div>
     </DefaultLayoutStudent>
