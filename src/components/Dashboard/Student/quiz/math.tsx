@@ -119,9 +119,9 @@ const QuizComponent: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    handleSubmit(true, false);
-  }, []);
+  // useEffect(() => {
+  //   handleSubmit(true, false);
+  // }, []);
 
   return (
     <DefaultLayoutStudent>
