@@ -113,14 +113,14 @@ const QuizComponent: React.FC = () => {
         body: formData,
       });
 
-      console.log(response);
+      // console.log(response);
     } catch (error: any) {
       console.error('Error submitting the quiz', error);
     }
   };
 
   useEffect(() => {
-    handleSubmit(false, true);
+    handleSubmit(true, false);
   }, []);
 
   return (
