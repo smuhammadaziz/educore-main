@@ -6,11 +6,11 @@ import { FaQuestion } from 'react-icons/fa';
 
 const subjects = [
   {
-    name: 'SAT (MATH and English)',
+    name: 'SAT (Math and English)',
     path: '/dashboard/student/quiz/business',
     count: '10',
   },
-  // { name: 'Biology', path: '/dashboard/quiz/biology', count: '10' },
+  { name: 'BIOLOGY', path: '/dashboard/student/quiz/biology', count: '10' },
   // { name: 'Chemistry', path: '/quiz/chemistry', count: '10' },
   // { name: 'Math', path: '/quiz/math', count: '10' },
   // { name: 'Science', path: '/quiz/science', count: '10' },

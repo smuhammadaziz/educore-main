@@ -121,7 +121,7 @@ const getShuffledQuestions = () => {
   }));
 };
 
-const QuizForStudentsBusiness: React.FC = () => {
+const QuizForBiologyStudent: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -140,7 +140,7 @@ const QuizForStudentsBusiness: React.FC = () => {
     formData.append('incorrect', (shuffledQuestions.length - score).toString());
     formData.append('finish', JSON.stringify(finish));
     formData.append('Nfinished', JSON.stringify(Nfinished));
-    formData.append('subject', 'SAT (Math and English)');
+    formData.append('subject', 'SAT (MATH and English)');
 
     try {
       const response = await fetch(`${backurl}api/quiz/add/`, {
@@ -151,7 +151,7 @@ const QuizForStudentsBusiness: React.FC = () => {
         body: formData,
       });
 
-      // console.log(response);
+      console.log(response);
     } catch (error: any) {
       console.error('Error submitting the quiz', error);
     }
@@ -326,4 +326,4 @@ const QuizForStudentsBusiness: React.FC = () => {
   );
 };
 
-export default QuizForStudentsBusiness;
+export default QuizForBiologyStudent;
