@@ -30,7 +30,7 @@ const subjects = [
     path: '/dashboard/student/quiz/physics',
     count: '10',
   },
-  // { name: 'English', path: '/quiz/english', count: '10' },
+  { name: 'A-LEVEL MATH', path: '/dashboard/student/quiz/math', count: '10' },
   // { name: 'SAT', path: '/quiz/sat', count: '10' },
   // { name: 'A-level', path: '/quiz/a-level', count: '10' },
   // { name: 'History', path: '/quiz/history', count: '10' },
