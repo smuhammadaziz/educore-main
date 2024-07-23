@@ -4,37 +4,37 @@ import { NavLink } from 'react-router-dom';
 import { TiArrowBack, TiChevronRight, TiChevronLeft } from 'react-icons/ti';
 import backurl from '../../../../links';
 
-import image1 from '../../../../images/biology/1.png';
-import image2 from '../../../../images/biology/2.png';
-import image3 from '../../../../images/biology/3.png';
-import image4 from '../../../../images/biology/4.png';
-import image5 from '../../../../images/biology/5.png';
-import image6 from '../../../../images/biology/6.png';
-import image7 from '../../../../images/biology/7.png';
-import image8 from '../../../../images/biology/8.png';
-import image9 from '../../../../images/biology/9.png';
-import image10 from '../../../../images/biology/10.png';
+import image1 from '../../../../images/chemistry/1.png';
+import image2 from '../../../../images/chemistry/2.png';
+import image3 from '../../../../images/chemistry/3.png';
+import image4 from '../../../../images/chemistry/4.png';
+import image5 from '../../../../images/chemistry/5.png';
+import image6 from '../../../../images/chemistry/6.png';
+import image7 from '../../../../images/chemistry/7.png';
+import image8 from '../../../../images/chemistry/8.png';
+import image9 from '../../../../images/chemistry/9.png';
+import image10 from '../../../../images/chemistry/10.png';
 
 const questions = [
   {
     image: image1,
     options: ['A', 'B', 'C', 'D'],
-    answer: 'A',
+    answer: 'B',
   },
   {
     image: image2,
     options: ['A', 'B', 'C', 'D'],
-    answer: 'B',
+    answer: 'A',
   },
   {
     image: image3,
     options: ['A', 'B', 'C', 'D'],
-    answer: `D`,
+    answer: `C`,
   },
   {
     image: image4,
     options: ['A', 'B', 'C', 'D'],
-    answer: `C`,
+    answer: `B`,
   },
   {
     image: image5,
@@ -49,12 +49,12 @@ const questions = [
   {
     image: image7,
     options: ['A', 'B', 'C', 'D'],
-    answer: `D`,
+    answer: `A`,
   },
   {
     image: image8,
     options: ['A', 'B', 'C', 'D'],
-    answer: `C`,
+    answer: `D`,
   },
   {
     image: image9,
@@ -64,7 +64,7 @@ const questions = [
   {
     image: image10,
     options: ['A', 'B', 'C', 'D'],
-    answer: `D`,
+    answer: `B`,
   },
 
   // Add more questions here
@@ -82,7 +82,7 @@ const getShuffledQuestions = () => {
   }));
 };
 
-const QuizForBiologyStudent: React.FC = () => {
+const QuizForChemistryStudent: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -101,7 +101,7 @@ const QuizForBiologyStudent: React.FC = () => {
     formData.append('incorrect', (shuffledQuestions.length - score).toString());
     formData.append('finish', JSON.stringify(finish));
     formData.append('Nfinished', JSON.stringify(Nfinished));
-    formData.append('subject', 'A-LEVEL BIOLOGY');
+    formData.append('subject', 'A-LEVEL CHEMISTRY');
 
     try {
       const response = await fetch(`${backurl}api/quiz/add/`, {
@@ -287,4 +287,4 @@ const QuizForBiologyStudent: React.FC = () => {
   );
 };
 
-export default QuizForBiologyStudent;
+export default QuizForChemistryStudent;

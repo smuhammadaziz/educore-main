@@ -10,8 +10,16 @@ const subjects = [
     path: '/dashboard/student/quiz/business',
     count: '10',
   },
-  { name: 'BIOLOGY', path: '/dashboard/student/quiz/biology', count: '10' },
-  // { name: 'Chemistry', path: '/quiz/chemistry', count: '10' },
+  {
+    name: 'A-LEVEL BIOLOGY',
+    path: '/dashboard/student/quiz/biology',
+    count: '10',
+  },
+  {
+    name: 'A-LEVEL CHEMISTRY',
+    path: '/dashboard/student/quiz/chemistry',
+    count: '10',
+  },
   // { name: 'Math', path: '/quiz/math', count: '10' },
   // { name: 'Science', path: '/quiz/science', count: '10' },
   // { name: 'English', path: '/quiz/english', count: '10' },
