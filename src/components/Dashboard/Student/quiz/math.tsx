@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DefaultLayoutStudent from '../../../../layout/DefaultStudent';
 
 import image1 from '../../../../images/math/1.png';
@@ -22,6 +22,8 @@ import image77 from '../../../../images/math/77.png';
 import image88 from '../../../../images/math/88.png';
 import image99 from '../../../../images/math/99.png';
 import image100 from '../../../../images/math/100.png';
+
+import backurl from '../../../../links';
 
 interface QuizQuestion {
   id: number;
@@ -80,7 +82,6 @@ const quizData: QuizQuestion[] = [
     questionImage: image10,
     answerImage: image100,
   },
-
   // Add more questions here
 ];
 
@@ -92,6 +93,35 @@ const QuizComponent: React.FC = () => {
   const handleToggleAnswer = (id: number) => {
     setShowAnswers((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+
+  const token = localStorage.getItem('TOKEN');
+
+  const handleSubmit = async (finish: boolean, Nfinished: boolean) => {
+    const formData = new FormData();
+    formData.append('correct', '0');
+    formData.append('incorrect', '10');
+    formData.append('finish', JSON.stringify(finish));
+    formData.append('Nfinished', JSON.stringify(Nfinished));
+    formData.append('subject', 'A-LEVEL MATH');
+
+    try {
+      const response = await fetch(`${backurl}api/quiz/add/`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      console.log(response);
+    } catch (error: any) {
+      console.error('Error submitting the quiz', error);
+    }
+  };
+
+  useEffect(() => {
+    handleSubmit(false, true);
+  }, []);
 
   return (
     <DefaultLayoutStudent>
@@ -126,6 +156,12 @@ const QuizComponent: React.FC = () => {
               )}
             </div>
           ))}
+          <button
+            className="w-full bg-red-600 hover:bg-red-800 text-white py-3 rounded-lg shadow-md focus:outline-none transition-all"
+            onClick={() => handleSubmit(true, false)}
+          >
+            Finish Now
+          </button>
         </div>
       </div>
     </DefaultLayoutStudent>
