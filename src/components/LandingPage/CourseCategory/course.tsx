@@ -8,14 +8,7 @@ function CourseCategoryHome() {
   const [filteredData, setFilteredData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('IELTS');
 
-  const categories = [
-    'IELTS',
-    'SAT',
-    'IGCSE',
-    'AS/A-LEVELS',
-    'Advanced Placement',
-    'International Baccalaureate',
-  ];
+  const categories = ['IELTS', 'SAT', 'IGCSE', 'AS/A-LEVELS', 'AP', 'IB'];
 
   useEffect(() => {
     async function fetchCourses() {
