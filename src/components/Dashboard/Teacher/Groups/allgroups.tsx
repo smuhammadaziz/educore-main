@@ -4,8 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import moment from 'moment';
 import backurl from '../../../../links';
 import { MdOutlineAddCircle } from 'react-icons/md';
-import { CgDetailsMore } from 'react-icons/cg';
-import { FaUsers } from 'react-icons/fa'; // Importing an additional icon
+import { FaUsers } from 'react-icons/fa';
 
 function AllGroupViewCourseStudent() {
   const { course_id } = useParams();
@@ -79,11 +78,11 @@ function AllGroupViewCourseStudent() {
             groups.map((group: any) => (
               <div
                 key={group.group_id}
-                className="bg-white rounded-lg shadow-lg flex overflow-hidden transition duration-300 dark:bg-gray-800 dark:text-white"
+                className="bg-white rounded-lg shadow-lg flex flex-col sm:flex-row overflow-hidden transition duration-300 dark:bg-gray-800 dark:text-white"
               >
-                <div className="bg-purple-700 p-6 pe-10 text-white flex flex-col">
+                <div className="bg-purple-700 p-6 text-white flex flex-col sm:w-1/3">
                   <div className="flex flex-col">
-                    <FaUsers className="text-2xl mr-2 mb-3" />{' '}
+                    <FaUsers className="text-2xl mr-2 mb-3" />
                     <div>
                       <div className="text-md uppercase">Group name</div>
                       <div className="text-lg font-bold">{group.g_name}</div>
@@ -97,7 +96,7 @@ function AllGroupViewCourseStudent() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6 flex-grow flex flex-col justify-between">
+                <div className="p-6 flex-grow flex flex-col justify-between sm:w-2/3">
                   <div>
                     <div className="text-md font-medium uppercase">
                       Lesson Info

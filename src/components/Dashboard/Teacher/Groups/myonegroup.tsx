@@ -14,9 +14,6 @@ import { MdDelete } from 'react-icons/md';
 import { MdVideoChat } from 'react-icons/md';
 import { MdAddHomeWork } from 'react-icons/md';
 
-import img1 from '../../../../images/icon/8449776_3907913.svg';
-import img2 from '../../../../images/icon/9649836_7408.svg';
-
 interface Group {
   group_id: number;
   g_name: string;
@@ -87,68 +84,74 @@ function GetOneMyGroupsTeacher() {
           groups.map((group) => (
             <div
               key={group.group_id}
-              className="bg-white dark:bg-strokedark dark:text-white p-6 mb-6 rounded-lg shadow-md"
+              className="bg-white dark:bg-strokedark dark:text-white p-8 mb-6 rounded-lg shadow-md"
             >
               <h2 className="text-center text-2xl text-black dark:text-white mb-4">
-                About the group
+                About the Group
               </h2>
-              <h3 className="flex flex-col text-xl text-gray-700 dark:text-gray-300 mb-2">
-                Group Name{' '}
-                <span className="font-bold text-black">{group.g_name}</span>
-              </h3>
-              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Which days{' '}
-                <span className="font-bold text-black">{group.l_days}</span>
-              </p>
-              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Maximum group size{' '}
-                <span className="font-bold text-black">
-                  {group.user_count} students
-                </span>
-              </p>
-              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Lesson time{' '}
-                <span className="font-bold text-black">
-                  {group.subj_start} - {group.subj_end}
-                </span>
-              </p>
-              <p className="flex flex-col text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
-                Created{' '}
-                <span className="font-bold text-black">
-                  {moment(group.created_at).format('lll')}
-                </span>
-              </p>
+              <div className="flex flex-col md:flex-row justify-between items-center">
+                <div className="md:w-2/3">
+                  <h3 className="text-xl text-gray-700 dark:text-gray-300 mb-2">
+                    Group Name:{' '}
+                    <span className="font-bold text-black">{group.g_name}</span>
+                  </h3>
+                  <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                    Which Days:{' '}
+                    <span className="font-bold text-black">{group.l_days}</span>
+                  </p>
+                  <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                    Maximum Group Size:{' '}
+                    <span className="font-bold text-black">
+                      {group.user_count}
+                      {group.user_count > 1 ? ' students' : ' student'}
+                    </span>
+                  </p>
+                  <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                    Lesson Time:{' '}
+                    <span className="font-bold text-black">
+                      {group.subj_start} - {group.subj_end}
+                    </span>
+                  </p>
+                  <p className="text-md font-medium text-gray-900 dark:text-gray-300 mb-2">
+                    Created:{' '}
+                    <span className="font-bold text-black">
+                      {moment(group.created_at).format('lll')}
+                    </span>
+                  </p>
+                </div>
+                <div className="md:w-1/3 flex justify-end">
+                  <NavLink
+                    to={`/dashboard/teacher/my/groups`}
+                    className="py-2 px-4 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition duration-300"
+                  >
+                    <span className="mr-2">
+                      <RiArrowGoBackFill />
+                    </span>
+                    Go to My Groups
+                  </NavLink>
+                </div>
+              </div>
 
-              <NavLink
-                to="/dashboard/teacher/my/groups"
-                className="flex items-center underline text-blue-700 dark:text-blue-400 mt-5 inline-block"
-              >
-                <span className="me-2">
-                  <RiArrowGoBackFill />
-                </span>
-                Go to my all groups
-              </NavLink>
-
-              <div className="flex text-center flex-col md:flex-row mt-10 gap-5">
+              <div className="flex justify-center mt-10 gap-5">
                 <NavLink
                   onClick={deleteItem}
                   to={`/dashboard/teacher/my/groups`}
-                  className=" flex  justify-center items-center bg-red-700 py-3 px-10 text-white hover:bg-red-800 rounded"
+                  className="flex items-center justify-center bg-red-700 py-3 px-10 text-white hover:bg-red-800 rounded"
                 >
-                  <span className="me-2">
+                  <span className="mr-2">
                     <MdDelete />
                   </span>
-                  Delete group
+                  Delete Group
                 </NavLink>
-                {/* <NavLink
-                  to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
-                  className="justify-center flex items-center bg-green-700 py-3 px-10 text-white hover:bg-green-800 rounded"
+                <NavLink
+                  to={`/dashboard/teacher/my/all/groups/show/lessons/${group.group_id}`}
+                  className="flex items-center justify-center bg-green-700 py-3 px-10 text-white hover:bg-green-800 rounded"
                 >
-                  <span className="me-2">
+                  <span className="mr-2">
                     <MdEdit />
                   </span>
-                  Edit group
-                </NavLink> */}
+                  Edit Group
+                </NavLink>
               </div>
             </div>
           ))
@@ -158,8 +161,8 @@ function GetOneMyGroupsTeacher() {
           </p>
         )}
 
-        <div className="flex flex-col md:flex-row ">
-          <div className="flex flex-col bg-white p-5 shadow-xl hover:shadow-2xl rounded-md dark:bg-strokedark mb-5 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-center gap-10 mt-10">
+          <div className="flex flex-col bg-white p-5 shadow-xl hover:shadow-2xl rounded-md dark:bg-strokedark">
             <span className="mx-auto justify-center inline-block mb-7 pt-10">
               <MdVideoChat size="150" />
             </span>
@@ -167,13 +170,13 @@ function GetOneMyGroupsTeacher() {
               to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
               className="flex items-center bg-blue-700 py-3 px-10 text-white mx-auto hover:bg-blue-900 rounded"
             >
-              <span className="me-2">
+              <span className="mr-2">
                 <MdPlayLesson />
               </span>
               View all lessons
             </NavLink>
           </div>
-          <div className="md:ms-10 flex flex-col bg-white p-5 shadow-xl hover:shadow-2xl rounded-md dark:bg-strokedark">
+          <div className="flex flex-col bg-white p-5 shadow-xl hover:shadow-2xl rounded-md dark:bg-strokedark">
             <span className="mx-auto justify-center inline-block mb-7 pt-10">
               <MdAddHomeWork size="150" />
             </span>
@@ -181,7 +184,7 @@ function GetOneMyGroupsTeacher() {
               to={`/dashboard/teacher/my/all/groups/show/homeworks/${group_id}`}
               className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-900 mx-auto rounded"
             >
-              <span className="me-2">
+              <span className="mr-2">
                 <MdMapsHomeWork />
               </span>
               View all homeworks
