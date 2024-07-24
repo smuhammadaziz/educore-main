@@ -65,15 +65,15 @@ function GetOneMyGroupsTeacher() {
         },
       });
       if (!response.ok) {
-        throw new Error('Failed to delete course');
+        throw new Error('Failed to delete group');
       }
-      toast.success('Successfully deleted course', {
+      toast.success('Successfully deleted group', {
         position: 'top-right',
       });
-      // navigate('/dashboard/courses');
+      // navigate('/dashboard/groups');
     } catch (error) {
-      console.error('Error deleting course:', error);
-      toast.error('Failed to delete course', {
+      console.error('Error deleting group:', error);
+      toast.error('Failed to delete group', {
         position: 'top-right',
       });
     }
