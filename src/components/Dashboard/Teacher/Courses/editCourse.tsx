@@ -235,6 +235,12 @@ function EditCourseTeacher() {
                 >
                   AS/A-LEVELS
                 </option>
+                <option value="AP" className="text-body dark:text-bodydark">
+                  AP
+                </option>
+                <option value="IB" className="text-body dark:text-bodydark">
+                  IB
+                </option>
               </select>
             </div>
             {(main === 'IGCSE' || main === 'AS/A-LEVELS') && (
@@ -292,6 +298,160 @@ function EditCourseTeacher() {
                     className="text-body dark:text-bodydark"
                   >
                     Economics
+                  </option>
+                </select>
+              </div>
+            )}
+            {main === 'IB' && (
+              <div className="my-3">
+                <label className="mb-2.5 block text-black dark:text-white">
+                  Subjects
+                </label>
+                <select
+                  value={sub}
+                  onChange={(e) => setSub(e.target.value)}
+                  className="w-full rounded-xl border border-stroke border-2 bg-white py-4 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
+                >
+                  <option
+                    value=""
+                    disabled
+                    className="text-body dark:text-bodydark"
+                  >
+                    Select Subject
+                  </option>
+                  <option
+                    value="English A Lang & Lit"
+                    className="text-body dark:text-bodydark"
+                  >
+                    English A Lang & Lit
+                  </option>
+                  <option
+                    value="Business Management"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Business Management
+                  </option>
+                  <option
+                    value="Biology"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Biology
+                  </option>
+                  <option
+                    value="Physics"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Physics
+                  </option>
+                  <option
+                    value="Chemistry"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Chemistry
+                  </option>
+                  <option
+                    value="History"
+                    className="text-body dark:text-bodydark"
+                  >
+                    History
+                  </option>
+                  <option
+                    value="Geography"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Geography
+                  </option>
+                  <option
+                    value="Economics"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Economics
+                  </option>
+                  <option
+                    value="Math Analysis and Approaches"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Math Analysis and Approaches
+                  </option>
+                  <option
+                    value="Math Applications and Interpretation"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Math Applications and Interpretation
+                  </option>
+                </select>
+              </div>
+            )}
+            {main === 'AP' && (
+              <div className="my-3">
+                <label className="mb-2.5 block text-black dark:text-white">
+                  Subjects
+                </label>
+                <select
+                  value={sub}
+                  onChange={(e) => setSub(e.target.value)}
+                  className="w-full rounded-xl border border-stroke border-2 bg-white py-4 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
+                >
+                  <option
+                    value=""
+                    disabled
+                    className="text-body dark:text-bodydark"
+                  >
+                    Select Subject
+                  </option>
+                  <option
+                    value="English Language and Composition"
+                    className="text-body dark:text-bodydark"
+                  >
+                    English Language and Composition
+                  </option>
+                  <option
+                    value="United States History"
+                    className="text-body dark:text-bodydark"
+                  >
+                    United States History
+                  </option>
+                  <option
+                    value="English Literature and Composition"
+                    className="text-body dark:text-bodydark"
+                  >
+                    English Literature and Composition
+                  </option>
+                  <option
+                    value="Calculus AB"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Calculus AB
+                  </option>
+                  <option
+                    value="Psychology"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Psychology
+                  </option>
+                  <option
+                    value="Statistics"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Statistics
+                  </option>
+                  <option
+                    value="Biology"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Biology
+                  </option>
+                  <option
+                    value="Chemistry"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Chemistry
+                  </option>
+                  <option
+                    value="World History"
+                    className="text-body dark:text-bodydark"
+                  >
+                    World History
                   </option>
                 </select>
               </div>
