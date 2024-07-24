@@ -1,12 +1,10 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import backurl from '../../../../links';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink, useParams } from 'react-router-dom';
-
-import { MdOutlineAddCircle } from 'react-icons/md';
-import { MdCancel } from 'react-icons/md';
+import { MdOutlineAddCircle, MdCancel } from 'react-icons/md';
 
 function AddNewGroupTeacher() {
   const [name, setName] = useState('');
@@ -16,7 +14,6 @@ function AddNewGroupTeacher() {
   const [time, setTime] = useState('');
 
   const { course_id } = useParams();
-  const [courses, setCourses] = useState([]);
   const token = localStorage.getItem('TOKEN');
 
   const handleCancel = () => {
@@ -52,9 +49,13 @@ function AddNewGroupTeacher() {
         toast.success('Group successfully added', {
           position: 'top-right',
         });
-      }
-
-      if (!response.ok) {
+        // Clear all input fields after successful form submission
+        setName('');
+        setDescription('');
+        setMain('');
+        setCost('');
+        setTime('');
+      } else {
         toast.error(data.message, {
           position: 'top-right',
         });

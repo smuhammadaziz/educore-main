@@ -117,6 +117,12 @@ export default function AllCourses() {
             <option value="IGCSE" className="text-body dark:text-bodydark">
               IGCSE
             </option>
+            <option value="AP" className="text-body dark:text-bodydark">
+              AP
+            </option>
+            <option value="IB" className="text-body dark:text-bodydark">
+              IB
+            </option>
             <option
               value="AS/A-LEVELS"
               className="text-body dark:text-bodydark"
