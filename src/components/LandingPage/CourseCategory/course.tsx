@@ -70,19 +70,21 @@ function CourseCategoryHome() {
             <NavLink
               to={`/all/courses/${course.course_id}`}
               key={course.course_id}
-              className="bg-white p-4 rounded shadow hover:shadow-2xl shadow-fuchsia-200"
+              className="bg-white p-4 rounded shadow hover:shadow-2xl shadow-fuchsia-200 flex flex-col justify-between"
             >
-              <FaGraduationCap
-                className="text-fuchsia-700 text-3xl mb-2"
-                size={50}
-              />
-              <h3 className="text-3xl font-semibold text-black">
-                {course.title}
-              </h3>
-              <p className="text-gray-700 text-black">
-                {course.name} {course.l_name}
-              </p>
-              <p className="text-gray-900 text-2xl font-bold text-black mt-2">
+              <div>
+                <FaGraduationCap
+                  className="text-fuchsia-700 text-3xl mb-2"
+                  size={50}
+                />
+                <h3 className="text-3xl font-semibold text-black">
+                  {course.title}
+                </h3>
+                <p className="text-gray-700 text-black">
+                  {course.name} {course.l_name}
+                </p>
+              </div>
+              <p className="text-gray-900 text-2xl font-bold text-black mt-5">
                 {Number(course.price).toLocaleString('en-US')} UZS
               </p>
             </NavLink>
