@@ -232,12 +232,14 @@ const AllCompanyCourseLanding: React.FC = () => {
               </h2>
             </div>
             <iframe
-              src="https://maps.app.goo.gl/45EJP5iEvp1m15Hk7"
-              title="Yandex Map"
-              width="100%"
-              height="300"
-              frameBorder="0"
-              allowFullScreen
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d47969.87532992214!2d69.2094423!3d41.2845535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae61b7b9e787ff%3A0x3e5e8515afdccb94!2sSodiq%20maktab!5e0!3m2!1sen!2s!4v1721999677106!5m2!1sen!2s"
+              width="600"
+              height="450"
+              // style="border:0;"
+              // allowfullscreen=""
+              loading="lazy"
+              // referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-64 sm:h-96 rounded-lg"
             ></iframe>
           </div>
