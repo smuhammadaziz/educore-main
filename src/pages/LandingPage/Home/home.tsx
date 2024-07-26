@@ -72,7 +72,7 @@ function Home() {
       </header>
 
       <main>
-        <CountdownLanding />
+        {/* <CountdownLanding /> */}
         <IntroSection />
         <VideoComponentHome />
         <CourseCategoryHome />
