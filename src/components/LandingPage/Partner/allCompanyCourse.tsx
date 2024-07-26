@@ -116,7 +116,9 @@ const AllCompanyCourseLanding: React.FC = () => {
                 scrollToSection('teachers');
               }}
               className={`flex items-center px-4 py-3 sm:py-5 uppercase font-medium bg-fuchsia-800 text-white rounded-lg shadow-lg transition-transform transform ${
-                selectedSection === 'teachers' ? 'scale-105' : 'scale-100'
+                (selectedSection as string) === 'teachers'
+                  ? 'scale-105'
+                  : 'scale-100'
               } hover:scale-105`}
             >
               <FaChalkboardTeacher className="mr-2 text-xl sm:text-2xl" />
@@ -128,7 +130,9 @@ const AllCompanyCourseLanding: React.FC = () => {
                 scrollToSection('courses');
               }}
               className={`flex items-center px-4 py-3 sm:py-5 bg-fuchsia-800 uppercase font-medium text-white rounded-lg shadow-lg transition-transform transform ${
-                selectedSection === 'courses' ? 'scale-105' : 'scale-100'
+                (selectedSection as string) === 'courses'
+                  ? 'scale-105'
+                  : 'scale-100'
               } hover:scale-105`}
             >
               <FaBook className="mr-2 text-xl sm:text-2xl" />
@@ -140,7 +144,9 @@ const AllCompanyCourseLanding: React.FC = () => {
                 scrollToSection('contact');
               }}
               className={`flex items-center px-4 py-3 sm:py-5 bg-fuchsia-800 uppercase font-medium text-white rounded-lg shadow-lg transition-transform transform ${
-                selectedSection === 'contact' ? 'scale-105' : 'scale-100'
+                (selectedSection as string) === 'contact'
+                  ? 'scale-105'
+                  : 'scale-100'
               } hover:scale-105`}
             >
               <FaEnvelope className="mr-2 text-xl sm:text-2xl" />
