@@ -116,6 +116,7 @@ import QuizForChemistryStudent from './components/Dashboard/Student/quiz/chemist
 import QuizForEconomicsStudent from './components/Dashboard/Student/quiz/ecomomics';
 import QuizForPHYSICSStudent from './components/Dashboard/Student/quiz/physics';
 import QuizForMathStudent from './components/Dashboard/Student/quiz/math';
+import AllCourseTeacherLanding from './components/LandingPage/Partner/allCoursesTeacher';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -190,7 +191,7 @@ function App() {
           path="/all/courses/:course_id"
           element={
             <>
-              <PageTitle title="Educore | IELTS Course" />
+              <PageTitle title="Educore | Course" />
               <OneCoursePage />
             </>
           }
@@ -217,8 +218,17 @@ function App() {
           path="/all/courses/company/:company_id"
           element={
             <>
-              <PageTitle title="Educore | Blogs " />
+              <PageTitle title="Educore | Company " />
               <AllCompanyCourseLanding />
+            </>
+          }
+        />
+        <Route
+          path="/all/courses/teacher/:user_id"
+          element={
+            <>
+              <PageTitle title="Educore | Courses " />
+              <AllCourseTeacherLanding />
             </>
           }
         />

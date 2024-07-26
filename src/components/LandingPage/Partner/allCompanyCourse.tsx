@@ -8,7 +8,9 @@ import useLang from '../../../hooks/useLang';
 
 import bgimg from '../../../images/sodiq/12logo.png';
 import logo from '../../../images/sodiq/Artboard 17 copy.png';
-import avatar from '../../../images/sodiq/profile-icon-person-user-19.png';
+import avatar from '../../../images/sodiq/demo-user.jpg';
+
+import { FaPhone } from 'react-icons/fa';
 
 function AllCompanyCourseLanding() {
   const [course, setCourses] = useState([]);
@@ -50,7 +52,7 @@ function AllCompanyCourseLanding() {
         }
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         const reversed = data.Company.reverse();
         setAllTeachers(reversed);
@@ -69,16 +71,15 @@ function AllCompanyCourseLanding() {
   const renderContent = () => {
     switch (selectedSection) {
       case 'main':
-        return <div>Main content goes here</div>;
+        return <div>Main Section</div>;
       case 'teachers':
         return (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 mt-10 mx-auto">
             {allTeachers && allTeachers.length > 0
               ? allTeachers.map((product: any) => (
                   <div
-                    // to={`/all/courses/${product.course_id}`}
                     key={product.user_id}
-                    className="group bg-slate-100 p-3 rounded-lg"
+                    className="group bg-slate-100 p-3 py-5 rounded-lg flex flex-col hover:bg-slate-200"
                   >
                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                       <img
@@ -88,12 +89,20 @@ function AllCompanyCourseLanding() {
                             : avatar
                         }
                         alt="course image"
-                        className="w-50 h-50 mx-auto border-4 border-fuchsia-900 object-cover rounded-full"
+                        className="w-50 h-50 mx-auto border-2 border-fuchsia-950 object-cover rounded-full"
                       />
                     </div>
-                    <h3 className="text-xl mt-6 font-bold text-black uppercase">
-                      {product.name} {product.l_name}
-                    </h3>
+                    <div className="flex-grow">
+                      <h3 className="text-2xl mt-6 font-bold text-black uppercase">
+                        {product.name} {product.l_name}
+                      </h3>
+                    </div>
+                    <NavLink
+                      to={`/all/courses/teacher/${product.user_id}`}
+                      className="bg-fuchsia-700 text-white font-medium text-xl py-2 px-4 mt-7 inline-block rounded-lg hover:bg-fuchsia-800"
+                    >
+                      View courses
+                    </NavLink>
                   </div>
                 ))
               : 'No courses available'}
@@ -107,7 +116,7 @@ function AllCompanyCourseLanding() {
                   <NavLink
                     to={`/all/courses/${product.course_id}`}
                     key={product.course_id}
-                    className="group"
+                    className="group bg-slate-100  px-4 py-5 rounded-lg hover:bg-slate-200"
                   >
                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                       <img
@@ -123,7 +132,7 @@ function AllCompanyCourseLanding() {
                       {product.name} {product.l_name}
                     </h3>
 
-                    <p className="mt-5 text-lg font-medium text-gray-900">
+                    <p className="mt-5 text-2xl text-black font-bold">
                       {product.price.toLocaleString('en-US').replace(/,/g, ' ')}{' '}
                       UZS
                     </p>
@@ -133,7 +142,26 @@ function AllCompanyCourseLanding() {
           </div>
         );
       case 'contact':
-        return <div>Contact content goes here</div>;
+        return (
+          <div>
+            <div className="flex items-center mb-4">
+              <FaPhone className="mr-2 text-xl" />
+              <h2 className="text-2xl font-semibold">+998 90 819 22 22</h2>
+            </div>
+
+            <div>
+              <iframe
+                src="https://maps.app.goo.gl/45EJP5iEvp1m15Hk7"
+                title="Yandex Map"
+                width="600"
+                height="450"
+                frameBorder="0"
+                allowFullScreen
+                className="w-full h-96 rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        );
       default:
         return null;
     }
