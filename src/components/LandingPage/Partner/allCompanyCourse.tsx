@@ -11,6 +11,7 @@ import avatar from '../../../images/sodiq/demo-user.jpg';
 
 import { FaChalkboardTeacher, FaBook, FaEnvelope } from 'react-icons/fa';
 import { FaPhone } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 // Define types for course and teacher data
 interface Course {
@@ -57,6 +58,9 @@ const AllCompanyCourseLanding: React.FC = () => {
         }
         const data = await response.json();
         const reversed = data.Company.reverse();
+
+        // console.log(reversed);
+
         setCourses(reversed);
       } catch (error) {
         console.log(error);
@@ -109,48 +113,110 @@ const AllCompanyCourseLanding: React.FC = () => {
     switch (selectedSection) {
       case 'main':
         return (
-          <div className="space-y-10 w-full">
-            <button
-              onClick={() => {
-                setSelectedSection('teachers');
-                scrollToSection('teachers');
-              }}
-              className={`flex items-center px-4 py-3 sm:py-5 uppercase font-medium bg-fuchsia-800 text-white rounded-lg shadow-lg transition-transform transform ${
-                (selectedSection as string) === 'teachers'
-                  ? 'scale-105'
-                  : 'scale-100'
-              } hover:scale-105`}
-            >
-              <FaChalkboardTeacher className="mr-2 text-xl sm:text-2xl" />
-              See All Teachers
-            </button>
-            <button
-              onClick={() => {
-                setSelectedSection('courses');
-                scrollToSection('courses');
-              }}
-              className={`flex items-center px-4 py-3 sm:py-5 bg-fuchsia-800 uppercase font-medium text-white rounded-lg shadow-lg transition-transform transform ${
-                (selectedSection as string) === 'courses'
-                  ? 'scale-105'
-                  : 'scale-100'
-              } hover:scale-105`}
-            >
-              <FaBook className="mr-2 text-xl sm:text-2xl" />
-              See All Courses
-            </button>
+          <div>
+            <h2 className="text-center md:text-left text-medium text-2xl uppercase text-black">
+              Sodiq teachers
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 mt-10 mx-auto">
+              {allTeachers && allTeachers.length > 0
+                ? allTeachers.slice(-3).map((teacher) => (
+                    <div
+                      key={teacher.user_id}
+                      className="flex flex-col sm:flex-row items-center bg-slate-100 p-5 py-4 rounded-lg hover:bg-slate-200"
+                    >
+                      <img
+                        src={
+                          teacher.user_image
+                            ? `${backurl}upload/${teacher.user_image}`
+                            : avatar
+                        }
+                        alt="teacher"
+                        className="w-24 h-24 sm:w-15 sm:h-15 mx-auto border object-cover rounded-full"
+                      />
+                      <h3 className="text-center sm:text-left text-md sm:text-lg font-bold text-black uppercase mt-4 sm:mt-0 sm:ml-4">
+                        {teacher.name} {teacher.l_name}
+                      </h3>
+                    </div>
+                  ))
+                : 'No teachers available'}
+              <div className="w-full flex justify-center items-center mt-6">
+                <button
+                  onClick={() => {
+                    setSelectedSection('teachers');
+                    scrollToSection('teachers');
+                  }}
+                  className="flex flex-row items-center bg-slate-100 hover:scale-105 text-black px-4 py-2 rounded-full hover:bg-slate-300 transition-all duration-300"
+                >
+                  <FaArrowRight className="mr-2" size={20} />
+                  <span className="text-xl inline-block">Show More</span>
+                </button>
+              </div>
+            </div>
+
+            <h2 className="text-center md:text-left text-medium text-2xl uppercase text-black mt-10">
+              Sodiq courses
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 mt-10 mx-auto">
+              {currentCourses && currentCourses.length > 0
+                ? currentCourses.slice(-3).map((teacher) => (
+                    <div
+                      key={teacher.user_id}
+                      className="flex flex-col items-center bg-slate-100 p-5 pt-6 py-4 rounded-lg hover:bg-slate-200"
+                    >
+                      <img
+                        src={
+                          teacher.course_image
+                            ? `${backurl}upload/${teacher.course_image}`
+                            : avatar
+                        }
+                        alt="teacher"
+                        className="w-24 h-24 sm:w-50 sm:h-50 mx-auto rounded-xl"
+                      />
+                      <h3 className="text-center text-md sm:text-lg font-bold text-black uppercase mt-5 mb-2">
+                        {teacher.course_title}
+                      </h3>
+                      <h3 className="text-center text-md sm:text-md font-bold text-black uppercase">
+                        {teacher.name} {teacher.l_name}
+                      </h3>
+                      <p className="mt-2 text-lg sm:text-2xl text-black font-bold">
+                        {teacher.price
+                          .toLocaleString('en-US')
+                          .replace(/,/g, ' ')}{' '}
+                        UZS
+                      </p>
+                    </div>
+                  ))
+                : 'No teachers available'}
+              <div className="w-full flex justify-center items-center mt-6">
+                <button
+                  onClick={() => {
+                    setSelectedSection('courses');
+                    scrollToSection('courses');
+                  }}
+                  className="flex flex-row items-center bg-slate-100 text-black hover:scale-105 px-4 py-2 rounded-full hover:bg-slate-300 transition-all duration-300"
+                >
+                  <FaArrowRight className="mr-2" size={20} />
+                  <span className="text-xl inline-block">Show More</span>
+                </button>
+              </div>
+            </div>
+
+            <h2 className="text-center md:text-left text-medium text-2xl uppercase text-black mt-10">
+              Sodiq contacts
+            </h2>
             <button
               onClick={() => {
                 setSelectedSection('contact');
                 scrollToSection('contact');
               }}
-              className={`flex items-center px-4 py-3 sm:py-5 bg-fuchsia-800 uppercase font-medium text-white rounded-lg shadow-lg transition-transform transform ${
+              className={`flex flex-row mx-auto md:mx-0  items-center sm:flex-row items-center mt-5 px-4 py-3 sm:py-5 bg-slate-100 uppercase font-medium text-black rounded-lg transition-transform transform ${
                 (selectedSection as string) === 'contact'
                   ? 'scale-105'
                   : 'scale-100'
               } hover:scale-105`}
             >
-              <FaEnvelope className="mr-2 text-xl sm:text-2xl" />
-              Contact Information
+              <FaEnvelope className=" me-2 sm:mb-0 sm:mr-2 text-xl sm:text-2xl" />
+              <span>Contact Information</span>
             </button>
           </div>
         );
@@ -240,13 +306,13 @@ const AllCompanyCourseLanding: React.FC = () => {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d47969.87532992214!2d69.2094423!3d41.2845535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae61b7b9e787ff%3A0x3e5e8515afdccb94!2sSodiq%20maktab!5e0!3m2!1sen!2s!4v1721999677106!5m2!1sen!2s"
               width="600"
-              height="450"
+              height="600"
               // style="border:0;"
               // allowfullscreen=""
               loading="lazy"
               // referrerpolicy="no-referrer-when-downgrade"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-64 sm:h-96 rounded-lg"
+              className="w-full h-80 sm:h-100 rounded-lg"
             ></iframe>
           </div>
         );
