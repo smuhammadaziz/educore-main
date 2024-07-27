@@ -14,6 +14,7 @@ type Content = {
       gotodashboard: string;
       teacher: string;
       go: string;
+      partner: string;
     };
     intro: {
       heading: JSX.Element;
@@ -124,6 +125,7 @@ const content: Content = {
       gotodashboard: 'Go to dashboard →',
       teacher: 'For teachers',
       go: 'Go to Dashboard',
+      partner: 'Partners',
     },
     intro: {
       heading: (
@@ -246,6 +248,7 @@ const content: Content = {
       gotodashboard: 'Dashboardga o`tish →',
       teacher: 'Ustozlar uchun',
       go: 'Kirish',
+      partner: 'Hamkorlarimiz',
     },
     intro: {
       heading: (
@@ -367,6 +370,7 @@ const content: Content = {
       gotodashboard: 'Перейти к dashboard →',
       teacher: 'Для учителей',
       go: 'Войти',
+      partner: 'Партнеры',
     },
     intro: {
       heading: (

@@ -117,6 +117,7 @@ import QuizForEconomicsStudent from './components/Dashboard/Student/quiz/ecomomi
 import QuizForPHYSICSStudent from './components/Dashboard/Student/quiz/physics';
 import QuizForMathStudent from './components/Dashboard/Student/quiz/math';
 import AllCourseTeacherLanding from './components/LandingPage/Partner/allCoursesTeacher';
+import AllPartnersLandingPage from './components/LandingPage/Partner/allPartners';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -229,6 +230,15 @@ function App() {
             <>
               <PageTitle title="Educore | Courses " />
               <AllCourseTeacherLanding />
+            </>
+          }
+        />
+        <Route
+          path="/partners"
+          element={
+            <>
+              <PageTitle title="Educore | Partners " />
+              <AllPartnersLandingPage />
             </>
           }
         />

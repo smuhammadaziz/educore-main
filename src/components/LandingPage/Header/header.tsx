@@ -73,6 +73,12 @@ export default function Header() {
             {content[selectedLanguage as string].header.courses}
           </NavLink>
           <NavLink
+            to="/partners"
+            className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline"
+          >
+            {content[selectedLanguage as string].header.partner}
+          </NavLink>
+          <NavLink
             to="/all/blogs"
             className="text-md font-semibold leading-6 text-gray-900 hover:text-black hover:underline"
           >
@@ -162,6 +168,12 @@ export default function Header() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-black"
                 >
                   {content[selectedLanguage as string].header.courses}
+                </NavLink>
+                <NavLink
+                  to="/partners"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-black"
+                >
+                  {content[selectedLanguage as string].header.partner}
                 </NavLink>
                 <NavLink
                   to="/all/blogs"
