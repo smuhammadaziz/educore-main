@@ -7,8 +7,12 @@ import { NavLink } from 'react-router-dom';
 import { TiArrowRightThick } from 'react-icons/ti';
 import { FaPhoneVolume } from 'react-icons/fa6';
 
+import content from '../../../localization/content';
+import useLang from '../../../hooks/useLang';
+
 function AllPartnersLandingPage() {
   const [course, setCourses] = useState([]);
+  const [selectedLand] = useLang();
 
   useEffect(() => {
     async function fetchCourses() {
@@ -36,18 +40,15 @@ function AllPartnersLandingPage() {
       <main className="flex flex-col md:flex-row items-center py-10 md:py-0 w-full container bg-slate-100 justify-center mx-auto">
         <div className="z-10 px-4 md:px-0 flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-3/4 md:pr-8">
-            <h1 className="text-2xl md:text-4xl font-bold text-purple-800 mb-4 leading-tight">
-              Join Our <span className="text-fuchsia-600">Partner Program</span>
-            </h1>
+            <h1>{content[selectedLand as string].company.join}</h1>
             <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
-              Grow your business, add a new revenue stream, and become an expert
-              in the increasingly complex world of real subscriptions.
+              {content[selectedLand as string].company.text}
             </p>
             <button className="flex flex-row items-center bg-fuchsia-800 hover:scale-105 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg font-semibold shadow-md hover:bg-fuchsia-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:ring-opacity-75">
               <span className="me-2">
                 <FaPhoneVolume />
               </span>
-              Contact Us
+              {content[selectedLand as string].company.contact}
             </button>
           </div>
           <div className="md:w-2/3 mt-8 md:mt-0">
@@ -58,7 +59,7 @@ function AllPartnersLandingPage() {
 
       <div className="bg-white py-10 px-7 ">
         <div className="text-black text-center text-lg md:text-2xl uppercase">
-          Our Partners
+          {content[selectedLand as string].company.partner}
         </div>
 
         <div className="container mx-auto">
@@ -83,7 +84,7 @@ function AllPartnersLandingPage() {
                         to={`/all/courses/company/${e.company_id}`}
                         className="flex flex-row items-center mt-3 inline-block bg-slate-100 text-black hover:opacity-50"
                       >
-                        View More
+                        {content[selectedLand as string].company.more}
                         <span className="ms-2">
                           <TiArrowRightThick />
                         </span>

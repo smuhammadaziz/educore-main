@@ -108,6 +108,13 @@ type Content = {
       enrol: string;
       today: string;
     };
+    company: {
+      join: JSX.Element;
+      text: string;
+      contact: string;
+      partner: string;
+      more: string;
+    };
   };
 };
 
@@ -234,6 +241,17 @@ const content: Content = {
       today:
         'Enroll today at Sodiq Academy for comprehensive SAT prep courses.',
     },
+    company: {
+      join: (
+        <h1 className="text-2xl md:text-4xl font-bold text-purple-800 mb-4 leading-tight">
+          Join Our <span className="text-fuchsia-600">Partner Program</span>
+        </h1>
+      ),
+      text: 'Grow your business, add a new revenue stream, and become an expert in the increasingly complex world of real subscriptions.',
+      contact: 'Contact Us',
+      partner: 'Our partners',
+      more: 'View More',
+    },
   },
   uz: {
     header: {
@@ -355,6 +373,18 @@ const content: Content = {
       enrol: 'Sodiq Akademiyasida SATga hoziroq yoziling!',
       today:
         'Bugunoq Sodiq Akademiyasida keng qamrovli SAT tayyorlov kurslariga yoziling.',
+    },
+    company: {
+      join: (
+        <h1 className="text-2xl md:text-4xl font-bold text-purple-800 mb-4 leading-tight">
+          <span className="text-fuchsia-600">Hamkorlik dasturimizga</span>{' '}
+          qo'shiling
+        </h1>
+      ),
+      text: 'Biznesingizni rivojlantiring, yangi daromad oqimi qo`shing va tobora murakkablashib borayotgan haqiqiy obuna olamida mutaxassis bo`ling.',
+      contact: 'Bog`lanish',
+      partner: 'Hamkorlarimiz',
+      more: 'Ko`proq',
     },
   },
   ru: {
@@ -478,6 +508,18 @@ const content: Content = {
       enrol: 'Запишитесь сейчас на подготовку к SAT в Sodiq Academy!',
       today:
         'Запишитесь сегодня в Sodiq Academy на комплексные курсы подготовки к SAT.',
+    },
+    company: {
+      join: (
+        <h1 className="text-2xl md:text-4xl font-bold text-purple-800 mb-4 leading-tight">
+          Присоединяйтесь к нашей{' '}
+          <span className="text-fuchsia-600">партнерской программе</span>
+        </h1>
+      ),
+      text: 'Развивайте свой бизнес, добавляйте новый источник дохода и станьте экспертом во все более сложном мире реальных подписок.',
+      contact: 'Связаться с нами',
+      partner: 'Наши партнеры',
+      more: 'Больше',
     },
   },
 };
