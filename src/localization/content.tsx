@@ -115,6 +115,12 @@ type Content = {
       partner: string;
       more: string;
     };
+    // oneCompany: {
+    //   main: string;
+    //   teachers: string;
+    //   course: string;
+    //   contact: string;
+    // };
   };
 };
 

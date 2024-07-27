@@ -44,12 +44,16 @@ function AllPartnersLandingPage() {
             <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
               {content[selectedLand as string].company.text}
             </p>
-            <button className="flex flex-row items-center bg-fuchsia-800 hover:scale-105 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg font-semibold shadow-md hover:bg-fuchsia-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:ring-opacity-75">
+            <a
+              href="https://t.me/behruzz_14"
+              target="_blank"
+              className="flex flex-row inline-block justify-center w-60 items-center bg-fuchsia-800 hover:scale-105 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg font-semibold shadow-md hover:bg-fuchsia-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:ring-opacity-75"
+            >
               <span className="me-2">
                 <FaPhoneVolume />
               </span>
               {content[selectedLand as string].company.contact}
-            </button>
+            </a>
           </div>
           <div className="md:w-2/3 mt-8 md:mt-0">
             <img src={bgimg} alt="Partners" className="w-full h-auto" />
