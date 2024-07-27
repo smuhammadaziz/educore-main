@@ -45,7 +45,7 @@ function AllCourseTeacherLanding() {
                 <NavLink
                   to={`/all/courses/${product.course_id}`}
                   key={product.course_id}
-                  className="group bg-slate-100 hover:bg-slate-200 rounded-lg p-4"
+                  className="group bg-slate-100 hover:bg-slate-200 rounded-lg p-4 hover:scale-105 transition-transform ease-in-out duration-300"
                 >
                   <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
                     <img

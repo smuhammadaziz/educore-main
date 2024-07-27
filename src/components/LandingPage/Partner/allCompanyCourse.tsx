@@ -158,10 +158,11 @@ const AllCompanyCourseLanding: React.FC = () => {
             </h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 mt-10 mx-auto">
               {currentCourses && currentCourses.length > 0
-                ? currentCourses.slice(-3).map((teacher) => (
-                    <div
+                ? currentCourses.slice(-3).map((teacher: any) => (
+                    <NavLink
+                      to={`/all/courses/${teacher.course_id}`}
                       key={teacher.user_id}
-                      className="flex flex-col items-center bg-slate-100 p-5 pt-6 py-4 rounded-lg hover:bg-slate-200"
+                      className="flex flex-col items-center bg-slate-100 p-5 pt-6 py-4 rounded-lg hover:bg-slate-200 hover:scale-105 transition-transform ease-in-out duration-300"
                     >
                       <img
                         src={
@@ -184,7 +185,7 @@ const AllCompanyCourseLanding: React.FC = () => {
                           .replace(/,/g, ' ')}{' '}
                         UZS
                       </p>
-                    </div>
+                    </NavLink>
                   ))
                 : 'No teachers available'}
               <div className="w-full flex justify-center items-center mt-6">
@@ -270,7 +271,7 @@ const AllCompanyCourseLanding: React.FC = () => {
                   <NavLink
                     to={`/all/courses/${course.course_id}`}
                     key={course.course_id}
-                    className="group bg-slate-100 px-4 py-5 rounded-lg hover:bg-slate-200"
+                    className="group bg-slate-100 px-4 py-5 rounded-lg hover:bg-slate-200 hover:scale-105 transition-transform ease-in-out duration-300"
                   >
                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                       <img
