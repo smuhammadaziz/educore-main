@@ -12,6 +12,9 @@ import avatar from '../../../images/sodiq/demo-user.jpg';
 import { FaChalkboardTeacher, FaBook, FaEnvelope } from 'react-icons/fa';
 import { FaPhone } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
+import { FaTelegram } from 'react-icons/fa6';
+import { FaInstagram } from 'react-icons/fa';
+import { GrInstagram } from 'react-icons/gr';
 
 // Define types for course and teacher data
 interface Course {
@@ -297,24 +300,46 @@ const AllCompanyCourseLanding: React.FC = () => {
         );
       case 'contact':
         return (
-          <div ref={contactSectionRef}>
-            <div className="flex items-center mb-4">
-              <FaPhone className="mr-2 text-xl" />
-              <h2 className="text-lg sm:text-2xl font-semibold">
-                +998 90 819 22 22
-              </h2>
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-10">
+              <a
+                href="tel:+998908192222"
+                className="flex items-center w-full md:w-auto bg-slate-100 py-2 px-3 text-black rounded-md text-center justify-center hover:scale-105 transition-transform ease duration-300"
+              >
+                <FaPhone className="mr-2 text-xl" />
+                <h2 className="text-lg sm:text-xl font-semibold">
+                  +998 90 819 22 22
+                </h2>
+              </a>
+              <a
+                href="https://t.me/sodiq_academy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center w-full md:w-auto bg-slate-100 py-2 px-3 text-black rounded-md text-center justify-center hover:scale-105 transition-transform ease duration-300"
+              >
+                <FaTelegram className="mr-2" size={25} />
+                <h2 className="text-lg sm:text-xl font-semibold">Telegram</h2>
+              </a>
+              <a
+                href="https://www.instagram.com/sodiqacademy.uz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center w-full md:w-auto bg-slate-100 py-2 px-3 text-black rounded-lg hover:scale-105 justify-center transition-transform ease duration-300"
+              >
+                <GrInstagram className="mr-2" size={25} />
+                <h2 className="text-lg sm:text-xl font-semibold">Instagram</h2>
+              </a>
             </div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d47969.87532992214!2d69.2094423!3d41.2845535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae61b7b9e787ff%3A0x3e5e8515afdccb94!2sSodiq%20maktab!5e0!3m2!1sen!2s!4v1721999677106!5m2!1sen!2s"
-              width="600"
-              height="600"
-              // style="border:0;"
-              // allowfullscreen=""
-              loading="lazy"
-              // referrerpolicy="no-referrer-when-downgrade"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-80 sm:h-100 rounded-lg"
-            ></iframe>
+            <div className="w-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d47969.87532992214!2d69.2094423!3d41.2845535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae61b7b9e787ff%3A0x3e5e8515afdccb94!2sSodiq%20maktab!5e0!3m2!1sen!2s!4v1721999677106!5m2!1sen!2s"
+                width="100%"
+                height="400"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg"
+              ></iframe>
+            </div>
           </div>
         );
       default:
