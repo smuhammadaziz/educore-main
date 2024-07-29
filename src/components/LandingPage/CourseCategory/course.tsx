@@ -50,11 +50,11 @@ function CourseCategoryHome() {
           Connect with Qualified Tutors from around the world and book your
           First Free Trial session.
         </h2>
-        <div className="flex flex-wrap space-x-2 mt-4">
+        <div className="flex flex-wrap mt-4">
           {categories.map((category) => (
             <button
               key={category}
-              className={`px-6 sm:px-10 text-xl sm:text-2xl py-2 sm:py-3 font-bold rounded ${
+              className={` m-1 px-6 sm:px-10 text-xl sm:text-2xl py-2 sm:py-3 font-bold rounded ${
                 selectedCategory === category
                   ? 'bg-white text-black'
                   : 'bg-fuchsia-950 text-white'
