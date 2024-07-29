@@ -120,7 +120,7 @@ export function Blog() {
   }
 
   return (
-    <div className="relative isolate overflow-hidden bg-white sm:py-32 lg:px-8 mt-20">
+    <div className="relative isolate overflow-hidden bg-white sm:py-32 lg:px-8">
       <section className="container mx-auto px-8 py-10 lg:py-28 ">
         <Typography
           variant="h2"
@@ -145,7 +145,7 @@ export function Blog() {
       </section>
       <NavLink
         to="/all/blogs"
-        className="bg-fuchsia-800 mt-5 text-white py-3 px-10 text-center mx-auto block w-75 mb-20 rounded-ss-2xl rounded-ee-2xl hover:bg-fuchsia-600"
+        className="bg-fuchsia-800 text-white py-3 px-10 text-center mx-auto block w-75 mb-20 rounded-ss-2xl rounded-ee-2xl hover:bg-fuchsia-600"
       >
         {content[selectedLang as string].blogs.btn}
       </NavLink>

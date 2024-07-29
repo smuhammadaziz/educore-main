@@ -29,7 +29,7 @@ function OurPartnersLanding() {
 
   return (
     <div>
-      <section className="bg-white dark:bg-gray-900 mt-20">
+      <section className="bg-white dark:bg-gray-900 mt-2">
         <div className="py-8 lg:py-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 lg:mb-16 text-3xl font-bold tracking-tight leading-tight text-center text-gray-900 dark:text-white md:text-4xl">
             {content[selectedLand as string].partner.part}
@@ -47,6 +47,9 @@ function OurPartnersLanding() {
                       alt={e.name}
                       className="w-full h-32 object-contain"
                     />
+                    <h2 className="text-center text-2xl text-black mt-4">
+                      {e.name}
+                    </h2>
                   </NavLink>
                 </div>
               ))

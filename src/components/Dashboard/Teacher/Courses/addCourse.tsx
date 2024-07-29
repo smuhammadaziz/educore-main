@@ -332,6 +332,18 @@ function AddnewCourseTeacher() {
                   >
                     Math Applications and Interpretation
                   </option>
+                  <option
+                    value="Theory of Knowledge"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Theory of Knowledge
+                  </option>
+                  <option
+                    value="Extended Essay"
+                    className="text-body dark:text-bodydark"
+                  >
+                    Extended Essay
+                  </option>
                 </select>
               </div>
             )}
