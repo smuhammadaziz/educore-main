@@ -172,7 +172,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           {/* <!-- Menu Group --> */}
           <div>
             <h1 className="mb-4 ml-4 text-lg font-semibold text-white">
-              Welcome back {teacher}
+              Welcome, {teacher}
             </h1>
 
             <ul className="mb-6 flex flex-col gap-1.5">
