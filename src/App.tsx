@@ -137,14 +137,6 @@ function App() {
   }, []);
 
   const navigateTo = useNavigate();
-  useEffect(() => {
-    // Check if token exists in local storage
-    const token: any = localStorage.getItem('TOKEN');
-
-    if (!token) {
-      navigateTo('/');
-    }
-  }, []);
 
   const restrictedPaths: { [key: string]: string[] } = {
     teacher: ['/dashboard/admin', '/dashboard/student'],
@@ -156,19 +148,16 @@ function App() {
     const currentPath = window.location.pathname;
     const token = localStorage.getItem('TOKEN');
 
-    console.log('Current path:', currentPath);
-    console.log('Token:', token);
+    if (!token) {
+      navigateTo('/');
+    }
 
     if (token) {
       const decodedToken: DecodedToken = jwtDecode(token);
       const role = decodedToken.role;
 
-      console.log('Role:', role);
-      console.log('Restricted paths for role:', restrictedPaths[role]);
-
       if (restrictedPaths[role]?.includes(currentPath)) {
-        console.log('Navigating to /notfound');
-        navigateTo('/notfound'); // Using navigateTo instead of navigate
+        navigateTo('/notfound');
       }
     }
   }, []);
