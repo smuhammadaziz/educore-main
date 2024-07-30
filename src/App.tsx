@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
@@ -119,6 +125,7 @@ import QuizForMathStudent from './components/Dashboard/Student/quiz/math';
 import AllCourseTeacherLanding from './components/LandingPage/Partner/allCoursesTeacher';
 import AllPartnersLandingPage from './components/LandingPage/Partner/allPartners';
 import NotFoundPage from './pages/404page/404page';
+import { Replace } from 'lucide-react';
 
 interface DecodedToken {
   role: string;
@@ -149,7 +156,7 @@ function App() {
     const token = localStorage.getItem('TOKEN');
 
     if (!token) {
-      navigateTo('/');
+      <Navigate to="/" replace />;
     }
 
     if (token) {
