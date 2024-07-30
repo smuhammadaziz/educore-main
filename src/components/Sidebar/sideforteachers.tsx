@@ -179,7 +179,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('calendar') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
@@ -193,7 +193,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/courses"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/courses') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
@@ -207,7 +207,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/groups"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/groups') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
@@ -222,7 +222,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/all/lessons"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/all/lessons') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
@@ -236,7 +236,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/all/homeworks"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/all/homeworks') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
@@ -251,7 +251,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/students"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/students') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
@@ -265,7 +265,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/marathon"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/marathon') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
@@ -279,7 +279,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/inbox"
-                  className={`group relative flex items-center justify-between gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center justify-between gap-2.5 rounded-sm py-2 px-4 font-medium text-white duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/inbox') &&
                     'bg-purple-500 dark:bg-meta-4'
                   }`}
