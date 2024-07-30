@@ -118,6 +118,11 @@ import QuizForPHYSICSStudent from './components/Dashboard/Student/quiz/physics';
 import QuizForMathStudent from './components/Dashboard/Student/quiz/math';
 import AllCourseTeacherLanding from './components/LandingPage/Partner/allCoursesTeacher';
 import AllPartnersLandingPage from './components/LandingPage/Partner/allPartners';
+import NotFoundPage from './pages/404page/404page';
+
+interface DecodedToken {
+  role: string;
+}
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -141,18 +146,30 @@ function App() {
     }
   }, []);
 
-  const restrictedRoutes = [
-    '/dashboard/admin',
-    '/dashboard/student',
-    '/dashboard/teacher',
-  ];
+  const restrictedPaths: { [key: string]: string[] } = {
+    teacher: ['/dashboard/admin', '/dashboard/student'],
+    student: ['/dashboard/teacher', '/dashboard/admin'],
+    admin: ['/dashboard/teacher', '/dashboard/student'],
+  };
 
   useEffect(() => {
     const currentPath = window.location.pathname;
-    const token: any = localStorage.getItem('TOKEN');
+    const token = localStorage.getItem('TOKEN');
 
-    if (!token && restrictedRoutes.includes(currentPath)) {
-      navigateTo('/');
+    console.log('Current path:', currentPath);
+    console.log('Token:', token);
+
+    if (token) {
+      const decodedToken: DecodedToken = jwtDecode(token);
+      const role = decodedToken.role;
+
+      console.log('Role:', role);
+      console.log('Restricted paths for role:', restrictedPaths[role]);
+
+      if (restrictedPaths[role]?.includes(currentPath)) {
+        console.log('Navigating to /notfound');
+        navigateTo('/notfound'); // Using navigateTo instead of navigate
+      }
     }
   }, []);
 
@@ -167,6 +184,15 @@ function App() {
             <>
               <PageTitle title="Educore Online Learning Platform" />
               <Home />
+            </>
+          }
+        />
+        <Route
+          path="/notfound"
+          element={
+            <>
+              <PageTitle title="Educore | Not Found" />
+              <NotFoundPage />
             </>
           }
         />
