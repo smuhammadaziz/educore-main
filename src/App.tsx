@@ -188,6 +188,15 @@ function App() {
           }
         />
         <Route
+          path="*"
+          element={
+            <>
+              <PageTitle title="Educore | Not Found" />
+              <NotFoundPage />
+            </>
+          }
+        />
+        <Route
           path="/notfound"
           element={
             <>
