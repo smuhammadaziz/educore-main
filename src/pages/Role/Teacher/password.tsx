@@ -183,7 +183,7 @@ const TeacherPasswordChange = () => {
                   </div>
 
                   <button
-                    className="w-full rounded bg-primary py-3 px-6 text-white font-medium hover:bg-opacity-80"
+                    className="w-full rounded bg-purple-700 py-3 px-6 text-white font-medium hover:bg-opacity-80"
                     type="submit"
                   >
                     Save Changes

@@ -49,7 +49,7 @@ function ShowAllHomeworksTeacher() {
         </h2>
         <NavLink
           to={`/dashboard/teacher/add/new/homework/${group_id}`}
-          className="text-sm flex items-center w-64 mx-auto text-center  py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          className="text-sm flex items-center w-64 mx-auto text-center  py-3 px-12 bg-purple-700 text-white rounded-full hover:bg-purple-500 active:bg-blue-400"
         >
           <span className="me-2">
             <MdAddCircle />

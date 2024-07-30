@@ -47,7 +47,7 @@ function ShowAllLessonsTeacher() {
         </h2>
         <NavLink
           to={`/dashboard/teacher/add/new/lesson/${group_id}`}
-          className="flex items-center w-55 mx-auto text-center text-sm py-3 px-12 bg-blue-700 text-white rounded-full hover:bg-blue-500 active:bg-blue-400"
+          className="flex items-center w-55 mx-auto text-center text-sm py-3 px-12 bg-purple-700 text-white rounded-full hover:bg-purple-500 active:bg-blue-400"
         >
           <span className="me-2">
             <MdAddCircle />
@@ -100,7 +100,7 @@ function ShowAllLessonsTeacher() {
                       href={product.l_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white mt-5 inline-block bg-blue-700 hover:underline hover:bg-blue-500 py-2 px-5 rounded-full"
+                      className="text-white mt-5 inline-block bg-purple-700 hover:underline hover:bg-purple-500 py-2 px-5 rounded-full"
                     >
                       join the lesson →
                     </a>

@@ -53,7 +53,7 @@ const AllStudentListTeacher = () => {
                 </p>
                 <NavLink
                   to={`/dashboard/teacher/group/students/${group.group_id}`}
-                  className="flex items-center bg-blue-600 py-2 px-5 text-white rounded hover:bg-blue-800 transition duration-300"
+                  className="flex items-center bg-purple-600 py-2 px-5 text-white justify-center rounded hover:bg-purple-800 transition duration-300"
                 >
                   <BsFillPeopleFill className="text-xl mr-2" />
                   See all students
