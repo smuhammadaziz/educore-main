@@ -71,7 +71,7 @@ export default function AllGroupsListTeacher() {
                   </h2>
                   <NavLink
                     to={`/dashboard/teacher/group/${e.course_id}`}
-                    className="flex items-center font-bold w-full mx-auto justify-center text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                    className="flex items-center font-bold w-full mx-auto justify-center text-center bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors duration-300"
                   >
                     <span className="me-3">
                       <MdViewList />

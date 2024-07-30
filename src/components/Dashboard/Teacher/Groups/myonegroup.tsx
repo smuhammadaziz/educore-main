@@ -165,7 +165,7 @@ function GetOneMyGroupsTeacher() {
             </span>
             <NavLink
               to={`/dashboard/teacher/my/all/groups/show/lessons/${group_id}`}
-              className="flex items-center bg-blue-700 py-3 px-10 text-white mx-auto hover:bg-blue-900 rounded"
+              className="flex items-center bg-purple-700 py-3 px-10 text-white mx-auto hover:bg-purple-900 rounded"
             >
               <span className="me-2">
                 <MdPlayLesson />
@@ -179,7 +179,7 @@ function GetOneMyGroupsTeacher() {
             </span>
             <NavLink
               to={`/dashboard/teacher/my/all/groups/show/homeworks/${group_id}`}
-              className="flex items-center bg-blue-700 py-3 px-10 text-white hover:bg-blue-900 mx-auto rounded"
+              className="flex items-center bg-purple-700 py-3 px-10 text-white hover:bg-purple-900 mx-auto rounded"
             >
               <span className="me-2">
                 <MdMapsHomeWork />

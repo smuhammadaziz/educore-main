@@ -149,7 +149,7 @@ function App() {
     const token = localStorage.getItem('TOKEN');
 
     if (!token) {
-      navigateTo('/');
+      navigateTo('*');
     }
 
     if (token) {

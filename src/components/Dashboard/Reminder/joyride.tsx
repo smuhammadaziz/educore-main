@@ -38,7 +38,7 @@ const GuideComponent = () => {
     }
   }, []);
 
-  const handleJoyrideCallback = (data) => {
+  const handleJoyrideCallback = (data: any) => {
     const { status, type } = data;
     const finishedStatuses = [STATUS.FINISHED, STATUS.SKIPPED];
 
@@ -56,7 +56,7 @@ const GuideComponent = () => {
     <div className="flex flex-row items-center bg-gray-100 justify-end">
       <button
         onClick={() => setRun(true)}
-        className="flex flex-row items-center px-4 py-2 bg-blue-500 text-white rounded-md"
+        className="flex flex-row items-center px-4 py-2 bg-purple-600 text-white rounded-md"
       >
         <span className="me-2">
           <TiLocationArrow size={20} />
@@ -81,7 +81,7 @@ const GuideComponent = () => {
           options: {
             arrowColor: '#e3ffeb',
             backgroundColor: '#e3ffeb',
-            primaryColor: '#4196e1',
+            primaryColor: '#581C87',
             textColor: '#000',
             width: 500,
             zIndex: 1000,

@@ -67,6 +67,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   }, [sidebarExpanded]);
 
   const [profileData, setProfileData] = useState(null);
+  const [teacher, setTeacher] = useState('');
 
   const token = localStorage.getItem('TOKEN');
 
@@ -85,9 +86,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         const data = await response.json();
 
         const userId = data.Profil.user_id;
+        const teacherName = data.Profil.name;
 
         // console.log(userId);
-
+        setTeacher(teacherName);
         setProfileData(userId);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -130,7 +132,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-purple-900 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -169,17 +171,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
-            <h1 className="mb-4 ml-4 text-md font-semibold text-bodydark2">
-              TEACHER
+            <h1 className="mb-4 ml-4 text-lg font-semibold text-white">
+              Welcome {teacher}
             </h1>
 
             <ul className="mb-6 flex flex-col gap-1.5">
               <li>
                 <NavLink
                   to="/dashboard/teacher"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('calendar') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span>
@@ -191,81 +193,81 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/courses"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/courses') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span>
                     <FaBookmark size={20} />
                   </span>
-                  My Courses
+                  Courses
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/groups"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/groups') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span>
                     <FaLayerGroup size={20} />
                   </span>
-                  My Groups
+                  Groups
                 </NavLink>
               </li>
 
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/all/lessons"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/all/lessons') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span>
                     <MdPlayLesson size={20} />
                   </span>
-                  My Lessons
+                  Lessons
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/all/homeworks"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/all/homeworks') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span>
                     <TbHomeSearch size={20} />
                   </span>
-                  My Homeworks
+                  Homeworks
                 </NavLink>
               </li>
 
               <li>
                 <NavLink
                   to="/dashboard/teacher/my/students"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/my/students') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span>
                     <PiStudentFill size={20} />
                   </span>
-                  My Students
+                  Students
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   to="/dashboard/teacher/marathon"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/marathon') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span>
@@ -277,9 +279,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/teacher/inbox"
-                  className={`group relative flex items-center justify-between gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center justify-between gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-purple-600 dark:hover:bg-meta-4 ${
                     pathname.includes('/dashboard/teacher/inbox') &&
-                    'bg-graydark dark:bg-meta-4'
+                    'bg-purple-500 dark:bg-meta-4'
                   }`}
                 >
                   <span className="flex flex-row items-center">

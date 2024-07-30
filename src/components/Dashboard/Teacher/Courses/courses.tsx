@@ -41,7 +41,7 @@ export default function AllCoursesListTeacher() {
         </h2>
         <NavLink
           to="/dashboard/teacher/add/new/course"
-          className="flex items-center w-50 mx-auto inline-block text-sm py-3 px-8 bg-blue-700 text-white rounded hover:bg-blue-500 transition duration-300"
+          className="flex items-center w-50 mx-auto inline-block text-sm py-3 px-8 bg-purple-700 text-white rounded hover:bg-purple-800 transition duration-300"
         >
           <span className="me-2">
             <RiAddCircleFill />
@@ -70,7 +70,7 @@ export default function AllCoursesListTeacher() {
                     </p>
                     <NavLink
                       to={`/dashboard/teacher/course/${course.course_id}`}
-                      className="flex items-center w-27 text-center inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition duration-300"
+                      className="flex items-center justify-center w-27 text-center inline-block bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-800 transition duration-300"
                     >
                       <span className="me-2">
                         <CgDetailsMore />
