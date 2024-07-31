@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 
 import DefaultLayoutTeacher from '../../../../layout/DefaultTeacher';
 import backurl from '../../../../links';
@@ -121,6 +121,37 @@ function AddnewCourseTeacher() {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
+
+  const [profileData, setProfileData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${backurl}/api/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          localStorage.removeItem('TOKEN');
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        console.log(data);
+
+        const companyId = data.Profil.company_id;
+
+        setProfileData(companyId);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // console.log(profileData);
 
   return (
     <DefaultLayoutTeacher>
@@ -424,12 +455,16 @@ function AddnewCourseTeacher() {
             <div className="my-3">
               <label className="mb-2.5 block text-black dark:text-white flex flex-col sm:flex-row sm:items-center sm:justify-between">
                 <p>Price (example: 300000)</p>
-                <p className="mt-2 sm:mt-0 sm:ml-10">
-                  you will receive:{' '}
-                  <span className="font-bold">
-                    {showprice.eightyThree} UZS/Monthly
-                  </span>
-                </p>
+                {profileData ? (
+                  <p></p>
+                ) : (
+                  <p className="mt-2 sm:mt-0 sm:ml-10">
+                    you will receive:{' '}
+                    <span className="font-bold">
+                      {showprice.eightyThree} UZS/Monthly
+                    </span>
+                  </p>
+                )}
               </label>
               <input
                 type="text"

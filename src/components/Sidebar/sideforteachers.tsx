@@ -85,8 +85,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         }
         const data = await response.json();
 
-        console.log(data);
-        
+        // console.log(data);
 
         const userId = data.Profil.user_id;
         const teacherName = data.Profil.name;
@@ -117,7 +116,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         }
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         setCourses(data.message);
       } catch (error) {
