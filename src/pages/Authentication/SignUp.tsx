@@ -167,6 +167,12 @@ const SignUp: React.FC = () => {
                           type="text"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
+                          onInput={(e) => {
+                            e.target.value = e.target.value.replace(
+                              /[^0-9+]/g,
+                              '',
+                            );
+                          }}
                           placeholder={
                             content[selectedLang as string].log.phone
                           }
