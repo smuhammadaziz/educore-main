@@ -23,6 +23,9 @@ function AllPartnersLandingPage() {
         }
         const data = await response.json();
         const reversed = data.Company;
+
+        console.log(reversed);
+
         setCourses(reversed);
       } catch (error) {
         console.log(error);
@@ -85,7 +88,7 @@ function AllPartnersLandingPage() {
                         {e.name}
                       </h2>
                       <NavLink
-                        to={`/all/courses/company/${e.company_id}`}
+                        to={`/partners/${e.idname}`}
                         className="flex flex-row items-center mt-3 inline-block bg-slate-100 text-black hover:opacity-50"
                       >
                         {content[selectedLand as string].company.more}

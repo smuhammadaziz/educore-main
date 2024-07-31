@@ -41,7 +41,7 @@ const AllCompanyCourseLanding: React.FC = () => {
     'main' | 'teachers' | 'courses' | 'contact'
   >('main');
   const [selectedLanguage] = useLang();
-  const { company_id } = useParams<{ company_id: string }>();
+  const { idname } = useParams<{ idname: string }>();
 
   const [allTeachers, setAllTeachers] = useState<Teacher[]>([]);
 
@@ -54,7 +54,7 @@ const AllCompanyCourseLanding: React.FC = () => {
     async function fetchCourses() {
       try {
         const response = await fetch(
-          `${backurl}api/get/company/courses/${company_id}`,
+          `${backurl}api/get/company/courses/${idname}`,
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -70,13 +70,13 @@ const AllCompanyCourseLanding: React.FC = () => {
       }
     }
     fetchCourses();
-  }, [company_id]);
+  }, [idname]);
 
   useEffect(() => {
     async function fetchTeachers() {
       try {
         const response = await fetch(
-          `${backurl}api/get/company/teachers/${company_id}`,
+          `${backurl}api/get/company/teachers/${idname}`,
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -89,7 +89,7 @@ const AllCompanyCourseLanding: React.FC = () => {
       }
     }
     fetchTeachers();
-  }, [company_id]);
+  }, [idname]);
 
   // Get current courses
   const indexOfLastCourse = currentPage * productsPerPage;

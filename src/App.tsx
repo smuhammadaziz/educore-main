@@ -247,10 +247,10 @@ function App() {
           }
         />
         <Route
-          path="/all/courses/company/:company_id"
+          path="/partners/:idname"
           element={
             <>
-              <PageTitle title="Educore | Company " />
+              <PageTitle title="Educore | Partners " />
               <AllCompanyCourseLanding />
             </>
           }
