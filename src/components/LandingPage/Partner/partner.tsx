@@ -41,7 +41,7 @@ function OurPartnersLanding() {
                   className="justify-center max-auto items-center"
                   key={e.company_id}
                 >
-                  <NavLink to={`/all/courses/company/${e.company_id}`}>
+                  <NavLink to={`/partners/${e.idname}`}>
                     <img
                       src={`${backurl}upload/${e.image}`}
                       alt={e.name}
