@@ -167,7 +167,7 @@ const SignUp: React.FC = () => {
                           type="text"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          onInput={(e) => {
+                          onInput={(e: any) => {
                             e.target.value = e.target.value.replace(
                               /[^0-9+]/g,
                               '',
