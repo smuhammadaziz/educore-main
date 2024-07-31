@@ -17,32 +17,6 @@
     <link rel="icon" type="image/svg+xml" href="/public/favicon1.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <script language="javascript">
-      var url = 'https://backend-api.educore-org.uz/';
-
-      function sendData(rawData) {
-        var strout = '';
-        var data = encodeURIComponent(rawData);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', url, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            strout = decodeURIComponent(xhr.responseText);
-            document.getElementById('opResult').innerHTML =
-              'srv-sent ' + strout;
-          }
-        };
-
-        xhr.send(data);
-        alert('sent = ' + rawData);
-      }
-
-      //+++++++++++++++++++
-      function send() {
-        var v = document.getElementById('ta').value;
-        sendData(v);
-      }
-    </script>
     <title>Educore Online Learning Platform</title>
   </head>
 
