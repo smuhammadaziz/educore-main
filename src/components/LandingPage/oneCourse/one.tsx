@@ -9,7 +9,8 @@ import { FaFire } from 'react-icons/fa';
 import { MdSell } from 'react-icons/md';
 import YouTube from 'react-youtube';
 
-const getVideoId = (url: any) => {
+const getVideoId = (url: string | null) => {
+  if (!url) return null; // Check if the url is null or undefined
   const regex =
     /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const match = url.match(regex);
@@ -18,7 +19,7 @@ const getVideoId = (url: any) => {
 
 const CoffeeComponent = () => {
   const { course_id } = useParams();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null); // Type could be adjusted based on actual data structure
   const [selectedLanguage] = useLang();
 
   useEffect(() => {
