@@ -54,7 +54,7 @@ const CoffeeComponent = () => {
 
   return (
     <div className="">
-      <div className="bg-slate-100 max-w-screen-xl mx-auto py-10 flex justify-between items-center">
+      <div className="px-3 bg-slate-100 max-w-screen-xl mx-auto py-10 flex flex-col lg:flex-row justify-between items-center">
         <div>
           <h2 className="text-4xl font-bold text-black mt-4">
             {title || 'SAT | IELTS'}
@@ -69,7 +69,7 @@ const CoffeeComponent = () => {
               : 'SAT | IELTS'}{' '}
             uzs/month
           </p>
-          <div className="mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-2">
+          <div className="px-3 mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-2">
             <NavLink
               to="/auth/signup"
               className="inline-flex items-center justify-center rounded-md bg-fuchsia-700 py-3 px-6 text-center font-medium text-white hover:bg-fuchsia-800 sm:px-8 lg:px-10"
@@ -91,7 +91,7 @@ const CoffeeComponent = () => {
           </div>
         </div>
 
-        <div className="bg-slate-300 p-3">
+        <div className="bg-slate-300 p-3 mt-6 lg:mt-0">
           <img
             src={`${backurl}upload/${image || 'SAT | IELTS'}`}
             alt="Product"
@@ -100,7 +100,7 @@ const CoffeeComponent = () => {
         </div>
       </div>
 
-      <div className="bg-white my-10 py-10 mb-0">
+      <div className="bg-white my-10 py-10 mb-0 px-3">
         <div className="bg-slate-100 max-w-screen-xl mx-auto  py-5 rounded-xl px-5">
           <h2 className="my-5 font-medium text-black">
             {subject || 'SAT | IELTS'}{' '}
@@ -132,10 +132,10 @@ const CoffeeComponent = () => {
         </div>
       </div>
       {video_link ? (
-        <div className="bg-white my-10 py-10 pt-0 mt-0">
-          <div className="bg-slate-100 max-w-screen-xl mx-auto py-5 rounded-xl px-5 flex">
+        <div className="bg-white my-10 py-10 pt-0 mt-0 px-3">
+          <div className="bg-slate-100 max-w-screen-xl mx-auto py-5 rounded-xl px-5 flex flex-col lg:flex-row">
             <iframe
-              width="560"
+              width="100%"
               height="400"
               src={video_link}
               title="YouTube video player"
@@ -143,9 +143,9 @@ const CoffeeComponent = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              className="rounded-md w-3/4"
+              className="rounded-md w-full lg:w-3/4"
             ></iframe>
-            <div className="ml-5 w-2/4">
+            <div className="mt-5 lg:mt-0 lg:ml-5 lg:w-2/4">
               <p className="mt-2 mb-5 text-3xl text-black font-medium">
                 {video_descr || 'aa'}
               </p>
@@ -156,27 +156,6 @@ const CoffeeComponent = () => {
           </div>
         </div>
       ) : null}
-
-      {/* <div className="font-sans bg-white pb-20 mx-auto flex justify-center">
-        <div className="p-6 lg:max-w-7xl max-w-2xl mx-auto">
-          <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12 mt-10">
-
-            <div className="lg:col-span-
-              <div className="mt-8">
-                <p className="text-lg text-gray-800 mt-3">
-                  {content[selectedLanguage].buy.period}{' '}
-                  <span className="font-bold text-black">
-                    {period || 'SAT | IELTS'}{' '}
-                    {content[selectedLanguage].buy.month}
-                  </span>
-                </p>
-              </div>
-              
-              
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
