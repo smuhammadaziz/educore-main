@@ -21,6 +21,9 @@ function AddnewCourseTeacher() {
   const [time, setTime] = useState('');
   const [photo, setPhoto] = useState(null);
 
+  const [youtube, setYoutube] = useState('');
+  const [link, setLink] = useState('');
+
   const [showprice, setShowPrice] = useState({
     seventeen: '',
     eightyThree: '',
@@ -60,6 +63,8 @@ function AddnewCourseTeacher() {
     setCost('');
     setTime('');
     setSub('');
+    setYoutube('');
+    setLink('');
     setPhoto(null);
   };
 
@@ -73,6 +78,8 @@ function AddnewCourseTeacher() {
     formData.append('main_sub', sub || ''); // Add an empty string if sub is null
     formData.append('price', cost);
     formData.append('period', time);
+    formData.append('video_link', youtube);
+    formData.append('video_descr', link);
     if (photo) {
       formData.append('image', photo);
     }
@@ -486,6 +493,32 @@ function AddnewCourseTeacher() {
                 className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-3">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Your Free Trial Youtube Video Link (optional)
+              </label>
+              <input
+                type="text"
+                placeholder="type here ..."
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={youtube}
+                onChange={(e) => setYoutube(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-3">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Youtube Video Description (optional)
+              </label>
+              <input
+                type="text"
+                placeholder="type here ..."
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
                 required
               />
             </div>
