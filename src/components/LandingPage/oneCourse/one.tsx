@@ -7,6 +7,14 @@ import content from '../../../localization/content';
 
 import { FaFire } from 'react-icons/fa';
 import { MdSell } from 'react-icons/md';
+import YouTube from 'react-youtube';
+
+const getVideoId = (url: any) => {
+  const regex =
+    /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+};
 
 const CoffeeComponent = () => {
   const { course_id } = useParams();
@@ -51,6 +59,15 @@ const CoffeeComponent = () => {
     video_link,
     video_descr,
   } = data;
+
+  const videoId = getVideoId(video_link);
+  const opts = {
+    height: '400',
+    width: '100%',
+    playerVars: {
+      autoplay: 0,
+    },
+  };
 
   return (
     <div className="">
@@ -132,24 +149,22 @@ const CoffeeComponent = () => {
         </div>
       </div>
       {video_link ? (
-        <div className="bg-white my-10 py-10 pt-0 mt-0 px-3">
+        <div className="bg-white flex flex-row items-center my-10 py-10 pt-0 mt-0 px-3">
           <div className="bg-slate-100 max-w-screen-xl mx-auto py-5 rounded-xl px-5 flex flex-col lg:flex-row">
-            <iframe
-              width="100%"
-              height="400"
-              src={video_link}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              className="rounded-md w-full lg:w-3/4"
-            ></iframe>
-            <div className="mt-5 lg:mt-0 lg:ml-5 lg:w-2/4">
-              <p className="mt-2 mb-5 text-3xl text-black font-medium">
+            {videoId ? (
+              <YouTube
+                videoId={videoId}
+                opts={opts}
+                className="rounded-md w-full lg:w-3/4"
+              />
+            ) : (
+              <p>Invalid video link</p>
+            )}
+            <div className="mt-5 px-5 lg:mt-0 lg:ml-5 lg:w-2/4">
+              <p className="mt-2 mb-5 text-2xl text-black font-medium">
                 {video_descr || 'aa'}
               </p>
-              <p className="mt-2 mb-5 text-2xl text-slate-600 font-medium">
+              <p className="mt-2 mb-5 text-xl text-slate-600 font-medium">
                 {name || 'aa'} {l_name || 'aa'}
               </p>
             </div>
