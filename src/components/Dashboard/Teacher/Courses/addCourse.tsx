@@ -506,7 +506,7 @@ function AddnewCourseTeacher() {
                 className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={youtube}
                 onChange={(e) => setYoutube(e.target.value)}
-                required
+                // required
               />
             </div>
             <div className="my-3">
@@ -519,7 +519,7 @@ function AddnewCourseTeacher() {
                 className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
-                required
+                // required
               />
             </div>
             <div className="my-3">
