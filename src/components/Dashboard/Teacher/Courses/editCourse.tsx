@@ -19,6 +19,9 @@ function EditCourseTeacher() {
   const [time, setTime] = useState('');
   const [photo, setPhoto] = useState(null);
 
+  const [youtube, setYoutube] = useState('');
+  const [link, setLink] = useState('');
+
   const { course_id } = useParams();
 
   const [courseData, setCourseData] = useState(null);
@@ -79,6 +82,8 @@ function EditCourseTeacher() {
         setSub(data.Data.main_sub || '');
         setCost(data.Data.price || '');
         setTime(data.Data.period || '');
+        setYoutube(data.Data.video_link || '');
+        setLink(data.Data.video_descr || '');
       } catch (error) {
         console.error('Error fetching course data:', error);
         toast.error('Error fetching course data');
@@ -95,6 +100,8 @@ function EditCourseTeacher() {
     setCost('');
     setTime('');
     setSub('');
+    setYoutube('');
+    setLink('');
     setPhoto(null);
   };
 
@@ -108,6 +115,8 @@ function EditCourseTeacher() {
     formData.append('main_sub', sub || 'null');
     formData.append('price', cost);
     formData.append('period', time);
+    formData.append('video_link', youtube);
+    formData.append('video_descr', link);
     if (photo) {
       formData.append('image', photo);
     } else {
@@ -484,6 +493,32 @@ function EditCourseTeacher() {
                 className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-3">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Free Trial Youtube video link (optional)
+              </label>
+              <input
+                type="text"
+                placeholder="Type here ..."
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={youtube}
+                onChange={(e) => setYoutube(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-3">
+              <label className="mb-2.5 block text-black dark:text-white">
+                Short info about your youtube video (optional)
+              </label>
+              <input
+                type="text"
+                placeholder="Type here ..."
+                className="w-full bg-white rounded-xl border-2 border-stroke py-4 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
                 required
               />
             </div>
