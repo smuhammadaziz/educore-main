@@ -33,7 +33,7 @@ const CoffeeComponent = () => {
         }
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         setData(data.getidbycourse);
       } catch (error) {
@@ -87,7 +87,7 @@ const CoffeeComponent = () => {
               : 'SAT | IELTS'}{' '}
             uzs/month
           </p>
-          <div className="px-3 mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-2">
+          <div className="px-3 md:px-0 mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-2">
             <NavLink
               to="/auth/signup"
               className="inline-flex items-center justify-center rounded-md bg-fuchsia-700 py-3 px-6 text-center font-medium text-white hover:bg-fuchsia-800 sm:px-8 lg:px-10"
