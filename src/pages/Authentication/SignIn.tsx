@@ -55,6 +55,8 @@ const SignIn: React.FC = () => {
       const token = data.token;
       const decoded: any = jwtDecode(token);
 
+      // console.log(decoded);
+
       localStorage.setItem('TOKEN', token);
 
       if (decoded['role'] == 'admin') {
@@ -68,6 +70,10 @@ const SignIn: React.FC = () => {
       } else if (decoded['role'] == 'student') {
         setTimeout(() => {
           window.location.href = '/dashboard/student';
+        }, 100);
+      } else if (decoded['role'] == 'comp_admin') {
+        setTimeout(() => {
+          window.location.href = '/dashboard/sodiq-academy';
         }, 100);
       }
     } catch (error: any) {

@@ -126,6 +126,7 @@ import AllCourseTeacherLanding from './components/LandingPage/Partner/allCourses
 import AllPartnersLandingPage from './components/LandingPage/Partner/allPartners';
 import NotFoundPage from './pages/404page/404page';
 import { Replace } from 'lucide-react';
+import CRMforSodiqAcademyDashboardHome from './pages/Crm/crm';
 
 interface DecodedToken {
   role: string;
@@ -1153,6 +1154,18 @@ function App() {
             <>
               <PageTitle title="Profile | Educore" />
               <StudentPasswordChange />
+            </>
+          }
+        />
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        {/* =============================================================== */}
+        <Route
+          path="/dashboard/sodiq-academy"
+          element={
+            <>
+              <PageTitle title="Home | Sodiq Academy" />
+              <CRMforSodiqAcademyDashboardHome />
             </>
           }
         />
