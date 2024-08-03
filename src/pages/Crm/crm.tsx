@@ -5,7 +5,7 @@ import DefaultLayoutSodiqAcademy from '../../layout/crm/DefaultSodiq';
 function CRMforSodiqAcademyDashboardHome() {
   return (
     <DefaultLayoutSodiqAcademy>
-      <div>CRMforSodiqAcademyDashboardHome</div>
+      <div className="">Home Page</div>
     </DefaultLayoutSodiqAcademy>
   );
 }

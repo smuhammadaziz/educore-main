@@ -14,6 +14,8 @@ import { GiOpenBook } from 'react-icons/gi';
 import { SiAirplayvideo } from 'react-icons/si';
 import { PiPhoneOutgoingFill } from 'react-icons/pi';
 
+import artboard from '../../../images/sodiq/Artboard 14.png';
+
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
@@ -106,8 +108,8 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <NavLink to="/">
-          <h2 className="text-center serif text-black font-bold mx-auto text-xl">
+        <NavLink to="/partners/sodiq-academy">
+          <h2 className="text-center serif text-black font-bold mx-auto text-2xl hover:text-slate-500">
             Sodiq Academy
           </h2>
         </NavLink>

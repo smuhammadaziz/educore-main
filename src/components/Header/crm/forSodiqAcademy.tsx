@@ -146,10 +146,10 @@ const DropdownCRMSodiqAcademy = () => {
         }`}
       >
         <NavLink
-          to={`/dashboard/student/profile/${
+          to={`/dashboard/sodiq-academy/profile/${
             datas ? datas?.Profil.user_id : 'admin'
           }`}
-          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+          className="flex hover:bg-slate-100 items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
         >
           <span>
             <CgProfile size={25} />
@@ -157,10 +157,10 @@ const DropdownCRMSodiqAcademy = () => {
           Profile
         </NavLink>
         <NavLink
-          to={`/dashboard/student/settings/${
+          to={`/dashboard/sodiq-academy/settings/${
             datas ? datas?.Profil.user_id : 'admin'
           }`}
-          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+          className="flex hover:bg-slate-100  items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
         >
           <span>
             <RiSettings4Fill size={25} />
@@ -168,10 +168,10 @@ const DropdownCRMSodiqAcademy = () => {
           Settings
         </NavLink>
         <NavLink
-          to={`/dashboard/student/change/password/${
+          to={`/dashboard/sodiq-academy/change/password/${
             datas ? datas?.Profil.user_id : 'admin'
           }`}
-          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+          className="flex hover:bg-slate-100  items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
         >
           <span>
             <HiLockClosed size={25} />
@@ -180,7 +180,7 @@ const DropdownCRMSodiqAcademy = () => {
         </NavLink>
         <button
           onClick={handleLogout}
-          className="flex border-t items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+          className="flex border-t hover:bg-slate-100 items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
         >
           <span>
             <CiLogout size={25} />
