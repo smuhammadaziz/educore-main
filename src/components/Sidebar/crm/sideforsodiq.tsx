@@ -100,14 +100,16 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col shadow overflow-y-hidden bg-white duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <NavLink to="/">
-          <img src={Logo} alt="Logo" width="180" />
+          <h2 className="text-center serif text-black font-bold mx-auto text-xl">
+            Sodiq Academy
+          </h2>
         </NavLink>
 
         <button
@@ -139,17 +141,13 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
-            <h1 className="mb-4 ml-4 text-md font-semibold text-bodydark2">
-              STUDENT SODIQ SCHOOOOOOL
-            </h1>
-
             <ul className="mb-6 flex flex-col gap-1.5">
               <li>
                 <NavLink
-                  to="/dashboard/student"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('calendar') &&
-                    'bg-graydark dark:bg-meta-4'
+                  to="/dashboard/sodiq-academy"
+                  className={`group relative flex items-center gap-4 rounded-sm py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 ${
+                    pathname.includes('/dashboard/sodiq-academy') &&
+                    'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}
                 >
                   <span>
@@ -160,119 +158,59 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/student/marathon"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/marathon') &&
-                    'bg-graydark dark:bg-meta-4'
+                  to="/dashboard/sodiq-academy/teachers"
+                  className={`group relative flex items-center gap-4 rounded-xl py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white ${
+                    pathname.includes('/dashboard/sodiq-academy/teachers') &&
+                    'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}
                 >
                   <span>
-                    <SiAirplayvideo size={20} />
+                    <GoHomeFill size={20} />
                   </span>
-                  Marathon
+                  Teachers
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/student/courses"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/courses') &&
-                    'bg-graydark dark:bg-meta-4'
+                  to="/dashboard/sodiq-academy/students"
+                  className={`group relative flex items-center gap-4 rounded-xl py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white ${
+                    pathname.includes('/dashboard/sodiq-academy/students') &&
+                    'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}
                 >
                   <span>
-                    <MdLibraryBooks size={20} />
+                    <GoHomeFill size={20} />
                   </span>
-                  View All Courses
+                  Students
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/student/quiz"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/quiz') &&
-                    'bg-graydark dark:bg-meta-4'
+                  to="/dashboard/sodiq-academy/courses"
+                  className={`group relative flex items-center gap-4 rounded-xl py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white ${
+                    pathname.includes('/dashboard/sodiq-academy/courses') &&
+                    'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}
                 >
                   <span>
-                    <RiGroupFill size={20} />
+                    <GoHomeFill size={20} />
                   </span>
-                  All Quizes
+                  Courses
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/student/groups"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/groups') &&
-                    'bg-graydark dark:bg-meta-4'
+                  to="/dashboard/sodiq-academy/groups"
+                  className={`group relative flex items-center gap-4 rounded-xl py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white ${
+                    pathname.includes('/dashboard/sodiq-academy/groups') &&
+                    'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}
                 >
                   <span>
-                    <RiGroupFill size={20} />
+                    <GoHomeFill size={20} />
                   </span>
-                  My Group
+                  Groups
                 </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="/dashboard/student/lessons"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/lessons') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <span>
-                    <GiWhiteBook size={20} />
-                  </span>
-                  My Lessons
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/dashboard/student/homeworks"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/homeworks') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <span>
-                    <GiOpenBook size={20} />
-                  </span>
-                  My Homeworks
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/dashboard/student/payments"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('/dashboard/student/payments') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <span>
-                    <BsCashCoin size={20} />
-                  </span>
-                  My Payments
-                </NavLink>
-              </li>
-
-              <hr className="my-5" />
-              <li>
-                <a
-                  href="https://t.me/educore_admin"
-                  target="_blank"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('https://t.me/educore_admin') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <span>
-                    <PiPhoneOutgoingFill size={20} />
-                  </span>
-                  Contact Us
-                </a>
               </li>
             </ul>
           </div>
