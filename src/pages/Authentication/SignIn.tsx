@@ -73,7 +73,7 @@ const SignIn: React.FC = () => {
         }, 100);
       } else if (decoded['role'] == 'comp_admin') {
         setTimeout(() => {
-          window.location.href = '/dashboard/sodiq-academy';
+          window.location.href = '/dashboard/home/sodiq-academy';
         }, 100);
       }
     } catch (error: any) {

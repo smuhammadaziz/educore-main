@@ -34,7 +34,7 @@ export default function Header() {
       case 'teacher':
         return '/dashboard/teacher';
       case 'comp_admin':
-        return '/dashboard/sodiq-academy';
+        return '/dashboard/home/sodiq-academy';
       default:
         return '/';
     }

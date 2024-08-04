@@ -127,6 +127,8 @@ import AllPartnersLandingPage from './components/LandingPage/Partner/allPartners
 import NotFoundPage from './pages/404page/404page';
 import { Replace } from 'lucide-react';
 import CRMforSodiqAcademyDashboardHome from './pages/Crm/crm';
+import AllTeachersSodiqAcademy from './components/Crm/teacher/teachers';
+import AllStudentsSodiq from './components/Crm/students/students';
 
 interface DecodedToken {
   role: string;
@@ -1161,11 +1163,29 @@ function App() {
         {/* =============================================================== */}
         {/* =============================================================== */}
         <Route
-          path="/dashboard/sodiq-academy"
+          path="/dashboard/home/sodiq-academy"
           element={
             <>
               <PageTitle title="Home | Sodiq Academy" />
               <CRMforSodiqAcademyDashboardHome />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/sodiq-academy/teachers"
+          element={
+            <>
+              <PageTitle title="Teachers | Sodiq Academy" />
+              <AllTeachersSodiqAcademy />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/sodiq-academy/students"
+          element={
+            <>
+              <PageTitle title="Students | Sodiq Academy" />
+              <AllStudentsSodiq />
             </>
           }
         />

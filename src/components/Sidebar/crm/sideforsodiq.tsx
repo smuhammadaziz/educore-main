@@ -146,9 +146,9 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             <ul className="mb-6 flex flex-col gap-1.5">
               <li>
                 <NavLink
-                  to="/dashboard/sodiq-academy"
-                  className={`group relative flex items-center gap-4 rounded-sm py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 ${
-                    pathname.includes('/dashboard/sodiq-academy') &&
+                  to="/dashboard/home/sodiq-academy"
+                  className={`group relative flex items-center gap-4 rounded-sm py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white rounded-xl ${
+                    pathname.includes('/dashboard/home/sodiq-academy') &&
                     'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}
                 >
@@ -203,7 +203,7 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/dashboard/sodiq-academy/groups"
-                  className={`group relative flex items-center gap-4 rounded-xl py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white ${
+                  className={`group  relative flex items-center gap-4 rounded-xl py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white ${
                     pathname.includes('/dashboard/sodiq-academy/groups') &&
                     'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}

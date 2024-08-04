@@ -61,7 +61,7 @@ const HeaderSodiqAcademy = (props: {
         </div>
 
         <div className="hidden sm:block">
-          <h2>Sodiq Academy CRM systems</h2>
+          <h2>Sodiq Academy CRM System</h2>
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">
