@@ -11,10 +11,14 @@ import { MdLibraryBooks } from 'react-icons/md';
 import { RiGroupFill } from 'react-icons/ri';
 import { GiWhiteBook } from 'react-icons/gi';
 import { GiOpenBook } from 'react-icons/gi';
-import { SiAirplayvideo } from 'react-icons/si';
 import { PiPhoneOutgoingFill } from 'react-icons/pi';
 
 import artboard from '../../../images/sodiq/Artboard 14.png';
+
+import { FaUsers } from 'react-icons/fa6';
+import { PiStudentFill } from 'react-icons/pi';
+import { HiOutlineClipboardDocumentList } from 'react-icons/hi2';
+import { HiMiniBellAlert } from 'react-icons/hi2';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -167,7 +171,7 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <span>
-                    <GoHomeFill size={20} />
+                    <FaUsers size={20} />
                   </span>
                   Teachers
                 </NavLink>
@@ -181,7 +185,7 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <span>
-                    <GoHomeFill size={20} />
+                    <PiStudentFill size={20} />
                   </span>
                   Students
                 </NavLink>
@@ -195,7 +199,7 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <span>
-                    <GoHomeFill size={20} />
+                    <HiOutlineClipboardDocumentList size={20} />
                   </span>
                   Courses
                 </NavLink>
@@ -209,9 +213,9 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <span>
-                    <GoHomeFill size={20} />
+                    <HiMiniBellAlert size={20} />
                   </span>
-                  Groups
+                  Notifications
                 </NavLink>
               </li>
             </ul>
