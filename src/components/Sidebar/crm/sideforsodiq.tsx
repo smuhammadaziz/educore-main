@@ -206,10 +206,11 @@ const SidebarSodiqAcademy = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/sodiq-academy/groups"
+                  to="/dashboard/sodiq-academy/notifications"
                   className={`group  relative flex items-center gap-4 rounded-xl py-3 px-4 text-lg font-medium text-black duration-300 ease-in-out hover:bg-indigo-500 hover:text-white ${
-                    pathname.includes('/dashboard/sodiq-academy/groups') &&
-                    'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
+                    pathname.includes(
+                      '/dashboard/sodiq-academy/notifications',
+                    ) && 'bg-indigo-800 text-white rounded-xl dark:bg-meta-4'
                   }`}
                 >
                   <span>
