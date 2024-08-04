@@ -24,7 +24,7 @@ function AllStudentsSodiqAcademy() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         setContact(data.message);
       } catch (error) {
@@ -39,14 +39,14 @@ function AllStudentsSodiqAcademy() {
       <div className="">
         <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
           <h1 className="text-lg sm:text-xl font-bold mb-2 sm:mb-0">
-            Teachers
+            Students
           </h1>
-          <NavLink
+          {/* <NavLink
             to={`/dashboard/sodiq-academy/teacher/add/${company_id}`}
             className="bg-indigo-800 hover:bg-indigo-900 text-white py-2 px-4 rounded"
           >
             + Add Teacher
-          </NavLink>
+          </NavLink> */}
         </div>
         <div className="bg-white shadow-md rounded-lg overflow-x-auto">
           <table className="min-w-full table-auto ">

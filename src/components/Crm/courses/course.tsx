@@ -4,7 +4,7 @@ import DefaultLayoutSodiqAcademy from '../../../layout/crm/DefaultSodiq';
 import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../links';
 
-function AllStudentsSodiq() {
+function AllCoursesSodiq() {
   const [contacts, setContacts] = useState([]);
 
   const token = localStorage.getItem('TOKEN');
@@ -56,10 +56,10 @@ function AllStudentsSodiq() {
           </div>
           <div className="mt-6 flex">
             <NavLink
-              to={`/dashboard/sodiq-academy/students/${contacts.company_id}`}
+              to={`/dashboard/sodiq-academy/courses/${contacts.company_id}`}
               className="px-4 py-2 font-medium bg-blue-500 text-white rounded hover:bg-blue-700"
             >
-              View students list
+              View courses list
             </NavLink>
           </div>
         </div>
@@ -68,4 +68,4 @@ function AllStudentsSodiq() {
   );
 }
 
-export default AllStudentsSodiq;
+export default AllCoursesSodiq;
