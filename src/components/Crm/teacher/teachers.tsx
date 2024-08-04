@@ -1,51 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DefaultLayoutSodiqAcademy from '../../../layout/crm/DefaultSodiq';
+import { useParams } from 'react-router-dom';
+import backurl from '../../../links';
 
 function AllTeachersSodiqAcademy() {
-  const teachers = [
-    {
-      name: 'John Doe',
-      email: 'john@example.com',
-      subject: 'Math',
-      status: 'Active',
-    },
-    {
-      name: 'Jane Smith',
-      email: 'jane@example.com',
-      subject: 'English',
-      status: 'Inactive',
-    },
-    {
-      name: 'Bob Johnson',
-      email: 'bob@example.com',
-      subject: 'Science',
-      status: 'Active',
-    },
-    {
-      name: 'Emily Davis',
-      email: 'emily@example.com',
-      subject: 'History',
-      status: 'Active',
-    },
-    {
-      name: 'Michael Brown',
-      email: 'michael@example.com',
-      subject: 'Geography',
-      status: 'Inactive',
-    },
-    {
-      name: 'Alice Williams',
-      email: 'alice@example.com',
-      subject: 'Art',
-      status: 'Active',
-    },
-    {
-      name: 'David Wilson',
-      email: 'david@example.com',
-      subject: 'Music',
-      status: 'Inactive',
-    },
-  ];
+  const [contact, setContact] = useState([]);
+
+  const token = localStorage.getItem('TOKEN');
+  const { company_id } = useParams();
+
+  useEffect(() => {
+    async function fetchContact() {
+      try {
+        const response = await fetch(
+          `${backurl}api/cadmin/get/teacher/${company_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data);
+
+        setContact(data.message);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchContact();
+  }, [company_id, token]);
 
   return (
     <DefaultLayoutSodiqAcademy>
@@ -62,40 +49,60 @@ function AllTeachersSodiqAcademy() {
           <table className="min-w-full table-auto ">
             <thead className="">
               <tr className="bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                <th className="py-3 px-4">Name</th>
+                <th className="py-3 px-4">No</th>
+                <th className="py-3 px-4">Full Name</th>
                 <th className="py-3 px-4">Email</th>
-                <th className="py-3 px-4">Subject</th>
+                <th className="py-3 px-4">Phone</th>
                 <th className="py-3 px-4">Status</th>
                 <th className="py-3 px-4">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {teachers.map((teacher, index) => (
-                <tr key={index}>
-                  <td className="py-4 px-4">{teacher.name}</td>
-                  <td className="py-4 px-4">{teacher.email}</td>
-                  <td className="py-4 px-4">{teacher.subject}</td>
-                  <td className="py-4 px-4">
-                    <span
-                      className={`inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full ${
-                        teacher.status === 'Active'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-red-100 text-red-800'
-                      }`}
-                    >
-                      {teacher.status}
-                    </span>
-                  </td>
-                  <td className="py-4 px-4 flex flex-col sm:flex-row items-center">
-                    <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 mb-2 sm:mb-0 sm:mr-2 hover:scale-105">
-                      Edit
-                    </button>
-                    <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105">
-                      Delete
-                    </button>
+              {contact.length > 0 ? (
+                contact.map((teacher: any, index) => (
+                  <tr key={teacher.user_id} className="hover:bg-slate-50">
+                    <td className="py-4 px-4">{index + 1}</td>
+                    <td className="py-4 px-4">
+                      {teacher.name} {teacher.l_name}
+                    </td>
+                    <td className="py-4 px-4">{teacher.email}</td>
+                    <td className="py-4 px-4">{teacher.phone}</td>
+                    <td className="py-4 px-4">
+                      {/* <span
+                        className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
+                          teacher.status === 'active'
+                            ? 'bg-green-200 text-black'
+                            : 'bg-red-200 text-black'
+                        }`}
+                      >
+                        {teacher.status}
+                      </span> */}
+                      <span
+                        className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-green-200 text-black`}
+                      >
+                        active
+                      </span>
+                    </td>
+                    <td className="py-4 px-4 flex flex-col sm:flex-row items-center">
+                      <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 mb-2 sm:mb-0 sm:mr-2 hover:scale-105">
+                        Edit
+                      </button>
+                      {/* <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105 sm:mr-2">
+                        Delete
+                      </button> */}
+                      <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105">
+                        More
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={6} className="py-4 px-4 text-center">
+                    Don't have any teachers
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

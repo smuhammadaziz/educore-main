@@ -33,7 +33,7 @@ const CRMforSodiqAcademyDashboardHome = () => {
         label: 'Sales Pipeline',
         data: [65, 100, 80, 20, 56, 40],
         borderColor: '#3730A2',
-        backgroundColor: 'rgba(248, 113, 113, 0.2)',
+        backgroundColor: '#f2f2f2',
         fill: true,
         tension: 0.4,
       },
