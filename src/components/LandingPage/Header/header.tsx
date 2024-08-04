@@ -33,6 +33,8 @@ export default function Header() {
         return '/dashboard/student';
       case 'teacher':
         return '/dashboard/teacher';
+      case 'comp_admin':
+        return '/dashboard/sodiq-academy';
       default:
         return '/';
     }
