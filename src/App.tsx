@@ -129,6 +129,7 @@ import { Replace } from 'lucide-react';
 import CRMforSodiqAcademyDashboardHome from './pages/Crm/crm';
 import AllTeachersSodiqAcademy from './components/Crm/teacher/teachers';
 import AllStudentsSodiq from './components/Crm/students/students';
+import SelectCompanyPageSodiq from './components/Crm/teacher/company';
 
 interface DecodedToken {
   role: string;
@@ -1173,6 +1174,15 @@ function App() {
         />
         <Route
           path="/dashboard/sodiq-academy/teachers"
+          element={
+            <>
+              <PageTitle title="Teachers | Sodiq Academy" />
+              <SelectCompanyPageSodiq />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/sodiq-academy/teachers/:company_id"
           element={
             <>
               <PageTitle title="Teachers | Sodiq Academy" />
