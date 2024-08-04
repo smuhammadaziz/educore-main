@@ -130,6 +130,7 @@ import CRMforSodiqAcademyDashboardHome from './pages/Crm/crm';
 import AllTeachersSodiqAcademy from './components/Crm/teacher/teachers';
 import AllStudentsSodiq from './components/Crm/students/students';
 import SelectCompanyPageSodiq from './components/Crm/teacher/company';
+import AddNewTeacherForSodiq from './components/Crm/teacher/addTeacher';
 
 interface DecodedToken {
   role: string;
@@ -1187,6 +1188,15 @@ function App() {
             <>
               <PageTitle title="Teachers | Sodiq Academy" />
               <AllTeachersSodiqAcademy />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/sodiq-academy/teacher/add/:company_id"
+          element={
+            <>
+              <PageTitle title="Teachers | Sodiq Academy" />
+              <AddNewTeacherForSodiq />
             </>
           }
         />

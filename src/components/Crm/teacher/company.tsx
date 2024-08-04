@@ -42,7 +42,7 @@ function SelectCompanyPageSodiq() {
           <img
             src={`${backurl}upload/${contacts.image}`}
             alt={contacts.title}
-            className="h-50 w-65  object-cover rounded object-center"
+            className="h-60 w-75  object-cover rounded object-center"
           />
         </div>
         <div className="py-4 px-6 ">

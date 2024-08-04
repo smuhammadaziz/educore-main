@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DefaultLayoutSodiqAcademy from '../../../layout/crm/DefaultSodiq';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../links';
 
 function AllTeachersSodiqAcademy() {
@@ -41,9 +41,12 @@ function AllTeachersSodiqAcademy() {
           <h1 className="text-lg sm:text-xl font-bold mb-2 sm:mb-0">
             Teachers
           </h1>
-          <button className="bg-indigo-800 hover:bg-indigo-900 text-white py-2 px-4 rounded">
+          <NavLink
+            to={`/dashboard/sodiq-academy/teacher/add/${company_id}`}
+            className="bg-indigo-800 hover:bg-indigo-900 text-white py-2 px-4 rounded"
+          >
             + Add Teacher
-          </button>
+          </NavLink>
         </div>
         <div className="bg-white shadow-md rounded-lg overflow-x-auto">
           <table className="min-w-full table-auto ">
