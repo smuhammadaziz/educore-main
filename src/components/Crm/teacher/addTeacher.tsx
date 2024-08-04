@@ -203,7 +203,7 @@ function AddNewTeacherForSodiq() {
 
             <div className="flex flex-row justify-end mt-20">
               <a
-                href="/dashboard/teachers"
+                href="/dashboard/sodiq-academy/teachers"
                 className="flex w-25 justify-center rounded bg-red-600 p-3 font-medium text-gray hover:bg-opacity-90"
               >
                 Cancel
