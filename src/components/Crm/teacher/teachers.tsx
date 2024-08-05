@@ -88,7 +88,7 @@ function AllTeachersSodiqAcademy() {
                     </td>
                     <td className="py-4 px-4 flex flex-col sm:flex-row items-center">
                       <NavLink
-                        to={`/dashboard/sodiq-academy/teacher/update/${teacher.user_id}}`}
+                        to={`/dashboard/sodiq-academy/teacher/update/${teacher.user_id}`}
                         className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 mb-2 sm:mb-0 sm:mr-2 hover:scale-105"
                       >
                         Edit
