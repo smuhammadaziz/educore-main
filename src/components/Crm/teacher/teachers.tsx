@@ -3,6 +3,8 @@ import DefaultLayoutSodiqAcademy from '../../../layout/crm/DefaultSodiq';
 import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../links';
 
+import defaultimage from '../../../images/sodiq/demo-user.jpg';
+
 function AllTeachersSodiqAcademy() {
   const [contact, setContact] = useState([]);
 
@@ -25,7 +27,7 @@ function AllTeachersSodiqAcademy() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
 
         setContact(data.message);
       } catch (error) {
@@ -61,13 +63,24 @@ function AllTeachersSodiqAcademy() {
                 <th className="py-3 px-4">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-slate-500">
               {contact.length > 0 ? (
                 contact.map((teacher: any, index) => (
                   <tr key={teacher.user_id} className="hover:bg-slate-50">
-                    <td className="py-4 px-4">{index + 1}</td>
-                    <td className="py-4 px-4">
-                      {teacher.name} {teacher.l_name}
+                    <td className="py-4 px-4 font-bold">{index + 1}</td>
+                    <td className="py-4 px-4 flex flex-row items-center">
+                      <img
+                        src={
+                          teacher.user_image
+                            ? `${backurl}upload/${teacher.user_image}`
+                            : defaultimage
+                        }
+                        alt=""
+                        className="w-11 h-11 object-cover rounded-full"
+                      />
+                      <span className="ms-3">
+                        {teacher.name} {teacher.l_name}
+                      </span>
                     </td>
                     <td className="py-4 px-4">{teacher.email}</td>
                     <td className="py-4 px-4">{teacher.phone}</td>
@@ -97,9 +110,12 @@ function AllTeachersSodiqAcademy() {
                       {/* <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105 sm:mr-2">
                         Delete
                       </button> */}
-                      <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105">
+                      <NavLink
+                        to={`/dashboard/sodiq-academy/teacher/${teacher.user_id}`}
+                        className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105"
+                      >
                         More
-                      </button>
+                      </NavLink>
                     </td>
                   </tr>
                 ))
