@@ -27,7 +27,7 @@ function AllTeachersSodiqAcademy() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
 
         setContact(data.message);
       } catch (error) {
@@ -85,20 +85,18 @@ function AllTeachersSodiqAcademy() {
                     <td className="py-4 px-4">{teacher.email}</td>
                     <td className="py-4 px-4">{teacher.phone}</td>
                     <td className="py-4 px-4">
-                      {/* <span
+                      <span
                         className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
-                          teacher.status === 'active'
+                          teacher.active == true
                             ? 'bg-green-200 text-black'
                             : 'bg-red-200 text-black'
                         }`}
                       >
-                        {teacher.status}
-                      </span> */}
-                      <span
-                        className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-green-200 text-black`}
-                      >
-                        active
+                        {teacher.active ? 'active' : 'inactive'}
                       </span>
+                      {/* <span
+                        className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-green-200 text-black`}
+                      ></span> */}
                     </td>
                     <td className="py-4 px-4 flex flex-row sm:flex-row items-center">
                       <NavLink

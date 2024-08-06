@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import DefaultLayoutSodiqAcademy from '../../../layout/crm/DefaultSodiq';
 import backurl from '../../../links';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Teacher {
   about_me: string;
@@ -42,6 +45,8 @@ function OneTeacherInfoSodiqAcademy() {
   const token = localStorage.getItem('TOKEN');
   const { user_id } = useParams<{ user_id: string }>();
 
+  const [status, setStatus] = useState(true);
+
   useEffect(() => {
     async function fetchContact() {
       try {
@@ -59,7 +64,7 @@ function OneTeacherInfoSodiqAcademy() {
         }
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         setTeacher(data);
       } catch (error) {
@@ -69,8 +74,45 @@ function OneTeacherInfoSodiqAcademy() {
     fetchContact();
   }, [token, user_id]);
 
+  const handleChange = async (e: FormEvent) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('boolean', status == 'active' ? true : false);
+
+    try {
+      const response = await fetch(
+        `${backurl}api/cadmin/status/user/${user_id}`,
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        },
+      );
+
+      const data = await response.json();
+      console.log(data);
+
+      if (response.ok) {
+        toast.success('Status successfully updated', {
+          position: 'top-right',
+        });
+      } else {
+        throw new Error('Failed to update status');
+      }
+    } catch (error: any) {
+      console.error('Error submitting the form', error);
+      toast.warning(error.message, {
+        position: 'top-right',
+      });
+    }
+  };
+
   return (
     <DefaultLayoutSodiqAcademy>
+      <ToastContainer />
       <div className="flex flex-col items-center p-4">
         {teacher && (
           <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-6">
@@ -89,12 +131,30 @@ function OneTeacherInfoSodiqAcademy() {
                   Member since:{' '}
                   {new Date(teacher.created_at).toLocaleDateString()}
                 </p>
-                <NavLink
-                  to={`/dashboard/sodiq-academy/teacher/courses/${teacher.user_id}`}
-                  className="mt-4 px-4 py-2 font-medium bg-blue-500 mt-5 inline-block text-white rounded hover:bg-blue-600"
-                >
-                  View Courses
-                </NavLink>
+                <div>
+                  <NavLink
+                    to={`/dashboard/sodiq-academy/teacher/courses/${teacher.user_id}`}
+                    className="mt-4 px-4 py-2 font-medium bg-blue-500 mt-5 inline-block text-white rounded hover:bg-blue-600"
+                  >
+                    View Courses
+                  </NavLink>
+                  <form onSubmit={handleChange} className="inline-block ms-3">
+                    <select
+                      value={status}
+                      onChange={(e) => setStatus(e.target.value)}
+                      className="mt-4 px-4 py-2 font-medium bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                      <option value="active">active</option>
+                      <option value="inactive">inactive</option>
+                    </select>
+                    <button
+                      type="submit"
+                      className="ml-3 mt-4 px-4 py-2 font-medium bg-green-500 text-white rounded hover:bg-green-600"
+                    >
+                      Update Status
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 mt-10 text-black font-medium text-md">
