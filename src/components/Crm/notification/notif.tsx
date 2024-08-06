@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import DefaultLayoutSodiqAcademy from '../../../layout/crm/DefaultSodiq';
 import { NavLink, useParams } from 'react-router-dom';
 import backurl from '../../../links';
+import moment from 'moment';
 
 function AllNotificationsSodiq() {
   const [contact, setContact] = useState([]);
@@ -33,47 +34,70 @@ function AllNotificationsSodiq() {
   }, [company_id, token]);
   return (
     <DefaultLayoutSodiqAcademy>
-      <div
-        // ref={coursesSectionRef}
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 mt-10 mx-auto"
-      >
-        {contact && contact.length > 0
-          ? contact.map((course: any) => (
+      <div className="p-4">
+        <h2 className="text-2xl font-bold mb-4 text-center">Inbox</h2>
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+          {contact.length > 0 ? (
+            contact.map((message: any) => (
               <div
-                // to={`/all/courses/${course.course_id}`}
-                key={course.course_id}
-                className="group bg-white px-4 py-5 rounded-lg transition-transform ease-in-out duration-300"
+                key={message.notef_id}
+                className={`group bg-white p-5 dark:bg-slate-700 dark:text-white shadow-xl rounded-lg hover:shadow-2xl`}
               >
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                  <img
-                    src={`${backurl}upload/${course.course_image}`}
-                    alt="course"
-                    className="w-full h-48 sm:h-64 object-cover"
-                  />
+                {/* <div className="mb-5">
+                  {message.free_trial ? (
+                    <SlFire size={25} />
+                  ) : (
+                    <PiContactlessPaymentBold size={25} />
+                  )}
+                </div> */}
+                <div className="flex justify-between">
+                  <h3 className="text-lg font-bold text-gray-700 dark:text-white">
+                    {message.name} {message.l_name}
+                  </h3>
+                  <span className="text-sm text-gray-500">
+                    {moment(message.created_at).fromNow()}
+                  </span>
                 </div>
-                <h3 className="mt-5 text-sm sm:text-lg font-bold text-gray-700">
-                  {course.course_title}
-                </h3>
-                <h3 className="text-sm sm:text-lg font-bold text-black uppercase">
-                  {course.name} {course.l_name}
-                </h3>
-                <p className="mt-2 text-lg sm:text-2xl text-black font-bold">
-                  {course.price.toLocaleString('en-US').replace(/,/g, ' ')} UZS
+                <div className="flex flex-row items-center mt-2">
+                  <p
+                    className={`mt-1 text-sm font-bold uppercase text-gray-500 inline-block text-white p-1 px-2 rounded my-2 ${
+                      message.status === 'checked'
+                        ? 'bg-green-500'
+                        : 'bg-red-500'
+                    }`}
+                  >
+                    {message.status}
+                  </p>
+                  <p
+                    className={`ms-3 mt-1 font-bold uppercase text-sm text-gray-500 inline-block text-white p-1 rounded my-2 ${
+                      message.free_trial ? 'bg-blue-500' : 'bg-blue-500'
+                    }`}
+                  >
+                    {message.free_trial ? 'free trial' : 'paid'}
+                  </p>
+                </div>
+                <p className="mt-2 text-sm text-gray-500">
+                  {moment(message.created_at).format('LT')},{' '}
+                  {moment(message.created_at).format('l')}
                 </p>
-                <div className="mt-5">
-                  <button className="border-2 text-lg border-slate-300 font-medium text-black py-1 rounded-lg px-4 mb-2 sm:mb-0 sm:mr-2 hover:scale-105">
-                    Edit
-                  </button>
-                  {/* <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105 sm:mr-2">
-                        Delete
-                      </button> */}
-                  <button className="border-2 text-lg  border-slate-300 font-medium text-black py-1 rounded-lg px-4 hover:scale-105">
-                    More
-                  </button>
-                </div>
+                <NavLink
+                  to={`/dashboard/sodiq-academy/notifications/${message.notef_id}`}
+                  className="text-center items-center block w-full text-white mt-5 inline-block bg-blue-600 hover:bg-blue-800 py-2 px-5 rounded-full"
+                >
+                  View
+                </NavLink>
               </div>
             ))
-          : 'No notification available'}
+          ) : (
+            <div className="flex justify-center items-center w-full col-span-full">
+              <div className="bg-white p-6 rounded-lg shadow-md w-full text-center">
+                <p className="text-xl font-medium text-gray-700 dark:text-white">
+                  You don't have any new notifications yet.
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </DefaultLayoutSodiqAcademy>
   );
