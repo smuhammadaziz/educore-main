@@ -15,6 +15,7 @@ function AllTeachersSodiqAcademy() {
         const response = await fetch(
           `${backurl}api/cadmin/get/teacher/${company_id}`,
           {
+            method: 'GET',
             headers: {
               Authorization: `Bearer ${token}`,
             },
