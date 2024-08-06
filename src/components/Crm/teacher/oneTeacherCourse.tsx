@@ -64,15 +64,18 @@ function OneTeachersCourseInfoSodiqAcademy() {
                   {course.price.toLocaleString('en-US').replace(/,/g, ' ')} UZS
                 </p>
                 <div className="mt-5">
-                  <button className="border-2 text-lg border-slate-300 font-medium text-black py-1 rounded-lg px-4 mb-2 sm:mb-0 sm:mr-2 hover:scale-105">
+                  {/* <button className="border-2 text-lg border-slate-300 font-medium text-black py-1 rounded-lg px-4 mb-2 sm:mb-0 sm:mr-2 hover:scale-105">
                     Edit
-                  </button>
+                  </button> */}
                   {/* <button className="border-2 border-slate-300 font-medium text-black py-1 rounded-lg px-3 hover:scale-105 sm:mr-2">
                         Delete
                       </button> */}
-                  <button className="border-2 text-lg  border-slate-300 font-medium text-black py-1 rounded-lg px-4 hover:scale-105">
+                  <NavLink
+                    to={`/dashboard/sodiq-academy/course/get/${course.course_id}`}
+                    className="border-2 text-lg  border-slate-300 font-medium hover:bg-slate-100 inline-block text-black py-1 rounded-lg px-4 hover:scale-105"
+                  >
                     More
-                  </button>
+                  </NavLink>
                 </div>
               </div>
             ))
