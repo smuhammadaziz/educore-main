@@ -73,7 +73,7 @@ function AllCoursesSodiqAcademy() {
                       </button> */}
                   <NavLink
                     to={`/dashboard/sodiq-academy/course/get/${course.course_id}`}
-                    className="border-2 text-lg  border-slate-300 font-medium text-black py-1 rounded-lg px-4 hover:scale-105"
+                    className="border-2 text-lg  border-slate-300 hover:bg-slate-100 inline-block font-medium text-black py-1 rounded-lg px-4 hover:scale-105"
                   >
                     More
                   </NavLink>

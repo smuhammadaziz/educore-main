@@ -139,6 +139,7 @@ import UpdateTeacherSodiq from './components/Crm/teacher/updateTeacher';
 import GetOneNOtificationsSodiq from './components/Crm/notification/oneNotif';
 import OneTeacherInfoSodiqAcademy from './components/Crm/teacher/oneTeacher';
 import OneTeachersCourseInfoSodiqAcademy from './components/Crm/teacher/oneTeacherCourse';
+import OneCourseInfoPageSodiqAcademy from './components/Crm/courses/oneCourse';
 
 interface DecodedToken {
   role: string;
@@ -1268,6 +1269,15 @@ function App() {
             <>
               <PageTitle title="Courses | Sodiq Academy" />
               <AllCoursesSodiqAcademy />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/sodiq-academy/course/get/:course_id"
+          element={
+            <>
+              <PageTitle title="Courses | Sodiq Academy" />
+              <OneCourseInfoPageSodiqAcademy />
             </>
           }
         />
