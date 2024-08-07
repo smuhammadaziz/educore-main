@@ -1187,11 +1187,11 @@ function App() {
           element={
             <>
               <PageTitle title="Teachers | Sodiq Academy" />
-              <SelectCompanyPageSodiq />
+              <AllTeachersSodiqAcademy />
             </>
           }
         />
-        <Route
+        {/* <Route
           path="/dashboard/sodiq-academy/teachers/:company_id"
           element={
             <>
@@ -1199,7 +1199,7 @@ function App() {
               <AllTeachersSodiqAcademy />
             </>
           }
-        />
+        /> */}
         <Route
           path="/dashboard/sodiq-academy/teacher/add/:company_id"
           element={
