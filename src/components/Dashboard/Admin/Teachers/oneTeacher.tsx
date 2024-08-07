@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import DefaultLayoutAdmin from '../../../../layout/DefaultAdmin';
 import backurl from '../../../../links';
 import { useParams } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import moment from 'moment';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function OneTeacherGetAdmin() {
   const [teacher, setTeacher] = useState({});
   const [company, setCompany] = useState({});
+  const [status, setStatus] = useState(true);
 
   const { user_id } = useParams();
 
@@ -70,8 +74,55 @@ function OneTeacherGetAdmin() {
       : 'https://via.placeholder.com/200';
   };
 
+  const handleChange = async (e: FormEvent) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('boolean', status ? 'true' : 'false');
+
+    try {
+      const response = await fetch(
+        `${backurl}api/cadmin/update/status/user/${user_id}`,
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        },
+      );
+
+      const contentType = response.headers.get('Content-Type');
+
+      if (response.ok) {
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          // console.log(data);
+        } else {
+          const text = await response.text();
+          // console.log(text);
+        }
+        toast.success('Status successfully updated', {
+          position: 'top-right',
+        });
+      } else {
+        const errorData =
+          contentType && contentType.includes('application/json')
+            ? await response.json()
+            : await response.text();
+        throw new Error(errorData);
+      }
+    } catch (error: any) {
+      console.error('Error submitting the form', error);
+      toast.warning(error.message, {
+        position: 'top-right',
+      });
+    }
+  };
+
   return (
     <DefaultLayoutAdmin>
+      <ToastContainer></ToastContainer>
       <div className="mb-5 text-center mx-auto text-3xl font-semibold">
         <span className="underline">Teacher Info</span>
       </div>
@@ -95,6 +146,7 @@ function OneTeacherGetAdmin() {
               {teacher.name} {teacher.l_name}
             </p>
           </div>
+
           <div>
             <h2 className="text-xl font-bold">About Teacher:</h2>
             <p>{teacher.about_me || 'No data'}</p>
@@ -160,6 +212,30 @@ function OneTeacherGetAdmin() {
             <p>{teacher.username_tg || 'No data'}</p>
           </div>
         </div>
+        <div>
+          <h2 className="text-xl font-bold">Active:</h2>
+          <p>
+            {teacher.active
+              ? 'this teacher is active'
+              : 'this teacher is not active'}
+          </p>
+        </div>
+        <form onSubmit={handleChange} className="inline-block ms-3">
+          <select
+            value={status ? 'active' : 'inactive'}
+            onChange={(e) => setStatus(e.target.value === 'active')}
+            className="mt-4 px-4 py-2 font-medium bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            <option value="active">active</option>
+            <option value="inactive">inactive</option>
+          </select>
+          <button
+            type="submit"
+            className="ml-3 mt-4 px-4 py-2 font-medium bg-green-500 text-white rounded hover:bg-green-600"
+          >
+            Update Status
+          </button>
+        </form>
       </div>
     </DefaultLayoutAdmin>
   );

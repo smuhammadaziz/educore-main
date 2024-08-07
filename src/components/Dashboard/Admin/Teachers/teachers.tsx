@@ -20,6 +20,9 @@ const AddTeachersList = () => {
         }
         const data = await response.json();
         const reversedData = data.message;
+
+        console.log(reversedData);
+
         setTeachers(reversedData.reverse());
       } catch (error) {
         console.log(error);
@@ -66,12 +69,15 @@ const AddTeachersList = () => {
                 Phone Number
               </th>
               <th scope="col" className="px-6 py-3">
+                Status
+              </th>
+              <th scope="col" className="px-6 py-3">
                 <span className="sr-only">Edit</span>
               </th>
             </tr>
           </thead>
           <tbody>
-            {teachers.map((item, index) => (
+            {teachers.map((item: any, index) => (
               <tr
                 key={item.user_id}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
@@ -88,6 +94,17 @@ const AddTeachersList = () => {
                 <td className="px-6 py-4 text-black">{item.main_subject}</td>
                 <td className="px-6 py-4 text-black">{item.email}</td>
                 <td className="px-6 py-4 text-black">{item.phone}</td>
+                <td className="px-6 py-4 text-black">
+                  <span
+                    className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
+                      item.active == true
+                        ? 'bg-green-200 text-black'
+                        : 'bg-red-200 text-black'
+                    }`}
+                  >
+                    {item.active ? 'active' : 'inactive'}
+                  </span>
+                </td>
                 <td className="px-6 py-4 text-right">
                   <NavLink
                     to={`/dashboard/admin/teacher/${item.user_id}`}
