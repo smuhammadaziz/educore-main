@@ -145,7 +145,7 @@ const DropdownCRMSodiqAcademy = () => {
           dropdownOpen === true ? 'block' : 'hidden'
         }`}
       >
-        <NavLink
+        {/* <NavLink
           to={`/dashboard/sodiq-academy/profile/${
             datas ? datas?.Profil.user_id : 'admin'
           }`}
@@ -155,7 +155,7 @@ const DropdownCRMSodiqAcademy = () => {
             <CgProfile size={25} />
           </span>
           Profile
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to={`/dashboard/sodiq-academy/settings/${
             datas ? datas?.Profil.user_id : 'admin'
