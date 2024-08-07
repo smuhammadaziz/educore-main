@@ -7,7 +7,7 @@ function AllStudentsSodiqAcademy() {
   const [contact, setContact] = useState([]);
 
   const token = localStorage.getItem('TOKEN');
-  const { company_id } = useParams();
+  const company_id = 'a6f71af1-bb8-353-e0e-a008547a39d';
 
   useEffect(() => {
     async function fetchContact() {

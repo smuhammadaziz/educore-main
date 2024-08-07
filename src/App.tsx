@@ -1241,11 +1241,11 @@ function App() {
           element={
             <>
               <PageTitle title="Students | Sodiq Academy" />
-              <AllStudentsSodiq />
+              <AllStudentsSodiqAcademy />
             </>
           }
         />
-        <Route
+        {/* <Route
           path="/dashboard/sodiq-academy/students/:company_id"
           element={
             <>
@@ -1253,18 +1253,9 @@ function App() {
               <AllStudentsSodiqAcademy />
             </>
           }
-        />
+        /> */}
         <Route
           path="/dashboard/sodiq-academy/courses"
-          element={
-            <>
-              <PageTitle title="Courses | Sodiq Academy" />
-              <AllCoursesSodiq />
-            </>
-          }
-        />
-        <Route
-          path="/dashboard/sodiq-academy/courses/:company_id"
           element={
             <>
               <PageTitle title="Courses | Sodiq Academy" />
@@ -1272,6 +1263,15 @@ function App() {
             </>
           }
         />
+        {/* <Route
+          path="/dashboard/sodiq-academy/courses/:company_id"
+          element={
+            <>
+              <PageTitle title="Courses | Sodiq Academy" />
+              <AllCoursesSodiqAcademy />
+            </>
+          }
+        /> */}
         <Route
           path="/dashboard/sodiq-academy/course/get/:course_id"
           element={
