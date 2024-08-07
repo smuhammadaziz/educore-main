@@ -64,8 +64,6 @@ function OneTeacherInfoSodiqAcademy() {
         }
         const data = await response.json();
 
-        // console.log(data);
-
         setTeacher(data);
       } catch (error) {
         console.log(error);
@@ -78,11 +76,11 @@ function OneTeacherInfoSodiqAcademy() {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('boolean', status == 'active' ? true : false);
+    formData.append('boolean', status ? 'true' : 'false');
 
     try {
       const response = await fetch(
-        `${backurl}api/cadmin/status/user/${user_id}`,
+        `${backurl}api/cadmin/update/status/user/${user_id}`,
         {
           method: 'PUT',
           headers: {
@@ -92,15 +90,25 @@ function OneTeacherInfoSodiqAcademy() {
         },
       );
 
-      const data = await response.json();
-      console.log(data);
+      const contentType = response.headers.get('Content-Type');
 
       if (response.ok) {
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          console.log(data);
+        } else {
+          const text = await response.text();
+          console.log(text);
+        }
         toast.success('Status successfully updated', {
           position: 'top-right',
         });
       } else {
-        throw new Error('Failed to update status');
+        const errorData =
+          contentType && contentType.includes('application/json')
+            ? await response.json()
+            : await response.text();
+        throw new Error(errorData);
       }
     } catch (error: any) {
       console.error('Error submitting the form', error);
@@ -140,8 +148,8 @@ function OneTeacherInfoSodiqAcademy() {
                   </NavLink>
                   <form onSubmit={handleChange} className="inline-block ms-3">
                     <select
-                      value={status}
-                      onChange={(e) => setStatus(e.target.value)}
+                      value={status ? 'active' : 'inactive'}
+                      onChange={(e) => setStatus(e.target.value === 'active')}
                       className="mt-4 px-4 py-2 font-medium bg-blue-500 text-white rounded hover:bg-blue-600"
                     >
                       <option value="active">active</option>
