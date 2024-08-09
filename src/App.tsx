@@ -142,6 +142,7 @@ import OneTeachersCourseInfoSodiqAcademy from './components/Crm/teacher/oneTeach
 import OneCourseInfoPageSodiqAcademy from './components/Crm/courses/oneCourse';
 import SodiqAcademySettings from './pages/Crm/settings';
 import SodiqAcademyPasswordChange from './pages/Crm/password';
+import ComeBackSoonPage from './pages/Soon/soon';
 
 interface DecodedToken {
   role: string;
@@ -195,7 +196,7 @@ function App() {
           element={
             <>
               <PageTitle title="Educore Online Learning Platform" />
-              <Home />
+              <ComeBackSoonPage />
             </>
           }
         />
@@ -217,7 +218,7 @@ function App() {
             </>
           }
         />
-        <Route
+        {/* <Route
           path="/about/us"
           element={
             <>
@@ -288,10 +289,10 @@ function App() {
               <AllPartnersLandingPage />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/admin"
           element={
             <>
@@ -317,11 +318,11 @@ function App() {
               <Student />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
         {/* ===================ADMIN============================= */}
-        <Route
+        {/* <Route
           path="/dashboard/teachers"
           element={
             <>
@@ -464,11 +465,11 @@ function App() {
               <AllQuizAdmin />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
 
-        <Route
+        {/* <Route
           path="/dashboard/admin/add/new/user"
           element={
             <>
@@ -557,11 +558,11 @@ function App() {
               <OneBlogGetAdmin />
             </>
           }
-        />
+        /> */}
 
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/teacher/my/courses"
           element={
             <>
@@ -749,10 +750,10 @@ function App() {
               <OneInboxForTeacher />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/teacher/add/new/course"
           element={
             <>
@@ -832,10 +833,10 @@ function App() {
               <EditCourseTeacher />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/student/courses"
           element={
             <>
@@ -987,10 +988,10 @@ function App() {
               <OneMarathonLessonStudent />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/student/quiz"
           element={
             <>
@@ -1052,10 +1053,10 @@ function App() {
               <QuizForMathStudent />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/student/add/new/payment"
           element={
             <>
@@ -1063,11 +1064,11 @@ function App() {
               <AddnewpaymentStudent />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
 
-        <Route
+        {/* <Route
           path="/auth/signin"
           element={
             <>
@@ -1093,10 +1094,10 @@ function App() {
               <CodeEntry />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/admin/settings/:profile_id"
           element={
             <>
@@ -1122,10 +1123,10 @@ function App() {
               <TeacherSettings />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/teacher/profile/:profile_id"
           element={
             <>
@@ -1151,10 +1152,10 @@ function App() {
               <ProfileStudent />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/teacher/change/password/:profile_id"
           element={
             <>
@@ -1171,11 +1172,11 @@ function App() {
               <StudentPasswordChange />
             </>
           }
-        />
+        /> */}
         {/* =============================================================== */}
         {/* =============================================================== */}
         {/* =============================================================== */}
-        <Route
+        {/* <Route
           path="/dashboard/home/sodiq-academy"
           element={
             <>
@@ -1193,15 +1194,6 @@ function App() {
             </>
           }
         />
-        {/* <Route
-          path="/dashboard/sodiq-academy/teachers/:company_id"
-          element={
-            <>
-              <PageTitle title="Teachers | Sodiq Academy" />
-              <AllTeachersSodiqAcademy />
-            </>
-          }
-        /> */}
         <Route
           path="/dashboard/sodiq-academy/teacher/add/:company_id"
           element={
@@ -1247,15 +1239,6 @@ function App() {
             </>
           }
         />
-        {/* <Route
-          path="/dashboard/sodiq-academy/students/:company_id"
-          element={
-            <>
-              <PageTitle title="Students | Sodiq Academy" />
-              <AllStudentsSodiqAcademy />
-            </>
-          }
-        /> */}
         <Route
           path="/dashboard/sodiq-academy/courses"
           element={
@@ -1265,15 +1248,6 @@ function App() {
             </>
           }
         />
-        {/* <Route
-          path="/dashboard/sodiq-academy/courses/:company_id"
-          element={
-            <>
-              <PageTitle title="Courses | Sodiq Academy" />
-              <AllCoursesSodiqAcademy />
-            </>
-          }
-        /> */}
         <Route
           path="/dashboard/sodiq-academy/course/get/:course_id"
           element={
@@ -1318,7 +1292,7 @@ function App() {
               <SodiqAcademyPasswordChange />
             </>
           }
-        />
+        /> */}
       </Routes>
     </>
   );
