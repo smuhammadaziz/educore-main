@@ -1,8 +1,10 @@
 import React from 'react';
+import logo from '../../images/logo/logo-light-1.svg';
 
 const ComeBackSoonPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white text-center p-4 sm:p-6 md:p-8">
+      <img src={logo} alt="" className="mb-10 w-100" />
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">
         We will come back <span className="text-fuchsia-500">soon ...</span>{' '}
       </h1>
