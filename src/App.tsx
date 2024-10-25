@@ -141,7 +141,7 @@ import OneTeacherInfoSodiqAcademy from './components/Crm/teacher/oneTeacher';
 import OneTeachersCourseInfoSodiqAcademy from './components/Crm/teacher/oneTeacherCourse';
 import OneCourseInfoPageSodiqAcademy from './components/Crm/courses/oneCourse';
 import SodiqAcademySettings from './pages/Crm/settings';
-import SodiqAcademyPasswordChange from './pages/Crm/password';
+// import SodiqAcademyPasswordChange from './pages/Crm/password';
 import ComeBackSoonPage from './pages/Soon/soon';
 
 interface DecodedToken {
